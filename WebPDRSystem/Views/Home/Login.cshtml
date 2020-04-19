@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+    <div class="login-page" style="background-color:#F8F9FA;padding:20px">
+        <div class="login-box col-md-12"  style="padding:20px">
+            <div class="login-logo">
+                <div class="center">
+                    <h1>
+                        <img src="~/img/dohlogo.png" style="width:30%;" alt="DOH-Logo" />
+                    </h1>
+                    <h6 class="blue" id="id-company-text"> DEPARTMENT OF HEALTH CENTER FOR HEALTH DEVELOPMENT</h6>
+                    <h4>
+                        <span class="red">Patient Data Record - Covid19 </span>
+                    </h4>
+                </div>
+                <div class="space-6"></div>
+            </div><!-- /.login-logo -->
+            <div class="login-box-body" style="background-color:aliceblue;padding:20px">
+               
+                <p class="login-box-msg">  <i class="fa fa-user"></i> &nbsp; Please Enter Your Information</p>
+                <form>
+                    <!--Username-->
+                    <div class="form-group has-feedback">
+                        <input type="email" class="form-control" placeholder="Username">
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <!--Password-->
+                    <div class="form-group has-feedback">
+                        <input type="password" class="form-control" placeholder="Password">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <!--Remember/Login btn-->
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <input type="checkbox" autofocus id="rememberMe" />
+                                <span>&nbsp; Remember Me</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="align-content:end">
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                <i class="fa fa-key"></i>
+                                <span>Login</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>

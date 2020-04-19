@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebPDRSystem.Models.Pdrusers>
+
+@{
+    var hewi = "60px";
+
+    string BgColor(string role)
+    {
+        string color = "";
+
+        switch (role)
+        {
+            case "Doctor":
+                {
+                    color = "#56d887";
+                    break;
+                }
+            case "Nurse":
+                {
+                    color = "#e564c0";
+                    break;
+                }
+            case "Healhcare Buddy":
+                {
+                    color = "#74e15f";
+                    break;
+                }
+        }
+
+        return color;
+    }
+}
+
+
+<div class="row">
+
+    @foreach (var item in Model.Where(x => x.Team == 1))
+    {
+        var name = item.Firstname + " " + item.Middlename + " " + item.Lastname;
+
+        <div class="col-md-3">
+            <!-- Widget: user widget style 2 -->
+            <div class="card card-widget widget-user-2" style="cursor: pointer; background-color: @BgColor(item.Role);">
+                <!-- Add the bg color to the header using any of the bg-* classes -->
+                <div class="widget-user-header" style="height:100px;" >
+                    <button type="button" class="close" onclick="RemoveToTeam('@item.Id');">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div onclick="ViewUser('@item.Id');">
+                        <div class="widget-user-image">
+                            <img class="img-circle elevation-2" src="~/img/@item.Picture" style="height: @hewi; width:@hewi;" alt="User picture" onerror="this.src='/img/MDMale.jpg'">
+                        </div>
+                        <!-- /.widget-user-image -->
+                        <h3 class="widget-user-username" style="font-size: 18px;">@name</h3>
+                        <h4 class="widget-user-desc" style="font-size: 15px;">@item.Role</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- /.widget-user -->
+        </div>
+
+    }
+</div>
+
+<script>
+    $('.row').fadeIn();
+</script>

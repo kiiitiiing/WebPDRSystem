@@ -1,0 +1,98 @@
+﻿<div class="modal" id="QDFormModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>
+                    <i class="fa fa-user-md"></i>
+                    &nbsp;Quality Monitoring Form - Quarantine Doctor
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--Patient Name-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Patient</strong></div>
+                <div class="panel-heading"><strong style="color: crimson;font-size:large;padding:20px">First M. Last Name </strong></div>
+                <!--Health care buddy & Checkup Date-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Health Care Buddy</strong></div>
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-8">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Health Care Buddy (First,middle,Last)" />
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <label class="col-sm-5" style="font-size:medium;font-weight:100;padding:10px">Check-up : </label>
+                            <input class="form-control form-control-sm col-sm-7" style="font-size:medium;padding:18px" type="text" id="checkupDate" value="DD/MM/YYYY" name="admissionDate" />
+                        </div>
+                    </div>
+                </div>
+                <!--SYMPTOMS-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Symptoms</strong></div>
+                <div class="row" style="padding:5px">
+                    <fieldset align="center" style="border-color:black; border:double; padding:10px" class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="symptoms" value="cough">&nbsp;Cough<br>
+                                <input type="checkbox" name="symptoms" value="colds">&nbsp;Colds<br>
+                                <input type="checkbox" name="symptoms" value="difficultBreath">&nbsp;Difficulty in Breathing<br>
+                                <input type="checkbox" name="symptoms" value="bodyPain">&nbsp;Body/Muscle/Joint Pain<br>
+                                <input type="checkbox" name="symptoms" value="headache">&nbsp;Headache<br>
+                                <input type="checkbox" name="symptoms" value="chestPain">&nbsp;Chest Pain<br>
+                                <div class="row" style="padding:10px">
+                                    <input type="checkbox" name="symptoms" value="fever"> &nbsp; fever &nbsp;&nbsp;
+                                    <input type="text" autofocus id="temp" placeholder="temperature">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="symptoms" value="Confusion">&nbsp;Confusion<br>
+                                <input type="checkbox" name="symptoms" value="bluishLips">&nbsp;Bluish Lips<br>
+                                <input type="checkbox" name="symptoms" value="bluishFingers">&nbsp;Bluish fingers<br>
+                                <input type="checkbox" name="symptoms" value="mentalDistress">&nbsp;Signs of Mental Distress<br>
+                                <input type="checkbox" name="symptoms" value="soreThroat">&nbsp;Sore Throat<br>
+                                <input type="checkbox" name="symptoms" value="diarrhea">&nbsp;Diarrhea<br>
+                                <div class="row" style="padding:10px">
+                                    <input type="checkbox" name="symptoms" value="others"> &nbsp; Others &nbsp;&nbsp;
+                                    <input type="text" autofocus id="others" placeholder="Please specify">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <!--MAINTENANCE MEDICATION TAKEN-->
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <label class="col-sm-6" style="font-size:medium;font-weight:500;padding:10px">Does Maintenance Medication Taken?</label>
+                            <div class="row" style="padding:10px">
+                                <input type="radio" id="yes" name="medTaken" value="yes">&nbsp;Yes&nbsp;&nbsp;
+                                <input type="radio" id="no" name="medTaken" value="No">&nbsp;No
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--QUARANTINE DOCTOR-->
+                <div class="row" style="padding:10px">
+                    <label class="col-sm-4" style="font-size:medium;font-weight:500;padding:10px">Signature of Quarantine Doctor</label>
+                    <div class="col-sm-8">
+                        <input type="text" autofocus class="form-control" id="QDoctor" placeholder="Signature of Quarantine Doctor" />
+                    </div>
+                </div>
+                <!--SUBMIT BUTTON-->
+                <div class="col-sm-12" align="center" style="padding:10px">
+                    <div class="col-sm-4" align="right">
+                        <button class="btn btn-block btn-primary btn-lg" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#checkupDate').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            forceParse: true
+        });
+    })
+</script>

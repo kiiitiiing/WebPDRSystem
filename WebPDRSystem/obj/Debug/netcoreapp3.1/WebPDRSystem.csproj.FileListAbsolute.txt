@@ -1,0 +1,881 @@
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.exe
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csprojAssemblyReference.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\staticwebassets\WebPDRSystem.StaticWebAssets.Manifest.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\staticwebassets\WebPDRSystem.StaticWebAssets.xml
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorAssemblyInfo.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorAssemblyInfo.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.AssemblyInfoInputs.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.AssemblyInfo.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.TagHelpers.input.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.TagHelpers.output.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorCoreGenerate.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorTargetAssemblyInfo.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorTargetAssemblyInfo.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.deps.json
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.runtimeconfig.json
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.runtimeconfig.dev.json
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.pdb
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.Views.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.Views.pdb
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.Views.pdb
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csproj.CopyComplete
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.pdb
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.nativelibrary.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-armel\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite3.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Pdrusers\Create.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Pdrusers\Delete.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Pdrusers\Details.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Pdrusers\Index.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.exe
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.deps.json
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.runtimeconfig.json
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.runtimeconfig.dev.json
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.pdb
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.Views.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.Views.pdb
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.nativelibrary.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-armel\native\libe_sqlite3.so
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\libe_sqlite3.so
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libe_sqlite3.so
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libe_sqlite3.so
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite3.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csprojAssemblyReference.cache
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csproj.CoreCompileInputs.cache
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorAssemblyInfo.cache
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorAssemblyInfo.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.AssemblyInfoInputs.cache
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.AssemblyInfo.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.TagHelpers.input.cache
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.TagHelpers.output.cache
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorCoreGenerate.cache
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Dashboard.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Create.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Delete.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Details.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Edit.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Index.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\navbar\_navbarPartialView.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorTargetAssemblyInfo.cache
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorTargetAssemblyInfo.cs
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.Views.pdb
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csproj.CopyComplete
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\staticwebassets\WebPDRSystem.StaticWebAssets.Manifest.cache
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\staticwebassets\WebPDRSystem.StaticWebAssets.xml
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.dll
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.pdb
+C:\Users\Engr. Tipactipac CD\source\repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.genruntimeconfig.cache
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.exe
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.deps.json
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.runtimeconfig.json
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.runtimeconfig.dev.json
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.pdb
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.Views.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.Views.pdb
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.batteries_v2.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.nativelibrary.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-armel\native\libe_sqlite3.so
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\libe_sqlite3.so
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libe_sqlite3.so
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libe_sqlite3.so
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite3.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csprojAssemblyReference.cache
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\staticwebassets\WebPDRSystem.StaticWebAssets.Manifest.cache
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\staticwebassets\WebPDRSystem.StaticWebAssets.xml
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.MvcApplicationPartsAssemblyInfo.cache
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorAssemblyInfo.cache
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorAssemblyInfo.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.AssemblyInfoInputs.cache
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.AssemblyInfo.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.TagHelpers.input.cache
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.TagHelpers.output.cache
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorCoreGenerate.cache
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Dashboard.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Create.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Delete.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Details.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Edit.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Index.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\navbar\_navbarPartialView.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorTargetAssemblyInfo.cache
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorTargetAssemblyInfo.cs
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.Views.pdb
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csproj.CopyComplete
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.dll
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.pdb
+C:\Keith\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\AddUsers.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.exe
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.deps.json
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.runtimeconfig.json
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.runtimeconfig.dev.json
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.pdb
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.Views.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.Views.pdb
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.nativelibrary.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-armel\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libe_sqlite3.so
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite3.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csprojAssemblyReference.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\staticwebassets\WebPDRSystem.StaticWebAssets.Manifest.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\staticwebassets\WebPDRSystem.StaticWebAssets.xml
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorAssemblyInfo.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorAssemblyInfo.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.AssemblyInfoInputs.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.AssemblyInfo.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.TagHelpers.input.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.TagHelpers.output.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorCoreGenerate.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Dashboard.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\AddUsers.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Create.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Delete.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Details.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Edit.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Index.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\navbar\_navbarPartialView.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorTargetAssemblyInfo.cache
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorTargetAssemblyInfo.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.Views.pdb
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csproj.CopyComplete
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.dll
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.pdb
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Dashboard.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\AddUsers.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\navbar\_navbarPartialView.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\NewUser.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\PartialIndex.cshtml.g.cs
+C:\Users\Keith\Source\Repos\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\ViewUser.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.exe
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.deps.json
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.runtimeconfig.json
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.runtimeconfig.dev.json
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.pdb
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.Views.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\WebPDRSystem.Views.pdb
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.nativelibrary.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-armel\native\libe_sqlite3.so
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\libe_sqlite3.so
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libe_sqlite3.so
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libe_sqlite3.so
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite3.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csprojAssemblyReference.cache
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\staticwebassets\WebPDRSystem.StaticWebAssets.Manifest.cache
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\staticwebassets\WebPDRSystem.StaticWebAssets.xml
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorAssemblyInfo.cache
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorAssemblyInfo.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.AssemblyInfoInputs.cache
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.AssemblyInfo.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.TagHelpers.input.cache
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.TagHelpers.output.cache
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorCoreGenerate.cache
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Dashboard.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\AddUsers.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Create.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Delete.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Details.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\Index.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\NewUser.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\PartialIndex.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\ViewUser.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\navbar\_navbarPartialView.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorTargetAssemblyInfo.cache
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorTargetAssemblyInfo.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.Views.pdb
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csproj.CopyComplete
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.pdb
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\AddPatient.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\_QDForm.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\_QNForm.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\PDRModal.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\DashboardPartial.cshtml.g.cs

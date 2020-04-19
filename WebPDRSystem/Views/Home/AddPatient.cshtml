@@ -1,0 +1,316 @@
+﻿@model Pdr
+@{
+    ViewData["Title"] = "AddPatient";
+}
+<div class="container">
+<div class="panel user-panel" style="background-color:aliceblue; padding:20px">
+    <div class="panel-heading" style="text-align:center"><i class="fa fa-user"></i><strong style="color:#f0ad4e;font-size:large">&nbsp; Add New Patient </strong></div>
+    <div class="clearfix"></div>
+    <div class="page-divider"></div>
+    <div class="panel-body">
+        <form asp-action="AddPatient">
+            <!--Patient Admission-->
+            <div class="panel-heading"><strong style="color:cornflowerblue;font-size:medium;">Patient Admission </strong></div>
+
+            <div class="row" style="padding:10px">
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" asp-for="CaseNumber" title="Case number" placeholder="Case Number" />
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <label class="col-sm-4" style="font-size:medium;font-weight:100;padding:10px">Admission Date</label>
+                        <input class="form-control col-sm-8" style="font-size:medium;" type="date" asp-for="DateOfAdmission" />
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <input type="number" class="form-control" asp-for="BedNumber" title="Bed number" placeholder="Bed Number" />
+                </div>
+            </div>
+            <div class="row" style="padding:10px">
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" asp-for="ReferringFacility" title="Referring Facility" placeholder="Referring Facility" />
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" asp-for="QuarantineFacility" title="Quarantine Facilty" placeholder="Quarantine Facility" />
+                </div>
+            </div>
+
+            <!--Personal Information-->
+            <div class="panel-heading"><strong style="color: cornflowerblue;font-size:medium;">Personal Information </strong></div>
+            <div class="row" style="padding:10px">
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" asp-for="PatientNavigation.Firstname" title="Patient first name" id="fname" placeholder="First Name" />
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" asp-for="PatientNavigation.Middlename" title="Patient middle name" placeholder="Middle Name" />
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" asp-for="PatientNavigation.Lastname" title="Patient last name" placeholder="Last Name" />
+                </div>
+            </div>
+
+            <div class="row" style="padding:10px">
+                <div class="col-sm-4">
+                    <div class="row">
+                        <label class="col-sm-3" style="font-size:medium;font-weight:100;padding:10px">Birthdate</label>
+                        <input id="patient_dob" class="form-control col-sm-9" style="font-size:medium;" type="date" asp-for="PatientNavigation.DateOfBirth" onchange="GetDate();" />
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <input type="radio" id="male" asp-for="PatientNavigation.Gender" value="true" />
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" asp-for="PatientNavigation.Gender" value="false" />
+                    <label for="male">Female</label>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" asp-for="PatientNavigation.Age" title="Patient age" placeholder="Age" readonly />
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" asp-for="PatientNavigation.ContactNumber" title="Patient contact number" placeholder="Contact Number" />
+                </div>
+            </div>
+
+            <div class="row" style="padding:10px">
+                <input asp-for="PatientNavigation.Province" value="2" type="hidden" />
+                <div class="col-sm-4">
+                    <select asp-for="PatientNavigation.Province" asp-items="ViewBag.ProvincesP" title="Patient province" class="form-control col-sm-12" style="padding:5px" disabled>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <select id="patient_muncity" asp-for="PatientNavigation.Muncity" asp-items="ViewBag.MuncityP" title="Patient City/Municipality" class="form-control select2 col-sm-12" style="padding:5px" onchange="SetBarangay('1'); ToggleAddress();">
+                        <option value="">Select City/Municipaliy</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <select id="patient_barangay" asp-for="PatientNavigation.Barangay" title="Patient Barangay" onchange="ToggleAddress();" class="form-control select2 col-sm-12" style="padding:5px">
+                        <option value="">Select Barangay</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row" style="padding:10px">
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" asp-for="PatientNavigation.Address" placeholder="Village/Subdivision/Street/Block number" />
+                </div>
+                <div class="col-sm-6">
+                    <span id="address">Cebu</span>
+                </div>
+            </div>
+
+            <div class="row" style="padding:10px">
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" asp-for="PatientNavigation.Occupation" title="Patient occupation" placeholder="Occupation" />
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" asp-for="PatientNavigation.Nationality" title="Patient nationality" placeholder="Nationality" />
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" asp-for="PatientNavigation.Religion" title="Patient Religion" placeholder="Religion" />
+                </div>
+            </div>
+
+            <!--Guardian Details-->
+            <div class="panel-heading"><strong style="color: cornflowerblue;font-size:medium;">Guardian Details</strong></div>
+
+            <div class="row" style="padding:10px">
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" asp-for="GuardianNavigation.Firstname" title="Guardian first name" placeholder="First Name" />
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" asp-for="GuardianNavigation.Middlename" title="Guardian middle name" placeholder="Middle Name" />
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" asp-for="GuardianNavigation.Lastname" title="Guardian last name" placeholder="Last Name" />
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" asp-for="GuardianNavigation.ContactNumber" title="Guardian contact number" placeholder="Contact Number" />
+                </div>
+            </div>
+
+            <div class="row" style="padding:10px">
+                <input asp-for="GuardianNavigation.Province" value="2" type="hidden" />
+                <div class="col-sm-4">
+                    <select asp-for="GuardianNavigation.Province" asp-items="ViewBag.ProvincesG" title="Guardian province" class="form-control col-sm-12" style="padding:5px" disabled>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <select id="guardian_muncity" asp-for="GuardianNavigation.Muncity" asp-items="ViewBag.MuncityG" title="Guardian City/Municipality" class="form-control select2 col-sm-12" style="padding:5px" onchange="SetBarangay('2');">
+                        <option>Select City/Municipaliy</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <select id="guardian_barangay" asp-for="GuardianNavigation.Barangay" title="Guardian Barangay" class="form-control select2 col-sm-12" style="padding:5px">
+                        <option>Select Barangay</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--Other Information-->
+            <div class="panel-heading"><strong style="color: cornflowerblue;font-size:medium;">Other Informations</strong></div>
+
+            <div class="row" style="padding:10px">
+                <div class="col-sm-3">
+                    <div class="row">
+                        <label class="col-sm-5" style="font-size:medium;font-weight:100;padding:10px">Testing Date</label>
+                        <input class="form-control col-sm-7" style="font-size:medium;" type="date" asp-for="DateTesting" />
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" asp-for="Results" placeholder="How were the results conveyed?" />
+                </div>
+            </div>
+            <div class="row" style="padding:10px">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" asp-for="SymptomsContacts.CloseContacts" placeholder="Close contact within the last two(2) days? (Separate names with ; )" />
+                </div>
+            </div>
+
+            <div class="row" style="padding:10px">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" asp-for="History" placeholder="History, including onset of symptoms(Separate names with ; )" />
+                </div>
+            </div>
+
+
+            <div class="row" style="padding:10px">
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" asp-for="TravelHistory" placeholder="Travel History" />
+                </div>
+                <div class="col-sm-5">
+                    <div class="row">
+                        <label class="col-sm-6" style="font-size:medium;font-weight:100;padding:10px">Date of onset of Symptoms</label>
+                        <input class="form-control col-sm-6" style="font-size:medium;" type="date" asp-for="DateOnsetSymptoms" />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" asp-for="AdmissionTemperature" placeholder="Temperature on Admission" />
+                </div>
+            </div>
+
+            <div class="row" style="padding:10px">
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" asp-for="PreExistingConditions" placeholder="Pre-existing Conditions" />
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" asp-for="Maintenance" placeholder="Maintenance Medication" />
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" asp-for="FoodRestrictionsAllergy" placeholder="Food restrictions / Allergies" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-4">
+                    <input type="hidden" asp-for="SymptomsContacts.SymptomsOfPatient" value="none" />
+                    <fieldset id="list_symptoms" align="center" style="border-color:black; width: 100%; border:double; padding:10px" onchange="ListSymptoms();">
+                        <legend style="font-size:medium;text-align:center">Symptoms of patients on admission</legend>
+                        <input type="checkbox" name="symptoms" id="cough" value="cough">Cough<br>
+                        <input type="checkbox" name="symptoms" id="colds" value="colds">Colds<br>
+                        <input type="checkbox" name="symptoms" id="soreThroat" value="soreThroat">Sore Throat<br>
+                        <input type="checkbox" name="symptoms" id="diarrhea" value="diarrhea">Diarrhea<br>
+                        <input type="checkbox" name="symptoms" id="others" value="Others" onchange="ToggleText($('#others'));" class="col-sm-1">Others
+                        <input type="text" class="form-control col-sm-11" id="otherSymptoms" hidden placeholder="Others, please specify. Separate with comma.">
+                    </fieldset>
+                </div>
+                <div class="col-md-4">
+                    <input type="hidden" id="imgb64" asp-for="PatientNavigation.Picture" />
+                    <img id="cur-pic" class="img-circle center" src="~/img/defaultPic.png" style=" height: 150px; width:150px;" alt="User picture">
+                    <input type="file" placeholder="Open" onchange="ChangePhoto(this);" class="form-control" />
+                </div>
+                <div class="col-md-2">
+
+                </div>
+            </div>
+
+            <div class="form-group col-12" align="center" style="padding:15px;padding-top:20px">
+                <div class="col-sm-6">
+                    <select type="text" class="form-control select2" asp-for="InterviewedBy" asp-items="ViewBag.Users" required>
+                        <option>Select Doctor/Nurse</option>
+                    </select>
+                </div>
+                <label class="col-sm-6 control-label">Name of Interviewer and Examiner</label>
+            </div>
+
+            <div class="align-center" style="padding:10px">
+                <button class="btn btn-block btn-primary btn-lg fa-align-right" type="submit">
+                    <i class="fas fa-plus"></i>
+                    &nbsp;Add Patient
+                </button>
+            </div>
+        </form>
+       
+    </div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var out = $('#SymptomsContacts_SymptomsOfPatient');
+        console.log(out.val());
+    })
+
+    function ToggleAddress() {
+        var addressSpan = $('#address');
+        var address = '';
+        var munct = $('#patient_muncity option:selected');
+        var brgy = $('#patient_barangay option:selected');
+
+
+        if (munct[0].value != '') {
+            address = munct[0].text;
+        }
+
+        if (brgy[0].value != '') {
+            address = brgy[0].text + ', ' + address;
+        }
+
+        addressSpan.html(address + ', Cebu');
+        console.log(munct);
+        console.log(brgy);
+    }
+
+    function ToggleText(id) {
+        var textin = $('#otherSymptoms');
+        if (id[0].checked) {
+            textin.removeAttr('hidden');
+        }
+        else {
+            textin.attr('hidden',true);
+        }
+    }
+
+    function ListSymptoms() {
+        var out = $('#SymptomsContacts_SymptomsOfPatient');
+        var coughc = $('#cough');
+        var coldsc = $('#colds');
+        var sthroatc = $('#soreThroat');
+        var diarheac = $('#diarrhea');
+        var othersc = $('#otherSymptoms');
+        var final = '';
+        if (coughc[0].checked) {
+            final = coughc[0].value + ',' + final;
+        }
+        if (coldsc[0].checked) {
+            final = coldsc[0].value + ',' + final;
+        }
+        if (sthroatc[0].checked) {
+            final = sthroatc[0].value + ',' + final;
+        }
+        if (diarheac[0].checked) {
+            final = diarheac[0].value + ',' + final;
+        }
+        if (othersc.val() != '') {
+            final = othersc.val() + ',' + final;
+        }
+
+        out.val(final);
+
+    }
+    function GetDate() {
+        var date = $('#patient_dob').val();
+        CaclAge(date);
+    }
+</script>

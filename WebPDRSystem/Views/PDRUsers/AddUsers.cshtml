@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Pdrusers>
+
+
+<div class="modal fade" id="add-users">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content clearfix">
+            <div class="modal-body">
+                <table class="table table-striped" width="100%">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var name = item.Firstname + " " + item.Middlename + " " + item.Lastname;
+                            <tr id="sad_@item.Id">
+                                <td>
+                                    <img src="~/img/@item.Picture" alt="@item.Lastname" style="height:40px; width: 40px" onerror="this.src='/img/MDMale.jpg'" />
+                                </td>
+                                <td>
+                                    @name
+                                    <button class="fa-pull-right" onclick="AddToTeam('@item.Id');"><i class="fas fa-plus"></i></button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

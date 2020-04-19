@@ -1,0 +1,17 @@
+﻿
+.crop{
+    height: 80px;
+    width: 80px !important;
+    overflow: hidden;
+}
+
+.hide-row{
+    display:none;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

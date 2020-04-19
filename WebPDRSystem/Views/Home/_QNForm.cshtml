@@ -1,0 +1,103 @@
+﻿<div class="modal" id="QDFormModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>
+                    <i class="fa fa-user-md"></i>
+                    &nbsp;Daily Monitoring Form
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--PATIENT NAME-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Patient</strong></div>
+
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-8"><strong style="color: crimson;font-size:large;padding:20px">First M. Last Name </strong></div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <label class="col-sm-5" style="font-size:medium;font-weight:100;padding:10px">Check-up : </label>
+                            <input class="form-control form-control-sm col-sm-7" style="font-size:medium;padding:18px" type="text" id="checkupDate" value="DD/MM/YYYY" name="admissionDate" />
+                        </div>
+                    </div>
+                </div>
+
+                <!--Clinical Parameters-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Clinical Parameters</strong></div>
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-3">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Blood Pressure" />
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Heart Rate" />
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Respiratory Rate" />
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" autofocus class="form-control" id="" placeholder="O2Sat" />
+                    </div>
+                </div>
+
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-3">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Type of IV Fluids" />
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Rate" />
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Time Fluid Started" />
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Time Fluid Changed" />
+                    </div>
+                </div>
+
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-4">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Urine Output (if Ordered)" />
+                    </div>
+                </div>
+                <div class="row" style="padding:5px">
+
+                </div>
+                <!--MAINTENANCE MEDICATION & IF GIVEN-->
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <label class="col-sm-6" style="font-size:medium;font-weight:500;padding:10px">INSERT MEDICATION (ENUMERATE) AND CHECK IF GIVEN</label>
+                            <div class="row" style="padding:10px">
+                                <input type="radio" id="yes" name="medTaken" value="yes">&nbsp;Yes&nbsp;&nbsp;
+                                <input type="radio" id="no" name="medTaken" value="No">&nbsp;No
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--QUARANTINE NURSE-->
+                <div class="row" style="padding:10px">
+                    <label class="col-sm-4" style="font-size:medium;font-weight:500;padding:10px">Signature of Quarantine Nurse</label>
+                    <div class="col-sm-8">
+                        <input type="text" autofocus class="form-control" id="QDoctor" placeholder="Signature of Quarantine Nurse" />
+                    </div>
+                </div>
+
+                <!--SUBMIT BUTTON-->
+                <div class="col-sm-12" align="center" style="padding:10px">
+                    <div class="col-sm-4" align="right">
+                        <button class="btn btn-block btn-primary btn-lg" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#checkupDate').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            forceParse: true
+        });
+    })
+</script>

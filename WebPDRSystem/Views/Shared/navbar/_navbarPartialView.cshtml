@@ -1,0 +1,51 @@
+﻿<ul class="navbar-nav flex-grow-1">
+    <!-- NAVBAR -->
+    <li class="nav-item d-none d-sm-inline-block">
+        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Dashboard">
+            <i class="fa fa-home"></i>
+            &nbsp;Home
+        </a>
+    </li>
+
+    <!-- MANAGE -->
+    <li class="nav-item dropdown">
+        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button">
+            <i class="fa fa-user-injured"></i>
+            &nbsp;Patient
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" asp-controller="Home" asp-action="AddPatient">Add new Patient</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Discharge Patient</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">INSERT</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">INSERT</a>
+        </div>
+    </li>
+
+
+    <li class="nav-item d-none d-sm-inline-block">
+        <a class="nav-link" asp-area="" asp-controller="Pdrusers" asp-action="Index">
+            <i class="fa fa-user-md"></i>
+            &nbsp;Users
+        </a>
+    </li>
+
+    <!-- ACCOUNT -->
+    <li class="nav-item dropdown">
+        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button">
+            <i class="fa fa-user-circle"></i>
+            &nbsp;Account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#"><i class="fa fa-user"></i>&nbsp;Add User</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#"><i class="fa fa-lock"></i>&nbsp;Change Password</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#"><i class="fa fa-lock"></i>&nbsp;Reset Password</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#"><i class="fa fa-sign-out-alt"></i>&nbsp;Logout</a>
+        </div>
+    </li>
+</ul>

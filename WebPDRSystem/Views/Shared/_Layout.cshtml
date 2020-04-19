@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebPDRSystem</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Custom.css" />
+    <link rel="stylesheet" href="~/assets/lobibox/dist/css/Lobibox.min.css" />
+    <link rel="stylesheet" href="~/assets/dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="~/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+    <link rel="stylesheet" href="~/assets/plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="~/assets/plugins/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css" />
+    <link rel="stylesheet" href="~/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <link rel="stylesheet" href="~/assets/datepicker/css/bootstrap-datepicker.css" />
+    <script src="~/assets/datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="~/assets/lobibox/js/lobibox.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/toastr/toastr.min.js"></script>
+    <script src="~/assets/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="~/assets/plugins/daterangepicker/daterangepicker.js"></script>
+
+</head>
+<body class="badge-light">
+    <div id="placeholder"></div>
+    <header>
+        <div class="header" style="background-color:#2F4054;padding:10px;">
+            <div class="container">
+                <div class="fa-pull-left">
+                    <span class="title-desc" style="color:coral;font-weight:bold">Welcome,</span> <span class="title-desc" style="color:whitesmoke;font-weight:bold"> Romaine Lorena </span>
+                </div>
+                <div class="fa-pull-right">
+                    <span class="title-desc" style="color:coral;font-weight:bold">Date: </span><span class="title-desc" style="color:whitesmoke;font-weight:bold">@DateTime.Now</span>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="header" style="background-color:#59ab91;padding:5px;">
+            <div class="container">
+                <img src="~/img/Banner.png" class="card-img-top" />
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-md navbar-light navbar-white custom-nav">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                    <partial name="~/Views/Shared/Navbar/_navbarPartialView.cshtml" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy;2020 - WebPDRSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>*@
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

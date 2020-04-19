@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebPDRSystem.Models.Pdrusers>
+
+@{
+    ViewData["Title"] = "Index";
+    var hewi = "60px";
+
+    string BgColor(string role)
+    {
+        string color = "";
+
+        switch(role)
+        {
+            case "Doctor":
+                {
+                    color = "bg-primary";
+                    break;
+                }
+            case "Nurse":
+                {
+                    color = "bg-warning";
+                    break;
+                }
+            case "Healhcare Buddy":
+                {
+                    color = "bg-default";
+                    break;
+                }
+        }
+
+        return color;
+    }
+    }
+
+    <div class="content">
+        <div class="col-md-12">
+            <!-- ONLINE DOCTORS -->
+            <div class="card card-outline">
+                <!-- DAILY USERS HEADER -->
+                <div class="card-header with-border">
+                    <div class="fa-pull-right form-inline ml-3">
+                        <div class="input-group input-group-sm">
+                            <input class="form-control form-control-navbar" id="search" type="text" placeholder="search">
+                            <div class="input-group-append">
+                                <button class="btn btn-navbar" onclick="Search();">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-default" data-toggle="ajax-modal" data-target="#add-users" data-url="@Url.Action("AddUsers","Pdrusers")">
+                            <i class="fas fa-plus"></i>
+                            &nbsp;Add
+                        </button>
+                        <button type="button" class="btn btn-sm btn-success" data-toggle="ajax-modal" data-target="#new-users" data-url="@Url.Action("NewUser","Pdrusers")">
+                            <i class="fas fa-plus"></i>
+                            &nbsp;New
+                        </button>
+                    </div>
+                    <h2>
+                        Team A
+                    </h2>
+                </div>
+                <!-- DAILY USERS BODY -->
+                <div class="card-body" id="indexpartial" style="height: 350px; overflow-y: auto;">
+                    <div class="overlay d-flex justify-content-center align-items-center">
+                        <i class="fas fa-2x fa-sync fa-spin"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    $(function () {
+        LoadIndex('');
+    })
+
+    function Search() {
+        var se = $('#search').val();
+        console.log(se);
+        LoadIndex(se);
+    }
+</script>

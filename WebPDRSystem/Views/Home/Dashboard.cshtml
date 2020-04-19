@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<!--DASHBOARD-->
+<div class="row" style="background-color:aliceblue; padding:20px">
+
+    <!--Table Column-->
+    <div class="col-md-12">
+
+        <div class="panel user-panel">
+            <div class="panel-heading">
+                <strong style="color: #f0ad4e;font-size:medium;">Patient list</strong>
+                <span class="fa-pull-right badge badge-success">
+                    Total: @ViewBag.Total
+                </span>
+            </div>
+            <div class="clearfix"></div>
+            <div class="page-divider"></div>
+            <div class="panel-body">
+                <!-- SEARCH FORM-->
+                <div class="form-group form-inline">
+                    <input type="text" name="searchDetail" class="form-control" placeholder="Search" id="searchDetail" onkeypress="" autofocus> <!--Input Name to Search-->
+                    <button class="btn btn-default searchPatient" id="searchbutton"><i class="fa fa-search"></i> Search</button> <!--Search Button-->
+                </div>
+                <div class="clearfix"></div>
+                <div class="page-divider"></div>
+
+                <!--Patient LISTS-->
+                <div class="patient-list">
+                    <table  class="table table-list table-hover table-responsive table-striped" style="height: 350px; overflow: auto;">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Bed Number</th>
+                                <th class="text-center">Name </th>
+                                <th class="text-center">Age </th>
+                                <th class="text-center">Sex </th>
+                                <th class="text-center">Municipal</th>
+                                <th class="text-center">Admiting Diagnosis</th>
+                                <th class="text-center">Date and Time of Admission</th>
+                                <th class="text-center">Date VS taken </th>
+                                <th class="text-center">BP </th>
+                                <th class="text-center">HR </th>
+                                <th class="text-center">RR </th>
+                                <th class="text-center">T</th>
+                                <th class="text-center">O2Sat </th>
+                                <th class="text-center">Subjective Complaints</th>
+                                <th class="text-center">Pertinent PE </th>
+                                <th class="text-center"> Diagnostic test</th>
+                                <th class="text-center"> Lab Results</th>
+                                <th class="text-center">Medications/ Therapeutics</th>
+                                <th class="text-center">Consultant Referral </th>
+                                <th class="text-center">Other remarks </th>
+                            </tr>
+                        </thead>
+                        <tbody id="dashboard_table">
+                            <tr>
+                                <td colspan="20">
+                                    Loading....
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        LoadDashboard('');
+    })
+</script>
