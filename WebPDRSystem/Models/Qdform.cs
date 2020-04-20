@@ -8,10 +8,10 @@ namespace WebPDRSystem.Models
     [Table("QDForm")]
     public partial class Qdform
     {
-        public Qdform()
+        /*public Qdform()
         {
             ClinicalParametersQd = new HashSet<ClinicalParametersQd>();
-        }
+        }*/
 
         [Key]
         public int Id { get; set; }
@@ -28,6 +28,6 @@ namespace WebPDRSystem.Models
         [InverseProperty(nameof(Pdrusers.Qdform))]
         public virtual Pdrusers HealthCareBuddyNavigation { get; set; }
         [InverseProperty("DailyMonitoringFormQdModel")]
-        public virtual ICollection<ClinicalParametersQd> ClinicalParametersQd { get; set; }
+        public virtual List<ClinicalParametersQd> ClinicalParametersQd { get; set; }
     }
 }

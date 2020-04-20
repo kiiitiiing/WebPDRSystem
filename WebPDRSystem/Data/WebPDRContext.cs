@@ -59,6 +59,8 @@ namespace WebPDRSystem.Data
 
                 entity.Property(e => e.OtherDetails).IsUnicode(false);
 
+                entity.Property(e => e.Temperature).IsUnicode(false);
+
                 entity.HasOne(d => d.DailyMonitoringFormQdModel)
                     .WithMany(p => p.ClinicalParametersQd)
                     .HasForeignKey(d => d.DailyMonitoringFormQdModelId)

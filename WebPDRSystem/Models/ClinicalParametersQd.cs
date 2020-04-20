@@ -10,10 +10,11 @@ namespace WebPDRSystem.Models
     {
         [Key]
         public int Id { get; set; }
-        public DateTime? DateChecked { get; set; }
+        public DateTime DateChecked { get; set; }
         public bool NoSymptom { get; set; }
         public bool Fever { get; set; }
-        public bool? Temperature { get; set; }
+        [StringLength(50)]
+        public string Temperature { get; set; }
         public bool Cough { get; set; }
         public bool Colds { get; set; }
         public bool Breathing { get; set; }
@@ -25,6 +26,8 @@ namespace WebPDRSystem.Models
         public bool Maintenance { get; set; }
         public bool MedsTaken { get; set; }
         public bool MentalDistress { get; set; }
+        public bool SoreThroat { get; set; }
+        public bool Diarrhea { get; set; }
         [Column("DailyMonitoringFormQD_ModelId")]
         public int? DailyMonitoringFormQdModelId { get; set; }
         [StringLength(255)]

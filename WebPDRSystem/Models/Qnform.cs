@@ -8,10 +8,10 @@ namespace WebPDRSystem.Models
     [Table("QNForm")]
     public partial class Qnform
     {
-        public Qnform()
+        /*public Qnform()
         {
             ClinicalParametersQn = new HashSet<ClinicalParametersQn>();
-        }
+        }*/
 
         [Key]
         public int Id { get; set; }
@@ -22,6 +22,6 @@ namespace WebPDRSystem.Models
         public DateTime UpdatedAt { get; set; }
 
         [InverseProperty("DailyMonitoringFormQnModel")]
-        public virtual ICollection<ClinicalParametersQn> ClinicalParametersQn { get; set; }
+        public virtual List<ClinicalParametersQn> ClinicalParametersQn { get; set; }
     }
 }

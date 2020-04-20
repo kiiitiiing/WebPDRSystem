@@ -8,10 +8,10 @@ namespace WebPDRSystem.Models
     [Table("ClinicalParametersQN")]
     public partial class ClinicalParametersQn
     {
-        public ClinicalParametersQn()
+        /*public ClinicalParametersQn()
         {
             Medications = new HashSet<Medications>();
-        }
+        }*/
 
         [Key]
         public int Id { get; set; }
@@ -58,6 +58,6 @@ namespace WebPDRSystem.Models
         [InverseProperty(nameof(Qnform.ClinicalParametersQn))]
         public virtual Qnform DailyMonitoringFormQnModel { get; set; }
         [InverseProperty("ClinicalParamQnNavigation")]
-        public virtual ICollection<Medications> Medications { get; set; }
+        public virtual List<Medications> Medications { get; set; }
     }
 }

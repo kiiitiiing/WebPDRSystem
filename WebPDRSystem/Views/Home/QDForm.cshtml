@@ -1,0 +1,114 @@
+﻿@model Qdform
+
+@{ 
+    var name = ViewBag.PatientName;
+}
+
+<div class="modal" id="QDFormModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>
+                    <i class="fa fa-user-md"></i>
+                    &nbsp;Quality Monitoring Form - Quarantine Doctor
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form asp-action="QDForm">
+                    <input type="hidden" asp-for="PatientCode" value="@ViewBag.Code" />
+                    <!--Patient Name-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <strong style="color: cornflowerblue;font-size:small;">Patient</strong>
+                        </div>
+                        <div class="col-sm-12">
+                            <strong style="color: crimson;font-size:large;padding:20px">@name</strong>
+                        </div>
+                    </div>
+                    <!--Health care buddy & Checkup Date-->
+                    <div class="row" style="padding:5px">
+                        <div class="col-sm-8">
+                            <strong style="color: cornflowerblue;font-size:small;">Health Care Buddy</strong>
+                            <select class="form-control" asp-for="HealthCareBuddy" asp-items="ViewBag.HCBuddies">
+                                <option value="">Select Health Care Buddy</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <strong style="color: cornflowerblue;font-size:small;">Check-up date:</strong>
+                                <input class="form-control" style="font-size:medium;padding:18px" asp-for="ClinicalParametersQd[0].DateChecked" />
+                            </div>
+                        </div>
+                    </div>
+                    <!--SYMPTOMS-->
+                    <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Symptoms</strong></div>
+                    <div class="row" style="padding:5px">
+                        <fieldset style="border-color:black; border:double; padding:10px" class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input asp-for="ClinicalParametersQd[0].Cough">&nbsp;Cough<br>
+                                    <input asp-for="ClinicalParametersQd[0].Colds">&nbsp;Colds<br>
+                                    <input asp-for="ClinicalParametersQd[0].Breathing">&nbsp;Difficulty in Breathing<br>
+                                    <input asp-for="ClinicalParametersQd[0].BodyMuscleJointPain">&nbsp;Body/Muscle/Joint Pain<br>
+                                    <input asp-for="ClinicalParametersQd[0].Headache">&nbsp;Headache<br>
+                                    <input asp-for="ClinicalParametersQd[0].ChestPain" >&nbsp;Chest Pain<br>
+                                    <div class="row" style="padding:10px">
+                                        <input asp-for="ClinicalParametersQd[0].Fever"> &nbsp; fever &nbsp;&nbsp;
+                                        <input type="text" asp-for="ClinicalParametersQd[0].Temperature" placeholder="temperature">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <input type="checkbox" asp-for="ClinicalParametersQd[0].Confusion">&nbsp;Confusion<br>
+                                    <input type="checkbox" asp-for="ClinicalParametersQd[0].BluishLipsOrFingers">&nbsp;Bluish Lips<br>
+                                    <input type="checkbox" asp-for="ClinicalParametersQd[0].MentalDistress">&nbsp;Signs of Mental Distress<br>
+                                    <input type="checkbox" asp-for="ClinicalParametersQd[0].SoreThroat">&nbsp;Sore Throat<br>
+                                    <input type="checkbox" asp-for="ClinicalParametersQd[0].Diarrhea">&nbsp;Diarrhea<br>
+                                    <div class="row" style="padding:10px">
+                                        <input type="checkbox"> &nbsp; Others &nbsp;&nbsp;
+                                        <input type="text" asp-for="ClinicalParametersQd[0].OtherDetails" placeholder="Please specify">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <!--MAINTENANCE MEDICATION TAKEN-->
+                    <div class="row" style="padding:5px">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <label class="col-sm-6" style="font-size:medium;font-weight:500;padding:10px">Does Maintenance Medication Taken?</label>
+                                <div class="row" style="padding:10px">
+                                    <input type="radio" asp-for="ClinicalParametersQd[0].MedsTaken" value="true">&nbsp;Yes&nbsp;&nbsp;
+                                    <input type="radio" asp-for="ClinicalParametersQd[0].MedsTaken" value="false">&nbsp;No
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--QUARANTINE DOCTOR-->
+                    <div class="row" style="padding:10px">
+                        <label class="col-sm-4" style="font-size:medium;font-weight:500;padding:10px">Signature of Quarantine Doctor</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" asp-for="SignatureOfQd" />
+                        </div>
+                    </div>
+                    <!--SUBMIT BUTTON-->
+                    <div class="col-sm-12" align="center" style="padding:10px">
+                        <div class="col-sm-4" align="right">
+                            <button class="btn btn-block btn-primary btn-lg" data-save="modal">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#checkupDate').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            forceParse: true
+        });
+    })
+</script>

@@ -39,6 +39,7 @@ $(function () {
 
 
     placeholderElement.on('click', 'button[data-save="modal"]', function (event) {
+        console.log('here');
         event.preventDefault();
         var form = placeholderElement.find('.modal').find('form');
         var formId = placeholderElement.find('.modal').attr('id');
@@ -70,6 +71,21 @@ $(function () {
         });
     });
 })
+
+function OpenForm(id, action) {
+    var wat = $('#placeholder');
+    $('#pdr-modal').modal('hide');
+    setTimeout(function () {
+        var placeholderElement = $('#daily_monitoring_form');
+        var url = "/Home/" + action + "?id=" + id;
+        console.log(url);
+        $.get(url).done(function (data) {
+            placeholderElement.empty();
+            placeholderElement.html(data);
+            placeholderElement.find('.modal').modal('show');
+        });
+    }, 300);
+}
 
 function ChangePhoto(input,width,height) {
     if (input.files && input.files[0]) {
@@ -129,6 +145,8 @@ function LoadIndex(search) {
         }
     });
 }
+
+
 
 function AddToTeam(user) {
     var placeholderElements = $('#placeholder');

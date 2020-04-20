@@ -5,13 +5,10 @@
         padding: 4px;
     }
 
-    input[type=text], input[type=number], input[type=date], select{
-        height: 32px !important;
-    }
-
+    @*
     .modal-lg{
         max-width: 60% !important;
-    }
+    }*@
 </style>
 
 <div class="modal fade" id="pdr-modal" style="font-size: 14px; font-weight:500;">
@@ -44,20 +41,20 @@
                         <div class="col-sm-9">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <button class="btn btn-block btn-lg" style="background-color: #56d887;">
+                                    <a class="btn btn-block btn-lg" style="background-color: #56d887;" onclick="OpenForm('@Model.Id','QDForm');">
                                         <i class="fas fa-plus"></i>
                                         &nbsp;Daily Monitoring Form
                                         <br />
                                         (Quarantine doctor)
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="col-sm-6">
-                                    <button class="btn btn-block btn-lg" style="background-color:#e564c0;">
+                                    <a class="btn btn-block btn-lg" style="background-color:#e564c0;" onclick="OpenForm('@Model.Id','QNForm');">
                                         <i class="fas fa-plus"></i>
                                         &nbsp;Daily Monitoring Form
                                         <br />
                                         (Quarantine doctor)
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <!-- PATIENT ADMISSION INFORMATION -->
@@ -73,7 +70,7 @@
                                 </div>
                                 <div class="col-sm-4">
                                     Date of admission:
-                                    <input class="form-control col-sm-8" style="font-size:medium;" type="date" asp-for="DateOfAdmission" />
+                                    <input class="form-control" style="font-size:medium;" type="date" asp-for="DateOfAdmission" />
                                 </div>
                                 <div class="col-sm-4">
                                     Bed number:
