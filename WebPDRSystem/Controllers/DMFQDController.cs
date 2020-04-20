@@ -26,7 +26,6 @@ namespace PDRSystemApi.Controllers
         public async Task<ActionResult<IEnumerable<Qdform>>> GetQdformTable()
         {
             return await _context.Qdform
-                .Include(x => x.ClinicalParametersQd)
                 .ToListAsync();
         }
 

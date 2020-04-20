@@ -9,14 +9,14 @@ namespace WebPDRSystem.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
         [StringLength(255)]
         public string MedName { get; set; }
-        public DateTime MedTaken { get; set; }
-        public int ClinicalParamQn { get; set; }
+        public bool MedTaken { get; set; }
+        public int PatientId { get; set; }
+        public DateTime CreatedAt { get; set; }
 
-        [ForeignKey(nameof(ClinicalParamQn))]
-        [InverseProperty(nameof(ClinicalParametersQn.Medications))]
-        public virtual ClinicalParametersQn ClinicalParamQnNavigation { get; set; }
+        [ForeignKey(nameof(PatientId))]
+        [InverseProperty("Medications")]
+        public virtual Patient Patient { get; set; }
     }
 }

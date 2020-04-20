@@ -12,7 +12,9 @@ namespace WebPDRSystem.Models
         {
             Discharge = new HashSet<Discharge>();
             Pdr = new HashSet<Pdr>();
-            Qdform = new HashSet<Qdform>();
+            QdformHealthCareBuddyNavigation = new HashSet<Qdform>();
+            QdformSignatureOfQdNavigation = new HashSet<Qdform>();
+            Qnform = new HashSet<Qnform>();
         }
 
         [Key]
@@ -49,7 +51,11 @@ namespace WebPDRSystem.Models
         public virtual ICollection<Discharge> Discharge { get; set; }
         [InverseProperty("InterviewedByNavigation")]
         public virtual ICollection<Pdr> Pdr { get; set; }
-        [InverseProperty("HealthCareBuddyNavigation")]
-        public virtual ICollection<Qdform> Qdform { get; set; }
+        [InverseProperty(nameof(Qdform.HealthCareBuddyNavigation))]
+        public virtual ICollection<Qdform> QdformHealthCareBuddyNavigation { get; set; }
+        [InverseProperty(nameof(Qdform.SignatureOfQdNavigation))]
+        public virtual ICollection<Qdform> QdformSignatureOfQdNavigation { get; set; }
+        [InverseProperty("SignatureOfQnNavigation")]
+        public virtual ICollection<Qnform> Qnform { get; set; }
     }
 }

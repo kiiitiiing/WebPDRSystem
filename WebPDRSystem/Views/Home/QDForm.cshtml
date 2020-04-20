@@ -1,7 +1,6 @@
-﻿@model Qdform
+﻿@model QdformModel
 
 @{ 
-    var name = ViewBag.PatientName;
 }
 
 <div class="modal" id="QDFormModal">
@@ -12,17 +11,22 @@
                     <i class="fa fa-user-md"></i>
                     &nbsp;Quality Monitoring Form - Quarantine Doctor
                 </h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
             <div class="modal-body">
                 <form asp-action="QDForm">
-                    <input type="hidden" asp-for="PatientCode" value="@ViewBag.Code" />
+                    <input type="hidden" asp-for="Pdrcode" />
+                    <input type="hidden" asp-for="PdrId" />
+                    <input type="hidden" asp-for="PatientName" />
                     <!--Patient Name-->
                     <div class="row">
                         <div class="col-sm-12">
                             <strong style="color: cornflowerblue;font-size:small;">Patient</strong>
                         </div>
                         <div class="col-sm-12">
-                            <strong style="color: crimson;font-size:large;padding:20px">@name</strong>
+                            <strong style="color: crimson;font-size:large;padding:20px">@Model.PatientName</strong>
                         </div>
                     </div>
                     <!--Health care buddy & Checkup Date-->
@@ -36,7 +40,8 @@
                         <div class="col-sm-4">
                             <div class="row">
                                 <strong style="color: cornflowerblue;font-size:small;">Check-up date:</strong>
-                                <input class="form-control" style="font-size:medium;padding:18px" asp-for="ClinicalParametersQd[0].DateChecked" />
+                                <input class="form-control" style="font-size:medium;padding:18px" asp-for="DateChecked"
+                                       />
                             </div>
                         </div>
                     </div>
@@ -46,27 +51,28 @@
                         <fieldset style="border-color:black; border:double; padding:10px" class="col-sm-12">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <input asp-for="ClinicalParametersQd[0].Cough">&nbsp;Cough<br>
-                                    <input asp-for="ClinicalParametersQd[0].Colds">&nbsp;Colds<br>
-                                    <input asp-for="ClinicalParametersQd[0].Breathing">&nbsp;Difficulty in Breathing<br>
-                                    <input asp-for="ClinicalParametersQd[0].BodyMuscleJointPain">&nbsp;Body/Muscle/Joint Pain<br>
-                                    <input asp-for="ClinicalParametersQd[0].Headache">&nbsp;Headache<br>
-                                    <input asp-for="ClinicalParametersQd[0].ChestPain" >&nbsp;Chest Pain<br>
+                                    <input asp-for="Cough">&nbsp;Cough<br>
+                                    <input asp-for="Colds">&nbsp;Colds<br>
+                                    <input asp-for="Breathing">&nbsp;Difficulty in Breathing<br>
+                                    <input asp-for="BodyMuscleJointPain">&nbsp;Body/Muscle/Joint Pain<br>
+                                    <input asp-for="Headache">&nbsp;Headache<br>
+                                    <input asp-for="ChestPain">&nbsp;Chest Pain<br>
                                     <div class="row" style="padding:10px">
-                                        <input asp-for="ClinicalParametersQd[0].Fever"> &nbsp; fever &nbsp;&nbsp;
-                                        <input type="text" asp-for="ClinicalParametersQd[0].Temperature" placeholder="temperature">
+                                        <input asp-for="Fever"> &nbsp; fever &nbsp;&nbsp;
+                                        <input type="text" asp-for="Temperature" placeholder="temperature">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
-                                    <input type="checkbox" asp-for="ClinicalParametersQd[0].Confusion">&nbsp;Confusion<br>
-                                    <input type="checkbox" asp-for="ClinicalParametersQd[0].BluishLipsOrFingers">&nbsp;Bluish Lips<br>
-                                    <input type="checkbox" asp-for="ClinicalParametersQd[0].MentalDistress">&nbsp;Signs of Mental Distress<br>
-                                    <input type="checkbox" asp-for="ClinicalParametersQd[0].SoreThroat">&nbsp;Sore Throat<br>
-                                    <input type="checkbox" asp-for="ClinicalParametersQd[0].Diarrhea">&nbsp;Diarrhea<br>
+                                    <input asp-for="Confusion">&nbsp;Confusion<br>
+                                    <input asp-for="BluishLips">&nbsp;Bluish Lips<br>
+                                    <input asp-for="BluishFingers">&nbsp;Bluish Fingers<br>
+                                    <input asp-for="MentalDistress">&nbsp;Signs of Mental Distress<br>
+                                    <input asp-for="SoreThroat">&nbsp;Sore Throat<br>
+                                    <input asp-for="Diarrhea">&nbsp;Diarrhea<br>
                                     <div class="row" style="padding:10px">
                                         <input type="checkbox"> &nbsp; Others &nbsp;&nbsp;
-                                        <input type="text" asp-for="ClinicalParametersQd[0].OtherDetails" placeholder="Please specify">
+                                        <input type="text" asp-for="OtherDetails" placeholder="Please specify">
                                     </div>
                                 </div>
                             </div>
@@ -78,8 +84,8 @@
                             <div class="row">
                                 <label class="col-sm-6" style="font-size:medium;font-weight:500;padding:10px">Does Maintenance Medication Taken?</label>
                                 <div class="row" style="padding:10px">
-                                    <input type="radio" asp-for="ClinicalParametersQd[0].MedsTaken" value="true">&nbsp;Yes&nbsp;&nbsp;
-                                    <input type="radio" asp-for="ClinicalParametersQd[0].MedsTaken" value="false">&nbsp;No
+                                    <input type="radio" asp-for="MedsTaken" value="true">&nbsp;Yes&nbsp;&nbsp;
+                                    <input type="radio" asp-for="MedsTaken" value="false" checked>&nbsp;No
                                 </div>
                             </div>
                         </div>
@@ -88,9 +94,20 @@
                     <div class="row" style="padding:10px">
                         <label class="col-sm-4" style="font-size:medium;font-weight:500;padding:10px">Signature of Quarantine Doctor</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" asp-for="SignatureOfQd" />
+                            <select class="form-control" asp-for="SignatureOfQd" asp-items="ViewBag.Doctors">
+                                <option value="">Select Doctor</option>
+                            </select>
                         </div>
                     </div>
+
+                    @if (ViewBag.Errors != null)
+                    {
+                        <div class="row">
+                            <div class="col-sm-12 center" style="align-content:center">
+                                <span class="text-danger">Please input the required fields.</span>
+                            </div>
+                        </div>
+                    }
                     <!--SUBMIT BUTTON-->
                     <div class="col-sm-12" align="center" style="padding:10px">
                         <div class="col-sm-4" align="right">

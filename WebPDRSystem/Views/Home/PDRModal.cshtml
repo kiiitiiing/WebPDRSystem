@@ -1,14 +1,14 @@
 ﻿@model Pdr
 
+@{ 
+    
+}
+
 <style>
     .row{
         padding: 4px;
     }
 
-    @*
-    .modal-lg{
-        max-width: 60% !important;
-    }*@
 </style>
 
 <div class="modal fade" id="pdr-modal" style="font-size: 14px; font-weight:500;">
@@ -16,6 +16,10 @@
         <div class="modal-content clearfix">
             <div class="modal-header" align="center">
                 <h4>Case no. - @Model.CaseNumber | Bed no. - @Model.BedNumber</h4>
+
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
             <div class="modal-body">
                 <form asp-action="PDRModal">
@@ -53,7 +57,7 @@
                                         <i class="fas fa-plus"></i>
                                         &nbsp;Daily Monitoring Form
                                         <br />
-                                        (Quarantine doctor)
+                                        (Quarantine nurse)
                                     </a>
                                 </div>
                             </div>
@@ -126,7 +130,7 @@
                                 </div>
                                 <div class="col-sm-4">
                                     Gender:<br />
-                                    <input type="radio" id="male" asp-for="PatientNavigation.Gender" value="true" />
+                                    <input type="radio" id="male" asp-for="PatientNavigation.Gender" value="true" checked />
                                     <label for="male">Male</label>
                                     <input type="radio" id="female" asp-for="PatientNavigation.Gender" value="false" />
                                     <label for="male">Female</label>
@@ -171,9 +175,11 @@
                                     <input type="text" class="form-control" asp-for="PatientNavigation.Occupation" />
                                 </div>
                                 <div class="col-sm-4">
+                                    Nationality:
                                     <input type="text" class="form-control" asp-for="PatientNavigation.Nationality" />
                                 </div>
                                 <div class="col-sm-4">
+                                    Religion:
                                     <input type="text" class="form-control" asp-for="PatientNavigation.Religion" />
                                 </div>
                             </div>
@@ -291,6 +297,14 @@
                                     <textarea class="form-control" asp-for="SymptomsContacts.SymptomsOfPatient" rows="3"></textarea>
                                 </div>
                             </div>
+                            @if(ViewBag.Errors != null)
+                            {
+                                <div class="row">
+                                    <div class="col-sm-12 center" style="align-content:center">
+                                        <span class="text-danger">Please input the required fields.</span>
+                                    </div>
+                                </div>
+                            }
                         </div>
                     </div>
                     <br /><br />
@@ -312,7 +326,7 @@
 
 <script type="text/javascript">
     $(function () {
-        
+        console.log()
         $('.select2').select2({
             theme: 'bootstrap4'
         });

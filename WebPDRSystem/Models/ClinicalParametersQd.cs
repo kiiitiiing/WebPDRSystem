@@ -10,7 +10,7 @@ namespace WebPDRSystem.Models
     {
         [Key]
         public int Id { get; set; }
-        public DateTime DateChecked { get; set; }
+        public DateTime? DateChecked { get; set; }
         public bool NoSymptom { get; set; }
         public bool Fever { get; set; }
         [StringLength(50)]
@@ -23,7 +23,7 @@ namespace WebPDRSystem.Models
         public bool ChestPain { get; set; }
         public bool Confusion { get; set; }
         public bool BluishLipsOrFingers { get; set; }
-        public bool Maintenance { get; set; }
+        public int Maintenance { get; set; }
         public bool MedsTaken { get; set; }
         public bool MentalDistress { get; set; }
         public bool SoreThroat { get; set; }
@@ -32,9 +32,7 @@ namespace WebPDRSystem.Models
         public int? DailyMonitoringFormQdModelId { get; set; }
         [StringLength(255)]
         public string OtherDetails { get; set; }
-
-        [ForeignKey(nameof(DailyMonitoringFormQdModelId))]
-        [InverseProperty(nameof(Qdform.ClinicalParametersQd))]
-        public virtual Qdform DailyMonitoringFormQdModel { get; set; }
+        [Column("SignatureOfQD")]
+        public int SignatureOfQd { get; set; }
     }
 }

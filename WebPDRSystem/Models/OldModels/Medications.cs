@@ -15,8 +15,6 @@ namespace WebPDRSystem.Models.OldModels
         public DateTime MedTaken { get; set; }
         public int ClinicalParamQn { get; set; }
 
-        [ForeignKey(nameof(ClinicalParamQn))]
-        [InverseProperty(nameof(ClinicalParametersQn.Medications))]
         public virtual ClinicalParametersQn ClinicalParamQnNavigation { get; set; }
     }
 }

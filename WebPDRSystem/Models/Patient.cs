@@ -9,6 +9,7 @@ namespace WebPDRSystem.Models
     {
         public Patient()
         {
+            //Medications = new HashSet<Medications>();
             Pdr = new HashSet<Pdr>();
         }
 
@@ -19,6 +20,7 @@ namespace WebPDRSystem.Models
         public string Firstname { get; set; }
         [StringLength(50)]
         public string Middlename { get; set; }
+        [Required]
         [StringLength(50)]
         public string Lastname { get; set; }
         [Column(TypeName = "date")]
@@ -27,7 +29,7 @@ namespace WebPDRSystem.Models
         public bool Gender { get; set; }
         [StringLength(255)]
         public string ContactNumber { get; set; }
-        public int Barangay { get; set; }
+        public int? Barangay { get; set; }
         public int Muncity { get; set; }
         public int Province { get; set; }
         [StringLength(50)]
@@ -51,6 +53,8 @@ namespace WebPDRSystem.Models
         [ForeignKey(nameof(Province))]
         [InverseProperty("Patient")]
         public virtual Province ProvinceNavigation { get; set; }
+        [InverseProperty("Patient")]
+        public virtual List<Medications> Medications { get; set; }
         [InverseProperty("PatientNavigation")]
         public virtual ICollection<Pdr> Pdr { get; set; }
     }

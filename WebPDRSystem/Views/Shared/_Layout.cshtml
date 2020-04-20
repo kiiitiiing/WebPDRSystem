@@ -28,7 +28,8 @@
     <script src="~/assets/plugins/daterangepicker/daterangepicker.js"></script>
 
 </head>
-<body class="badge-light">
+<body class="badge-light" id="cover">
+    <div id="loading" hidden></div>
     <div id="placeholder"></div>
     <div id="daily_monitoring_form"></div>
     <header>
@@ -65,12 +66,21 @@
         </main>
     </div>
 
-    @*<footer class="border-top footer text-muted">
-        <div class="container">
-            &copy;2020 - WebPDRSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <div class="modal fade" id="loading">
+        <div class="modal-dialog modal-sm center">
+            <img src="~/img/loading.gif" style="height: 100px; width: 100px;" />
         </div>
-    </footer>*@
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy;2020 - WebPDRSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
 
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+<script>
+</script>

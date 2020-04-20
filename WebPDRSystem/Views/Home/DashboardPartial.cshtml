@@ -6,6 +6,19 @@
         var gender = item.PatientNavigation.Gender ? "Male" : "Female";
         var address = item.PatientNavigation.MuncityNavigation.Description;
         var admittingD = item.SymptomsContacts.SymptomsOfPatient.Length > 5 ? new string(item.SymptomsContacts.SymptomsOfPatient.Take(5).ToArray()) + "..." : item.SymptomsContacts.SymptomsOfPatient;
+        var qnformExists = item.Qnform.Count() == 0;
+        var vs = new string[] { "", "", "", "", "", "" };
+        if(item.Qnform.Count() != 0)
+        {
+            var qnform = item.Qnform.OrderByDescending(x=>x.DateChecked).First();
+            vs[0] = qnform.DateChecked.ToString();
+            vs[1] = qnform.Bp;
+            vs[2] = qnform.Hr;
+            vs[3] = qnform.Rr;
+            vs[4] = qnform.TypeOfFluid;
+            vs[5] = qnform.O2sat;
+        }
+
         <tr>
             <td class="text-center">@item.BedNumber</td>
             <td class="text-center">
@@ -18,12 +31,12 @@
             <td class="text-center">@item.PatientNavigation.MuncityNavigation.Description</td>
             <td class="text-center" title="@item.SymptomsContacts.SymptomsOfPatient">@admittingD</td>
             <td class="text-center">@item.DateOfAdmission.ToString("dd/MM/yy HH:mm")</td>
-            <td class="text-center"></td>
-            <td class="text-center">12</td>
-            <td class="text-center">21</td>
-            <td class="text-center">421</td>
-            <td class="text-center">24</td>
-            <td class="text-center">123</td>
+            <td class="text-center">@vs[0]</td>
+            <td class="text-center">@vs[1]</td>
+            <td class="text-center">@vs[2]</td>
+            <td class="text-center">@vs[3]</td>
+            <td class="text-center">@vs[4]</td>
+            <td class="text-center">@vs[5]</td>
             <td class="text-center"></td>
             <td class="text-center">pertinent PE</td>
             <td class="text-center">Request</td>

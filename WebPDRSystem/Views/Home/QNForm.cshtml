@@ -1,8 +1,5 @@
-﻿@model Qnform
+﻿@model QnformModel
 
-@{ 
-    var name = ViewBag.PatientName;
-}
 
 <div class="modal" id="QDFormModal">
     <div class="modal-dialog modal-lg" role="document">
@@ -12,20 +9,26 @@
                     <i class="fa fa-user-md"></i>
                     &nbsp;Daily Monitoring Form
                 </h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
             <div class="modal-body">
                 <form asp-action="QNForm">
-                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="PatientId" />
+                    <input type="hidden" asp-for="PdrId" />
+                    <input type="hidden" asp-for="PatientCode" />
+                    <input type="hidden" asp-for="Patientname" />
                     <!--PATIENT NAME-->
 
                     <div class="row" style="padding:5px">
                         <div class="col-sm-8">
                             <strong style="color: cornflowerblue;font-size:small;">Patient</strong><br />
-                            <strong style="color: crimson;font-size:large;padding:20px">@name</strong>
+                            <strong style="color: crimson;font-size:large;padding:20px">@Model.Patientname</strong>
                         </div>
                         <div class="col-sm-4">
                             <strong style="color: cornflowerblue;font-size:small;">Check-up date:</strong>
-                            <input class="form-control" style="font-size:medium;padding:18px" asp-for="ClinicalParametersQn[0].DateChecked" />
+                            <input class="form-control" style="font-size:medium;padding:18px" asp-for="DateChecked" />
                         </div>
                     </div>
 
@@ -34,44 +37,49 @@
                     <div class="row" style="padding:5px">
                         <div class="col-sm-3">
                             Blood Pressure:
-                            <input type="text" autofocus class="form-control" asp-for="ClinicalParametersQn[0].Bp" />
+                            <input type="text" class="form-control" asp-for="Bp" />
                         </div>
                         <div class="col-sm-3">
                             Heart Rate:
-                            <input type="text" autofocus class="form-control" asp-for="ClinicalParametersQn[0].Hr" />
+                            <input type="text" class="form-control" asp-for="Hr" />
                         </div>
                         <div class="col-sm-3">
                             Respiratory Rate:
-                            <input type="text" autofocus class="form-control" asp-for="ClinicalParametersQn[0].Rr" />
+                            <input type="text" class="form-control" asp-for="Rr" />
                         </div>
                         <div class="col-sm-3">
                             O2sat:
-                            <input type="text" autofocus class="form-control" asp-for="ClinicalParametersQn[0].O2sat" />
+                            <input type="text" class="form-control" asp-for="O2sat" />
                         </div>
                     </div>
 
                     <div class="row" style="padding:5px">
                         <div class="col-sm-3">
                             Type of IV Fluids:
-                            <input type="text" autofocus class="form-control" />
+                            <input type="text" class="form-control" asp-for="TypeOfFluid"/>
                         </div>
                         <div class="col-sm-3">
                             IV Rate:
-                            <input type="text" autofocus class="form-control" id="" placeholder="Rate" />
+                            <input type="text" class="form-control" asp-for="Ivrate" />
                         </div>
                         <div class="col-sm-3">
                             Time Fluid Started
-                            <input autofocus class="form-control" asp-for="ClinicalParametersQn[0].TimeFluidStarter" />
+                            <input class="form-control" asp-for="TimeFluidStarted" />
                         </div>
                         <div class="col-sm-3">
                             Time Fluid Changed
-                            <input type="text" autofocus class="form-control" asp-for="ClinicalParametersQn[0].TimeFluidChanged" />
+                            <input class="form-control" asp-for="TimeFluidChanged" />
                         </div>
                     </div>
 
                     <div class="row" style="padding:5px">
-                        <div class="col-sm-4">
-                            <input type="text" autofocus class="form-control" asp-for="ClinicalParametersQn[0].UrineOutput" />
+                        <div class="col-sm-6">
+                            Urine output:
+                            <input type="text" class="form-control" asp-for="UrineOutput" />
+                        </div>
+                        <div class="col-sm-6">
+                            Other details:
+                            <input type="text" class="form-control" asp-for="OtherDetails" />
                         </div>
                     </div>
                     <div class="row" style="padding:5px">
@@ -90,7 +98,7 @@
                                             <label style="font-size:medium;font-weight:500;padding:10px">Medicine</label>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label style="font-size:medium;font-weight:500;padding:10px">Does the medicine given?</label>
+                                            <label style="font-size:medium;font-weight:500;padding:10px">Is the medicine given?</label>
                                         </div>
                                         <div class="col-sm-2">
                                             <a class="btn btn-block btn-primary btn-sm" onclick="addRow();">
@@ -99,21 +107,41 @@
                                             </a>
                                         </div>
                                     </div>
-                                    @for (int x = 0; x < Model.ClinicalParametersQn[0].Medications.Count(); x++)
-                                    {
-                                        if (x == Model.ClinicalParametersQn[0].Medications.Count() - 1)
+                                    <div class="med_add">
+                                        @*if (Model.Medications.Count() == 0)
                                         {
-                                            <input id="lastval" value="@x" hidden />
+                                            Model.Medications.Add(new Medications());
+                                            <div class="row med_row_0" style="padding:5px">
+                                                <div class="col-sm-6 medname">
+                                                    <input type="text" asp-for="Medications[0].MedName" class="form-control" placeholder="Medicine" />
+                                                </div>
+                                                <div class="col-sm-6 medtaken">
+                                                    <input type="radio" id="Yes" asp-for="Medications[0].MedTaken" value="true" checked />
+                                                    <label for="Yes">Yes</label>
+                                                    <input type="radio" id="No" asp-for="Medications[0].MedTaken" value="false" />
+                                                    <label for="Yes">No</label>
+                                                </div>
+                                            </div>
                                         }
-                                        <div class="row" style="padding:5px">
-                                            <div class="col-sm-6 medname">
-                                                <input type="text" asp-for="ClinicalParametersQn[0].Medications[x].MedName" class="form-control" placeholder="Medicine" />
-                                            </div>
-                                            <div class="col-sm-6 medtaken">
-                                                <input class="form-control" asp-for="ClinicalParametersQn[0].Medications[x].MedTaken" />
-                                            </div>
-                                        </div>
-                                    }
+                                        else
+                                        {
+                                            for (int x = 0; x < Model.Medications.Count(); x++)
+                                            {
+                                                if (x == Model.Medications.Count() - 1)
+                                                {
+                                                    <input id="lastval" value="@x" hidden />
+                                                }
+                                                <div class="row med_row_@x" style="padding:5px">
+                                                    <div class="col-sm-6 medname">
+                                                        <input type="text" asp-for="Medications[x].MedName" class="form-control" placeholder="Medicine" />
+                                                    </div>
+                                                    <div class="col-sm-6 medtaken">
+                                                        <input class="form-control" asp-for="Medications[x].MedTaken" />
+                                                    </div>
+                                                </div>
+                                            }
+                                        }*@
+                                    </div>
                                 </fieldset>
                             </div>
                         </div>
@@ -122,10 +150,20 @@
                     <div class="row" style="padding:10px">
                         <label class="col-sm-4" style="font-size:medium;font-weight:500;padding:10px">Signature of Quarantine Nurse</label>
                         <div class="col-sm-8">
-                            <input type="text" autofocus class="form-control" id="QDoctor" placeholder="Signature of Quarantine Nurse" />
+                            <select class="form-control" asp-for="SignatureOfQn" asp-items="ViewBag.Nurses">
+                                <option value="">Select Nurse</option>
+                            </select>
                         </div>
                     </div>
 
+                    @if (ViewBag.Errors != null)
+                    {
+                        <div class="row">
+                            <div class="col-sm-12 center" style="align-content:center">
+                                <span class="text-danger">Please input the required fields.</span>
+                            </div>
+                        </div>
+                    }
                     <!--SUBMIT BUTTON-->
                     <div class="col-sm-12" align="center" style="padding:10px">
                         <div class="col-sm-4" align="right">
@@ -141,7 +179,6 @@
 <script type="text/javascript">
 
     var x = 0;
-    var time = $('#ClinicalParametersQn_0__Medications_0__MedTaken').val();
     $(function () {
         if ($('#lastval').val() > 0) {
             x = $('#lastval').val();
@@ -150,12 +187,75 @@
     function addRow() {
         x = +x + 1;
         //var time = $('#ClinicalParametersQn_0__Medications_0__MedTaken').val();
-        console.log(time);
-        $(".medname").append('<input type="text" class="form-control" placeholder="Medicine" data-val="true" data-val-length="The field MedName must be a string with a maximum length of 255." data-val-length-max="255" data-val-required="The MedName field is required." id="ClinicalParametersQn_0__Medications_'+x+'__MedName" maxlength="255" name="ClinicalParametersQn[0].Medications[' + x + '].MedName" value="">');
-        $(".medtaken").append('<input class="form-control" type="datetime-local" data-val="true" data-val-required="The MedTaken field is required." id="ClinicalParametersQn_0__Medications_'+x+'__MedTaken" name="ClinicalParametersQn[0].Medications[' + x + '].MedTaken" value="'+time+'" >');
+        
+        /*$(".med_add").append($('<div>', {
+            class: 'row med_row_' + x,
+            style: 'padding: 5px;',
+            html: '<div class="col-sm-6 medname"><input type="text" class="form-control" placeholder="Medicine" data-val="true" data-val-length="The field MedName must be a string with a maximum length of 255." data-val-length-max="255" data-val-required="The MedName field is required." id="ClinicalParametersQn_0__Medications_' + x + '__MedName" maxlength="255" name="Medications[' + x + '].MedName" value=""></div><div class="col-sm-6 medtaken"><input type="radio" id="Yes" value="true" checked="" data-val="true" data-val-required="The MedTaken field is required." name="Pdr.PatientNavigation.Medications[' + x + '].MedTaken"><label for="Yes">Yes</label><input type="radio" id="No" value="false" checked="checked" name="Pdr.PatientNavigation.Medications[' + x + '].MedTaken"><label for="No">No</label></div>',
 
-        //$('#medtaken').find('#ClinicalParametersQn_0__Medications_' + x + '__MedTaken').val(time);
+        }));*/
 
+        var medAdd = document.getElementsByClassName('med_add');
+
+        var div = document.createElement('div');
+        div.setAttribute('class', 'row');
+        div.setAttribute('style', 'padding: 5px;');
+
+        var divMedName = document.createElement('div');
+        divMedName.setAttribute('class', 'col-sm-6');
+        divMedName.setAttribute('id', 'medName');
+
+        var inMedName = document.createElement('input');
+        inMedName.setAttribute('class', 'form-control');
+        inMedName.setAttribute('placeholder', 'Medicine');
+        inMedName.setAttribute('data-val', 'true');
+        inMedName.setAttribute('data-val-length', 'The field MedName must be a string with a maximum length of 255.');
+        inMedName.setAttribute('data-val-length-max','255')
+        inMedName.setAttribute('data-val-required', 'The MedName field is required.');
+        inMedName.setAttribute('id', 'Medications_' + x + '__MedName');
+        inMedName.setAttribute('maxlength','255')
+        inMedName.setAttribute('name', 'Medications[' + x + '].MedName');
+
+
+
+        var divMedTaken = document.createElement('div');
+        divMedTaken.setAttribute('class', 'col-sm-6');
+        divMedTaken.setAttribute('id', 'medTaken');
+
+        var inMedTakenYes = document.createElement('input');
+        inMedTakenYes.setAttribute('type', 'radio');
+        inMedTakenYes.setAttribute('id', 'Yes');
+        inMedTakenYes.setAttribute('value', 'true');
+        inMedTakenYes.setAttribute('checked', '');
+        inMedTakenYes.setAttribute('data-val', 'true');
+        inMedTakenYes.setAttribute('data-val-required', 'The MedTaken field is required.');
+        inMedTakenYes.setAttribute('name', 'Pdr.PatientNavigation.Medications[' + x + '].MedTaken');
+
+        var inMedTakenNo = document.createElement('input');
+        inMedTakenNo.setAttribute('type', 'radio');
+        inMedTakenNo.setAttribute('id', 'No');
+        inMedTakenNo.setAttribute('value', 'false');
+        inMedTakenNo.setAttribute('checked', 'checked');
+        inMedTakenNo.setAttribute('name', 'Pdr.PatientNavigation.Medications[' + x + '].MedTaken');
+
+        var labelYes = document.createElement('label');
+        var ty = document.createTextNode('Yes');
+        labelYes.setAttribute('for', 'Yes');
+        labelYes.appendChild(ty);
+        var labelNo = document.createElement('label');
+        var tn = document.createTextNode('No');
+        labelNo.setAttribute('for', 'No');
+        labelNo.appendChild(tn);
+
+        divMedTaken.appendChild(inMedTakenYes);
+        divMedTaken.appendChild(labelYes);
+        divMedTaken.appendChild(inMedTakenNo);
+        divMedTaken.appendChild(labelNo);
+        
+        divMedName.appendChild(inMedName);
+        div.appendChild(divMedName);
+        div.appendChild(divMedTaken);
+        $('.med_add').append(div);
         event.preventDefault();
         console.log(x);
     }

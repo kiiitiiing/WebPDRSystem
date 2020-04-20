@@ -8,11 +8,6 @@ namespace WebPDRSystem.Models
     [Table("ClinicalParametersQN")]
     public partial class ClinicalParametersQn
     {
-        /*public ClinicalParametersQn()
-        {
-            Medications = new HashSet<Medications>();
-        }*/
-
         [Key]
         public int Id { get; set; }
         public DateTime DateChecked { get; set; }
@@ -33,16 +28,9 @@ namespace WebPDRSystem.Models
         [StringLength(255)]
         public string O2sat { get; set; }
         public DateTime TimeFluidStarter { get; set; }
-        [Required]
-        [StringLength(255)]
-        public string TimeFluidChanged { get; set; }
-        [Required]
+        public DateTime TimeFluidChanged { get; set; }
         [StringLength(255)]
         public string UrineOutput { get; set; }
-        [Required]
-        [Column("SignatureOfQN")]
-        [StringLength(255)]
-        public string SignatureOfQn { get; set; }
         [Required]
         [StringLength(255)]
         public string Meds { get; set; }
@@ -53,11 +41,7 @@ namespace WebPDRSystem.Models
         [Required]
         [StringLength(255)]
         public string OtherDetails { get; set; }
-
-        [ForeignKey(nameof(DailyMonitoringFormQnModelId))]
-        [InverseProperty(nameof(Qnform.ClinicalParametersQn))]
-        public virtual Qnform DailyMonitoringFormQnModel { get; set; }
-        [InverseProperty("ClinicalParamQnNavigation")]
-        public virtual List<Medications> Medications { get; set; }
+        [Column("SignatureOfQN")]
+        public int SignatureOfQn { get; set; }
     }
 }

@@ -9,8 +9,14 @@ $(function () {
         theme: 'bootstrap4'
     });
 
+    $('input').on('change', function () {
+        console.log('input changed');
+        $('input').removeClass('input-validation-error');
+    });
 
     var placeholderElement = $('#placeholder');
+
+    var dmf = $('#daily_monitoring_form');
 
     $('button[data-toggle="ajax-modal"]').click(function (event) {
         console.log("here")
@@ -37,9 +43,43 @@ $(function () {
         });
     });
 
+    dmf.on('click', 'button[data-save="modal"]', function (event) {
+        //Showload();
+        event.preventDefault();
+        var form = dmf.find('.modal').find('form');
+        var formId = dmf.find('.modal').attr('id');
+        var actionUrl = form.attr('action');
+        var dataToSend = form.serialize();
+        console.log(actionUrl);
+        $.post(actionUrl, dataToSend).done(function (data) {
+            $('.select2').select2({
+                theme: 'bootstrap4'
+            });
+            var newBody = $('.modal-body', data);
+            dmf.find('.modal-body').replaceWith(newBody);
+            Hideload();
+            var validation = $('span.text-danger').text();
+            if (validation == '') {
+                dmf.find('.modal').modal('hide');
+                if (formId == 'new-user') {
+                    dmf.find('.modal').modal('hide');
+                    //location.reload();
+                }
+                if (formId == 'view-user') {
+                    LoadIndex('');
+                    //location.reload();
+                }
+                if (formId == 'pdr-modal') {
+                    LoadDashboard('');
+                    //location.reload();
+                }
+            }
+        });
+    });
+
 
     placeholderElement.on('click', 'button[data-save="modal"]', function (event) {
-        console.log('here');
+        //Showload();
         event.preventDefault();
         var form = placeholderElement.find('.modal').find('form');
         var formId = placeholderElement.find('.modal').attr('id');
@@ -52,6 +92,7 @@ $(function () {
             });
             var newBody = $('.modal-body', data);
             placeholderElement.find('.modal-body').replaceWith(newBody);
+            Hideload();
             var validation = $('span.text-danger').text();
             if (validation == '') {
                 placeholderElement.find('.modal').modal('hide');
@@ -71,6 +112,16 @@ $(function () {
         });
     });
 })
+function Showload() {
+    $('#loading').removeAttr('hidden');
+}
+
+function Hideload() {
+    console.log('wtf?');
+    setTimeout(function () {
+        $('#loading').attr('hidden');
+    }, 1000);
+}
 
 function OpenForm(id, action) {
     var wat = $('#placeholder');
@@ -130,6 +181,7 @@ function LoadDashboard(search) {
         async: true,
         success: function (output) {
             $('#dashboard_table').html(output).fadeIn("slow");
+            Hideload();
         }
     });
 }

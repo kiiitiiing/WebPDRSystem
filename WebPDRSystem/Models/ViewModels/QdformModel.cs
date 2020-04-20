@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace WebPDRSystem.Models
+namespace WebPDRSystem.Models.ViewModels
 {
-    [Table("QDForm")]
-    public partial class Qdform
+    public partial class QdformModel
     {
-        [Key]
-        public int Id { get; set; }
+        public string PatientName { get; set; }
         [Required]
-        [StringLength(255)]
         public string Pdrcode { get; set; }
+        [Required]
         public int HealthCareBuddy { get; set; }
         public bool Fever { get; set; }
         public DateTime DateChecked { get; set; }
@@ -32,23 +31,10 @@ namespace WebPDRSystem.Models
         public bool MentalDistress { get; set; }
         public bool SoreThroat { get; set; }
         public bool Diarrhea { get; set; }
-        public int? DailyMonitoringForm { get; set; }
-        [Column(TypeName = "text")]
         public string OtherDetails { get; set; }
-        [Column("SignatureOfQD")]
+        [Required]
         public int SignatureOfQd { get; set; }
+        [Required]
         public int PdrId { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-
-        [ForeignKey(nameof(HealthCareBuddy))]
-        [InverseProperty(nameof(Pdrusers.QdformHealthCareBuddyNavigation))]
-        public virtual Pdrusers HealthCareBuddyNavigation { get; set; }
-        [ForeignKey(nameof(PdrId))]
-        [InverseProperty("Qdform")]
-        public virtual Pdr Pdr { get; set; }
-        [ForeignKey(nameof(SignatureOfQd))]
-        [InverseProperty(nameof(Pdrusers.QdformSignatureOfQdNavigation))]
-        public virtual Pdrusers SignatureOfQdNavigation { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace WebPDRSystem.Models
         public string Firstname { get; set; }
         [StringLength(255)]
         public string Middlename { get; set; }
+        [Required]
         [StringLength(255)]
         public string Lastname { get; set; }
         [StringLength(255)]

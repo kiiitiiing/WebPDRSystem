@@ -13,6 +13,7 @@ using System.IO;
 using System.Drawing;
 using Microsoft.EntityFrameworkCore;
 using RequestSizeLimitAttribute = WebPDRSystem.Helpers.RequestSizeLimitAttribute;
+using WebPDRSystem.Models.ViewModels;
 
 namespace WebPDRSystem.Controllers
 {
@@ -41,7 +42,8 @@ namespace WebPDRSystem.Controllers
             var pdrs = _context.Pdr
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
                 .Include(x => x.SymptomsContacts)
-                .OrderByDescending(x=>x.DateOfAdmission);
+                .Include(x=>x.Qnform)
+                .OrderByDescending(x=>x.UpdatedAt);
             ViewBag.Total = pdrs.Count();
 
             return PartialView(await pdrs.ToListAsync());
@@ -50,80 +52,155 @@ namespace WebPDRSystem.Controllers
         #region QN FORM
         public IActionResult QNForm(int id)
         {
-            var pdr = _context.Pdr.Include(x => x.PatientNavigation).SingleOrDefault(x => x.Id == id);
-            ViewBag.PatientName = pdr.PatientNavigation.Firstname + " " + pdr.PatientNavigation.Middlename + " " + pdr.PatientNavigation.Lastname;
-            ViewBag.Code = pdr.Pdrcode;
+            var pdr = _context.Pdr
+                .Include(x => x.PatientNavigation)
+                    .ThenInclude(x=>x.Medications)
+                .SingleOrDefault(x => x.Id == id);
+            ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname");
 
-            var form = _context.Qnform
-                .Include(x => x.ClinicalParametersQn)
-                .Where(x => x.PatientCode == pdr.Pdrcode)
-                .OrderByDescending(x => x.UpdatedAt)
-                .SingleOrDefault();
-            
-
-            if(form == null)
+            var form = new QnformModel
             {
-                form = new Qnform
-                {
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
-                    ClinicalParametersQn = new List<ClinicalParametersQn>
-                    {
-                        new ClinicalParametersQn
-                        {
-                            DateChecked = DateTime.Now,
-                            TimeFluidStarter = DateTime.Now,
-                            TimeFluidChanged = DateTime.Now.ToString(),
-                            Medications = new List<Medications>
-                            {
-                                new Medications
-                                {
-                                    MedTaken = DateTime.Now
-                                }
-                            }
-                        }
-                    }
-                };
-            }
+                PdrId = pdr.Id,
+                PatientCode = pdr.Pdrcode,
+                Patientname = pdr.PatientNavigation.Firstname+" "+ pdr.PatientNavigation.Middlename + " " + pdr.PatientNavigation.Lastname,
+                DateChecked = DateTime.Now,
+                Medications = new List<Medications>(),
+                PatientId = (int)pdr.Patient
+            };
 
             return PartialView(form);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> QNForm(Qnform model)
+        public async Task<IActionResult> QNForm(QnformModel model)
         {
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
-                _context.Add(model);
+                if(model.Medications != null)
+                {
+                    foreach(var item in AddMedication(model))
+                    {
+                        _context.Add(item);
+                    }
+                }
+                var qnform = SetQNForm(model);
+                _context.Entry(qnform).State = EntityState.Added;
                 await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Dashboard));
             }
+
+            ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname",model.SignatureOfQn);
+            ViewBag.Errors = errors;
             return PartialView(model);
+        }
+
+        public List<Medications> AddMedication(QnformModel model)
+        {
+            foreach(var item in model.Medications)
+            {
+                item.PatientId = model.PatientId;
+                item.CreatedAt = model.DateChecked;
+            }
+
+            return model.Medications;
+        }
+
+        public Qnform SetQNForm(QnformModel model)
+        {
+            var qnform = new Qnform
+            {
+                DateChecked = model.DateChecked,
+                Bp = model.Bp,
+                Hr = model.Hr,
+                Rr = model.Rr,
+                O2sat = model.O2sat,
+                Ivrate = model.Ivrate,
+                TypeOfFluid = model.TypeOfFluid,
+                TimeFluidStarted = model.TimeFluidStarted,
+                TimeFluidChanged = model.TimeFluidChanged,
+                UrineOutput = model.UrineOutput,
+                Meds = model.Meds,
+                Enumerate = model.Enumerate,
+                PdrId = model.PdrId,
+                OtherDetails = model.OtherDetails,
+                SignatureOfQn = model.SignatureOfQn,
+                PatientCode = model.PatientCode,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
+            };
+
+            return qnform;
         }
         #endregion
         #region QD FORM
         public IActionResult QDForm(int id)
         {
             var pdr = _context.Pdr.Include(x=>x.PatientNavigation).SingleOrDefault(x => x.Id == id);
-            ViewBag.PatientName = pdr.PatientNavigation.Firstname + " " + pdr.PatientNavigation.Middlename + " " + pdr.PatientNavigation.Lastname;
-            ViewBag.Code = pdr.Pdrcode;
             ViewBag.HCBuddies = new SelectList(Gethcb(), "Id", "Fullname");
-            return PartialView();
+            ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname");
+
+            var form = new QdformModel
+            {
+                PdrId = pdr.Id,
+                PatientName = pdr.PatientNavigation.Firstname + " " + pdr.PatientNavigation.Middlename + " " + pdr.PatientNavigation.Lastname,
+                Pdrcode = pdr.Pdrcode,
+                DateChecked = DateTime.Now
+            };
+
+            return PartialView(form);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> QDForm(Qdform model)
+        public async Task<IActionResult> QDForm(QdformModel model)
         {
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             if(ModelState.IsValid)
             {
-                model.CreatedAt = DateTime.Now;
-                model.UpdatedAt = DateTime.Now;
-                _context.Add(model);
+                var pdr = _context.Pdr.Find(model.PdrId);
+                pdr.UpdatedAt = DateTime.Now;
+                _context.Update(pdr);
+                _context.Add(AddQdForm(model));
                 await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Dashboard));
             }
             ViewBag.HCBuddies = new SelectList(Gethcb(), "Id", "Fullname", model.HealthCareBuddy);
+            ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname",model.SignatureOfQd);
+            ViewBag.Errors = errors;
             return PartialView(model);
+        }
+
+        public Qdform AddQdForm(QdformModel model)
+        {
+            var form = new Qdform
+            {
+                Pdrcode = model.Pdrcode,
+                HealthCareBuddy = model.HealthCareBuddy,
+                Fever = model.Fever,
+                DateChecked = model.DateChecked,
+                Temperature = model.Temperature,
+                Cough = model.Cough,
+                Colds = model.Colds,
+                Breathing = model.Breathing,
+                BodyMuscleJointPain = model.BodyMuscleJointPain,
+                Headache = model.Headache,
+                ChestPain = model.ChestPain,
+                Confusion = model.Confusion,
+                BluishLips = model.BluishLips,
+                BluishFingers = model.BluishFingers,
+                Maintenance = model.Maintenance,
+                MedsTaken = model.MedsTaken,
+                MentalDistress = model.MentalDistress,
+                SoreThroat = model.SoreThroat,
+                Diarrhea = model.Diarrhea,
+                OtherDetails = model.OtherDetails,
+                SignatureOfQd = model.SignatureOfQd,
+                PdrId = model.PdrId,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
+            };
+
+            return form;
         }
         #endregion
 
@@ -132,19 +209,19 @@ namespace WebPDRSystem.Controllers
             public int Id { get; set; }
             public string Fullname { get; set; }
         }
-
-        public List<SelectUsers> GetDocNurse()
+        public List<SelectUsers> GetDoctors()
         {
             var users = _context.Pdrusers
-                .Where(x => x.Team == 1 && x.Role != "Healthcare Buddy")
+                .Where(x => x.Team == 1 && x.Role == "Doctor")
                 .Select(x => new SelectUsers
                 {
                     Id = x.Id,
-                    Fullname = x.Role == "Doctor" ? "Dr. " + x.Firstname + " " + x.Lastname : x.Firstname + " " + x.Lastname
+                    Fullname = x.Firstname + " " + x.Lastname
                 });
 
             return users.ToList();
         }
+
         public List<SelectUsers> Gethcb()
         {
             var users = _context.Pdrusers
@@ -220,7 +297,7 @@ namespace WebPDRSystem.Controllers
             ViewBag.ProvincesG = new SelectList(_context.Province, "Id", "Description", model.GuardianNavigation.Province);
             ViewBag.MuncityG = new SelectList(_context.Muncity.Where(x => x.ProvinceId == model.GuardianNavigation.Province), "Id", "Description", model.GuardianNavigation.Muncity);
             ViewBag.BarangayG = new SelectList(_context.Barangay.Where(x => x.ProvinceId == model.GuardianNavigation.Province && x.MuncityId == model.GuardianNavigation.Muncity), "Id", "Description", model.GuardianNavigation.Barangay);
-
+            ViewBag.Errors = errors;
             return PartialView(model);
         }
 
@@ -237,7 +314,7 @@ namespace WebPDRSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [DisableRequestSizeLimit]
+        [RequestSizeLimit(valueCountLimit: 1073741824)]
         public async Task<IActionResult> AddPatient( Pdr model)
         {
             var errors = ModelState.Values.SelectMany(v => v.Errors);
@@ -297,6 +374,31 @@ namespace WebPDRSystem.Controllers
             {
                 return base64;
             }
+        }
+        public List<SelectUsers> GetNurses()
+        {
+            var users = _context.Pdrusers
+                .Where(x => x.Team == 1 && x.Role == "Nurse")
+                .Select(x => new SelectUsers
+                {
+                    Id = x.Id,
+                    Fullname = x.Firstname + " " + x.Lastname
+                });
+
+            return users.ToList();
+        }
+
+        public List<SelectUsers> GetDocNurse()
+        {
+            var users = _context.Pdrusers
+                .Where(x => x.Team == 1 && x.Role != "Healthcare Buddy")
+                .Select(x => new SelectUsers
+                {
+                    Id = x.Id,
+                    Fullname = x.Role == "Doctor" ? "Dr. " + x.Firstname + " " + x.Lastname : x.Firstname + " " + x.Lastname
+                });
+
+            return users.ToList();
         }
         #endregion
     }

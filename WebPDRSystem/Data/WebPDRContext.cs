@@ -60,11 +60,6 @@ namespace WebPDRSystem.Data
                 entity.Property(e => e.OtherDetails).IsUnicode(false);
 
                 entity.Property(e => e.Temperature).IsUnicode(false);
-
-                entity.HasOne(d => d.DailyMonitoringFormQdModel)
-                    .WithMany(p => p.ClinicalParametersQd)
-                    .HasForeignKey(d => d.DailyMonitoringFormQdModelId)
-                    .HasConstraintName("FK_ClinicalParametersQD_QDFormTable_DailyMonitoringFormQD_ModelId");
             });
 
             modelBuilder.Entity<ClinicalParametersQn>(entity =>
@@ -85,16 +80,7 @@ namespace WebPDRSystem.Data
 
                 entity.Property(e => e.Rr).IsUnicode(false);
 
-                entity.Property(e => e.SignatureOfQn).IsUnicode(false);
-
-                entity.Property(e => e.TimeFluidChanged).IsUnicode(false);
-
                 entity.Property(e => e.UrineOutput).IsUnicode(false);
-
-                entity.HasOne(d => d.DailyMonitoringFormQnModel)
-                    .WithMany(p => p.ClinicalParametersQn)
-                    .HasForeignKey(d => d.DailyMonitoringFormQnModelId)
-                    .HasConstraintName("FK_ClinicalParametersQN_QNFormTable_DailyMonitoringFormQN_ModelId");
             });
 
             modelBuilder.Entity<Discharge>(entity =>
@@ -141,11 +127,11 @@ namespace WebPDRSystem.Data
             {
                 entity.Property(e => e.MedName).IsUnicode(false);
 
-                entity.HasOne(d => d.ClinicalParamQnNavigation)
+                entity.HasOne(d => d.Patient)
                     .WithMany(p => p.Medications)
-                    .HasForeignKey(d => d.ClinicalParamQn)
+                    .HasForeignKey(d => d.PatientId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Medications_ClinicalParametersQN");
+                    .HasConstraintName("FK_Medications_Patient");
             });
 
             modelBuilder.Entity<Muncity>(entity =>
@@ -184,7 +170,6 @@ namespace WebPDRSystem.Data
                 entity.HasOne(d => d.BarangayNavigation)
                     .WithMany(p => p.Patient)
                     .HasForeignKey(d => d.Barangay)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Patient_Barangay");
 
                 entity.HasOne(d => d.MuncityNavigation)
@@ -280,18 +265,62 @@ namespace WebPDRSystem.Data
             {
                 entity.HasIndex(e => e.HealthCareBuddy);
 
-                entity.Property(e => e.PatientCode).IsUnicode(false);
+                entity.Property(e => e.Pdrcode).IsUnicode(false);
+
+                entity.Property(e => e.Temperature).IsUnicode(false);
 
                 entity.HasOne(d => d.HealthCareBuddyNavigation)
-                    .WithMany(p => p.Qdform)
+                    .WithMany(p => p.QdformHealthCareBuddyNavigation)
                     .HasForeignKey(d => d.HealthCareBuddy)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_QDFormTable_PDRUsers");
+
+                entity.HasOne(d => d.Pdr)
+                    .WithMany(p => p.Qdform)
+                    .HasForeignKey(d => d.PdrId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_QDForm_PDR");
+
+                entity.HasOne(d => d.SignatureOfQdNavigation)
+                    .WithMany(p => p.QdformSignatureOfQdNavigation)
+                    .HasForeignKey(d => d.SignatureOfQd)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_QDForm_PDRUsers");
             });
 
             modelBuilder.Entity<Qnform>(entity =>
             {
+                entity.Property(e => e.Bp).IsUnicode(false);
+
+                entity.Property(e => e.Enumerate).IsUnicode(false);
+
+                entity.Property(e => e.Hr).IsUnicode(false);
+
+                entity.Property(e => e.Ivrate).IsUnicode(false);
+
+                entity.Property(e => e.Meds).IsUnicode(false);
+
+                entity.Property(e => e.O2sat).IsUnicode(false);
+
                 entity.Property(e => e.PatientCode).IsUnicode(false);
+
+                entity.Property(e => e.Rr).IsUnicode(false);
+
+                entity.Property(e => e.TypeOfFluid).IsUnicode(false);
+
+                entity.Property(e => e.UrineOutput).IsUnicode(false);
+
+                entity.HasOne(d => d.Pdr)
+                    .WithMany(p => p.Qnform)
+                    .HasForeignKey(d => d.PdrId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_QNForm_PDR");
+
+                entity.HasOne(d => d.SignatureOfQnNavigation)
+                    .WithMany(p => p.Qnform)
+                    .HasForeignKey(d => d.SignatureOfQn)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_QNForm_PDRUsers");
             });
 
             modelBuilder.Entity<Referral>(entity =>
