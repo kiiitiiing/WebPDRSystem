@@ -141,7 +141,7 @@
                                 <div class="col-sm-4">
                                     <input type="hidden" asp-for="PatientNavigation.Province" />
                                     Province:
-                                    <select asp-for="PatientNavigation.Province" asp-items="ViewBag.ProvincesP" title="Patient province" class="form-control col-sm-12" style="padding:5px" disabled>
+                                    <select asp-for="PatientNavigation.Province" id="patientProvince" asp-items="ViewBag.ProvincesP" title="Patient province" class="form-control col-sm-12" style="padding:5px" disabled>
                                     </select>
                                 </div>
                                 <div class="col-sm-4">
@@ -214,7 +214,7 @@
                                 <input asp-for="GuardianNavigation.Province" value="2" type="hidden" />
                                 <div class="col-sm-4">
                                     Province:
-                                    <select asp-for="GuardianNavigation.Province" asp-items="ViewBag.ProvincesG" title="Guardian province" class="form-control" style="padding:5px" disabled>
+                                    <select asp-for="GuardianNavigation.Province" id="guardianProvince" asp-items="ViewBag.ProvincesG" title="Guardian province" class="form-control" style="padding:5px" disabled>
                                     </select>
                                 </div>
                                 <div class="col-sm-4">
@@ -234,7 +234,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     Address:
-                                    <input type="text" class="form-control" asp-for="PatientNavigation.Address" placeholder="Village/Subdivision/Street/Block number" />
+                                    <input type="text" class="form-control" asp-for="GuardianNavigation.Address" placeholder="Village/Subdivision/Street/Block number" />
                                 </div>
                             </div>
 

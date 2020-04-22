@@ -107,41 +107,44 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="med_add">
-                                        @*if (Model.Medications.Count() == 0)
-                                        {
-                                            Model.Medications.Add(new Medications());
-                                            <div class="row med_row_0" style="padding:5px">
-                                                <div class="col-sm-6 medname">
-                                                    <input type="text" asp-for="Medications[0].MedName" class="form-control" placeholder="Medicine" />
-                                                </div>
-                                                <div class="col-sm-6 medtaken">
-                                                    <input type="radio" id="Yes" asp-for="Medications[0].MedTaken" value="true" checked />
-                                                    <label for="Yes">Yes</label>
-                                                    <input type="radio" id="No" asp-for="Medications[0].MedTaken" value="false" />
-                                                    <label for="Yes">No</label>
-                                                </div>
-                                            </div>
-                                        }
-                                        else
-                                        {
-                                            for (int x = 0; x < Model.Medications.Count(); x++)
+                                    @{ 
+                                        Model.Medications.Add(new Medications());
+                                        <div class="med_add">
+                                            @*if (Model.Medications.Count() == 0)
                                             {
-                                                if (x == Model.Medications.Count() - 1)
-                                                {
-                                                    <input id="lastval" value="@x" hidden />
-                                                }
-                                                <div class="row med_row_@x" style="padding:5px">
+                                                Model.Medications.Add(new Medications());
+                                                <div class="row med_row_0" style="padding:5px">
                                                     <div class="col-sm-6 medname">
-                                                        <input type="text" asp-for="Medications[x].MedName" class="form-control" placeholder="Medicine" />
+                                                        <input type="text" asp-for="Medications[0].MedName" class="form-control" placeholder="Medicine" />
                                                     </div>
                                                     <div class="col-sm-6 medtaken">
-                                                        <input class="form-control" asp-for="Medications[x].MedTaken" />
+                                                        <input type="radio" id="Yes" asp-for="Medications[0].MedTaken" value="true" checked />
+                                                        <label for="Yes">Yes</label>
+                                                        <input type="radio" id="No" asp-for="Medications[0].MedTaken" value="false" />
+                                                        <label for="Yes">No</label>
                                                     </div>
                                                 </div>
                                             }
-                                        }*@
-                                    </div>
+                                            else
+                                            {
+                                                for (int x = 0; x < Model.Medications.Count(); x++)
+                                                {
+                                                    if (x == Model.Medications.Count() - 1)
+                                                    {
+                                                        <input id="lastval" value="@x" hidden />
+                                                    }
+                                                    <div class="row med_row_@x" style="padding:5px">
+                                                        <div class="col-sm-6 medname">
+                                                            <input type="text" asp-for="Medications[x].MedName" class="form-control" placeholder="Medicine" />
+                                                        </div>
+                                                        <div class="col-sm-6 medtaken">
+                                                            <input class="form-control" asp-for="Medications[x].MedTaken" />
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }*@
+                                        </div>
+                                    }
                                 </fieldset>
                             </div>
                         </div>
@@ -185,7 +188,6 @@
         }
     })
     function addRow() {
-        x = +x + 1;
         //var time = $('#ClinicalParametersQn_0__Medications_0__MedTaken').val();
         
         /*$(".med_add").append($('<div>', {
@@ -257,6 +259,9 @@
         div.appendChild(divMedTaken);
         $('.med_add').append(div);
         event.preventDefault();
+        
         console.log(x);
+        
+        x = +x + 1;
     }
 </script>

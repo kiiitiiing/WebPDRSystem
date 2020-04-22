@@ -77,12 +77,12 @@
                     </select>
                 </div>
                 <div class="col-sm-4">
-                    <select id="patient_muncity" asp-for="PatientNavigation.Muncity" asp-items="ViewBag.MuncityP" title="Patient City/Municipality" class="form-control select2 col-sm-12" style="padding:5px" onchange="SetBarangay('1'); ToggleAddress();">
+                    <select id="patient_muncity" asp-for="PatientNavigation.Muncity" asp-items="ViewBag.MuncityP" title="Patient City/Municipality" class="form-control select2 col-sm-12" style="padding:5px" required onchange="SetBarangay('1'); ToggleAddress();">
                         <option value="">Select City/Municipaliy</option>
                     </select>
                 </div>
                 <div class="col-sm-4">
-                    <select id="patient_barangay" asp-for="PatientNavigation.Barangay" title="Patient Barangay" onchange="ToggleAddress();" class="form-control select2 col-sm-12" style="padding:5px">
+                    <select id="patient_barangay" asp-for="PatientNavigation.Barangay" asp-items="ViewBag.BarangayP" title="Patient Barangay" onchange="ToggleAddress();" class="form-control select2 col-sm-12" required style="padding:5px">
                         <option value="">Select Barangay</option>
                     </select>
                 </div>
@@ -134,12 +134,12 @@
                     </select>
                 </div>
                 <div class="col-sm-4">
-                    <select id="guardian_muncity" asp-for="GuardianNavigation.Muncity" asp-items="ViewBag.MuncityG" title="Guardian City/Municipality" class="form-control select2 col-sm-12" style="padding:5px" onchange="SetBarangay('2');">
+                    <select id="guardian_muncity" asp-for="GuardianNavigation.Muncity" asp-items="ViewBag.MuncityG" title="Guardian City/Municipality" class="form-control select2 col-sm-12" style="padding:5px" onchange="SetBarangay('2');" required>
                         <option>Select City/Municipaliy</option>
                     </select>
                 </div>
                 <div class="col-sm-4">
-                    <select id="guardian_barangay" asp-for="GuardianNavigation.Barangay" title="Guardian Barangay" class="form-control select2 col-sm-12" style="padding:5px">
+                    <select id="guardian_barangay" asp-for="GuardianNavigation.Barangay" asp-items="ViewBag.BarangayG" title="Guardian Barangay" class="form-control select2 col-sm-12" style="padding:5px" required>
                         <option>Select Barangay</option>
                     </select>
                 </div>
@@ -199,12 +199,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-4">
 
                 </div>
                 <div class="col-md-4">
                     <input type="hidden" asp-for="SymptomsContacts.SymptomsOfPatient" value="none" />
-                    <fieldset id="list_symptoms" align="center" style="border-color:black; width: 100%; border:double; padding:10px" onchange="ListSymptoms();">
+                    <fieldset id="list_symptoms" style="border-color:black; width: 100%; border:double; padding:10px" onchange="ListSymptoms();">
                         <legend style="font-size:medium;text-align:center">Symptoms of patients on admission</legend>
                         <input type="checkbox" name="symptoms" id="cough" value="cough">Cough<br>
                         <input type="checkbox" name="symptoms" id="colds" value="colds">Colds<br>
@@ -215,29 +215,36 @@
                     </fieldset>
                 </div>
                 <div class="col-md-4">
-                    <input type="hidden" id="imgb64" asp-for="PatientNavigation.Picture" />
-                    <img id="cur-pic" class="img-circle center" src="~/img/defaultPic.png" style=" height: 150px; width:150px;" alt="User picture">
-                    <input type="file" placeholder="Open" onchange="ChangePhoto(this);" class="form-control" />
-                </div>
-                <div class="col-md-2">
 
                 </div>
             </div>
-
-            <div class="form-group col-12" align="center" style="padding:15px;padding-top:20px">
-                <div class="col-sm-6">
-                    <select type="text" class="form-control select2" asp-for="InterviewedBy" asp-items="ViewBag.Users" required>
-                        <option>Select Doctor/Nurse</option>
-                    </select>
+            <div class="row">
+                <div class="form-group col-12" align="center" style="padding:15px;padding-top:20px">
+                    <div class="col-sm-6">
+                        <select type="text" class="form-control select2" asp-for="InterviewedBy" asp-items="ViewBag.Users">
+                            <option value="">Select Doctor/Nurse</option>
+                        </select>
+                    </div>
+                    <label class="col-sm-6 control-label">Name of Interviewer and Examiner</label>
                 </div>
-                <label class="col-sm-6 control-label">Name of Interviewer and Examiner</label>
             </div>
 
-            <div class="align-center" style="padding:10px">
-                <button class="btn btn-block btn-primary btn-lg fa-align-right" type="submit">
-                    <i class="fas fa-plus"></i>
-                    &nbsp;Add Patient
-                </button>
+            @if (ViewBag.Errors != null)
+            {
+                <div class="row">
+                    <div class="col-sm-12 center" style="align-content:center">
+                        <span class="text-danger">Please input the required fields.</span>
+                    </div>
+                </div>
+            }
+            <br /><br />
+            <div class="row">
+                <div class="col-md-6 center" style="padding:10px">
+                    <button class="btn btn-block btn-primary btn-lg" type="submit">
+                        <i class="fas fa-plus"></i>
+                        &nbsp;Add patient
+                    </button>
+                </div>
             </div>
         </form>
        

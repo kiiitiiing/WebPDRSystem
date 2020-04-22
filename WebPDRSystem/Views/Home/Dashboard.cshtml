@@ -22,7 +22,7 @@
                 <!-- SEARCH FORM-->
                 <div class="form-group form-inline">
                     <input type="text" name="searchDetail" class="form-control" placeholder="Search" id="searchDetail" onkeypress="" autofocus> <!--Input Name to Search-->
-                    <button class="btn btn-default searchPatient" id="searchbutton" onclick="showload();">
+                    <button class="btn btn-default searchPatient" id="searchbutton" onclick="SearchPatient();">
                         <i class="fa fa-search"></i> Search
                     </button>
                     <!--Search Button-->
@@ -73,8 +73,15 @@
     </div>
 </div>
 
-<script type="text/javascript">
+<script>
     $(function () {
         LoadDashboard('');
     })
+
+    function SearchPatient() {
+        var search = $('#searchDetail').val();
+        LoadDashboard(search);
+        $('#placeholder').empty();
+        $('#daily_monitoring_form').empty();
+    }
 </script>

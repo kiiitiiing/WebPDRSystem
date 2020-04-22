@@ -43,14 +43,18 @@ $(function () {
         });
     });
 
+    
+
     dmf.on('click', 'button[data-save="modal"]', function (event) {
         //Showload();
+        placeholderElement.empty();
         event.preventDefault();
+        event.stopImmediatePropagation();
         var form = dmf.find('.modal').find('form');
         var formId = dmf.find('.modal').attr('id');
         var actionUrl = form.attr('action');
         var dataToSend = form.serialize();
-        console.log(actionUrl);
+        console.log('1');
         $.post(actionUrl, dataToSend).done(function (data) {
             $('.select2').select2({
                 theme: 'bootstrap4'
@@ -62,15 +66,27 @@ $(function () {
             if (validation == '') {
                 dmf.find('.modal').modal('hide');
                 if (formId == 'new-user') {
-                    dmf.find('.modal').modal('hide');
+                    dmf.empty();
                     //location.reload();
                 }
                 if (formId == 'view-user') {
                     LoadIndex('');
+                    dmf.empty();
                     //location.reload();
                 }
                 if (formId == 'pdr-modal') {
                     LoadDashboard('');
+                    dmf.empty();
+                    //location.reload();
+                }
+                if (formId == 'QDFormModal') {
+                    LoadDashboard('');
+                    dmf.empty();
+                    //location.reload();
+                }
+                if (formId == 'QDFormModal') {
+                    LoadDashboard('');
+                    dmf.empty();
                     //location.reload();
                 }
             }
@@ -127,6 +143,7 @@ function OpenForm(id, action) {
     var wat = $('#placeholder');
     $('#pdr-modal').modal('hide');
     setTimeout(function () {
+        wat.empty();
         var placeholderElement = $('#daily_monitoring_form');
         var url = "/Home/" + action + "?id=" + id;
         console.log(url);

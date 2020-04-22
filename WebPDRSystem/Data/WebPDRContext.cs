@@ -205,7 +205,6 @@ namespace WebPDRSystem.Data
                 entity.HasOne(d => d.InterviewedByNavigation)
                     .WithMany(p => p.Pdr)
                     .HasForeignKey(d => d.InterviewedBy)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_PDR_PDRUsers");
 
                 entity.HasOne(d => d.PatientNavigation)

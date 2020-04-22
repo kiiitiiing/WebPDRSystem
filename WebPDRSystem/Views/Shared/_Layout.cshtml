@@ -22,53 +22,55 @@
     <script src="~/assets/datepicker/js/bootstrap-datepicker.min.js"></script>
 
     <script src="~/assets/lobibox/js/lobibox.js"></script>
-    <script type="text/javascript" src="~/assets/plugins/toastr/toastr.min.js"></script>
+    <script src="~/assets/plugins/toastr/toastr.min.js"></script>
     <script src="~/assets/plugins/select2/js/select2.full.min.js"></script>
     <script src="~/assets/plugins/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="~/assets/plugins/daterangepicker/daterangepicker.js"></script>
 
 </head>
-<body class="badge-light" id="cover">
-    <div id="loading" hidden></div>
+<body class="badge-light">
     <div id="placeholder"></div>
     <div id="daily_monitoring_form"></div>
     <header>
-        <div class="header" style="background-color:#2F4054;padding:10px;">
-            <div class="container">
-                <div class="fa-pull-left">
-                    <span class="title-desc" style="color:coral;font-weight:bold">Welcome,</span> <span class="title-desc" style="color:whitesmoke;font-weight:bold"> Romaine Lorena </span>
-                </div>
-                <div class="fa-pull-right">
-                    <span class="title-desc" style="color:coral;font-weight:bold">Date: </span><span class="title-desc" style="color:whitesmoke;font-weight:bold">@DateTime.Now</span>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="header" style="background-color:#59ab91;padding:5px;">
-            <div class="container">
-                <img src="~/img/Banner.png" class="card-img-top" />
-            </div>
-        </div>
-        <nav class="navbar navbar-expand-md navbar-light navbar-white custom-nav">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-                    <partial name="~/Views/Shared/Navbar/_navbarPartialView.cshtml" />
+        @if(User.Identity.IsAuthenticated)
+        {
+            <div class="header" style="background-color:#2F4054;padding:10px;">
+                <div class="container">
+                    <div class="fa-pull-left">
+                        <span class="title-desc" style="color:coral;font-weight:bold">Welcome,</span> <span class="title-desc" style="color:whitesmoke;font-weight:bold"> @User.FindFirstValue(ClaimTypes.GivenName) @User.FindFirstValue(ClaimTypes.Surname)  </span>
+                    </div>
+                    <div class="fa-pull-right">
+                        <span class="title-desc" style="color:coral;font-weight:bold">Date: </span><span class="title-desc" style="color:whitesmoke;font-weight:bold">@DateTime.Now</span>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
-        </nav>
+            <div class="header" style="background-color:#59ab91;padding:5px;">
+                <div class="container">
+                    <img src="~/img/Banner.png" class="card-img-top" alt="banner" />
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-md navbar-light navbar-white custom-nav">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                        <partial name="~/Views/Shared/Navbar/_navbarPartialView.cshtml" />
+                    </div>
+                </div>
+            </nav>
+        }
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main @*role="main"*@ class="pb-3">
             @RenderBody()
         </main>
     </div>
 
     <div class="modal fade" id="loading">
         <div class="modal-dialog modal-sm center">
-            <img src="~/img/loading.gif" style="height: 100px; width: 100px;" />
+            <img src="~/img/loading.gif" style="height: 100px; width: 100px;" alt="loading"/>
         </div>
     </div>
 
@@ -81,6 +83,3 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
-
-<script>
-</script>

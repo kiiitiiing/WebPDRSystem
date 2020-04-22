@@ -8,6 +8,7 @@
         var admittingD = item.SymptomsContacts.SymptomsOfPatient.Length > 5 ? new string(item.SymptomsContacts.SymptomsOfPatient.Take(5).ToArray()) + "..." : item.SymptomsContacts.SymptomsOfPatient;
         var qnformExists = item.Qnform.Count() == 0;
         var vs = new string[] { "", "", "", "", "", "" };
+        var nameClass = item.InterviewedBy == null ? "text-warning" : "text-primary";
         if(item.Qnform.Count() != 0)
         {
             var qnform = item.Qnform.OrderByDescending(x=>x.DateChecked).First();
@@ -22,15 +23,15 @@
         <tr>
             <td class="text-center">@item.BedNumber</td>
             <td class="text-center">
-                <a style="color:cornflowerblue;font-weight:bold; cursor: pointer;" onclick="ViewPdr('@item.Id');">
-                    @item.PatientNavigation.Firstname @item.PatientNavigation.Middlename @item.PatientNavigation.Lastname
+                <a class="@nameClass" style="font-weight:bold; cursor: pointer;" onclick="ViewPdr('@item.Id');">
+                    @item.PatientNavigation.GetFullName()
                 </a>
             </td>
             <td class="text-center">@item.PatientNavigation.Age</td>
             <td class="text-center">@gender</td>
             <td class="text-center">@item.PatientNavigation.MuncityNavigation.Description</td>
             <td class="text-center" title="@item.SymptomsContacts.SymptomsOfPatient">@admittingD</td>
-            <td class="text-center">@item.DateOfAdmission.ToString("dd/MM/yy HH:mm")</td>
+            <td class="text-center">@item.DateOfAdmission.ToString()</td>
             <td class="text-center">@vs[0]</td>
             <td class="text-center">@vs[1]</td>
             <td class="text-center">@vs[2]</td>
