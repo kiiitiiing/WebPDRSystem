@@ -7,17 +7,50 @@
         var address = item.PatientNavigation.MuncityNavigation.Description;
         var admittingD = item.SymptomsContacts.SymptomsOfPatient.Length > 5 ? new string(item.SymptomsContacts.SymptomsOfPatient.Take(5).ToArray()) + "..." : item.SymptomsContacts.SymptomsOfPatient;
         var qnformExists = item.Qnform.Count() == 0;
-        var vs = new string[] { "", "", "", "", "", "" };
+        var vs = new string[] { "", "", "", "", "", "","" };
         var nameClass = item.InterviewedBy == null ? "text-warning" : "text-primary";
+        Qnform qnform = null;
+        var sc = new List<string>();
         if(item.Qnform.Count() != 0)
         {
-            var qnform = item.Qnform.OrderByDescending(x=>x.DateChecked).First();
+            qnform = item.Qnform.OrderByDescending(x=>x.DateChecked).First();
             vs[0] = qnform.DateChecked.ToString();
             vs[1] = qnform.Bp;
             vs[2] = qnform.Hr;
             vs[3] = qnform.Rr;
             vs[4] = qnform.TypeOfFluid;
             vs[5] = qnform.O2sat;
+            vs[6] = qnform.Id.ToString();
+        }
+        if(item.Qdform.Count() != 0)
+        {
+            var qdform = item.Qdform.OrderByDescending(x => x.DateChecked).First();
+            if (qdform.Colds)
+                sc.Add("Colds");
+            if (qdform.Cough)
+                sc.Add("Cough");
+            if (qdform.Fever)
+                sc.Add("Fever");
+            if (qdform.Breathing)
+                sc.Add("Difficulty in breathing");
+            if (qdform.BodyMuscleJointPain)
+                sc.Add("Body/Muscle/Joint Pain");
+            if (qdform.Headache)
+                sc.Add("Headache");
+            if (qdform.Confusion)
+                sc.Add("Confusion");
+            if (qdform.BluishFingers)
+                sc.Add("Bluish fingers");
+            if (qdform.BluishLips)
+                sc.Add("Bluish lips");
+            if (qdform.MentalDistress)
+                sc.Add("Signs of mental distress");
+            if (qdform.SoreThroat)
+                sc.Add("Sore throat");
+            if (qdform.Diarrhea)
+                sc.Add("Diarrhea");
+            if (!string.IsNullOrEmpty(qdform.OtherDetails))
+                sc.Add(qdform.OtherDetails);
         }
 
         <tr>
@@ -32,16 +65,32 @@
             <td class="text-center">@item.PatientNavigation.MuncityNavigation.Description</td>
             <td class="text-center" title="@item.SymptomsContacts.SymptomsOfPatient">@admittingD</td>
             <td class="text-center">@item.DateOfAdmission.ToString()</td>
-            <td class="text-center">@vs[0]</td>
+            <td class="text-center" style="cursor: pointer;" onclick="OpenForm('@vs[6]','UpdateQnForm')">@vs[0]</td>
             <td class="text-center">@vs[1]</td>
             <td class="text-center">@vs[2]</td>
             <td class="text-center">@vs[3]</td>
             <td class="text-center">@vs[4]</td>
             <td class="text-center">@vs[5]</td>
-            <td class="text-center"></td>
+            <td class="text-center">
+            @if(item.Qdform.Count() != 0)
+            {
+                <select class="form-control" style="width: 190px;">
+                    <option>view complaints</option>
+                    @foreach (var subcom in sc)
+                    {
+                        <option >@subcom</option>
+                    }
+                </select>
+            }
+            else
+            {
+                <span>None</span>
+            }
+
+            </td>@*
             <td class="text-center">pertinent PE</td>
             <td class="text-center">Request</td>
-            <td class="text-center">result result</td>
+            <td class="text-center">result result</td>*@
             <td class="text-center">@item.Maintenance</td>
             <td class="text-center">@item.ReferringFacility</td>
             <td class="text-center">other remarks, many remarks</td>

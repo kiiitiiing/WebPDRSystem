@@ -1,0 +1,116 @@
+﻿@model Qnform
+
+
+<div class="modal" id="QDFormModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>
+                    <i class="fa fa-user-md"></i>
+                    &nbsp;Daily Monitoring Form
+                </h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="UpdateQnForm">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="PdrId" />
+                    <input type="hidden" asp-for="PatientCode" />
+                    <!--PATIENT NAME-->
+
+                    <div class="row" style="padding:5px">
+                        <div class="col-sm-8">
+                            <strong style="color: cornflowerblue;font-size:small;">Patient</strong><br />
+                            <strong style="color: crimson;font-size:large;padding:20px">@Model.Pdr.PatientNavigation.GetFullName()</strong>
+                        </div>
+                        <div class="col-sm-4">
+                            <strong style="color: cornflowerblue;font-size:small;">Check-up date:</strong>
+                            <input class="form-control" style="font-size:medium;padding:18px" asp-for="DateChecked" />
+                        </div>
+                    </div>
+
+                    <!--Clinical Parameters-->
+                    <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Clinical Parameters</strong></div>
+                    <div class="row" style="padding:5px">
+                        <div class="col-sm-3">
+                            Blood Pressure:
+                            <input type="text" class="form-control" asp-for="Bp" />
+                        </div>
+                        <div class="col-sm-3">
+                            Heart Rate:
+                            <input type="text" class="form-control" asp-for="Hr" />
+                        </div>
+                        <div class="col-sm-3">
+                            Respiratory Rate:
+                            <input type="text" class="form-control" asp-for="Rr" />
+                        </div>
+                        <div class="col-sm-3">
+                            O2sat:
+                            <input type="text" class="form-control" asp-for="O2sat" />
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding:5px">
+                        <div class="col-sm-3">
+                            Type of IV Fluids:
+                            <input type="text" class="form-control" asp-for="TypeOfFluid" />
+                        </div>
+                        <div class="col-sm-3">
+                            IV Rate:
+                            <input type="text" class="form-control" asp-for="Ivrate" />
+                        </div>
+                        <div class="col-sm-3">
+                            Time Fluid Started
+                            <input class="form-control" asp-for="TimeFluidStarted" />
+                        </div>
+                        <div class="col-sm-3">
+                            Time Fluid Changed
+                            <input class="form-control" asp-for="TimeFluidChanged" />
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding:5px">
+                        <div class="col-sm-6">
+                            Urine output:
+                            <input type="text" class="form-control" asp-for="UrineOutput" />
+                        </div>
+                        <div class="col-sm-6">
+                            Other details:
+                            <input type="text" class="form-control" asp-for="OtherDetails" />
+                        </div>
+                    </div>
+                    <div class="row" style="padding:5px">
+
+                    </div>
+                    <!--MAINTENANCE MEDICATION & IF GIVEN-->
+                    <!--QUARANTINE NURSE-->
+                    <div class="row" style="padding:10px">
+                        <label class="col-sm-4" style="font-size:medium;font-weight:500;padding:10px">Signature of Quarantine Nurse</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" asp-for="SignatureOfQn" asp-items="ViewBag.Nurses">
+                                <option value="">Select Nurse</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    @if (ViewBag.Errors != null)
+                    {
+                        <div class="row">
+                            <div class="col-sm-12 center" style="align-content:center">
+                                <span class="text-danger">Please input the required fields.</span>
+                            </div>
+                        </div>
+                    }
+                    <!--SUBMIT BUTTON-->
+                    <div class="col-sm-12" align="center" style="padding:10px">
+                        <div class="col-sm-4" align="right">
+                            <button class="btn btn-block btn-primary btn-lg" data-save="modal">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

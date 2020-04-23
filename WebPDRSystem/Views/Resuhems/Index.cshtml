@@ -1,0 +1,31 @@
+﻿@model Pdr
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div class="col-md-12">
+
+        <!-- CARD START-->
+        <div class="card">
+            <!-- CARD DANGER HEADER -->
+            <div class="card-header"
+                <div>
+                    <h3 class="card-title">
+                        Added patients
+                    </h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="card-body">
+                @if(Model != null)
+                {
+                    <span>Patient @Model.PatientNavigation.GetFullName() was added.</span>
+                }
+                else
+                {
+                    <span>No patient added.</span>
+                }
+            </div>
+        </div>
+    </div>

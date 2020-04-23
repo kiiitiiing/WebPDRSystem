@@ -46,6 +46,7 @@ namespace WebPDRSystem.Controllers
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
                 .Include(x => x.SymptomsContacts)
                 .Include(x => x.Qnform)
+                .Include(x => x.Qdform)
                 .AsQueryable();
 
             if(!string.IsNullOrEmpty(search))
@@ -59,6 +60,40 @@ namespace WebPDRSystem.Controllers
         }
 
         #region QN FORM
+
+        public async Task<IActionResult> UpdateQnForm(int id)
+        {
+            var form = await _context.Qnform
+                .Include(x => x.Pdr)
+                    .ThenInclude(x => x.PatientNavigation)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname",form.SignatureOfQn);
+            return PartialView(form);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateQnForm(Qnform model)
+        {
+
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if (ModelState.IsValid)
+            {
+                var form = await _context.Qnform
+                    .FirstOrDefaultAsync(x => x.Id == model.Id);
+
+                _context.Entry(form).CurrentValues.SetValues(model);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Dashboard));
+            }
+
+            ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname", model.SignatureOfQn);
+            return PartialView(model);
+        }
+
+
         public IActionResult QNForm(int id)
         {
             var pdr = _context.Pdr
@@ -215,36 +250,6 @@ namespace WebPDRSystem.Controllers
         }
         #endregion
 
-        public partial class SelectUsers
-        {
-            public int Id { get; set; }
-            public string Fullname { get; set; }
-        }
-        public List<SelectUsers> GetDoctors()
-        {
-            var users = _context.Pdrusers
-                .Where(x => x.Team == 1 && x.Role == "Doctor")
-                .Select(x => new SelectUsers
-                {
-                    Id = x.Id,
-                    Fullname = x.Firstname + " " + x.Lastname
-                });
-
-            return users.ToList();
-        }
-
-        public List<SelectUsers> Gethcb()
-        {
-            var users = _context.Pdrusers
-                .Where(x => x.Team == 1 && x.Role == "Healthcare Buddy")
-                .Select(x => new SelectUsers
-                {
-                    Id = x.Id,
-                    Fullname = x.Firstname + " " + x.Lastname
-                });
-
-            return users.ToList();
-        }
 
         public async Task<IActionResult> PDRModal(int id)
         {
@@ -387,6 +392,36 @@ namespace WebPDRSystem.Controllers
         }
 
         #region HELPERS
+        public partial class SelectUsers
+        {
+            public int Id { get; set; }
+            public string Fullname { get; set; }
+        }
+        public List<SelectUsers> GetDoctors()
+        {
+            var users = _context.Pdrusers
+                .Where(x => x.Team == 1 && x.Role == "Doctor")
+                .Select(x => new SelectUsers
+                {
+                    Id = x.Id,
+                    Fullname = x.Firstname + " " + x.Lastname
+                });
+
+            return users.ToList();
+        }
+
+        public List<SelectUsers> Gethcb()
+        {
+            var users = _context.Pdrusers
+                .Where(x => x.Team == 1 && x.Role == "Healthcare Buddy")
+                .Select(x => new SelectUsers
+                {
+                    Id = x.Id,
+                    Fullname = x.Firstname + " " + x.Lastname
+                });
+
+            return users.ToList();
+        }
         public string SavePicture(string name, string base64)
         {
             string imageName = Guid.NewGuid() + name + ".jpg";

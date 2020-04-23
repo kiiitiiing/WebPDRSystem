@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using WebPDRSystem.Models.ViewModels;
+using System.Net;
 
 namespace WebPDRSystem.Controllers
 {
@@ -57,6 +58,31 @@ namespace WebPDRSystem.Controllers
             {
                 return NotFound();
             }
+        }
+
+        public async Task<IActionResult> NewNurseDoc()
+        {
+            var nurse = new Pdrusers
+            {
+                Username = "covidcenter_nurse",
+                Password = "cc_nursepassword",
+                Firstname = "Covid Center",
+                Middlename = "19",
+                Lastname = "Nurse",
+                Role = "Nurse",
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
+            };
+
+            if(await _userService.RegisterDoctorAsync(nurse))
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+
         }
 
         public async Task<IActionResult> NewUser()
@@ -106,7 +132,7 @@ namespace WebPDRSystem.Controllers
                 }
                 else if (User.FindFirstValue(ClaimTypes.Role).Equals("resuhems"))
                 {
-                    return RedirectToAction("Index", "Resuhems");
+                    return RedirectToAction("AddPatient", "Resuhems");
                 }
                 else
                     return NotFound();
@@ -137,7 +163,7 @@ namespace WebPDRSystem.Controllers
                     }
                     else if (user.Role.Equals("resuhems"))
                     {
-                        return RedirectToAction("Dashboard", "Resuhems");
+                        return RedirectToAction("AddPatient", "Resuhems");
                     }
                 }
                 else

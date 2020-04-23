@@ -140,19 +140,24 @@ function Hideload() {
 }
 
 function OpenForm(id, action) {
-    var wat = $('#placeholder');
-    $('#pdr-modal').modal('hide');
-    setTimeout(function () {
+    if (id != '') {
+        var wat = $('#placeholder');
         wat.empty();
-        var placeholderElement = $('#daily_monitoring_form');
-        var url = "/Home/" + action + "?id=" + id;
-        console.log(url);
-        $.get(url).done(function (data) {
-            placeholderElement.empty();
-            placeholderElement.html(data);
-            placeholderElement.find('.modal').modal('show');
-        });
-    }, 300);
+        $('#pdr-modal').modal('hide');
+        setTimeout(function () {
+            var placeholderElement = $('#daily_monitoring_form');
+            var url = "/Home/" + action + "?id=" + id;
+            console.log(url);
+            $.get(url).done(function (data) {
+                placeholderElement.empty();
+                placeholderElement.html(data);
+                placeholderElement.find('.modal').modal('show');
+            });
+        }, 300);
+    }
+    else {
+        console.log('No id');
+    }
 }
 
 function ChangePhoto(input,width,height) {
