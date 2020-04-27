@@ -60,6 +60,32 @@ namespace WebPDRSystem.Controllers
             }
         }
 
+        public async Task<IActionResult> NewDoc()
+        {
+            var nurse = new Pdrusers
+            {
+                Username = "covidcenter_doctor",
+                Password = "covid19_docpassword",
+                Firstname = "Covid Center",
+                Middlename = "19",
+                Lastname = "Doctor",
+                Role = "Nurse",
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
+            };
+
+            if (await _userService.RegisterDoctorAsync(nurse))
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
+
+
         public async Task<IActionResult> NewNurseDoc()
         {
             var nurse = new Pdrusers
@@ -276,7 +302,7 @@ namespace WebPDRSystem.Controllers
                 new Claim(ClaimTypes.Name, user.Username),
                 new Claim(ClaimTypes.GivenName, user.Firstname),
                 new Claim(ClaimTypes.Surname, user.Lastname),
-                new Claim(ClaimTypes.Role, user.Role)
+                new Claim(ClaimTypes.Role, user.Designation)
             };
 
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

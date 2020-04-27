@@ -1,0 +1,121 @@
+﻿@model Discharge
+
+
+<div class="modal" id="DischargedModal" autoscroll="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>
+                    <i class="fa fa-user-md"></i>
+                    &nbsp;Discharge
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--Case & Bed Number-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Discharge</strong></div>
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <p class="col-sm-5" style="font-size:medium;font-weight:bold" id="">Case Number: </p>
+                            <p class="col-sm-7" style="font-size:medium;font-weight:100" id="">PH161</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <p class="col-sm-5" style="font-size:medium;font-weight:bold" id="">Bed Number:</p>
+                            <p class="col-sm-7" style="font-size:medium;font-weight:100" id="">305</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Patient-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Patient</strong></div>
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <p class="col-sm-4" style="font-size:medium;font-weight:bold" id="">Name: </p>
+                            <p class="col-sm-8" style="font-size:medium;font-weight:100" id="">First M. Lastname</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <p class="col-sm-4" style="font-size:medium;font-weight:bold" id="">Contact No:</p>
+                            <p class="col-sm-8" style="font-size:medium;font-weight:100" id="">09876543210</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding:5px">
+                    <p class="col-sm-2" style="font-size:medium;font-weight:bold" id="">Address: </p>
+                    <p class="col-sm-10" style="font-size:medium;font-weight:100" id="">street, subdivision, barangay, municipality, province</p>
+                </div>
+                <!--Date of admission & Discharged-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Admission</strong></div>
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <p class="col-sm-5" style="font-size:medium;font-weight:bold" id="">Date Admitted: </p>
+                            <p class="col-sm-7" style="font-size:medium;font-weight:100" id="">02/29/2020</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <label class="col-sm-5" style="font-size:medium;font-weight:bold">Date Discharge: </label>
+                            <input class="form-control form-control-sm col-sm-7" style="font-size:medium;padding:16px" type="text" id="dateDischarged" value="DD/MM/YYYY" name="dateDischarged" />
+
+                        </div>
+                    </div>
+                </div>
+                <!--Health Care Buddy-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Health Care Buddy</strong></div>
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <p class="col-sm-4" style="font-size:medium;font-weight:bold" id="">Name: </p>
+                            <p class="col-sm-8" style="font-size:medium;font-weight:100" id="">First M. Lastname</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <p class="col-sm-4" style="font-size:medium;font-weight:bold" id="">Contact No:</p>
+                            <p class="col-sm-8" style="font-size:medium;font-weight:100" id="">09876543210</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Discharge by-->
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-6">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Discharged By" />
+                    </div>
+                    <!--approve by-->
+                    <div class="col-sm-6">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Approved By" />
+                    </div>
+                </div>
+                <!--guard on duty-->
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-6">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Guard on Duty" />
+                    </div>
+                </div>
+
+                <!--SUBMIT BUTTON-->
+                <div class="col-sm-12" align="center" style="padding:10px">
+                    <div class="col-sm-4" align="right">
+                        <button class="btn btn-block btn-primary btn-lg" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#dateDischarged').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            forceParse: true
+        });
+
+    })
+
+</script>

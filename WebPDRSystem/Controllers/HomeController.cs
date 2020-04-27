@@ -19,7 +19,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace WebPDRSystem.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "nursedoc")]
     public class HomeController : Controller
     {
         private const uint V = 2147483648;

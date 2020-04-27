@@ -17,7 +17,7 @@
     }
 
 
-    @if (User.FindFirstValue(ClaimTypes.Role) == "Nurse" || User.FindFirstValue(ClaimTypes.Role) == "Doctor" || User.FindFirstValue(ClaimTypes.Role) == "Admin")
+    @if (User.FindFirstValue(ClaimTypes.Role) == "nursedoc")
     {
         <li class="nav-item d-none d-sm-inline-block">
             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Dashboard">

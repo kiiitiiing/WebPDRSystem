@@ -14,11 +14,11 @@ using WebPDRSystem.Models.ViewModels;
 
 namespace WebPDRSystem.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "Administrator")]
     public class PDRUsersController : Controller
     {
         private readonly WebPDRContext _context;
-
+            
         public PDRUsersController(WebPDRContext context)
         {
             _context = context;
@@ -244,7 +244,7 @@ namespace WebPDRSystem.Controllers
                 Middlename = model.Middlename,
                 Lastname = model.Lastname,
                 PhotoString = model.Picture,
-                Role = model.Role
+                Role = model.Role,
             };
 
             return user;
@@ -259,13 +259,35 @@ namespace WebPDRSystem.Controllers
             user.Lastname = model.Lastname;
             user.Picture = SavePicture(model.Firstname + model.Lastname, model.PhotoString);
             user.Role = model.Role;
+            user.Designation = SetDesignation(model.Role);
             user.UpdatedAt = DateTime.Now;
 
             return user;
         }
 
+        public string SetDesignation( string role)
+        {
+            string designation = "";
+            if (role == "Nurse" || role == "Doctor")
+            {
+                designation = "nursedoc";
+            }
+            else if (role == "Admin")
+            {
+                designation = role;
+            }
+            else if (role == "resuhems")
+            {
+                designation = role;
+            }
+
+            return designation;
+        }
+
+
         public Pdrusers SetUser(AddUser model)
         {
+            
             var user = new Pdrusers
             {
                 Username = model.Username,
@@ -276,6 +298,7 @@ namespace WebPDRSystem.Controllers
                 Picture = SavePicture(model.Firstname + model.Lastname, model.PhotoString),
                 Team = null,
                 Role = model.Role,
+                Designation = SetDesignation(model.Role),
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             };

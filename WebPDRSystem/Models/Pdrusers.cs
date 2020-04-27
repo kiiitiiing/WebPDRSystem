@@ -43,6 +43,8 @@ namespace WebPDRSystem.Models
         public DateTime UpdatedAt { get; set; }
         [StringLength(255)]
         public string Schedule { get; set; }
+        [StringLength(255)]
+        public string Designation { get; set; }
 
         [ForeignKey(nameof(Team))]
         [InverseProperty(nameof(UserTeams.Pdrusers))]

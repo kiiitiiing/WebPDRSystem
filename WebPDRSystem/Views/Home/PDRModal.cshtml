@@ -9,6 +9,10 @@
         padding: 4px;
     }
 
+    .cur-pic{
+        object-fit: cover;
+    }
+
 </style>
 
 <div class="modal fade" id="pdr-modal" style="font-size: 14px; font-weight:500;">
@@ -38,7 +42,7 @@
                     <input type="hidden" id="imgb64" asp-for="PatientNavigation.Picture" />
                     <div class="row">
                         <div class="col-sm-3">
-                            <img id="cur-pic" class="img-circle center" src="~/img/@Model.PatientNavigation.Picture" style="height:150px; width:150px;" />
+                            <img id="cur-pic" class="img-circle center cur-pic" src="~/img/@Model.PatientNavigation.Picture"  style="height: 150px;" onerror="this.src='/img/MDMale.jpg'"/>
                             <br />
                             <input type="file" placeholder="Open" onchange="ChangePhoto(this,150,150);" style="width: 170px;" />
                         </div>

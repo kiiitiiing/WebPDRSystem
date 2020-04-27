@@ -56,8 +56,7 @@ namespace WebPDRSystem
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("Administrator", polBuilder => polBuilder.RequireClaim(ClaimTypes.Role, "Admin"));
-                options.AddPolicy("Doctor", polBuilder => polBuilder.RequireClaim(ClaimTypes.Role, "Doctor"));
-                options.AddPolicy("Nurse", polBuilder => polBuilder.RequireClaim(ClaimTypes.Role, "Nurse"));
+                options.AddPolicy("NurseDoc", polBuilder => polBuilder.RequireClaim(ClaimTypes.Role, "nursedoc"));
                 options.AddPolicy("RESUHEMS", polBuilder => polBuilder.RequireClaim(ClaimTypes.Role, "resuhems"));
             });
 

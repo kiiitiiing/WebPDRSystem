@@ -168,8 +168,7 @@ function ChangePhoto(input,width,height) {
             $('#imgb64').val(e.target.result);
             $('#cur-pic')
                 .attr('src', e.target.result)
-                .width(width)
-                .height(height);
+                .addClass('cur-pic');
         };
 
         reader.readAsDataURL(input.files[0]);

@@ -222,6 +222,8 @@ namespace WebPDRSystem.Data
             {
                 entity.HasIndex(e => e.Team);
 
+                entity.Property(e => e.Designation).IsUnicode(false);
+
                 entity.Property(e => e.Firstname).IsUnicode(false);
 
                 entity.Property(e => e.Lastname).IsUnicode(false);

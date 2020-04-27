@@ -1,0 +1,127 @@
+﻿@model Referral
+
+<div class="modal" id="ReferralModal" autoscroll="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>
+                    <i class="fa fa-user-md"></i>
+                    &nbsp;Referral to Tertiary Hospital
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--Refer-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Refer</strong></div>
+                <div class="row">
+                    <div class="row" style="padding:5px">
+                        <label class="col-sm-5" style="font-size:medium;font-weight:100;padding:10px">Referral Date: </label>
+                        <input class="form-control form-control-sm col-sm-7" style="font-size:medium;padding:18px" type="text" id="referDate" value="DD/MM/YYYY" name="referDate" />
+                    </div>
+                </div>
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-6">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Referring Quarantine Facility" />
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Referred to" />
+                    </div>
+                </div>
+                <!--Patient personal information-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Patient</strong></div>
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <p class="col-sm-3" style="font-size:medium;font-weight:bold" id="">Name: </p>
+                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">First M. Lastname</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="row">
+                            <p class="col-sm-3" style="font-size:medium;font-weight:bold" id="">Age:</p>
+                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">100</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="row">
+                            <p class="col-sm-3" style="font-size:medium;font-weight:bold" id="">Sex:</p>
+                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">Female</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <p class="col-sm-5" style="font-size:medium;font-weight:bold" id="">Contact No:</p>
+                            <p class="col-sm-7" style="font-size:medium;font-weight:100;text-align:center" id="">09876543210</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding:5px">
+                    <p class="col-sm-2" style="font-size:medium;font-weight:bold" id="">Address: </p>
+                    <p class="col-sm-10" style="font-size:medium;font-weight:100" id="">street, subdivision, barangay, municipality, province</p>
+                </div>
+                <!--Date of admission at quarantine facility-->
+                <div class="row" style="padding:5px">
+                    <p class="col-sm-5" style="font-size:medium;font-weight:bold" id="">Date of admission at Quarantine Facility:</p>
+                    <p class="col-sm-7" style="font-size:medium;font-weight:100" id="">04/18/2020</p>
+                </div>
+                <!--Guardian-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Guardian</strong></div>
+                <div class="row" style="padding:5px">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <p class="col-sm-3" style="font-size:medium;font-weight:bold" id="">Name: </p>
+                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">First M. Lastname</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <p class="col-sm-4" style="font-size:medium;font-weight:bold" id="">Contact No:</p>
+                            <p class="col-sm-8" style="font-size:medium;font-weight:100;text-align:center" id="">09876543210</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding:5px">
+                    <p class="col-sm-2" style="font-size:medium;font-weight:bold" id="">Address: </p>
+                    <p class="col-sm-10" style="font-size:medium;font-weight:100" id="">street, subdivision, barangay, municipality, province</p>
+                </div>
+
+                <!--Pertinent Findings-->
+                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Findings</strong></div>
+                <div class="row" style="padding:5px">
+                    <input type="text" autofocus class="form-control" id="" placeholder="Pertinent Findings" />
+                </div>
+                <div class="row" style="padding:5px">
+                    <input type="text" autofocus class="form-control" id="" placeholder="Diagnosis" />
+                </div>
+                <div class="row" style="padding:5px">
+                    <input type="text" autofocus class="form-control" id="" placeholder="Reason for Referral" />
+                </div>
+
+                <!--Referred by-->
+                <div class="row" style="padding:10px">
+                    <label class="col-sm-4" style="font-size:medium;font-weight:500;padding:10px">Referred By: </label>
+                    <div class="col-sm-8">
+                        <input type="text" autofocus class="form-control" id="" placeholder="Refered by" />
+                    </div>
+                </div>
+                <!--SUBMIT BUTTON-->
+                <div class="col-sm-12" align="center" style="padding:10px">
+                    <div class="col-sm-4" align="right">
+                        <button class="btn btn-block btn-primary btn-lg" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#referDate').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            forceParse: true
+        });
+      
+    })
+
+</script>
