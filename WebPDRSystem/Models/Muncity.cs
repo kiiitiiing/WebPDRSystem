@@ -9,6 +9,7 @@ namespace WebPDRSystem.Models
     {
         public Muncity()
         {
+            Guardian = new HashSet<Guardian>();
             Patient = new HashSet<Patient>();
         }
 
@@ -21,6 +22,8 @@ namespace WebPDRSystem.Models
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
+        [InverseProperty("MuncityNavigation")]
+        public virtual ICollection<Guardian> Guardian { get; set; }
         [InverseProperty("MuncityNavigation")]
         public virtual ICollection<Patient> Patient { get; set; }
     }

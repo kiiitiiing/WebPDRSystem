@@ -14,6 +14,7 @@ namespace WebPDRSystem.Models
             Qdform = new HashSet<Qdform>();
             Qnform = new HashSet<Qnform>();
             Referral = new HashSet<Referral>();
+            Unusualities = new HashSet<Unusualities>();
         }
 
         [Key]
@@ -25,6 +26,7 @@ namespace WebPDRSystem.Models
         public string CaseNumber { get; set; }
         public int? BedNumber { get; set; }
         public int? Patient { get; set; }
+        [Required]
         [Column("PDRCode")]
         [StringLength(255)]
         public string Pdrcode { get; set; }
@@ -36,9 +38,13 @@ namespace WebPDRSystem.Models
         public DateTime? DateOnsetSymptoms { get; set; }
         public string PreExistingConditions { get; set; }
         public string Maintenance { get; set; }
+        public bool? MayGoHome { get; set; }
         public string FoodRestrictionsAllergy { get; set; }
         public string AdmissionTemperature { get; set; }
         public int? InterviewedBy { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string Status { get; set; }
         public int? SymptomsContactsId { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
@@ -63,5 +69,7 @@ namespace WebPDRSystem.Models
         public virtual ICollection<Qnform> Qnform { get; set; }
         [InverseProperty("Pdr")]
         public virtual ICollection<Referral> Referral { get; set; }
+        [InverseProperty("Pdr")]
+        public virtual ICollection<Unusualities> Unusualities { get; set; }
     }
 }

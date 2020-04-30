@@ -1,0 +1,129 @@
+﻿@model DashboardModel
+
+@{
+    var left = Model.TotalBedOccupancy - Model.CurrBedOccupancy;
+}
+
+<div row>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="col-md-12">
+                        <div class="info-box">
+                            <div class="info-box-content">
+                                <span class="info-box-text">TOTAL CENSUS</span>
+                                <span class="info-box-number">@Model.TotalCensus</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                        <canvas id="pieChart" style="height: 230px; min-height: 230px; display: block; width: 572px;" width="715" height="287" class="chartjs-render-monitor"></canvas>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="info-box">
+                            <div class="info-box-content">
+                                <span class="info-box-text">MAY GO HOME</span>
+                                <span class="info-box-number">@Model.MayGoHome</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <!-- ODR -->
+                    <div class="col-md-12">
+                        <div class="info-box">
+                            <div class="info-box-content">
+                                <span class="info-box-text">ODR</span>
+                                <span class="info-box-number">@Model.ODR</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- ODG -->
+                    <div class="col-md-12">
+                        <div class="info-box">
+                            <div class="info-box-content">
+                                <span class="info-box-text">ODG</span>
+                                <span class="info-box-number">@Model.ODG</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- QOD -->
+                    <div class="col-md-12">
+                        <div class="info-box">
+                            <div class="info-box-content">
+                                <span class="info-box-text">QOD</span>
+                                <span class="info-box-number">@Model.QOD</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- NOD A -->
+                    <div class="col-md-12">
+                        <div class="info-box">
+                            <div class="info-box-content">
+                                <span class="info-box-text">CHAMBER A NOD</span>
+                                <span class="info-box-number">@Model.NODA</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- NOT B -->
+                    <div class="col-md-12">
+                        <div class="info-box">
+                            <div class="info-box-content">
+                                <span class="info-box-text">CHAMBER B NOD</span>
+                                <span class="info-box-number">@Model.NODB</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var donutData = {
+        labels: [
+            'Occupied',
+            'Not occupied'
+        ],
+        datasets: [
+            {
+                data: [@Model.CurrBedOccupancy,@left],
+                backgroundColor: ['#f56954', '#00a65a'],
+            }
+        ]
+    };
+    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieData = donutData;
+    var pieOptions = {
+        maintainAspectRatio: false,
+        responsive: true
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var pieChart = new Chart(pieChartCanvas, {
+        type: 'pie',
+        data: pieData,
+        options: pieOptions
+    });
+
+
+
+</script>

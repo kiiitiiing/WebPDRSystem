@@ -39,32 +39,16 @@
                     <input type="hidden" asp-for="SymptomsContactsId" />
                     <input type="hidden" asp-for="SymptomsContacts.Id" />
                     <input type="hidden" asp-for="Pdrcode" />
+                    <input type="hidden" asp-for="Status" />
+                    <input type="hidden" asp-for="MayGoHome" />
                     <input type="hidden" id="imgb64" asp-for="PatientNavigation.Picture" />
                     <div class="row">
                         <div class="col-sm-3">
-                            <img id="cur-pic" class="img-circle center cur-pic" src="~/img/@Model.PatientNavigation.Picture"  style="height: 150px;" onerror="this.src='/img/MDMale.jpg'"/>
+                            <img id="cur-pic" class=" center cur-pic" src="~/img/@Model.PatientNavigation.Picture" onerror="this.src='/img/MDMale.jpg'" />
                             <br />
                             <input type="file" placeholder="Open" onchange="ChangePhoto(this,150,150);" style="width: 170px;" />
                         </div>
                         <div class="col-sm-9">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <a class="btn btn-block btn-lg" style="background-color: #56d887;" onclick="OpenForm('@Model.Id','QDForm');">
-                                        <i class="fas fa-plus"></i>
-                                        &nbsp;Daily Monitoring Form
-                                        <br />
-                                        (Quarantine doctor)
-                                    </a>
-                                </div>
-                                <div class="col-sm-6">
-                                    <a class="btn btn-block btn-lg" style="background-color:#e564c0;" onclick="OpenForm('@Model.Id','QNForm');">
-                                        <i class="fas fa-plus"></i>
-                                        &nbsp;Daily Monitoring Form
-                                        <br />
-                                        (Quarantine nurse)
-                                    </a>
-                                </div>
-                            </div>
                             <!-- PATIENT ADMISSION INFORMATION -->
                             <div class="row">
                                 <div class="col-sm-12">

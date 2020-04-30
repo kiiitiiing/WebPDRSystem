@@ -25,28 +25,45 @@
                 &nbsp;Home
             </a>
         </li>
-
         <!-- MANAGE -->
         <li class="nav-item dropdown">
-            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-user-injured"></i>
                 &nbsp;Patient
             </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" asp-controller="Home" asp-action="AddPatient">Add new Patient</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Discharge Patient</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">INSERT</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">INSERT</a>
-            </div>
+
+            <ul class="dropdown-menu border-0 shadow">
+                <li>
+
+                    <a class="dropdown-item" asp-controller="Home" asp-action="AddPatient">
+                        Add new Patient
+                    </a>
+                </li>
+                <li>
+
+                    <a class="dropdown-item" href="#">
+                        Discharged Patient
+                    </a>
+                </li>
+            </ul>
         </li>
     }
 
 
     @if (User.FindFirstValue(ClaimTypes.Role) == "Admin")
     {
+        <li class="nav-item d-none d-sm-inline-block">
+            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Census">
+                <i class="fa fa-user-md"></i>
+                &nbsp;Census
+            </a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="ImmediateDashboard">
+                <i class="fa fa-user-md"></i>
+                &nbsp;Unusualities
+            </a>
+        </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a class="nav-link" asp-area="" asp-controller="Pdrusers" asp-action="Index">
                 <i class="fa fa-user-md"></i>

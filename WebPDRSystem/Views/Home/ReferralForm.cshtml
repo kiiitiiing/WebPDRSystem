@@ -1,6 +1,10 @@
 ﻿@model Referral
 
-<div class="modal" id="ReferralModal" autoscroll="true">
+@{
+    var gender = Model.Pdr.PatientNavigation.Gender ? "Male" : "Female";
+}
+
+<div class="modal fade" id="ReferralModal" autoscroll="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,6 +12,11 @@
                     <i class="fa fa-user-md"></i>
                     &nbsp;Referral to Tertiary Hospital
                 </h4>
+
+
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
             <div class="modal-body">
                 <!--Refer-->
@@ -32,36 +41,36 @@
                     <div class="col-sm-4">
                         <div class="row">
                             <p class="col-sm-3" style="font-size:medium;font-weight:bold" id="">Name: </p>
-                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">First M. Lastname</p>
+                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">@Model.Pdr.PatientNavigation.GetFullName()</p>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="row">
                             <p class="col-sm-3" style="font-size:medium;font-weight:bold" id="">Age:</p>
-                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">100</p>
+                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">@Model.Pdr.PatientNavigation.Age</p>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="row">
                             <p class="col-sm-3" style="font-size:medium;font-weight:bold" id="">Sex:</p>
-                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">Female</p>
+                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">@gender</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="row">
                             <p class="col-sm-5" style="font-size:medium;font-weight:bold" id="">Contact No:</p>
-                            <p class="col-sm-7" style="font-size:medium;font-weight:100;text-align:center" id="">09876543210</p>
+                            <p class="col-sm-7" style="font-size:medium;font-weight:100;text-align:center" id="">@Model.Pdr.PatientNavigation.ContactNumber</p>
                         </div>
                     </div>
                 </div>
                 <div class="row" style="padding:5px">
                     <p class="col-sm-2" style="font-size:medium;font-weight:bold" id="">Address: </p>
-                    <p class="col-sm-10" style="font-size:medium;font-weight:100" id="">street, subdivision, barangay, municipality, province</p>
+                    <p class="col-sm-10" style="font-size:medium;font-weight:100" id="">@Model.Pdr.PatientNavigation.Address</p>
                 </div>
                 <!--Date of admission at quarantine facility-->
                 <div class="row" style="padding:5px">
                     <p class="col-sm-5" style="font-size:medium;font-weight:bold" id="">Date of admission at Quarantine Facility:</p>
-                    <p class="col-sm-7" style="font-size:medium;font-weight:100" id="">04/18/2020</p>
+                    <p class="col-sm-7" style="font-size:medium;font-weight:100" id="">@Model.Pdr.DateOfAdmission.GetDate("dd/MM/yyyy HH:mm")</p>
                 </div>
                 <!--Guardian-->
                 <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Guardian</strong></div>
@@ -69,19 +78,19 @@
                     <div class="col-sm-6">
                         <div class="row">
                             <p class="col-sm-3" style="font-size:medium;font-weight:bold" id="">Name: </p>
-                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">First M. Lastname</p>
+                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">@Model.Pdr.GuardianNavigation.GetFullName()</p>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="row">
                             <p class="col-sm-4" style="font-size:medium;font-weight:bold" id="">Contact No:</p>
-                            <p class="col-sm-8" style="font-size:medium;font-weight:100;text-align:center" id="">09876543210</p>
+                            <p class="col-sm-8" style="font-size:medium;font-weight:100;text-align:center" id="">@Model.Pdr.GuardianNavigation.ContactNumber</p>
                         </div>
                     </div>
                 </div>
                 <div class="row" style="padding:5px">
                     <p class="col-sm-2" style="font-size:medium;font-weight:bold" id="">Address: </p>
-                    <p class="col-sm-10" style="font-size:medium;font-weight:100" id="">street, subdivision, barangay, municipality, province</p>
+                    <p class="col-sm-10" style="font-size:medium;font-weight:100" id="">@Model.Pdr.GuardianNavigation.Address</p>
                 </div>
 
                 <!--Pertinent Findings-->
@@ -121,7 +130,7 @@
             autoclose: true,
             forceParse: true
         });
-      
+
     })
 
 </script>

@@ -1,4 +1,11 @@
-﻿
+﻿table tr{
+    white-space: nowrap;
+}
+
+.card{
+    margin-top: 20px;
+}
+
 .crop{
     height: 80px;
     width: 80px !important;
@@ -25,9 +32,17 @@
     z-index: 9999999;
 }
 
+.validate{
+    border-color: red;
+}
+
 input.input-validation-error{
-    border-color: red
+    border-color: red;
 }
 select.input-validation-error {
-    border-color: red
+    border-color: red;
+}
+
+textarea.input-validation-error {
+    border-color: red;
 }

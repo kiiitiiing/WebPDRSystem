@@ -33,6 +33,7 @@ namespace WebPDRSystem.Data
         public virtual DbSet<Referral> Referral { get; set; }
         public virtual DbSet<SymptomsContacts> SymptomsContacts { get; set; }
         public virtual DbSet<TeamSchedule> TeamSchedule { get; set; }
+        public virtual DbSet<Unusualities> Unusualities { get; set; }
         public virtual DbSet<UserTeams> UserTeams { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -121,6 +122,23 @@ namespace WebPDRSystem.Data
                 entity.Property(e => e.Lastname).IsUnicode(false);
 
                 entity.Property(e => e.Middlename).IsUnicode(false);
+
+                entity.HasOne(d => d.BarangayNavigation)
+                    .WithMany(p => p.Guardian)
+                    .HasForeignKey(d => d.Barangay)
+                    .HasConstraintName("FK_Guardian_Barangay");
+
+                entity.HasOne(d => d.MuncityNavigation)
+                    .WithMany(p => p.Guardian)
+                    .HasForeignKey(d => d.Muncity)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Guardian_Muncity");
+
+                entity.HasOne(d => d.ProvinceNavigation)
+                    .WithMany(p => p.Guardian)
+                    .HasForeignKey(d => d.Province)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Guardian_Province");
             });
 
             modelBuilder.Entity<Medications>(entity =>
@@ -196,6 +214,8 @@ namespace WebPDRSystem.Data
                 entity.Property(e => e.CaseNumber).IsUnicode(false);
 
                 entity.Property(e => e.Pdrcode).IsUnicode(false);
+
+                entity.Property(e => e.Status).IsUnicode(false);
 
                 entity.HasOne(d => d.GuardianNavigation)
                     .WithMany(p => p.Pdr)
@@ -338,6 +358,19 @@ namespace WebPDRSystem.Data
             modelBuilder.Entity<TeamSchedule>(entity =>
             {
                 entity.Property(e => e.Schedule).IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Unusualities>(entity =>
+            {
+                entity.Property(e => e.Remarks).IsUnicode(false);
+
+                entity.Property(e => e.Status).IsUnicode(false);
+
+                entity.HasOne(d => d.Pdr)
+                    .WithMany(p => p.Unusualities)
+                    .HasForeignKey(d => d.PdrId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Unusualities_PDR");
             });
 
             modelBuilder.Entity<UserTeams>(entity =>

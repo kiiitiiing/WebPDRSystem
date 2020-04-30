@@ -32,6 +32,15 @@ namespace WebPDRSystem.Models
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
+        [ForeignKey(nameof(Barangay))]
+        [InverseProperty("Guardian")]
+        public virtual Barangay BarangayNavigation { get; set; }
+        [ForeignKey(nameof(Muncity))]
+        [InverseProperty("Guardian")]
+        public virtual Muncity MuncityNavigation { get; set; }
+        [ForeignKey(nameof(Province))]
+        [InverseProperty("Guardian")]
+        public virtual Province ProvinceNavigation { get; set; }
         [InverseProperty("GuardianNavigation")]
         public virtual ICollection<Pdr> Pdr { get; set; }
     }

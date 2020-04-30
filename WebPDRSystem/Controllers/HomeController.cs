@@ -40,9 +40,44 @@ namespace WebPDRSystem.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Attention(int id)
+        {
+            var pdr = await _context.Pdr
+                .Include(x => x.PatientNavigation)
+                .Where(x => x.Id == id).FirstOrDefaultAsync();
+
+            var attention = new Unusualities
+            {
+                Pdr = pdr,
+                PdrId = id
+            };
+            return PartialView(attention);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Attention(Unusualities model)
+        {
+            model.Pdr = await _context.Pdr.FindAsync(model.PdrId);
+            model.CreatedAt = DateTime.Now;
+            model.UpdatedAt = DateTime.Now;
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if (ModelState.IsValid)
+            {
+                _context.Add(model);
+                await _context.SaveChangesAsync();
+                return PartialView(model);
+            }
+
+
+            ViewBag.Errors = errors;
+            return PartialView(model);
+        }
+
         public async Task<IActionResult> DashboardPartial( string search)
         {
             var pdrs = _context.Pdr
+                .Where(x => x.Status == "admitted")
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
                 .Include(x => x.SymptomsContacts)
                 .Include(x => x.Qnform)
@@ -344,6 +379,7 @@ namespace WebPDRSystem.Controllers
         public async Task<IActionResult> AddPatient( Pdr model)
         {
             var errors = ModelState.Values.SelectMany(v => v.Errors);
+            model.Status = "admitted";
             model.CreatedAt = DateTime.Now;
             model.UpdatedAt = DateTime.Now;
             model.PatientNavigation.CreatedAt = DateTime.Now;
@@ -380,9 +416,44 @@ namespace WebPDRSystem.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> DischargeForm(int id)
         {
-            return View();
+            var pdr = await _context.Pdr
+                .Include(x => x.PatientNavigation).ThenInclude(x=>x.ProvinceNavigation)
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.BarangayNavigation)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+
+
+            var discharge = new Discharge
+            {
+                Pdr = pdr,
+                Pdrid = pdr.Id,
+                DateDischarged = DateTime.Now
+            };
+
+            return PartialView(discharge);
+        }
+
+        public async Task<IActionResult> ReferralForm(int id)
+        {
+            var pdr = await _context.Pdr
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.ProvinceNavigation)
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.BarangayNavigation)
+                .Include(x => x.GuardianNavigation)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            var refer = new Referral
+            {
+                Pdr = pdr,
+                Pdrid = pdr.Id
+                
+            };
+
+            return PartialView(refer);
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,0 +1,130 @@
+﻿@model DashboardModel
+@{
+    ViewData["Title"] = "Census";
+}
+
+    <div id="census_main" style="margin-top: 20px !important;">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="col-md-12">
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <span class="info-box-text">TOTAL CENSUS</span>
+                                    <span class="info-box-number"></span>
+                                </div>
+                                <div class="overlay">
+                                    <i class="fas fa-2x fa-sync fa-spin"></i>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                            <canvas id="pieChart" style="height: 230px; min-height: 230px; display: block; width: 572px;" width="715" height="287" class="chartjs-render-monitor"></canvas>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <span class="info-box-text">MAY GO HOME</span>
+                                    <span class="info-box-number"></span>
+
+                                    <div class="overlay">
+                                        <i class="fas fa-2x fa-sync fa-spin"></i>
+                                    </div>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <!-- ODR -->
+                        <div class="col-md-12">
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <span class="info-box-text">ODR</span>
+                                    <span class="info-box-number"></span>
+
+                                    <div class="overlay">
+                                        <i class="fas fa-2x fa-sync fa-spin"></i>
+                                    </div>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- ODG -->
+                        <div class="col-md-12">
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <span class="info-box-text">ODG</span>
+                                    <span class="info-box-number"></span>
+
+                                    <div class="overlay">
+                                        <i class="fas fa-2x fa-sync fa-spin"></i>
+                                    </div>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- QOD -->
+                        <div class="col-md-12">
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <span class="info-box-text">QOD</span>
+                                    <span class="info-box-number"></span>
+
+                                    <div class="overlay">
+                                        <i class="fas fa-2x fa-sync fa-spin"></i>
+                                    </div>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- NOD A -->
+                        <div class="col-md-12">
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <span class="info-box-text">CHAMBER A NOD</span>
+                                    <span class="info-box-number"></span>
+
+                                    <div class="overlay">
+                                        <i class="fas fa-2x fa-sync fa-spin"></i>
+                                    </div>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- NOT B -->
+                        <div class="col-md-12">
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <span class="info-box-text">CHAMBER B NOD</span>
+                                    <span class="info-box-number"></span>
+
+                                    <div class="overlay">
+                                        <i class="fas fa-2x fa-sync fa-spin"></i>
+                                    </div>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    $(function () {
+        LoadCensus();
+    })
+</script>

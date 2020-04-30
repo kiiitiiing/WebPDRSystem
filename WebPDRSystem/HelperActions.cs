@@ -47,6 +47,18 @@ namespace WebPDRSystem
             }
         }
 
+        public static string GetAddress(this Patient patient)
+        {
+            string address = patient.ProvinceNavigation.Description + ", " + patient.MuncityNavigation.Description + ", " + patient.BarangayNavigation.Description;
+
+            if(!string.IsNullOrEmpty(patient.Address))
+            {
+                address += "," + patient.Address;
+            }
+
+            return address;
+        }
+
 
         public static string ComputeTimeFrame(this double minutes)
         {
@@ -128,6 +140,14 @@ namespace WebPDRSystem
         public static string CheckString(this string text)
         {
             return string.IsNullOrEmpty(text) ? "" : text;
+        }
+
+        public static string GetFullName(this Guardian patient)
+        {
+            if (patient != null)
+                return patient.Firstname.CheckName() + " " + patient.Middlename.CheckName() + " " + patient.Lastname.CheckName();
+            else
+                return "";
         }
 
         public static string GetFullName(this Patient patient)

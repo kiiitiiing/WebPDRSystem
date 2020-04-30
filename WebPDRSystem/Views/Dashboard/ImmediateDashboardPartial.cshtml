@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Unusualities>
+
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <!-- bed number -->
+        <td>
+            @item.Pdr.BedNumber
+        </td>
+        <!-- PIN -->
+        <td>
+            @item.Pdr.CaseNumber
+        </td>
+        <!-- ISSUE/DETAILS -->
+        <td>
+            @item.Issue
+        </td>
+        <!-- STATUS -->
+        <td>
+            @item.Status
+        </td>
+        <!-- REMARKS -->
+        <td>
+            @item.Remarks
+        </td>
+    </tr>
+}

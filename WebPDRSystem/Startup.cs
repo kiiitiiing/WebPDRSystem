@@ -50,7 +50,6 @@ namespace WebPDRSystem
                 options.LoginPath = "/Account/Login";
                 options.LogoutPath = "/Account/Logout";
                 options.AccessDeniedPath = "/Account/NotFound";
-                options.ExpireTimeSpan = TimeSpan.FromHours(3);
             });
 
             services.AddAuthorization(options =>

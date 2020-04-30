@@ -1,0 +1,46 @@
+﻿@model Unusualities
+
+
+<div class="modal fade" id="attention" style="font-size: 14px; font-weight:500;">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content clearfix">
+            <div class="modal-header">
+                <h3>Need attention for @Model.Pdr.CaseNumber</h3>
+
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Attention">
+                    <input type="hidden" asp-for="PdrId" />
+                    <input type="hidden" asp-for="Attended" value="false" />
+                    <div class="row">
+                        Issue/Details:
+                        <textarea class="form-control" asp-for="Issue" rows="4"></textarea>
+                    </div>
+                    <div class="row">
+                        Status:
+                        <input class="form-control" asp-for="Status" />
+                    </div>
+                    <div class="row">
+                        Remarks:
+                        <textarea class="form-control" rows="3" asp-for="Remarks"></textarea>
+                    </div>
+                </form>
+                @if (ViewBag.Errors != null)
+                {
+                    <div class="row">
+                        <div class="col-sm-12 center" style="align-content:center">
+                            <span class="text-danger">Please input the required fields.</span>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger fa-pull-left" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-danger fa-pull-right" data-save="modal">Sumbit</button>
+            </div>
+        </div>
+    </div>
+</div>

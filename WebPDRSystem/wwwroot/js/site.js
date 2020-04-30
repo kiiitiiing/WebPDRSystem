@@ -26,20 +26,15 @@ $(function () {
             placeholderElement.html(data);
             placeholderElement.find('.modal').modal('show');
         });
-        $('.select2').select2({
-            theme: 'bootstrap4'
-        });
     });
 
     $('a[data-toggle="ajax-modal"]').click(function (event) {
+        console.log('yow?');
         var url = $(this).data('url');
         $.get(url).done(function (data) {
             placeholderElement.empty();
             placeholderElement.html(data);
             placeholderElement.find('.modal').modal('show');
-        });
-        $('.select2').select2({
-            theme: 'bootstrap4'
         });
     });
 
@@ -124,10 +119,36 @@ $(function () {
                     LoadDashboard('');
                     //location.reload();
                 }
+                if (formId == 'attention') {
+                    LoadIDP();
+                    //location.reload();
+                }
             }
         });
     });
 })
+
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var culture = "AM";
+    m = checkTime(m);
+    s = checkTime(s);
+    if (h > 12) {
+        culture = "PM";
+        h = h - 12;
+    }
+    document.getElementById('time-top').innerHTML =
+        h + ":" + m + ":" + s + " " + culture;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+    return i;
+}
+
 function Showload() {
     $('#loading').removeAttr('hidden');
 }
@@ -141,18 +162,29 @@ function Hideload() {
 
 function OpenForm(id, action) {
     if (id != '') {
-        var wat = $('#placeholder');
-        wat.empty();
-        $('#pdr-modal').modal('hide');
         setTimeout(function () {
-            var placeholderElement = $('#daily_monitoring_form');
+            var placeholderElement = $('#placeholder');
             var url = "/Home/" + action + "?id=" + id;
             console.log(url);
-            $.get(url).done(function (data) {
+            $.ajax({
+                url: url,
+                tpye: 'get',
+                async: true,
+                success: function (data) {
+                    placeholderElement.empty();
+                    placeholderElement.html(data);
+                    placeholderElement.find('.modal').modal('show');
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.responseText);
+                    alert(thrownError);
+                }
+            });
+           /* $.get(url).done(function (data) {
                 placeholderElement.empty();
                 placeholderElement.html(data);
                 placeholderElement.find('.modal').modal('show');
-            });
+            });*/
         }, 300);
     }
     else {
@@ -194,6 +226,38 @@ function readURL(input) {
     }
 }
 
+function LoadIDP() {
+    var url = "/Dashboard/ImmediateDashboardPartial";
+    $.ajax({
+        url: url,
+        tpye: 'get',
+        async: true,
+        success: function (output) {
+            $('#idashboard_table').html(output).fadeIn("slow");
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.responseText);
+            alert(thrownError);
+        }
+    });
+}
+
+function LoadCensus() {
+    var url = "/Dashboard/CensusPartial";
+    $.ajax({
+        url: url,
+        tpye: 'get',
+        async: true,
+        success: function (output) {
+            $('#census_main').html(output).fadeIn("slow");
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.responseText);
+            alert(thrownError);
+        }
+    });
+}
+
 function LoadDashboard(search) {
     var url = "/Home/DashboardPartial?search=" + search;
     $.ajax({
@@ -203,6 +267,9 @@ function LoadDashboard(search) {
         success: function (output) {
             $('#dashboard_table').html(output).fadeIn("slow");
             Hideload();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.responseText);
         }
     });
 }

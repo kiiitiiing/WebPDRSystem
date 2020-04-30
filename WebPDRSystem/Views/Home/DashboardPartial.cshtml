@@ -54,11 +54,23 @@
         }
 
         <tr>
-            <td class="text-center">@item.BedNumber</td>
             <td class="text-center">
-                <a class="@nameClass" style="font-weight:bold; cursor: pointer;" onclick="ViewPdr('@item.Id');">
-                    @item.PatientNavigation.GetFullName()
-                </a>
+                <div class="btn-group dropleft" style="cursor: pointer;">
+                    <a class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @item.BedNumber
+                    </a>
+                    <div class="dropdown-menu" x-placement="left-start" style="position: absolute; transform: translate3d(-2px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
+                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'PDRModal');">PDR</a>
+                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QDForm');">QF-Doctor</a>
+                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QNForm');">QF-Nurse</a>
+                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ReferralForm');">Refer</a>
+                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'DischargeForm');">Discharge</a>
+                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'Attention');">Attention</a>
+                    </div>
+                </div>
+            </td>
+            <td class="text-center">
+                @item.PatientNavigation.GetFullName()
             </td>
             <td class="text-center">@item.PatientNavigation.Age</td>
             <td class="text-center">@gender</td>
@@ -87,7 +99,8 @@
                 <span>None</span>
             }
 
-            </td>@*
+            </td>
+            @*
             <td class="text-center">pertinent PE</td>
             <td class="text-center">Request</td>
             <td class="text-center">result result</td>*@
@@ -95,4 +108,9 @@
             <td class="text-center">@item.ReferringFacility</td>
             <td class="text-center">other remarks, many remarks</td>
         </tr>
+
     }
+
+<script>
+    $('.total_number').html('@ViewBag.Total');
+</script>

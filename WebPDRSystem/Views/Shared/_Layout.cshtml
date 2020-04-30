@@ -20,15 +20,14 @@
 
     <link rel="stylesheet" href="~/assets/datepicker/css/bootstrap-datepicker.css" />
     <script src="~/assets/datepicker/js/bootstrap-datepicker.min.js"></script>
-
+    <script src="~/assets/plugins/chart.js/Chart.js"></script>
     <script src="~/assets/lobibox/js/lobibox.js"></script>
     <script src="~/assets/plugins/toastr/toastr.min.js"></script>
     <script src="~/assets/plugins/select2/js/select2.full.min.js"></script>
-    <script src="~/assets/plugins/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="~/assets/plugins/daterangepicker/daterangepicker.js"></script>
 
 </head>
-<body class="badge-light">
+<body class="badge-light" onload="startTime();">
     <div id="placeholder"></div>
     <div id="daily_monitoring_form"></div>
     <header>
@@ -40,7 +39,7 @@
                         <span class="title-desc" style="color:coral;font-weight:bold">Welcome,</span> <span class="title-desc" style="color:whitesmoke;font-weight:bold"> @User.FindFirstValue(ClaimTypes.GivenName) @User.FindFirstValue(ClaimTypes.Surname)  </span>
                     </div>
                     <div class="fa-pull-right">
-                        <span class="title-desc" style="color:coral;font-weight:bold">Date: </span><span class="title-desc" style="color:whitesmoke;font-weight:bold">@DateTime.Now</span>
+                        <span class="title-desc" style="color:coral;font-weight:bold">Date: </span><span class="title-desc" style="color:whitesmoke;font-weight:bold" >@DateTime.Now.ToString("dd/MM/yyyy") <span id="time-top"></span></span>
                     </div>
                     <div class="clearfix"></div>
                 </div>

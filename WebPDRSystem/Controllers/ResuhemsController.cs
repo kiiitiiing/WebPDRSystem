@@ -43,6 +43,7 @@ namespace WebPDRSystem.Controllers
         public async Task<IActionResult> AddPatient(Pdr model)
         {
             var errors = ModelState.Values.SelectMany(v => v.Errors);
+            model.Status = "admitted";
             model.CreatedAt = DateTime.Now;
             model.UpdatedAt = DateTime.Now;
             model.PatientNavigation.CreatedAt = DateTime.Now;
