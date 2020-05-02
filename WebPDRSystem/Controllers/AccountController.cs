@@ -46,6 +46,8 @@ namespace WebPDRSystem.Controllers
                 Middlename = "covid",
                 Lastname = "HEMS",
                 Role = "resuhems",
+                Designation = "resuhems",
+                Facility = null,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             };
@@ -69,7 +71,9 @@ namespace WebPDRSystem.Controllers
                 Firstname = "Covid Center",
                 Middlename = "19",
                 Lastname = "Doctor",
-                Role = "Nurse",
+                Role = "Doctor",
+                Designation = "nursedoc",
+                Facility = null,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             };
@@ -96,6 +100,8 @@ namespace WebPDRSystem.Controllers
                 Middlename = "19",
                 Lastname = "Nurse",
                 Role = "Nurse",
+                Designation = "nursedoc",
+                Facility = null,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             };
@@ -121,6 +127,8 @@ namespace WebPDRSystem.Controllers
                 Middlename = "19",
                 Lastname = "Admin",
                 Role = "Admin",
+                Designation = "Admin",
+                Facility = null,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             };

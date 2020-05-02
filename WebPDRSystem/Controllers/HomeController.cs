@@ -458,6 +458,8 @@ namespace WebPDRSystem.Controllers
             return PartialView(discharge);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DischargeForm(Discharge model)
         {
             model.Pdr = await _context.Pdr.FindAsync(model.Pdrid);
