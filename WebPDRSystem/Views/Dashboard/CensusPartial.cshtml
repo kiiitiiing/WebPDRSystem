@@ -4,9 +4,8 @@
     var left = Model.TotalBedOccupancy - Model.CurrBedOccupancy;
 }
 
-<div row>
-    <div class="card">
-        <div class="card-body">
+
+<div class="card-body">
             <div class="row">
                 <div class="col-md-5">
                     <div class="col-md-12">
@@ -40,7 +39,7 @@
                     <div class="col-md-12">
                         <div class="info-box">
                             <div class="info-box-content">
-                                <span class="info-box-text">ODR</span>
+                                <span class="info-box-text">OFFICER OF THE DAY (RED ZONE)</span>
                                 <span class="info-box-number">@Model.ODR</span>
                             </div>
                             <!-- /.info-box-content -->
@@ -51,7 +50,7 @@
                     <div class="col-md-12">
                         <div class="info-box">
                             <div class="info-box-content">
-                                <span class="info-box-text">ODG</span>
+                                <span class="info-box-text">OFFICER OF THE DAY (GREEN ZONE)</span>
                                 <span class="info-box-number">@Model.ODG</span>
                             </div>
                             <!-- /.info-box-content -->
@@ -62,8 +61,8 @@
                     <div class="col-md-12">
                         <div class="info-box">
                             <div class="info-box-content">
-                                <span class="info-box-text">QOD</span>
-                                <span class="info-box-number">@Model.QOD</span>
+                                <span class="info-box-text">QUARANTINE DOCTOR</span>
+                                <span class="info-box-number">@Model.QD</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -73,7 +72,7 @@
                     <div class="col-md-12">
                         <div class="info-box">
                             <div class="info-box-content">
-                                <span class="info-box-text">CHAMBER A NOD</span>
+                                <span class="info-box-text">NURSE OF THE DAY (CHAMBER A)</span>
                                 <span class="info-box-number">@Model.NODA</span>
                             </div>
                             <!-- /.info-box-content -->
@@ -84,7 +83,7 @@
                     <div class="col-md-12">
                         <div class="info-box">
                             <div class="info-box-content">
-                                <span class="info-box-text">CHAMBER B NOD</span>
+                                <span class="info-box-text">NURSE OF THE DAY (CHAMBER B)</span>
                                 <span class="info-box-number">@Model.NODB</span>
                             </div>
                             <!-- /.info-box-content -->
@@ -94,8 +93,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
 <script>
     var donutData = {

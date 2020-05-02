@@ -1,0 +1,73 @@
+﻿@model Census
+
+<div class="modal fade" id="edit-census">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>
+                    Edit Officers of the Day
+                </h3>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="EditCensus">
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-12">
+                            OFFICER OF THE DAY (RED ZONE):
+                            <select class="form-control" asp-for="Odr" asp-items="ViewBag.ODR">
+                                <option value="">Select Officer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-12">
+                            OFFICER OF THE DAY (GREEN ZONE):
+                            <select class="form-control" asp-for="Odg" asp-items="ViewBag.ODG">
+                                <option value="">Select Officer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-12">
+                            QUARANTINE DOCTOR:
+                            <select class="form-control" asp-for="Qd" asp-items="ViewBag.QD">
+                                <option value="">Select Doctor</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-12">
+                            NURSE OF THE DAY (CHAMBER A):
+                            <select class="form-control" asp-for="Noda" asp-items="ViewBag.NODA">
+                                <option value="">Select Nurse</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-12">
+                            NURSE OF THE DAY (CHAMBER B):
+                            <select class="form-control" asp-for="Nodb" asp-items="ViewBag.NODB">
+                                <option value="">Select Nurse</option>
+                            </select>
+                        </div>
+                    </div>
+                    @if (ViewBag.Errors != null)
+                    {
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-sm-12 center" style="align-content:center">
+                                <span class="text-danger">Please input the required fields.</span>
+                            </div>
+                        </div>
+                    }
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="fa-pull-right">
+                    <button class="btn btn-success" data-save="modal">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

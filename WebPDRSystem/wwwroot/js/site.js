@@ -115,18 +115,33 @@ $(function () {
                     LoadIndex('');
                     //location.reload();
                 }
-                if (formId == 'pdr-modal') {
+                if (formId == 'pdr-modal' || formId == 'ReferralModal' || formId == 'attention') {
                     LoadDashboard('');
                     //location.reload();
                 }
-                if (formId == 'attention') {
-                    LoadIDP();
-                    //location.reload();
+                if (formId == 'edit-census') {
+                    LoadCensus();
                 }
             }
         });
     });
 })
+
+
+function Attended(id) {
+    var url = "/Home/Attended?id=" + id;
+    console.log('here i am ' + url);
+    $.ajax({
+        url: url,
+        tpye: 'POST',
+        async: true,
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.responseText);
+            alert(thrownError);
+        }
+    });
+    setTimeout(LoadDashboard(''), 1000);
+}
 
 function startTime() {
     var today = new Date();
@@ -141,6 +156,8 @@ function startTime() {
         h = h - 12;
     }
     document.getElementById('time-top').innerHTML =
+        h + ":" + m + ":" + s + " " + culture;
+    document.getElementById('time-top1').innerHTML =
         h + ":" + m + ":" + s + " " + culture;
     var t = setTimeout(startTime, 500);
 }
@@ -164,7 +181,7 @@ function OpenForm(id, action) {
     if (id != '') {
         setTimeout(function () {
             var placeholderElement = $('#placeholder');
-            var url = "/Home/" + action + "?id=" + id;
+            var url = "/Home/" + action + "?pdrId=" + id;
             console.log(url);
             $.ajax({
                 url: url,
@@ -191,6 +208,26 @@ function OpenForm(id, action) {
         console.log('No id');
     }
 }
+
+function EditCensus() {
+    var url = "/Dashboard/EditCensus"
+    var placeholderElement = $('#placeholder');
+    $.ajax({
+        url: url,
+        tpye: 'GET',
+        async: true,
+        success: function (data) {
+            placeholderElement.empty();
+            placeholderElement.html(data);
+            placeholderElement.find('.modal').modal('show');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.responseText);
+            alert(thrownError);
+        }
+    });
+}
+
 
 function ChangePhoto(input,width,height) {
     if (input.files && input.files[0]) {
@@ -256,6 +293,7 @@ function LoadCensus() {
             alert(thrownError);
         }
     });
+
 }
 
 function LoadDashboard(search) {

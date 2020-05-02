@@ -25,6 +25,8 @@ namespace WebPDRSystem.Models.ViewModels
         [Required]
         [StringLength(255)]
         public string Role { get; set; }
+        [StringLength(100)]
+        public string Facility { get; set; }
         public string PhotoString { get; set; }
         public string PhotoFilePath { get; set; }
     }

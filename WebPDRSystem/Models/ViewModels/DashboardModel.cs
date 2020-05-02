@@ -14,7 +14,7 @@ namespace WebPDRSystem.Models.ViewModels
         public int MayGoHome { get; set; }
         public string ODR { get; set; }
         public string ODG { get; set; }
-        public string QOD { get; set; }
+        public string QD { get; set; }
         public string NODA { get; set; }
         public string NODB { get; set; }
     }

@@ -1,121 +1,134 @@
-﻿@model DashboardModel
+﻿
 @{
     ViewData["Title"] = "Census";
 }
 
-    <div id="census_main" style="margin-top: 20px !important;">
+    <div style="margin-top: 20px !important;">
         <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="col-md-12">
-                            <div class="info-box">
-                                <div class="info-box-content">
-                                    <span class="info-box-text">TOTAL CENSUS</span>
-                                    <span class="info-box-number"></span>
-                                </div>
-                                <div class="overlay">
-                                    <i class="fas fa-2x fa-sync fa-spin"></i>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
+            <div class="card-header">
+                <h3>
+                    As of @DateTime.Now.ToString("MMMM d") <span id="time-top1"></span>
+                </h3>
 
-                        <div class="col-md-12">
-                            <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                            <canvas id="pieChart" style="height: 230px; min-height: 230px; display: block; width: 572px;" width="715" height="287" class="chartjs-render-monitor"></canvas>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="info-box">
-                                <div class="info-box-content">
-                                    <span class="info-box-text">MAY GO HOME</span>
-                                    <span class="info-box-number"></span>
-
+                <button class="btn" style="position: absolute; top: 10px; right: 10px;" onclick="EditCensus();">
+                    <h3>
+                        <i class="fas fa-edit"></i>
+                    </h3>
+                </button>
+            </div>
+            <div id="census_main">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="col-md-12">
+                                <div class="info-box">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">TOTAL CENSUS</span>
+                                        <span class="info-box-number"></span>
+                                    </div>
                                     <div class="overlay">
                                         <i class="fas fa-2x fa-sync fa-spin"></i>
                                     </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
+                                <!-- /.info-box -->
                             </div>
-                            <!-- /.info-box -->
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <!-- ODR -->
-                        <div class="col-md-12">
-                            <div class="info-box">
-                                <div class="info-box-content">
-                                    <span class="info-box-text">ODR</span>
-                                    <span class="info-box-number"></span>
 
-                                    <div class="overlay">
-                                        <i class="fas fa-2x fa-sync fa-spin"></i>
-                                    </div>
-                                </div>
-                                <!-- /.info-box-content -->
+                            <div class="col-md-12">
+                                <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                                <canvas id="pieChart" style="height: 230px; min-height: 230px; display: block; width: 572px;" width="715" height="287" class="chartjs-render-monitor"></canvas>
                             </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- ODG -->
-                        <div class="col-md-12">
-                            <div class="info-box">
-                                <div class="info-box-content">
-                                    <span class="info-box-text">ODG</span>
-                                    <span class="info-box-number"></span>
+                            <div class="col-md-12">
+                                <div class="info-box">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">MAY GO HOME</span>
+                                        <span class="info-box-number"></span>
 
-                                    <div class="overlay">
-                                        <i class="fas fa-2x fa-sync fa-spin"></i>
+                                        <div class="overlay">
+                                            <i class="fas fa-2x fa-sync fa-spin"></i>
+                                        </div>
                                     </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
+                                <!-- /.info-box -->
                             </div>
-                            <!-- /.info-box -->
                         </div>
-                        <!-- QOD -->
-                        <div class="col-md-12">
-                            <div class="info-box">
-                                <div class="info-box-content">
-                                    <span class="info-box-text">QOD</span>
-                                    <span class="info-box-number"></span>
+                        <div class="col-md-7">
+                            <!-- ODR -->
+                            <div class="col-md-12">
+                                <div class="info-box">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">OFFICER OF THE DAY (RED ZONE)</span>
+                                        <span class="info-box-number"></span>
 
-                                    <div class="overlay">
-                                        <i class="fas fa-2x fa-sync fa-spin"></i>
+                                        <div class="overlay">
+                                            <i class="fas fa-2x fa-sync fa-spin"></i>
+                                        </div>
                                     </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
+                                <!-- /.info-box -->
                             </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- NOD A -->
-                        <div class="col-md-12">
-                            <div class="info-box">
-                                <div class="info-box-content">
-                                    <span class="info-box-text">CHAMBER A NOD</span>
-                                    <span class="info-box-number"></span>
+                            <!-- ODG -->
+                            <div class="col-md-12">
+                                <div class="info-box">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">OFFICER OF THE DAY (GREEN ZONE)</span>
+                                        <span class="info-box-number"></span>
 
-                                    <div class="overlay">
-                                        <i class="fas fa-2x fa-sync fa-spin"></i>
+                                        <div class="overlay">
+                                            <i class="fas fa-2x fa-sync fa-spin"></i>
+                                        </div>
                                     </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
+                                <!-- /.info-box -->
                             </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- NOT B -->
-                        <div class="col-md-12">
-                            <div class="info-box">
-                                <div class="info-box-content">
-                                    <span class="info-box-text">CHAMBER B NOD</span>
-                                    <span class="info-box-number"></span>
+                            <!-- QOD -->
+                            <div class="col-md-12">
+                                <div class="info-box">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">QUARANTINE DOCTOR</span>
+                                        <span class="info-box-number"></span>
 
-                                    <div class="overlay">
-                                        <i class="fas fa-2x fa-sync fa-spin"></i>
+                                        <div class="overlay">
+                                            <i class="fas fa-2x fa-sync fa-spin"></i>
+                                        </div>
                                     </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
+                                <!-- /.info-box -->
                             </div>
-                            <!-- /.info-box -->
+                            <!-- NOD A -->
+                            <div class="col-md-12">
+                                <div class="info-box">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">NURSE OF THE DAY (CHAMBER A)</span>
+                                        <span class="info-box-number"></span>
+
+                                        <div class="overlay">
+                                            <i class="fas fa-2x fa-sync fa-spin"></i>
+                                        </div>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </div>
+                            <!-- NOT B -->
+                            <div class="col-md-12">
+                                <div class="info-box">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">NURSE OF THE DAY (CHAMBER B)</span>
+                                        <span class="info-box-number"></span>
+
+                                        <div class="overlay">
+                                            <i class="fas fa-2x fa-sync fa-spin"></i>
+                                        </div>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </div>
                         </div>
                     </div>
                 </div>

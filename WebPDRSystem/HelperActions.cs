@@ -46,6 +46,17 @@ namespace WebPDRSystem
                 return "";
             }
         }
+        public static string GetAddress(this Guardian patient)
+        {
+            string address = patient.ProvinceNavigation.Description + ", " + patient.MuncityNavigation.Description + ", " + patient.BarangayNavigation.Description;
+
+            if (!string.IsNullOrEmpty(patient.Address))
+            {
+                address += "," + patient.Address;
+            }
+
+            return address;
+        }
 
         public static string GetAddress(this Patient patient)
         {

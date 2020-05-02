@@ -46,6 +46,7 @@ namespace WebPDRSystem.Models
         [StringLength(20)]
         public string Status { get; set; }
         public int? SymptomsContactsId { get; set; }
+        public bool Attended { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 

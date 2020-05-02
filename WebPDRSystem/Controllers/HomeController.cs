@@ -40,17 +40,37 @@ namespace WebPDRSystem.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Attention(int id)
+
+        public void Attended(int id)
+        {
+            var pdr = _context.Pdr.Find(id);
+            var unus = _context.Unusualities.Where(x => x.PdrId == id).OrderByDescending(x => x.CreatedAt).FirstOrDefault();
+            pdr.Attended = false;
+            unus.Attended = true;
+            _context.UpdateRange(pdr, unus);
+            _context.SaveChanges();
+        }
+
+        public async Task<IActionResult> Attention(int pdrId)
         {
             var pdr = await _context.Pdr
                 .Include(x => x.PatientNavigation)
-                .Where(x => x.Id == id).FirstOrDefaultAsync();
+                .Where(x => x.Id == pdrId).FirstOrDefaultAsync();
 
-            var attention = new Unusualities
+            Unusualities attention = null;
+
+            if(pdr.Attended)
             {
-                Pdr = pdr,
-                PdrId = id
-            };
+                attention = await _context.Unusualities.Where(x => x.PdrId == pdr.Id).OrderByDescending(x => x.CreatedAt).FirstOrDefaultAsync();
+            }
+            else
+            {
+                attention = new Unusualities
+                {
+                    Pdr = pdr,
+                    PdrId = pdrId
+                };
+            }
             return PartialView(attention);
         }
 
@@ -64,7 +84,9 @@ namespace WebPDRSystem.Controllers
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
-                _context.Add(model);
+                model.Pdr.Attended = true;
+                model.Attended = false;
+                _context.Update(model);
                 await _context.SaveChangesAsync();
                 return PartialView(model);
             }
@@ -96,12 +118,12 @@ namespace WebPDRSystem.Controllers
 
         #region QN FORM
 
-        public async Task<IActionResult> UpdateQnForm(int id)
+        public async Task<IActionResult> UpdateQnForm(int pdrId)
         {
             var form = await _context.Qnform
                 .Include(x => x.Pdr)
                     .ThenInclude(x => x.PatientNavigation)
-                .FirstOrDefaultAsync(x => x.Id == id);
+                .FirstOrDefaultAsync(x => x.Id == pdrId);
 
             ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname",form.SignatureOfQn);
             return PartialView(form);
@@ -212,9 +234,9 @@ namespace WebPDRSystem.Controllers
         }
         #endregion
         #region QD FORM
-        public IActionResult QDForm(int id)
+        public IActionResult QDForm(int pdrId)
         {
-            var pdr = _context.Pdr.Include(x=>x.PatientNavigation).SingleOrDefault(x => x.Id == id);
+            var pdr = _context.Pdr.Include(x=>x.PatientNavigation).SingleOrDefault(x => x.Id == pdrId);
             ViewBag.HCBuddies = new SelectList(Gethcb(), "Id", "Fullname");
             ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname");
 
@@ -286,12 +308,12 @@ namespace WebPDRSystem.Controllers
         #endregion
 
 
-        public async Task<IActionResult> PDRModal(int id)
+        public async Task<IActionResult> PDRModal(int pdrId)
         {
             var pdr = await _context.Pdr
                 .Include(x => x.PatientNavigation)
                 .Include(x => x.GuardianNavigation)
-                .Include(x => x.SymptomsContacts).SingleOrDefaultAsync(x=>x.Id == id);
+                .Include(x => x.SymptomsContacts).SingleOrDefaultAsync(x=>x.Id == pdrId);
 
 
             ViewBag.ProvincesP = new SelectList(_context.Province, "Id", "Description", pdr.PatientNavigation.Province);
@@ -416,13 +438,13 @@ namespace WebPDRSystem.Controllers
             return View();
         }
 
-        public async Task<IActionResult> DischargeForm(int id)
+        public async Task<IActionResult> DischargeForm(int pdrId)
         {
             var pdr = await _context.Pdr
                 .Include(x => x.PatientNavigation).ThenInclude(x=>x.ProvinceNavigation)
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.BarangayNavigation)
-                .FirstOrDefaultAsync(x => x.Id == id);
+                .FirstOrDefaultAsync(x => x.Id == pdrId);
 
 
 
@@ -436,25 +458,62 @@ namespace WebPDRSystem.Controllers
             return PartialView(discharge);
         }
 
-        public async Task<IActionResult> ReferralForm(int id)
+        public async Task<IActionResult> DischargeForm(Discharge model)
+        {
+            model.Pdr = await _context.Pdr.FindAsync(model.Pdrid);
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if(ModelState.IsValid)
+            {
+                model.Pdr.Status = "discharged";
+                model.Pdr.UpdatedAt = DateTime.Now;
+                _context.Update(model);
+                await _context.SaveChangesAsync();
+                return PartialView(model);
+            }
+
+            return PartialView(model);
+        }
+
+        public async Task<IActionResult> ReferralForm(int pdrId)
         {
             var pdr = await _context.Pdr
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.ProvinceNavigation)
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.BarangayNavigation)
-                .Include(x => x.GuardianNavigation)
-                .FirstOrDefaultAsync(x => x.Id == id);
+                .Include(x => x.GuardianNavigation).ThenInclude(x => x.ProvinceNavigation)
+                .Include(x => x.GuardianNavigation).ThenInclude(x => x.MuncityNavigation)
+                .Include(x => x.GuardianNavigation).ThenInclude(x => x.BarangayNavigation)
+                .FirstOrDefaultAsync(x => x.Id == pdrId);
+
+            ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname");
 
             var refer = new Referral
             {
+                DateOfReferral = DateTime.Now,
                 Pdr = pdr,
                 Pdrid = pdr.Id
-                
             };
 
             return PartialView(refer);
-
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ReferralForm(Referral model)
+        {
+            model.Pdr = await _context.Pdr.FindAsync(model.Pdrid);
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if(ModelState.IsValid)
+            {
+                model.Pdr.Status = "referred";
+                _context.Update(model);
+                await _context.SaveChangesAsync();
+                return PartialView(model);
+            }
+
+            return PartialView(model);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

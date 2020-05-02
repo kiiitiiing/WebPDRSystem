@@ -891,3 +891,4 @@ C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Raz
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\CensusPartial.cshtml.g.cs
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\ImmediateDashboardPartial.cshtml.g.cs
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Attention.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\EditCensus.cshtml.g.cs

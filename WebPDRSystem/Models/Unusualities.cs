@@ -18,7 +18,7 @@ namespace WebPDRSystem.Models
         public string Status { get; set; }
         [StringLength(255)]
         public string Remarks { get; set; }
-        public bool Attended { get; set; }
+        public bool? Attended { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 

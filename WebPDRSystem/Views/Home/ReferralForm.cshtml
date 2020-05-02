@@ -19,103 +19,118 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!--Refer-->
-                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Refer</strong></div>
-                <div class="row">
-                    <div class="row" style="padding:5px">
-                        <label class="col-sm-5" style="font-size:medium;font-weight:100;padding:10px">Referral Date: </label>
-                        <input class="form-control form-control-sm col-sm-7" style="font-size:medium;padding:18px" type="text" id="referDate" value="DD/MM/YYYY" name="referDate" />
-                    </div>
-                </div>
-                <div class="row" style="padding:5px">
-                    <div class="col-sm-6">
-                        <input type="text" autofocus class="form-control" id="" placeholder="Referring Quarantine Facility" />
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="text" autofocus class="form-control" id="" placeholder="Referred to" />
-                    </div>
-                </div>
-                <!--Patient personal information-->
-                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Patient</strong></div>
-                <div class="row" style="padding:5px">
-                    <div class="col-sm-4">
-                        <div class="row">
-                            <p class="col-sm-3" style="font-size:medium;font-weight:bold" id="">Name: </p>
-                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">@Model.Pdr.PatientNavigation.GetFullName()</p>
+                <form asp-action="ReferralForm">
+                    <input type="hidden" asp-for="Pdrid" />
+                    <!-- REFER -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Refer</strong></div>
                         </div>
                     </div>
-                    <div class="col-sm-2">
-                        <div class="row">
-                            <p class="col-sm-3" style="font-size:medium;font-weight:bold" id="">Age:</p>
-                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">@Model.Pdr.PatientNavigation.Age</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="datetime-local" asp-for="DateOfReferral" class="form-control" />
                         </div>
                     </div>
-                    <div class="col-sm-2">
-                        <div class="row">
-                            <p class="col-sm-3" style="font-size:medium;font-weight:bold" id="">Sex:</p>
-                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">@gender</p>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-6">
+                            <input type="text" asp-for="ReferringQuarantineFacility" class="form-control" placeholder="Referring Quarantine Facility" />
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" asp-for="ReferredTo" class="form-control" placeholder="Referred to" />
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="row">
-                            <p class="col-sm-5" style="font-size:medium;font-weight:bold" id="">Contact No:</p>
-                            <p class="col-sm-7" style="font-size:medium;font-weight:100;text-align:center" id="">@Model.Pdr.PatientNavigation.ContactNumber</p>
+                    <!-- PATIENT -->
+                    <div class="row">
+                        <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Patient</strong></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p style="font-size:medium;"><strong>Name:</strong> @Model.Pdr.PatientNavigation.GetFullName()</p>
+                        </div>
+                        <div class="col-md-2">
+                            <p style="font-size:medium;"><strong>Age:</strong> @Model.Pdr.PatientNavigation.Age</p>
+                        </div>
+                        <div class="col-md-2">
+                            <p style="font-size:medium;"><strong>Sex:</strong> @gender</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p style="font-size:medium;"><strong>Contact No:</strong> @Model.Pdr.PatientNavigation.ContactNumber</p>
                         </div>
                     </div>
-                </div>
-                <div class="row" style="padding:5px">
-                    <p class="col-sm-2" style="font-size:medium;font-weight:bold" id="">Address: </p>
-                    <p class="col-sm-10" style="font-size:medium;font-weight:100" id="">@Model.Pdr.PatientNavigation.Address</p>
-                </div>
-                <!--Date of admission at quarantine facility-->
-                <div class="row" style="padding:5px">
-                    <p class="col-sm-5" style="font-size:medium;font-weight:bold" id="">Date of admission at Quarantine Facility:</p>
-                    <p class="col-sm-7" style="font-size:medium;font-weight:100" id="">@Model.Pdr.DateOfAdmission.GetDate("dd/MM/yyyy HH:mm")</p>
-                </div>
-                <!--Guardian-->
-                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Guardian</strong></div>
-                <div class="row" style="padding:5px">
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <p class="col-sm-3" style="font-size:medium;font-weight:bold" id="">Name: </p>
-                            <p class="col-sm-9" style="font-size:medium;font-weight:100;text-align:center" id="">@Model.Pdr.GuardianNavigation.GetFullName()</p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p style="font-size:medium;"><strong>Address:</strong> @Model.Pdr.PatientNavigation.GetAddress()</p>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <p class="col-sm-4" style="font-size:medium;font-weight:bold" id="">Contact No:</p>
-                            <p class="col-sm-8" style="font-size:medium;font-weight:100;text-align:center" id="">@Model.Pdr.GuardianNavigation.ContactNumber</p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p style="font-size:medium;"><strong>Date of Admission:</strong> @Model.Pdr.DateOfAdmission</p>
                         </div>
                     </div>
-                </div>
-                <div class="row" style="padding:5px">
-                    <p class="col-sm-2" style="font-size:medium;font-weight:bold" id="">Address: </p>
-                    <p class="col-sm-10" style="font-size:medium;font-weight:100" id="">@Model.Pdr.GuardianNavigation.Address</p>
-                </div>
+                    <!-- GUARDIAN -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Guardian</strong></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p style="font-size:medium;"><strong>Name:</strong> @Model.Pdr.GuardianNavigation.GetFullName()</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p style="font-size:medium;"><strong>Contact No.:</strong> @Model.Pdr.GuardianNavigation.ContactNumber</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p style="font-size:medium;"><strong>Address:</strong> @Model.Pdr.GuardianNavigation.GetAddress()</p>
+                        </div>
+                    </div>
+                    <!-- FINDINGS -->
+                    <div class="row">
+                        <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Findings</strong></div>
+                    </div>
+                    <div class="row" style="margin-top: 15px;">
+                        <div class="col-md-12">
+                            <textarea class="form-control" asp-for="PertinentFindings" rows="3" placeholder="Pertinent Findings"></textarea>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 15px;">
+                        <div class="col-md-12">
+                            <textarea class="form-control" asp-for="Diagnosis" rows="3" placeholder="Diagnosis"></textarea>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 15px;">
+                        <div class="col-md-12">
+                            <textarea class="form-control" asp-for="Reason" rows="3" placeholder="Reason for referral"></textarea>
+                        </div>
+                    </div>
+                    <div class="row" style="text-align:center;">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            Referred By:
+                            <select class="form-control" asp-for="ReferredBy" asp-items="ViewBag.Doctors">
+                                <option value="">Select Doctor</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
 
-                <!--Pertinent Findings-->
-                <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Findings</strong></div>
-                <div class="row" style="padding:5px">
-                    <input type="text" autofocus class="form-control" id="" placeholder="Pertinent Findings" />
-                </div>
-                <div class="row" style="padding:5px">
-                    <input type="text" autofocus class="form-control" id="" placeholder="Diagnosis" />
-                </div>
-                <div class="row" style="padding:5px">
-                    <input type="text" autofocus class="form-control" id="" placeholder="Reason for Referral" />
-                </div>
-
-                <!--Referred by-->
-                <div class="row" style="padding:10px">
-                    <label class="col-sm-4" style="font-size:medium;font-weight:500;padding:10px">Referred By: </label>
-                    <div class="col-sm-8">
-                        <input type="text" autofocus class="form-control" id="" placeholder="Refered by" />
-                    </div>
-                </div>
+                    @if (ViewBag.Errors != null)
+                    {
+                        <div class="row">
+                            <div class="col-sm-12 center" style="align-content:center">
+                                <span class="text-danger">Please input the required fields.</span>
+                            </div>
+                        </div>
+                    }
+                </form>
+                
                 <!--SUBMIT BUTTON-->
                 <div class="col-sm-12" align="center" style="padding:10px">
                     <div class="col-sm-4" align="right">
-                        <button class="btn btn-block btn-primary btn-lg" type="submit">Submit</button>
+                        <button class="btn btn-block btn-primary" data-save="modal">Submit</button>
                     </div>
                 </div>
             </div>
@@ -124,13 +139,5 @@
 </div>
 
 <script type="text/javascript">
-    $(function () {
-        $('#referDate').datepicker({
-            format: 'dd/mm/yyyy',
-            autoclose: true,
-            forceParse: true
-        });
-
-    })
 
 </script>

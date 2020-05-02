@@ -11,6 +11,8 @@
         var nameClass = item.InterviewedBy == null ? "text-warning" : "text-primary";
         Qnform qnform = null;
         var sc = new List<string>();
+
+        var bgColor = item.Attended? "#e85a5a" : "";
         if(item.Qnform.Count() != 0)
         {
             qnform = item.Qnform.OrderByDescending(x=>x.DateChecked).First();
@@ -53,7 +55,7 @@
                 sc.Add(qdform.OtherDetails);
         }
 
-        <tr>
+        <tr style="background-color: @bgColor">
             <td class="text-center">
                 <div class="btn-group dropleft" style="cursor: pointer;">
                     <a class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,6 +68,10 @@
                         <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ReferralForm');">Refer</a>
                         <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'DischargeForm');">Discharge</a>
                         <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'Attention');">Attention</a>
+                        @if (item.Attended)
+                        {
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="Attended('@item.Id');">Attended</a>
+                        }
                     </div>
                 </div>
             </td>

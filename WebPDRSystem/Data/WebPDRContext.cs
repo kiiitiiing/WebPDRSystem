@@ -17,6 +17,7 @@ namespace WebPDRSystem.Data
         }
 
         public virtual DbSet<Barangay> Barangay { get; set; }
+        public virtual DbSet<Census> Census { get; set; }
         public virtual DbSet<ClinicalParametersQd> ClinicalParametersQd { get; set; }
         public virtual DbSet<ClinicalParametersQn> ClinicalParametersQn { get; set; }
         public virtual DbSet<Discharge> Discharge { get; set; }
@@ -52,6 +53,39 @@ namespace WebPDRSystem.Data
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Description).IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Census>(entity =>
+            {
+                entity.HasOne(d => d.NodaNavigation)
+                    .WithMany(p => p.CensusNodaNavigation)
+                    .HasForeignKey(d => d.Noda)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_NODA");
+
+                entity.HasOne(d => d.NodbNavigation)
+                    .WithMany(p => p.CensusNodbNavigation)
+                    .HasForeignKey(d => d.Nodb)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_NODB");
+
+                entity.HasOne(d => d.OdgNavigation)
+                    .WithMany(p => p.CensusOdgNavigation)
+                    .HasForeignKey(d => d.Odg)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ODG");
+
+                entity.HasOne(d => d.OdrNavigation)
+                    .WithMany(p => p.CensusOdrNavigation)
+                    .HasForeignKey(d => d.Odr)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ODR");
+
+                entity.HasOne(d => d.QdNavigation)
+                    .WithMany(p => p.CensusQdNavigation)
+                    .HasForeignKey(d => d.Qd)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_QD");
             });
 
             modelBuilder.Entity<ClinicalParametersQd>(entity =>
@@ -244,6 +278,8 @@ namespace WebPDRSystem.Data
 
                 entity.Property(e => e.Designation).IsUnicode(false);
 
+                entity.Property(e => e.Facility).IsUnicode(false);
+
                 entity.Property(e => e.Firstname).IsUnicode(false);
 
                 entity.Property(e => e.Lastname).IsUnicode(false);
@@ -353,6 +389,11 @@ namespace WebPDRSystem.Data
                     .HasForeignKey(d => d.Pdrid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ReferralTable_PDRTable");
+
+                entity.HasOne(d => d.ReferredByNavigation)
+                    .WithMany(p => p.Referral)
+                    .HasForeignKey(d => d.ReferredBy)
+                    .HasConstraintName("FK_Referral_PDRUsers");
             });
 
             modelBuilder.Entity<TeamSchedule>(entity =>
