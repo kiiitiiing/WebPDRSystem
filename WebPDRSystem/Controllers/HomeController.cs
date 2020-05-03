@@ -116,17 +116,52 @@ namespace WebPDRSystem.Controllers
             return PartialView(await pdrs.ToListAsync());
         }
 
+        public partial class  SelectDates
+        {
+            public int Id { get; set; }
+            public string DateChecked { get; set; }
+        }
+
         #region QN FORM
 
-        public async Task<IActionResult> UpdateQnForm(int pdrId)
+        public async Task<IActionResult> UpdateQnForm(int pdrId, int? formId)
         {
-            var form = await _context.Qnform
-                .Include(x => x.Pdr)
-                    .ThenInclude(x => x.PatientNavigation)
-                .FirstOrDefaultAsync(x => x.Id == pdrId);
+            if(formId == null)
+            {
+                var form = await _context.Qnform
+                    .Include(x => x.Pdr)
+                        .ThenInclude(x => x.PatientNavigation)
+                    .FirstOrDefaultAsync(x => x.Id == pdrId);
+                var dates = _context.Qnform
+                    .Where(x => x.PdrId == form.PdrId)
+                    .Select(x => new SelectDates
+                    {
+                        Id = x.Id,
+                        DateChecked = x.DateChecked.ToString("dd/MM/yyyy HH:mm")
+                    });
 
-            ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname",form.SignatureOfQn);
-            return PartialView(form);
+                ViewBag.Dates = new SelectList(dates, "Id", "DateChecked", form.Id);
+                ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname", form.SignatureOfQn);
+                return PartialView(form);
+            }
+            else
+            {
+                var form = await _context.Qnform
+                    .Include(x => x.Pdr)
+                        .ThenInclude(x => x.PatientNavigation)
+                    .FirstOrDefaultAsync(x => x.Id == formId);
+                var dates = _context.Qnform
+                    .Where(x => x.PdrId == form.PdrId)
+                    .Select(x => new SelectDates
+                    {
+                        Id = x.Id,
+                        DateChecked = x.DateChecked.ToString("dd/MM/yyyy HH:mm")
+                    });
+
+                ViewBag.Dates = new SelectList(dates, "Id", "DateChecked", form.Id);
+                ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname", form.SignatureOfQn);
+                return PartialView(form);
+            }
         }
 
         [HttpPost]
@@ -392,7 +427,10 @@ namespace WebPDRSystem.Controllers
             ViewBag.MuncityP = new SelectList(_context.Muncity.Where(x => x.ProvinceId == 2), "Id", "Description");
             ViewBag.ProvincesG = new SelectList(_context.Province, "Id", "Description", 2);
             ViewBag.MuncityG = new SelectList(_context.Muncity.Where(x => x.ProvinceId == 2), "Id", "Description");
-            return View();
+            return View(new Pdr
+            {
+                DateOfAdmission = DateTime.Now
+            });
         }
 
         [HttpPost]
@@ -447,6 +485,7 @@ namespace WebPDRSystem.Controllers
                 .FirstOrDefaultAsync(x => x.Id == pdrId);
 
 
+            ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname");
 
             var discharge = new Discharge
             {

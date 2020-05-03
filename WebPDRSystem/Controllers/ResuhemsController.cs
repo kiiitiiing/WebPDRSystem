@@ -22,9 +22,9 @@ namespace WebPDRSystem.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(Pdr model)
         {
-            return View();
+            return View(model);
         }
 
         public IActionResult AddPatient()
@@ -34,7 +34,10 @@ namespace WebPDRSystem.Controllers
             ViewBag.MuncityP = new SelectList(_context.Muncity.Where(x => x.ProvinceId == 2), "Id", "Description");
             ViewBag.ProvincesG = new SelectList(_context.Province, "Id", "Description", 2);
             ViewBag.MuncityG = new SelectList(_context.Muncity.Where(x => x.ProvinceId == 2), "Id", "Description");
-            return View();
+            return View(new Pdr
+            {
+                DateOfAdmission = DateTime.Now
+            });
         }
 
         [HttpPost]

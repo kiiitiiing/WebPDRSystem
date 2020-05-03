@@ -177,6 +177,40 @@ function Hideload() {
     }, 1000);
 }
 
+function UpdateQnForm(formId) {
+
+    var placeholderElement = $('#placeholder');
+    placeholderElement.find('.modal').modal('hide');
+    if (formId != '') {
+        setTimeout(function () {
+            var url = "/Home/UpdateQnForm?formId=" + formId;
+            console.log(url);
+            $.ajax({
+                url: url,
+                tpye: 'get',
+                async: true,
+                success: function (data) {
+                    placeholderElement.empty();
+                    placeholderElement.html(data);
+                    placeholderElement.find('.modal').modal('show');
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.responseText);
+                    alert(thrownError);
+                }
+            });
+            /* $.get(url).done(function (data) {
+                 placeholderElement.empty();
+                 placeholderElement.html(data);
+                 placeholderElement.find('.modal').modal('show');
+             });*/
+        }, 300);
+    }
+    else {
+        console.log('No id');
+    }
+}
+
 function OpenForm(id, action) {
     if (id != '') {
         setTimeout(function () {
