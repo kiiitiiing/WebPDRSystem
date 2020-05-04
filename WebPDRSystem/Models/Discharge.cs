@@ -13,8 +13,8 @@ namespace WebPDRSystem.Models
         public int Pdrid { get; set; }
         public DateTime DateDischarged { get; set; }
         public int HealthCareBuddy { get; set; }
-        [StringLength(255)]
-        public string DischargedBy { get; set; }
+        public int DischargedBy { get; set; }
+        [Required]
         [StringLength(255)]
         public string DischargedApprovedBy { get; set; }
         [StringLength(255)]
@@ -22,8 +22,11 @@ namespace WebPDRSystem.Models
         [StringLength(255)]
         public string GuardOnDuty { get; set; }
 
+        [ForeignKey(nameof(DischargedBy))]
+        [InverseProperty(nameof(Pdrusers.DischargeDischargedByNavigation))]
+        public virtual Pdrusers DischargedByNavigation { get; set; }
         [ForeignKey(nameof(HealthCareBuddy))]
-        [InverseProperty(nameof(Pdrusers.Discharge))]
+        [InverseProperty(nameof(Pdrusers.DischargeHealthCareBuddyNavigation))]
         public virtual Pdrusers HealthCareBuddyNavigation { get; set; }
         [ForeignKey(nameof(Pdrid))]
         [InverseProperty("Discharge")]

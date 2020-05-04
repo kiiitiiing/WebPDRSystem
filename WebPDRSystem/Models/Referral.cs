@@ -9,7 +9,6 @@ namespace WebPDRSystem.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
         public DateTime DateOfReferral { get; set; }
         [Required]
         public string ReferringQuarantineFacility { get; set; }
@@ -20,7 +19,7 @@ namespace WebPDRSystem.Models
         public string PertinentFindings { get; set; }
         public string Diagnosis { get; set; }
         public string Reason { get; set; }
-        public int? ReferredBy { get; set; }
+        public int ReferredBy { get; set; }
 
         [ForeignKey(nameof(Pdrid))]
         [InverseProperty("Referral")]

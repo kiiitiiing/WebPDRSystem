@@ -39,6 +39,26 @@ namespace WebPDRSystem.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> DashboardPartial(string search)
+        {
+            var pdrs = _context.Pdr
+                .Where(x => x.Status == "admitted")
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.Medications)
+                .Include(x => x.SymptomsContacts)
+                .Include(x => x.Qnform)
+                .Include(x => x.Qdform)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                pdrs = pdrs.Where(x => x.PatientNavigation.Firstname.Contains(search) || x.PatientNavigation.Lastname.Contains(search));
+            }
+
+            ViewBag.Total = pdrs.Count();
+
+            return PartialView(await pdrs.ToListAsync());
+        }
 
 
         public void Attended(int id)
@@ -96,25 +116,6 @@ namespace WebPDRSystem.Controllers
             return PartialView(model);
         }
 
-        public async Task<IActionResult> DashboardPartial( string search)
-        {
-            var pdrs = _context.Pdr
-                .Where(x => x.Status == "admitted")
-                .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
-                .Include(x => x.SymptomsContacts)
-                .Include(x => x.Qnform)
-                .Include(x => x.Qdform)
-                .AsQueryable();
-
-            if(!string.IsNullOrEmpty(search))
-            {
-                pdrs = pdrs.Where(x => x.PatientNavigation.Firstname.Contains(search) || x.PatientNavigation.Lastname.Contains(search));
-            }
-
-            ViewBag.Total = pdrs.Count();
-
-            return PartialView(await pdrs.ToListAsync());
-        }
 
         public partial class  SelectDates
         {
@@ -186,12 +187,12 @@ namespace WebPDRSystem.Controllers
         }
 
 
-        public IActionResult QNForm(int id)
+        public IActionResult QNForm(int pdrId)
         {
             var pdr = _context.Pdr
                 .Include(x => x.PatientNavigation)
                     .ThenInclude(x=>x.Medications)
-                .SingleOrDefault(x => x.Id == id);
+                .SingleOrDefault(x => x.Id == pdrId);
             ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname");
 
             var form = new QnformModel
@@ -495,6 +496,24 @@ namespace WebPDRSystem.Controllers
             };
 
             return PartialView(discharge);
+        }
+
+        public async Task<IActionResult> Discharged(string search)
+        {
+            var patients = await _context.Discharge
+                .OrderByDescending(x => x.DateDischarged)
+                .ToListAsync();
+
+            return View(patients);
+        }
+
+        public async Task<IActionResult> Referred(string search)
+        {
+            var patients = await _context.Referral
+                .OrderByDescending(x => x.DateOfReferral)
+                .ToListAsync();
+
+            return View(patients);
         }
 
         [HttpPost]

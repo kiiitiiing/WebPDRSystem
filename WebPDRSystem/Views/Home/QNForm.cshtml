@@ -202,11 +202,11 @@
         var div = document.createElement('div');
         div.setAttribute('class', 'row');
         div.setAttribute('style', 'padding: 5px;');
-
+        
+        //MedName
         var divMedName = document.createElement('div');
-        divMedName.setAttribute('class', 'col-sm-6');
+        divMedName.setAttribute('class', 'col-sm-4');
         divMedName.setAttribute('id', 'medName');
-
         var inMedName = document.createElement('input');
         inMedName.setAttribute('class', 'form-control');
         inMedName.setAttribute('placeholder', 'Medicine');
@@ -217,11 +217,53 @@
         inMedName.setAttribute('id', 'Medications_' + x + '__MedName');
         inMedName.setAttribute('maxlength','255')
         inMedName.setAttribute('name', 'Medications[' + x + '].MedName');
+        //Dosage
+        var divDosage = document.createElement('div');
+        divDosage.setAttribute('class', 'col-sm-2');
+        divDosage.setAttribute('id', 'dosage');
+        var inDosage = document.createElement('input');
+        inDosage.setAttribute('class', 'form-control');
+        inDosage.setAttribute('placeholder', 'Dosage');
+        inDosage.setAttribute('data-val', 'true');
+        inDosage.setAttribute('data-val-length', 'The field Dosage must be a string with a maximum length of 255.');
+        inDosage.setAttribute('data-val-length-max','255')
+        inDosage.setAttribute('data-val-required', 'The Dosage field is required.');
+        inDosage.setAttribute('id', 'Medications_' + x + '__Dosage');
+        inDosage.setAttribute('maxlength','255')
+        inDosage.setAttribute('name', 'Medications[' + x + '].Dosage');
+        //Route
+        var divRoute = document.createElement('div');
+        divRoute.setAttribute('class', 'col-sm-2');
+        divRoute.setAttribute('id', 'route');
+        var inRoute = document.createElement('input');
+        inRoute.setAttribute('class', 'form-control');
+        inRoute.setAttribute('placeholder', 'Route');
+        inRoute.setAttribute('data-val', 'true');
+        inRoute.setAttribute('data-val-length', 'The field Route must be a string with a maximum length of 255.');
+        inRoute.setAttribute('data-val-length-max','255')
+        inRoute.setAttribute('data-val-required', 'The Dosage field is required.');
+        inRoute.setAttribute('id', 'Medications_' + x + '__Route');
+        inRoute.setAttribute('maxlength','255')
+        inRoute.setAttribute('name', 'Medications[' + x + '].Route');
+        
+        //Frequency
+        var divFrequency = document.createElement('div');
+        divFrequency.setAttribute('class', 'col-sm-2');
+        divFrequency.setAttribute('id', 'frequency');
+        var inFrequency = document.createElement('input');
+        inFrequency.setAttribute('class', 'form-control');
+        inFrequency.setAttribute('placeholder', 'Frequency');
+        inFrequency.setAttribute('data-val', 'true');
+        inFrequency.setAttribute('data-val-length', 'The field Frequency must be a string with a maximum length of 255.');
+        inFrequency.setAttribute('data-val-length-max','255')
+        inFrequency.setAttribute('data-val-required', 'The Dosage field is required.');
+        inFrequency.setAttribute('id', 'Medications_' + x + '__Frequency');
+        inFrequency.setAttribute('maxlength','255')
+        inFrequency.setAttribute('name', 'Medications[' + x + '].Frequency');
 
-
-
+        //MedTaken
         var divMedTaken = document.createElement('div');
-        divMedTaken.setAttribute('class', 'col-sm-6');
+        divMedTaken.setAttribute('class', 'col-sm-2');
         divMedTaken.setAttribute('id', 'medTaken');
 
         var inMedTakenYes = document.createElement('input');
@@ -255,7 +297,13 @@
         divMedTaken.appendChild(labelNo);
         
         divMedName.appendChild(inMedName);
+        divDosage.appendChild(inDosage);
+        divRoute.appendChild(inRoute);
+        divFrequency.appendChild(inFrequency);
         div.appendChild(divMedName);
+        div.appendChild(divDosage);
+        div.appendChild(divRoute);
+        div.appendChild(divFrequency);
         div.appendChild(divMedTaken);
         $('.med_add').append(div);
         event.preventDefault();

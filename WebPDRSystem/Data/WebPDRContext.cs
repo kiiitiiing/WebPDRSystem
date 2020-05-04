@@ -22,6 +22,7 @@ namespace WebPDRSystem.Data
         public virtual DbSet<ClinicalParametersQn> ClinicalParametersQn { get; set; }
         public virtual DbSet<Discharge> Discharge { get; set; }
         public virtual DbSet<Guardian> Guardian { get; set; }
+        public virtual DbSet<MedHistory> MedHistory { get; set; }
         public virtual DbSet<Medications> Medications { get; set; }
         public virtual DbSet<Muncity> Muncity { get; set; }
         public virtual DbSet<Patient> Patient { get; set; }
@@ -126,14 +127,18 @@ namespace WebPDRSystem.Data
 
                 entity.Property(e => e.DischargedApprovedBy).IsUnicode(false);
 
-                entity.Property(e => e.DischargedBy).IsUnicode(false);
-
                 entity.Property(e => e.GuardOnDuty).IsUnicode(false);
 
                 entity.Property(e => e.QuarantineDirectorOrOfficer).IsUnicode(false);
 
+                entity.HasOne(d => d.DischargedByNavigation)
+                    .WithMany(p => p.DischargeDischargedByNavigation)
+                    .HasForeignKey(d => d.DischargedBy)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_DischargeBy");
+
                 entity.HasOne(d => d.HealthCareBuddyNavigation)
-                    .WithMany(p => p.Discharge)
+                    .WithMany(p => p.DischargeHealthCareBuddyNavigation)
                     .HasForeignKey(d => d.HealthCareBuddy)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DischargeTable_PDRUsers");
@@ -175,9 +180,30 @@ namespace WebPDRSystem.Data
                     .HasConstraintName("FK_Guardian_Province");
             });
 
+            modelBuilder.Entity<MedHistory>(entity =>
+            {
+                entity.Property(e => e.Dosage).IsUnicode(false);
+
+                entity.Property(e => e.Medname).IsUnicode(false);
+
+                entity.Property(e => e.Route).IsUnicode(false);
+
+                entity.HasOne(d => d.Pdr)
+                    .WithMany(p => p.MedHistory)
+                    .HasForeignKey(d => d.PdrId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_MedHistory_PDR");
+            });
+
             modelBuilder.Entity<Medications>(entity =>
             {
+                entity.Property(e => e.Dosage).IsUnicode(false);
+
+                entity.Property(e => e.Frequency).IsUnicode(false);
+
                 entity.Property(e => e.MedName).IsUnicode(false);
+
+                entity.Property(e => e.Route).IsUnicode(false);
 
                 entity.HasOne(d => d.Patient)
                     .WithMany(p => p.Medications)
@@ -393,6 +419,7 @@ namespace WebPDRSystem.Data
                 entity.HasOne(d => d.ReferredByNavigation)
                     .WithMany(p => p.Referral)
                     .HasForeignKey(d => d.ReferredBy)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Referral_PDRUsers");
             });
 

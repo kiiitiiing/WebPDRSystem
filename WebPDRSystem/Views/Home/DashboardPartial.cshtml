@@ -110,7 +110,22 @@
             <td class="text-center">pertinent PE</td>
             <td class="text-center">Request</td>
             <td class="text-center">result result</td>*@
-            <td class="text-center">@item.Maintenance</td>
+            <td class="text-center">
+                <select class="form-control">
+                    @if (item.PatientNavigation.Medications.Where(x => x.CreatedAt.Date == DateTime.Now.Date).Count() != 0)
+                    {
+                        <option>View meds</option>
+                        foreach (var med in item.PatientNavigation.Medications.Where(x => x.CreatedAt.Date == DateTime.Now.Date))
+                        {
+                            <option>@med.MedName : @med.CreatedAt.ToString("HH:mm")</option>
+                        }
+                    }
+                    else
+                    {
+                        <option>None</option>
+                    }
+                </select>
+            </td>
             <td class="text-center">@item.ReferringFacility</td>
             <td class="text-center">other remarks, many remarks</td>
         </tr>

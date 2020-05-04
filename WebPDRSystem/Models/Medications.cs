@@ -14,6 +14,12 @@ namespace WebPDRSystem.Models
         public string MedName { get; set; }
         public bool MedTaken { get; set; }
         public int PatientId { get; set; }
+        [StringLength(255)]
+        public string Dosage { get; set; }
+        [StringLength(255)]
+        public string Route { get; set; }
+        [StringLength(255)]
+        public string Frequency { get; set; }
         public DateTime CreatedAt { get; set; }
 
         [ForeignKey(nameof(PatientId))]

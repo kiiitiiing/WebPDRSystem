@@ -14,13 +14,10 @@ namespace WebPDRSystem.Models.ViewModels
         public int SignatureOfQn { get; set; }
         [Required]
         public DateTime DateChecked { get; set; }
-        [Required]
         [StringLength(255)]
         public string Bp { get; set; }
-        [Required]
         [StringLength(255)]
         public string Hr { get; set; }
-        [Required]
         [StringLength(255)]
         public string Rr { get; set; }
         [StringLength(255)]
