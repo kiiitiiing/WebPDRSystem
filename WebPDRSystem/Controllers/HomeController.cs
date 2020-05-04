@@ -79,7 +79,7 @@ namespace WebPDRSystem.Controllers
 
             Unusualities attention = null;
 
-            if(pdr.Attended)
+            if (pdr.Attended)
             {
                 attention = await _context.Unusualities.Where(x => x.PdrId == pdr.Id).OrderByDescending(x => x.CreatedAt).FirstOrDefaultAsync();
             }
@@ -117,7 +117,7 @@ namespace WebPDRSystem.Controllers
         }
 
 
-        public partial class  SelectDates
+        public partial class SelectDates
         {
             public int Id { get; set; }
             public string DateChecked { get; set; }
@@ -127,7 +127,7 @@ namespace WebPDRSystem.Controllers
 
         public async Task<IActionResult> UpdateQnForm(int pdrId, int? formId)
         {
-            if(formId == null)
+            if (formId == null)
             {
                 var form = await _context.Qnform
                     .Include(x => x.Pdr)
@@ -191,7 +191,7 @@ namespace WebPDRSystem.Controllers
         {
             var pdr = _context.Pdr
                 .Include(x => x.PatientNavigation)
-                    .ThenInclude(x=>x.Medications)
+                    .ThenInclude(x => x.Medications)
                 .SingleOrDefault(x => x.Id == pdrId);
             ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname");
 
@@ -199,7 +199,7 @@ namespace WebPDRSystem.Controllers
             {
                 PdrId = pdr.Id,
                 PatientCode = pdr.Pdrcode,
-                Patientname = pdr.PatientNavigation.Firstname+" "+ pdr.PatientNavigation.Middlename + " " + pdr.PatientNavigation.Lastname,
+                Patientname = pdr.PatientNavigation.Firstname + " " + pdr.PatientNavigation.Middlename + " " + pdr.PatientNavigation.Lastname,
                 DateChecked = DateTime.Now,
                 Medications = new List<Medications>(),
                 PatientId = (int)pdr.Patient
@@ -215,7 +215,7 @@ namespace WebPDRSystem.Controllers
             if (ModelState.IsValid)
             {
                 var pdr = _context.Pdr.Find(model.PdrId);
-                if(model.Medications != null)
+                if (model.Medications != null)
                 {
                     _context.AddRange(AddMedication(model));
                 }
@@ -226,14 +226,14 @@ namespace WebPDRSystem.Controllers
                 return RedirectToAction(nameof(Dashboard));
             }
 
-            ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname",model.SignatureOfQn);
+            ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname", model.SignatureOfQn);
             ViewBag.Errors = errors;
             return PartialView(model);
         }
 
         public List<Medications> AddMedication(QnformModel model)
         {
-            foreach(var item in model.Medications)
+            foreach (var item in model.Medications)
             {
                 item.PatientId = model.PatientId;
                 item.CreatedAt = model.DateChecked;
@@ -272,7 +272,7 @@ namespace WebPDRSystem.Controllers
         #region QD FORM
         public IActionResult QDForm(int pdrId)
         {
-            var pdr = _context.Pdr.Include(x=>x.PatientNavigation).SingleOrDefault(x => x.Id == pdrId);
+            var pdr = _context.Pdr.Include(x => x.PatientNavigation).SingleOrDefault(x => x.Id == pdrId);
             ViewBag.HCBuddies = new SelectList(Gethcb(), "Id", "Fullname");
             ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname");
 
@@ -291,7 +291,7 @@ namespace WebPDRSystem.Controllers
         public async Task<IActionResult> QDForm(QdformModel model)
         {
             var errors = ModelState.Values.SelectMany(v => v.Errors);
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 /*var pdr = _context.Pdr.Find(model.PdrId);
                 pdr.Qdform.Add(AddQdForm(model));
@@ -304,7 +304,7 @@ namespace WebPDRSystem.Controllers
                 return RedirectToAction(nameof(Dashboard));
             }
             ViewBag.HCBuddies = new SelectList(Gethcb(), "Id", "Fullname", model.HealthCareBuddy);
-            ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname",model.SignatureOfQd);
+            ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname", model.SignatureOfQd);
             ViewBag.Errors = errors;
             return PartialView(model);
         }
@@ -343,13 +343,54 @@ namespace WebPDRSystem.Controllers
         }
         #endregion
 
+        #region LAB RESULTS
+        public async Task<IActionResult> AddLabResult(int pdrId)
+        {
+            var pdr = await _context.Pdr
+                .Include(x => x.PatientNavigation)
+                .Where(x => x.Id == pdrId).FirstOrDefaultAsync();
+
+            var form = new LabResult
+            {
+                PdrId = pdrId,
+                Pdr = pdr
+            };
+
+            ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname");
+
+            return PartialView(form);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [RequestSizeLimit(valueCountLimit: 1073741824)]
+        public async Task<IActionResult> AddLabResult(LabResult model)
+        {
+            var pdr = await _context.Pdr
+                .Include(x => x.PatientNavigation)
+                .Where(x => x.Id == model.PdrId)
+                .FirstOrDefaultAsync();
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if (ModelState.IsValid)
+            {
+                model.Pdr = pdr;
+                model.ResultPic = SaveLabResult(pdr.PatientNavigation.Lastname + DateTime.Now.ToString("ddMMyyyy"), model.ResultPic);
+                _context.Update(model);
+                await _context.SaveChangesAsync();
+                return PartialView(model);
+            }
+
+            ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname", model.AttendingPhysician);
+            return PartialView(model);
+        }
+        #endregion
 
         public async Task<IActionResult> PDRModal(int pdrId)
         {
             var pdr = await _context.Pdr
                 .Include(x => x.PatientNavigation)
                 .Include(x => x.GuardianNavigation)
-                .Include(x => x.SymptomsContacts).SingleOrDefaultAsync(x=>x.Id == pdrId);
+                .Include(x => x.SymptomsContacts).SingleOrDefaultAsync(x => x.Id == pdrId);
 
 
             ViewBag.ProvincesP = new SelectList(_context.Province, "Id", "Description", pdr.PatientNavigation.Province);
@@ -382,7 +423,7 @@ namespace WebPDRSystem.Controllers
                 model.GuardianNavigation.UpdatedAt = DateTime.Now;
                 try
                 {
-                    var entity = _context.Pdr.FirstOrDefault(x=>x.Id==model.Id);
+                    var entity = _context.Pdr.FirstOrDefault(x => x.Id == model.Id);
                     var patient = _context.Patient.FirstOrDefault(x => x.Id == model.Patient);
                     var guardian = _context.Guardian.FirstOrDefault(x => x.Id == model.Guardian);
                     var symptoms = _context.SymptomsContacts.FirstOrDefault(x => x.Id == model.SymptomsContactsId);
@@ -392,7 +433,7 @@ namespace WebPDRSystem.Controllers
                     _context.Entry(symptoms).CurrentValues.SetValues(model.SymptomsContacts);
                     await _context.SaveChangesAsync();
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     var sqlErrors = e;
                 }
@@ -437,7 +478,7 @@ namespace WebPDRSystem.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [RequestSizeLimit(valueCountLimit: 1073741824)]
-        public async Task<IActionResult> AddPatient( Pdr model)
+        public async Task<IActionResult> AddPatient(Pdr model)
         {
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             model.Status = "admitted";
@@ -460,12 +501,12 @@ namespace WebPDRSystem.Controllers
             ViewBag.MuncityP = new SelectList(_context.Muncity.Where(x => x.ProvinceId == 2), "Id", "Description", model.PatientNavigation.Muncity);
             ViewBag.ProvincesG = new SelectList(_context.Province, "Id", "Description", model.GuardianNavigation.Province);
             ViewBag.MuncityG = new SelectList(_context.Muncity.Where(x => x.ProvinceId == 2), "Id", "Description", model.GuardianNavigation.Muncity);
-            if(model.PatientNavigation.Barangay != null)
+            if (model.PatientNavigation.Barangay != null)
             {
-                ViewBag.BarangayP = new SelectList(_context.Barangay.Where(x=>x.ProvinceId == model.PatientNavigation.Province && x.MuncityId == model.PatientNavigation.Muncity), "Id", "Description", model.PatientNavigation.Barangay);
+                ViewBag.BarangayP = new SelectList(_context.Barangay.Where(x => x.ProvinceId == model.PatientNavigation.Province && x.MuncityId == model.PatientNavigation.Muncity), "Id", "Description", model.PatientNavigation.Barangay);
             }
 
-            if(model.GuardianNavigation.Barangay != null)
+            if (model.GuardianNavigation.Barangay != null)
             {
                 ViewBag.BarangayG = new SelectList(_context.Barangay.Where(x => x.ProvinceId == model.GuardianNavigation.Province && x.MuncityId == model.GuardianNavigation.Muncity), "Id", "Description", model.GuardianNavigation.Barangay);
             }
@@ -480,7 +521,7 @@ namespace WebPDRSystem.Controllers
         public async Task<IActionResult> DischargeForm(int pdrId)
         {
             var pdr = await _context.Pdr
-                .Include(x => x.PatientNavigation).ThenInclude(x=>x.ProvinceNavigation)
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.ProvinceNavigation)
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.BarangayNavigation)
                 .FirstOrDefaultAsync(x => x.Id == pdrId);
@@ -522,7 +563,7 @@ namespace WebPDRSystem.Controllers
         {
             model.Pdr = await _context.Pdr.FindAsync(model.Pdrid);
             var errors = ModelState.Values.SelectMany(v => v.Errors);
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 model.Pdr.Status = "discharged";
                 model.Pdr.UpdatedAt = DateTime.Now;
@@ -563,7 +604,7 @@ namespace WebPDRSystem.Controllers
         {
             model.Pdr = await _context.Pdr.FindAsync(model.Pdrid);
             var errors = ModelState.Values.SelectMany(v => v.Errors);
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 model.Pdr.Status = "referred";
                 _context.Update(model);
@@ -611,6 +652,26 @@ namespace WebPDRSystem.Controllers
                 });
 
             return users.ToList();
+        }
+
+        public string SaveLabResult(string name, string base64)
+        {
+            string imageName = name + ".jpg";
+            string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "LabResults", imageName);
+
+            string cleanData = base64.Replace("data:image/jpeg;base64,", "");
+            try
+            {
+                byte[] data = Convert.FromBase64String(cleanData);
+                MemoryStream ms = new MemoryStream(data);
+                Image img = Image.FromStream(ms);
+                img.Save(imagePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return imageName;
+            }
+            catch
+            {
+                return base64;
+            }
         }
         public string SavePicture(string name, string base64)
         {

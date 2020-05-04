@@ -12,6 +12,11 @@
     overflow: hidden;
 }
 
+.responsive{
+    width: 100%;
+    height: auto;
+}
+
 .hide-row{
     display:none;
 }

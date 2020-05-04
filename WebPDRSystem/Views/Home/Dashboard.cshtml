@@ -6,24 +6,22 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <form class="fa-pull-right form-inline ml-3">
-                <div class="form-actions note-color">
-                    <!-- INPUT -->
-                    <input class="form-control form-control-sm"
-                           name="search"
-                           id="searchDetail"
-                           placeholder="Code,Firstname,Lastname"
-                           type="text"
-                           value="" />
-                    <button type="submit" value="Search" class="btn btn-sm btn-success">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </form>
+            <div class="fa-pull-right form-inline ml-3">
+                <!-- INPUT -->
+                <input class="form-control form-control-sm"
+                        name="search"
+                        id="searchDetail"
+                        placeholder="Lastname"
+                        type="text"
+                        value="" />
+                <button onclick="SearchPatient();" class="btn btn-sm btn-success">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
             <h3 class="card-title">
                 Patient List
             </h3><br />
-            <span class="text-sm text-muted">TOTAL:</span>
+            <span class="text-sm text-muted">TOTAL: <span class="total_number"></span></span>
         </div>
         <div class="card-body">
             <!--Patient LISTS-->
@@ -76,8 +74,7 @@
 
     function SearchPatient() {
         var search = $('#searchDetail').val();
+        console.log(search);
         LoadDashboard(search);
-        $('#placeholder').empty();
-        $('#daily_monitoring_form').empty();
     }
 </script>

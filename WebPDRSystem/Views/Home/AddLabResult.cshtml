@@ -1,0 +1,76 @@
+﻿@model LabResult
+
+@{ 
+    var gender = Model.Pdr.PatientNavigation.Gender ? "Male" : "Female";
+}
+
+<div class="modal fade" id="lab_result">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>
+                    Add Lab Result
+                </h3>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="AddLabResult">
+                    <input type="hidden" asp-for="PdrId" />
+                    <input type="hidden" asp-for="CreatedAt" value="@DateTime.Now" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Patient name: </strong>@Model.Pdr.PatientNavigation.GetFullName()
+                        </div>
+                        <div class="col-md-2">
+                            <strong>Case No.: </strong>@Model.Pdr.CaseNumber
+                        </div>
+                        <div class="col-md-2">
+                            <strong>Bed No.: </strong>@Model.Pdr.BedNumber
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-2">
+                            <strong>Age: </strong>@Model.Pdr.PatientNavigation.Age
+                        </div>
+                        <div class="col-md-2">
+                            <strong>Gender: </strong>@gender
+                        </div>
+                        <div class="col-md-8">
+                            <strong>Date of Birth: </strong>@Model.Pdr.PatientNavigation.DateOfBirth.ToString("MMMM dd, yyyy")
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <input type="hidden" id="imgb64" asp-for="ResultPic" required />
+                        <input class="form-control col-md-12" type="file" onchange="LabResultScan(this);" required />
+                        <div class="lab_img">
+                            <img id="cur-pic" class="responsive" hidden alt="result" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-12" align="center" style="padding:15px;padding-top:20px">
+                            <div class="col-sm-6">
+                                <select type="text" class="form-control select2" asp-for="AttendingPhysician" asp-items="ViewBag.Doctors">
+                                    <option value="">Select Doctor</option>
+                                </select>
+                            </div>
+                            <label class="col-sm-6 control-label">Attending Physician</label>
+                        </div>
+                    </div>
+                </form>
+                @if (ViewBag.Errors != null)
+                {
+                    <div class="row">
+                        <div class="col-sm-12 center" style="align-content:center">
+                            <span class="text-danger">Please input the required fields.</span>
+                        </div>
+                    </div>
+                }
+                <div class="row">
+                    <button class="btn btn-success fa-pull-right" type="button" data-save="modal">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -262,6 +262,21 @@ function EditCensus() {
     });
 }
 
+function LabResultScan(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#imgb64').val(e.target.result);
+            $('#cur-pic')
+                .attr('src', e.target.result)
+                .addClass('cur-pic')
+                .removeAttr('hidden');
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
 
 function ChangePhoto(input,width,height) {
     if (input.files && input.files[0]) {
