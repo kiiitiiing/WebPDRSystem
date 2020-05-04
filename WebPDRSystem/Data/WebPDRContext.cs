@@ -21,6 +21,7 @@ namespace WebPDRSystem.Data
         public virtual DbSet<ClinicalParametersQd> ClinicalParametersQd { get; set; }
         public virtual DbSet<ClinicalParametersQn> ClinicalParametersQn { get; set; }
         public virtual DbSet<Discharge> Discharge { get; set; }
+        public virtual DbSet<DoctorOrders> DoctorOrders { get; set; }
         public virtual DbSet<Guardian> Guardian { get; set; }
         public virtual DbSet<LabResult> LabResult { get; set; }
         public virtual DbSet<MedHistory> MedHistory { get; set; }
@@ -149,6 +150,23 @@ namespace WebPDRSystem.Data
                     .HasForeignKey(d => d.Pdrid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DischargeTable_PDRTable");
+            });
+
+            modelBuilder.Entity<DoctorOrders>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.HasOne(d => d.AttendingDocNavigation)
+                    .WithMany(p => p.DoctorOrders)
+                    .HasForeignKey(d => d.AttendingDoc)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_DoctorOrders_PDRUsers");
+
+                entity.HasOne(d => d.Pdr)
+                    .WithMany(p => p.DoctorOrders)
+                    .HasForeignKey(d => d.PdrId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_DoctorOrders_PDR");
             });
 
             modelBuilder.Entity<Guardian>(entity =>

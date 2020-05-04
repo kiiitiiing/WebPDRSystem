@@ -12,6 +12,7 @@ namespace WebPDRSystem.Models
         public int PdrId { get; set; }
         public int AttendingPhysician { get; set; }
         [Required]
+        [StringLength(255)]
         public string ResultPic { get; set; }
         public DateTime CreatedAt { get; set; }
 

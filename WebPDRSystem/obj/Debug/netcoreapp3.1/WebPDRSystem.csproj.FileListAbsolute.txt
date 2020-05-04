@@ -842,7 +842,6 @@ C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\run
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csprojAssemblyReference.cache
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\staticwebassets\WebPDRSystem.StaticWebAssets.Manifest.cache
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\staticwebassets\WebPDRSystem.StaticWebAssets.xml
-C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorAssemblyInfo.cache
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.RazorAssemblyInfo.cs
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.AssemblyInfoInputs.cache
@@ -894,3 +893,6 @@ C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Raz
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\EditCensus.cshtml.g.cs
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\Discharged.cshtml.g.cs
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Home\AddLabResult.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\DinkToPdf.dll
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\NurseForms\AddOrder.cshtml.g.cs

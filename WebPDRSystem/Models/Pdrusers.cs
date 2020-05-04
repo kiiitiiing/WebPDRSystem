@@ -17,6 +17,7 @@ namespace WebPDRSystem.Models
             CensusQdNavigation = new HashSet<Census>();
             DischargeDischargedByNavigation = new HashSet<Discharge>();
             DischargeHealthCareBuddyNavigation = new HashSet<Discharge>();
+            DoctorOrders = new HashSet<DoctorOrders>();
             LabResult = new HashSet<LabResult>();
             Pdr = new HashSet<Pdr>();
             QdformHealthCareBuddyNavigation = new HashSet<Qdform>();
@@ -73,6 +74,8 @@ namespace WebPDRSystem.Models
         public virtual ICollection<Discharge> DischargeDischargedByNavigation { get; set; }
         [InverseProperty(nameof(Discharge.HealthCareBuddyNavigation))]
         public virtual ICollection<Discharge> DischargeHealthCareBuddyNavigation { get; set; }
+        [InverseProperty("AttendingDocNavigation")]
+        public virtual ICollection<DoctorOrders> DoctorOrders { get; set; }
         [InverseProperty("AttendingPhysicianNavigation")]
         public virtual ICollection<LabResult> LabResult { get; set; }
         [InverseProperty("InterviewedByNavigation")]

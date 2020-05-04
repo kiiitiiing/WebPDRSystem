@@ -92,6 +92,7 @@ $(function () {
     placeholderElement.on('click', 'button[data-save="modal"]', function (event) {
         //Showload();
         event.preventDefault();
+        event.stopImmediatePropagation();
         var form = placeholderElement.find('.modal').find('form');
         var formId = placeholderElement.find('.modal').attr('id');
         var actionUrl = form.attr('action');
@@ -140,7 +141,7 @@ function Attended(id) {
             alert(thrownError);
         }
     });
-    setTimeout(LoadDashboard(''), 1000);
+    setTimeout(LoadDashboard(''), 1500);
 }
 
 function startTime() {
@@ -156,8 +157,6 @@ function startTime() {
         h = h - 12;
     }
     document.getElementById('time-top').innerHTML =
-        h + ":" + m + ":" + s + " " + culture;
-    document.getElementById('time-top1').innerHTML =
         h + ":" + m + ":" + s + " " + culture;
     var t = setTimeout(startTime, 500);
 }
@@ -182,29 +181,22 @@ function UpdateQnForm(formId) {
     var placeholderElement = $('#placeholder');
     placeholderElement.find('.modal').modal('hide');
     if (formId != '') {
-        setTimeout(function () {
-            var url = "/Home/UpdateQnForm?formId=" + formId;
-            console.log(url);
-            $.ajax({
-                url: url,
-                tpye: 'get',
-                async: true,
-                success: function (data) {
-                    placeholderElement.empty();
-                    placeholderElement.html(data);
-                    placeholderElement.find('.modal').modal('show');
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    alert(xhr.responseText);
-                    alert(thrownError);
-                }
-            });
-            /* $.get(url).done(function (data) {
-                 placeholderElement.empty();
-                 placeholderElement.html(data);
-                 placeholderElement.find('.modal').modal('show');
-             });*/
-        }, 300);
+        var url = "/Home/UpdateQnForm?formId=" + formId;
+        console.log(url);
+        $.ajax({
+            url: url,
+            tpye: 'get',
+            async: true,
+            success: function (data) {
+                placeholderElement.empty();
+                placeholderElement.html(data);
+                placeholderElement.find('.modal').modal('show');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.responseText);
+                alert(thrownError);
+            }
+        });
     }
     else {
         console.log('No id');
