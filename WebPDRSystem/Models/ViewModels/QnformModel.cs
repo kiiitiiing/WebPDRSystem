@@ -8,6 +8,8 @@ namespace WebPDRSystem.Models.ViewModels
 {
     public partial class QnformModel
     {
+        [Required]
+        public int Day { get; set; }
         public string PatientCode { get; set; }
         public string Patientname { get; set; }
         [Required]

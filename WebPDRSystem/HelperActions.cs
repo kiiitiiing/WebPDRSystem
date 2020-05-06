@@ -128,10 +128,9 @@ namespace WebPDRSystem
 
         public static string GetDate(this DateTime? date, string format)
         {
-            var realDate = (DateTime)date;
-
-            if (realDate != default)
+            if (date != null)
             {
+                var realDate = (DateTime)date;
                 if (!format.Contains("tt"))
                 {
                     return realDate.ToString(format);

@@ -48,6 +48,7 @@ namespace WebPDRSystem.Controllers
                 .Include(x => x.SymptomsContacts)
                 .Include(x => x.Qnform)
                 .Include(x => x.Qdform)
+                .OrderByDescending(x=>x.CreatedAt)
                 .AsQueryable();
 
             if (!string.IsNullOrEmpty(search))
@@ -195,12 +196,28 @@ namespace WebPDRSystem.Controllers
                 .SingleOrDefault(x => x.Id == pdrId);
             ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname");
 
+            var qnforms = _context.Qnform
+                .Where(x => x.PdrId == pdrId);
+            var day = 1;
+            if(qnforms.Count() != 0)
+            {
+                if(qnforms.OrderByDescending(x=>x.DateChecked).FirstOrDefault().DateChecked.Hour >= 16 &&
+                    qnforms.OrderByDescending(x => x.DateChecked).FirstOrDefault().DateChecked.Hour < 23)
+                {
+                    day = (int)(qnforms.OrderByDescending(x => x.DateChecked).FirstOrDefault().Day + 1);
+                }
+                else
+                {
+                    day = (int)(qnforms.OrderByDescending(x => x.DateChecked).FirstOrDefault().Day);
+                }
+            }
             var form = new QnformModel
             {
+                Day = day,
                 PdrId = pdr.Id,
                 PatientCode = pdr.Pdrcode,
                 Patientname = pdr.PatientNavigation.Firstname + " " + pdr.PatientNavigation.Middlename + " " + pdr.PatientNavigation.Lastname,
-                DateChecked = DateTime.Now,
+                DateChecked = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0),
                 Medications = new List<Medications>(),
                 PatientId = (int)pdr.Patient
             };
@@ -246,6 +263,7 @@ namespace WebPDRSystem.Controllers
         {
             var qnform = new Qnform
             {
+                Day = model.Day,
                 DateChecked = model.DateChecked,
                 Bp = model.Bp,
                 Hr = model.Hr,

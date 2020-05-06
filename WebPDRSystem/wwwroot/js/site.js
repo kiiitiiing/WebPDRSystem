@@ -203,11 +203,12 @@ function UpdateQnForm(formId) {
     }
 }
 
-function OpenForm(id, action) {
+
+function OpenForm(id, action, controller) {
     if (id != '') {
         setTimeout(function () {
             var placeholderElement = $('#placeholder');
-            var url = "/Home/" + action + "?pdrId=" + id;
+            var url = "/" + controller + "/" + action + "?pdrId=" + id;
             console.log(url);
             $.ajax({
                 url: url,
@@ -351,6 +352,7 @@ function LoadDashboard(search) {
             alert(xhr.responseText);
         }
     });
+
 }
 
 function LoadIndex(search) {

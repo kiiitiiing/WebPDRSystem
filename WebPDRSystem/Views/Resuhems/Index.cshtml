@@ -1,4 +1,4 @@
-﻿@model Pdr
+﻿@model IEnumerable<Pdr>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,23 +9,55 @@
         <!-- CARD START-->
         <div class="card">
             <!-- CARD DANGER HEADER -->
-            <div class="card-header"
-                <div>
-                    <h3 class="card-title">
-                        Added patients
-                    </h3>
-                </div>
+            <div class="card-header">
+                <h3 class="card-title">
+                    Added patients
+                </h3>
                 <div class="clearfix"></div>
             </div>
             <div class="card-body">
-                @if(Model != null)
-                {
-                    <span>Patient @Model.PatientNavigation.GetFullName() was added.</span>
-                }
-                else
-                {
-                    <span>No patient added.</span>
-                }
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Sex</th>
+                            <th>Age</th>
+                            <th>Date of birth</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Count() != 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.PatientNavigation.GetFullName()
+                                    </td>
+                                    <td>
+                                        @item.PatientNavigation.Gender
+                                    </td>
+                                    <td>
+                                        @item.PatientNavigation.DateOfBirth.ComputeAge()
+                                    </td>
+                                    <td>
+                                        @item.PatientNavigation.DateOfBirth.ToString("MMMM dd, yyyy")
+                                    </td>
+                                    <td>
+                                        @item.PatientNavigation.GetAddress()
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5">No Patients!</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

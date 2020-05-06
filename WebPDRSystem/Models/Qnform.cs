@@ -16,6 +16,7 @@ namespace WebPDRSystem.Models
         [Column("SignatureOfQN")]
         public int SignatureOfQn { get; set; }
         public DateTime DateChecked { get; set; }
+        public int? Day { get; set; }
         [Column("BP")]
         [StringLength(255)]
         public string Bp { get; set; }

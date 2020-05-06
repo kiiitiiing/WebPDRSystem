@@ -310,7 +310,8 @@ namespace WebPDRSystem.Controllers
                 new Claim(ClaimTypes.Name, user.Username),
                 new Claim(ClaimTypes.GivenName, user.Firstname),
                 new Claim(ClaimTypes.Surname, user.Lastname),
-                new Claim(ClaimTypes.Role, user.Designation)
+                new Claim(ClaimTypes.Role, user.Designation),
+                new Claim("Position", user.Role)
             };
 
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

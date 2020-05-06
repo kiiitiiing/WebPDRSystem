@@ -896,3 +896,5 @@ C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Raz
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\DinkToPdf.dll
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\NurseForms\AddOrder.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\NurseForms\ViewOrders.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\NurseForms\QFNOverview.cshtml.g.cs

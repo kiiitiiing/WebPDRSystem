@@ -61,14 +61,20 @@
                     <a class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         @item.BedNumber
                     </a>
-                    <div class="dropdown-menu" x-placement="left-start" style="position: absolute; transform: translate3d(-2px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
-                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'PDRModal');">PDR</a>
-                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QDForm');">QF-Doctor</a>
-                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QNForm');">QF-Nurse</a>
-                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddLabResult');">Add lab result</a>
-                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ReferralForm');">Refer</a>
-                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'DischargeForm');">Discharge</a>
-                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'Attention')">Attention</a>
+                    <div class="dropdown-menu" x-placement="left-start" style="position: absolute; transform: translate3d(-2px, 0px, 0px); top: 0px; left: 0px; will-change: transform; max-height: 200px; overflow-y: auto;">
+                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'PDRModal', 'Home');">PDR</a>
+                        @if (User.FindFirstValue("Position") == "Doctor")
+                        {
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QDForm', 'Home');">QF-Doctor</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddLabResult', 'Home');">Add lab result</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddOrder', 'NurseForms');">Add Doctor's orders</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'Attention', 'Home')">Attention</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ReferralForm', 'Home');">Refer</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'DischargeForm', 'Home');">Discharge</a>
+                        }
+                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QNForm', 'Home');">QF-Nurse</a>
+                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QFNOverview', 'NurseForms');">QF-Nurse Overview</a>
+                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ViewOrders', 'NurseForms');">View Doctor's orders</a>
 
                         @if (item.Attended)
                         {
@@ -136,4 +142,6 @@
 
 <script>
     $('.total_number').html('@ViewBag.Total');
+    
+    console.log('1');
 </script>

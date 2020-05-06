@@ -8,6 +8,7 @@ using WebPDRSystem.Models;
 using WebPDRSystem.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using RequestSizeLimitAttribute = WebPDRSystem.Helpers.RequestSizeLimitAttribute;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebPDRSystem.Controllers
 {
@@ -22,9 +23,16 @@ namespace WebPDRSystem.Controllers
         {
             _context = context;
         }
-        public IActionResult Index(Pdr model)
+        public async Task<IActionResult> Index()
         {
-            return View(model);
+            var patients = await _context.Pdr
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.BarangayNavigation)
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.ProvinceNavigation)
+                .OrderByDescending(x => x.CreatedAt)
+                .ToListAsync();
+
+            return View(patients);
         }
 
         public IActionResult AddPatient()

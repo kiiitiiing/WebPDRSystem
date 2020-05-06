@@ -74,7 +74,7 @@ namespace WebPDRSystem.Models
         public virtual ICollection<Discharge> DischargeDischargedByNavigation { get; set; }
         [InverseProperty(nameof(Discharge.HealthCareBuddyNavigation))]
         public virtual ICollection<Discharge> DischargeHealthCareBuddyNavigation { get; set; }
-        [InverseProperty("AttendingDocNavigation")]
+        [InverseProperty("SignatureNavigation")]
         public virtual ICollection<DoctorOrders> DoctorOrders { get; set; }
         [InverseProperty("AttendingPhysicianNavigation")]
         public virtual ICollection<LabResult> LabResult { get; set; }

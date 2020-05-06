@@ -9,6 +9,7 @@ namespace WebPDRSystem.Models
     {
         [Key]
         public int Id { get; set; }
+        public int? Day { get; set; }
         [Required]
         [StringLength(255)]
         public string MedName { get; set; }

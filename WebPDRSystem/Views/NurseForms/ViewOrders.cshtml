@@ -1,0 +1,124 @@
+﻿@model ViewOrdersModel
+
+<div class="modal fade" id="attention" style="font-size: 14px; font-weight:500;">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content clearfix">
+            <div class="modal-header">
+                <h4>Doctor's Orders/Prescription for @ViewBag.CaseNo</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="ViewOrders">
+                    <table class="table fixed" width="100%">
+                        <colgroup>
+                            <col style="width: 20%;">
+                            <col style="width: 30%;">
+                            <col style="width: 2%;">
+                            <col style="width: 2%;">
+                            <col style="width: 2%;">
+                            <col style="width: 2%;">
+                            <col style="width: 2%;">
+                            <col style="width: 20%;">
+                            <col style="width: 20%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>
+                                    DATE & TIME
+                                </th>
+                                <th>
+                                    ORDERS/PRESCRIPTION
+                                </th>
+                                <th>
+                                    C
+                                </th>
+                                <th>
+                                    A
+                                </th>
+                                <th>
+                                    R
+                                </th>
+                                <th>
+                                    E
+                                </th>
+                                <th>
+                                    D
+                                </th>
+                                <th>
+                                    TIME POSTED
+                                </th>
+                                <th>
+                                    SIGNATURE
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Orders.Count() != 0)
+                            {
+                                for (int x = 0; x < Model.Orders.Count(); x++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input hidden asp-for="Orders[x].PdrId" />
+                                            <input hidden asp-for="Orders[x].Id" />
+                                            <input hidden asp-for="Orders[x].DateOrdered" />
+                                            <input hidden asp-for="Orders[x].Orders" />
+                                            <span>@Model.Orders[x].DateOrdered.ToString("dd/MM/yyyy HH:mm")</span>
+                                        </td>
+                                        <td>
+                                            <p>@Model.Orders[x].Orders</p>
+                                        </td>
+                                        <td>
+                                            <input type="radio" asp-for="Orders[x].Status" id="c" value="carried" />
+                                        </td>
+                                        <td>
+                                            <input type="radio" asp-for="Orders[x].Status" id="a" value="administered" />
+                                        </td>
+                                        <td>
+                                            <input type="radio" asp-for="Orders[x].Status" id="r" value="requestmade" />
+                                        </td>
+                                        <td>
+                                            <input type="radio" asp-for="Orders[x].Status" id="e" value="endorsed" />
+                                        </td>
+                                        <td>
+                                            <input type="radio" asp-for="Orders[x].Status" id="d" value="discontinued" />
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="datetime-local" asp-for="Orders[x].TimePosted" />
+                                        </td>
+                                        <td>
+                                            <select class="form-control" asp-for="Orders[x].Signature" asp-items="ViewBag.Nurses" required>
+                                                <option value="">Select nurse</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="9">No Orders</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </form>
+                @if (ViewBag.Errors != null)
+                {
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-sm-12 center" style="align-content:center">
+                            <span class="text-danger">Please input the required fields.</span>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success fa-pull-right" data-save="modal">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

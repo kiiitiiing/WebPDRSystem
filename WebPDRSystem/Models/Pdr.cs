@@ -27,7 +27,8 @@ namespace WebPDRSystem.Models
         public string QuarantineFacility { get; set; }
         [StringLength(100)]
         public string CaseNumber { get; set; }
-        public int? BedNumber { get; set; }
+        [StringLength(50)]
+        public string BedNumber { get; set; }
         public int? Patient { get; set; }
         [Column("PDRCode")]
         [StringLength(255)]

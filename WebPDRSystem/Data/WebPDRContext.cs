@@ -154,19 +154,18 @@ namespace WebPDRSystem.Data
 
             modelBuilder.Entity<DoctorOrders>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.HasOne(d => d.AttendingDocNavigation)
-                    .WithMany(p => p.DoctorOrders)
-                    .HasForeignKey(d => d.AttendingDoc)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_DoctorOrders_PDRUsers");
+                entity.Property(e => e.Status).IsUnicode(false);
 
                 entity.HasOne(d => d.Pdr)
                     .WithMany(p => p.DoctorOrders)
                     .HasForeignKey(d => d.PdrId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DoctorOrders_PDR");
+
+                entity.HasOne(d => d.SignatureNavigation)
+                    .WithMany(p => p.DoctorOrders)
+                    .HasForeignKey(d => d.Signature)
+                    .HasConstraintName("FK_DoctorOrders_PDRUsers1");
             });
 
             modelBuilder.Entity<Guardian>(entity =>
@@ -306,6 +305,8 @@ namespace WebPDRSystem.Data
                 entity.HasIndex(e => e.Patient);
 
                 entity.HasIndex(e => e.SymptomsContactsId);
+
+                entity.Property(e => e.BedNumber).IsUnicode(false);
 
                 entity.Property(e => e.CaseNumber).IsUnicode(false);
 

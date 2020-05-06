@@ -25,7 +25,10 @@ namespace WebPDRSystem.Controllers
         [HttpPost]
         public void SetPicture([FromBody]Picture picture)
         {
-            var pdr = _context.Pdr.Include(x=>x.PatientNavigation).Where(x => x.BedNumber == picture.Id).FirstOrDefault();
+            var pdr = _context.Pdr
+                .Include(x=>x.PatientNavigation)
+                //.Where(x => x.BedNumber == picture.Id)
+                .FirstOrDefault();
 
 
             if(pdr != null)
