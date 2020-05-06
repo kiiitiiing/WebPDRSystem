@@ -72,9 +72,15 @@
                             <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ReferralForm', 'Home');">Refer</a>
                             <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'DischargeForm', 'Home');">Discharge</a>
                         }
-                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QNForm', 'Home');">QF-Nurse</a>
-                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QFNOverview', 'NurseForms');">QF-Nurse Overview</a>
-                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ViewOrders', 'NurseForms');">View Doctor's orders</a>
+                        @if (User.FindFirstValue("Position") == "Nurse")
+                        {
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QNForm', 'Home');">QF-Nurse</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddMedication', 'NurseForms');">Add Medication</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QFNOverview', 'NurseForms');">QF-Nurse Overview</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'MedicationOverview', 'NurseForms');">Meds Overview</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ViewOrders', 'NurseForms');">View Doctor's orders</a>
+
+                        }
 
                         @if (item.Attended)
                         {

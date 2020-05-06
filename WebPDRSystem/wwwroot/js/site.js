@@ -165,6 +165,32 @@ function checkTime(i) {
     return i;
 }
 
+//CENSUS
+
+function startTime1() {
+    console.log()
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var culture = "AM";
+    m = checkTime1(m);
+    s = checkTime1(s);
+    if (h > 12) {
+        culture = "PM";
+        h = h - 12;
+    }
+    document.getElementById('time-top1').innerHTML =
+        h + ":" + m + ":" + s + " " + culture;
+    var t = setTimeout(startTime1, 500);
+}
+function checkTime1(i) {
+    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+    return i;
+}
+
+//END
+
 function Showload() {
     $('#loading').removeAttr('hidden');
 }

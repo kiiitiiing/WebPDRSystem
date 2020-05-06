@@ -21,6 +21,7 @@ namespace WebPDRSystem.Controllers
             _context = context;
         }
 
+        //var errors = ModelState.Values.SelectMany(v => v.Errors);
         #region VIEW QFN OVERVIEW
         public async Task<IActionResult> QFNOverview(int pdrId)
         {
@@ -115,6 +116,72 @@ namespace WebPDRSystem.Controllers
         }
         #endregion
 
+        #region MEDICATIONS
+
+        public async Task<IActionResult> AddMedication(int pdrId)
+        {
+            var pdr = await _context.Pdr
+                .Include(x => x.PatientNavigation)
+                .Where(x => x.Id == pdrId)
+                .FirstOrDefaultAsync();
+
+            var day = 1;
+            var meds = _context.Medications.Where(x => x.PatientId == pdr.Patient);
+            if (meds.Count() != 0)
+            {
+                var singleMed = meds.OrderByDescending(x => x.CreatedAt).FirstOrDefault();
+                day = (int)singleMed.Day;
+                if (singleMed.CreatedAt.Month <= DateTime.Now.Month && singleMed.CreatedAt.Day < DateTime.Now.Day)
+                {
+                    day = (int)singleMed.Day + 1;
+                }
+            }
+
+            var medics = new Medications
+            {
+                Day = day,
+                Patient = pdr.PatientNavigation,
+                PatientId = (int)pdr.Patient,
+                CreatedAt = DateTime.Now.RemoveSeconds()
+            };
+
+            ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname");
+
+            return PartialView(medics);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddMedication(Medications model)
+        {
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if (ModelState.IsValid)
+            {
+                model.MedName = model.MedName.ToUpper();
+                _context.Add(model);
+                await _context.SaveChangesAsync();
+
+                return PartialView(model);
+            }
+            ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname", model.SignatureNurse);
+            ViewBag.Errors = errors;
+            return PartialView(model);
+        }
+
+        public async Task<IActionResult> MedicationOverview(int pdrId)
+        {
+            var meds = await _context.Pdr
+                .Include(x => x.PatientNavigation)
+                    .ThenInclude(x => x.Medications)
+                .Where(x => x.Id == pdrId)
+                .FirstOrDefaultAsync();
+
+            ViewBag.Patient = meds.PatientNavigation.GetFullName();
+
+            return PartialView(meds.PatientNavigation.Medications.OrderByDescending(x=>x.CreatedAt).ToList());
+        }
+
+        #endregion
 
         #region HELPERS
 

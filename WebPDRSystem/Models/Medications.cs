@@ -21,10 +21,14 @@ namespace WebPDRSystem.Models
         public string Route { get; set; }
         [StringLength(255)]
         public string Frequency { get; set; }
+        public int SignatureNurse { get; set; }
         public DateTime CreatedAt { get; set; }
 
         [ForeignKey(nameof(PatientId))]
         [InverseProperty("Medications")]
         public virtual Patient Patient { get; set; }
+        [ForeignKey(nameof(SignatureNurse))]
+        [InverseProperty(nameof(Pdrusers.Medications))]
+        public virtual Pdrusers SignatureNurseNavigation { get; set; }
     }
 }

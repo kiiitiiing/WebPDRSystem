@@ -245,6 +245,12 @@ namespace WebPDRSystem.Data
                     .HasForeignKey(d => d.PatientId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Medications_Patient");
+
+                entity.HasOne(d => d.SignatureNurseNavigation)
+                    .WithMany(p => p.Medications)
+                    .HasForeignKey(d => d.SignatureNurse)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Medications_PDRUsers");
             });
 
             modelBuilder.Entity<Muncity>(entity =>

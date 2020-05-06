@@ -25,16 +25,25 @@ namespace WebPDRSystem.Controllers
         private const uint V = 2147483648;
         private readonly ILogger<HomeController> _logger;
         private readonly WebPDRContext _context;
-
+        
+        //var errors = ModelState.Values.SelectMany(v => v.Errors);
         public HomeController(ILogger<HomeController> logger, WebPDRContext context)
         {
             _context = context;
             _logger = logger;
         }
-        public IActionResult Login()
+
+        public partial class SelectDates
         {
-            return View();
+            public int Id { get; set; }
+            public string DateChecked { get; set; }
         }
+
+        
+
+        #region DASHBOARD
+
+
         public IActionResult Dashboard()
         {
             return View();
@@ -48,7 +57,7 @@ namespace WebPDRSystem.Controllers
                 .Include(x => x.SymptomsContacts)
                 .Include(x => x.Qnform)
                 .Include(x => x.Qdform)
-                .OrderByDescending(x=>x.CreatedAt)
+                .OrderByDescending(x => x.CreatedAt)
                 .AsQueryable();
 
             if (!string.IsNullOrEmpty(search))
@@ -61,6 +70,9 @@ namespace WebPDRSystem.Controllers
             return PartialView(await pdrs.ToListAsync());
         }
 
+        #endregion
+
+        #region ATTENDED
 
         public void Attended(int id)
         {
@@ -71,6 +83,10 @@ namespace WebPDRSystem.Controllers
             _context.UpdateRange(pdr, unus);
             _context.SaveChanges();
         }
+
+        #endregion
+
+        #region ATTENTION
 
         public async Task<IActionResult> Attention(int pdrId)
         {
@@ -118,11 +134,7 @@ namespace WebPDRSystem.Controllers
         }
 
 
-        public partial class SelectDates
-        {
-            public int Id { get; set; }
-            public string DateChecked { get; set; }
-        }
+        #endregion
 
         #region QN FORM
 
@@ -287,6 +299,7 @@ namespace WebPDRSystem.Controllers
             return qnform;
         }
         #endregion
+
         #region QD FORM
         public IActionResult QDForm(int pdrId)
         {
@@ -403,6 +416,8 @@ namespace WebPDRSystem.Controllers
         }
         #endregion
 
+        #region PDR MODAL
+
         public async Task<IActionResult> PDRModal(int pdrId)
         {
             var pdr = await _context.Pdr
@@ -479,6 +494,9 @@ namespace WebPDRSystem.Controllers
             return PartialView(model);
         }
 
+        #endregion
+
+        #region ADD PATIENT
 
         public IActionResult AddPatient()
         {
@@ -531,10 +549,10 @@ namespace WebPDRSystem.Controllers
             ViewBag.Errors = errors;
             return View(model);
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
+
+        #endregion
+
+        #region DISCHARGE FORM
 
         public async Task<IActionResult> DischargeForm(int pdrId)
         {
@@ -557,24 +575,6 @@ namespace WebPDRSystem.Controllers
             return PartialView(discharge);
         }
 
-        public async Task<IActionResult> Discharged(string search)
-        {
-            var patients = await _context.Discharge
-                .OrderByDescending(x => x.DateDischarged)
-                .ToListAsync();
-
-            return View(patients);
-        }
-
-        public async Task<IActionResult> Referred(string search)
-        {
-            var patients = await _context.Referral
-                .OrderByDescending(x => x.DateOfReferral)
-                .ToListAsync();
-
-            return View(patients);
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DischargeForm(Discharge model)
@@ -591,6 +591,28 @@ namespace WebPDRSystem.Controllers
             }
 
             return PartialView(model);
+        }
+
+        public async Task<IActionResult> Discharged(string search)
+        {
+            var patients = await _context.Discharge
+                .OrderByDescending(x => x.DateDischarged)
+                .ToListAsync();
+
+            return View(patients);
+        }
+
+        #endregion
+
+        #region REFERRED FORM
+
+        public async Task<IActionResult> Referred(string search)
+        {
+            var patients = await _context.Referral
+                .OrderByDescending(x => x.DateOfReferral)
+                .ToListAsync();
+
+            return View(patients);
         }
 
         public async Task<IActionResult> ReferralForm(int pdrId)
@@ -632,6 +654,9 @@ namespace WebPDRSystem.Controllers
 
             return PartialView(model);
         }
+
+        #endregion
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

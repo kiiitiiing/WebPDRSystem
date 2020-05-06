@@ -40,8 +40,15 @@ using System.Security.Claims;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\Views\_ViewImports.cshtml"
+using System.Globalization;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e90c2440ca6997a24e09addc52afc4daa24d0e10", @"/Views/Shared/navbar/_navbarPartialView.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dd0de6f509fd11d1eacc1af603f29baa90bb40be", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cd5a22c6d35617c1e3ce08ff0048f0e904e4c32a", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_navbar__navbarPartialView : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("nav-link"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -94,7 +101,7 @@ using System.Security.Claims;
 #line hidden
 #nullable disable
             WriteLiteral("        <li class=\"nav-item d-none d-sm-inline-block\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e108934", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e109122", async() => {
                 WriteLiteral("\r\n                <i class=\"fa fa-home\"></i>\r\n                &nbsp;Home\r\n            ");
             }
             );
@@ -115,7 +122,7 @@ using System.Security.Claims;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n        </li>\r\n        <li class=\"nav-item d-none d-sm-inline-block\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1010755", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1010943", async() => {
                 WriteLiteral("\r\n                <i class=\"fa fa-user-injured\"></i>\r\n                &nbsp;Add patient\r\n            ");
             }
             );
@@ -153,7 +160,7 @@ using System.Security.Claims;
 #line hidden
 #nullable disable
             WriteLiteral("        <li class=\"nav-item d-none d-sm-inline-block\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1013098", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1013286", async() => {
                 WriteLiteral("\r\n                <i class=\"fa fa-home\"></i>\r\n                &nbsp;Home\r\n            ");
             }
             );
@@ -186,7 +193,7 @@ using System.Security.Claims;
                 <li>
 
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1015270", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1015458", async() => {
                 WriteLiteral("\r\n                        Add new Patient\r\n                    ");
             }
             );
@@ -205,7 +212,7 @@ using System.Security.Claims;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </li>\r\n                <li>\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1016845", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1017033", async() => {
                 WriteLiteral("\r\n                        Discharged Patients\r\n                    ");
             }
             );
@@ -224,7 +231,7 @@ using System.Security.Claims;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </li>\r\n                <li>\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1018424", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1018612", async() => {
                 WriteLiteral("\r\n                        Referred Patients\r\n                    ");
             }
             );
@@ -260,7 +267,7 @@ using System.Security.Claims;
 #line hidden
 #nullable disable
             WriteLiteral("        <li class=\"nav-item d-none d-sm-inline-block\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1020570", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1020758", async() => {
                 WriteLiteral("\r\n                <i class=\"fa fa-user-md\"></i>\r\n                &nbsp;Census\r\n            ");
             }
             );
@@ -281,7 +288,7 @@ using System.Security.Claims;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n        </li>\r\n        <li class=\"nav-item d-none d-sm-inline-block\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1022401", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1022589", async() => {
                 WriteLiteral("\r\n                <i class=\"fa fa-user-md\"></i>\r\n                &nbsp;Unusualities\r\n            ");
             }
             );
@@ -302,7 +309,7 @@ using System.Security.Claims;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n        </li>\r\n        <li class=\"nav-item d-none d-sm-inline-block\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1024238", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1024426", async() => {
                 WriteLiteral("\r\n                <i class=\"fa fa-user-md\"></i>\r\n                &nbsp;Users\r\n            ");
             }
             );
@@ -337,7 +344,7 @@ using System.Security.Claims;
                 <a class=""dropdown-item"" href=""#""><i class=""fa fa-lock""></i>&nbsp;Reset Password</a>
                 <div class=""dropdown-divider""></div>
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1026846", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1027034", async() => {
                 WriteLiteral("<i class=\"fa fa-sign-out-alt\"></i>&nbsp;Logout");
             }
             );
@@ -366,7 +373,7 @@ using System.Security.Claims;
 #line hidden
 #nullable disable
             WriteLiteral("        <li class=\"nav-item fa-pull-right\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1028672", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e90c2440ca6997a24e09addc52afc4daa24d0e1028860", async() => {
                 WriteLiteral("\r\n                <i class=\"fa fa-sign-out-alt\"></i>\r\n                &nbsp;Logout\r\n            ");
             }
             );

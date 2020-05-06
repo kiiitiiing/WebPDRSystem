@@ -58,6 +58,12 @@ namespace WebPDRSystem
             return address;
         }
 
+        public static DateTime RemoveSeconds(this DateTime dateTime)
+        {
+            var dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute, 0);
+            return dt;
+        }
+
         public static string GetAddress(this Patient patient)
         {
             string address = patient.ProvinceNavigation.Description + ", " + patient.MuncityNavigation.Description + ", " + patient.BarangayNavigation.Description;

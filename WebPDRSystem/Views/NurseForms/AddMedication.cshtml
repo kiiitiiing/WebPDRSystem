@@ -1,0 +1,83 @@
+﻿@model Medications
+
+<div class="modal fade" id="lab_result">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>
+                    Add Meds for<br />
+                    @Model.Patient.GetFullName()
+                </h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="AddMedication">
+                    <input hidden asp-for="PatientId" />
+                    <input hidden asp-for="MedTaken" value="true" />
+                    <div class="row">
+                        <div class="col-md-9">
+                            Date & Time taken:
+                            <input type="datetime-local" class="form-control text-xs" asp-for="CreatedAt" />
+                        </div>
+                        <div class="col-md-3">
+                            Day:
+                            <input type="number" class="form-control" asp-for="Day" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-md-12">
+                            Medication:
+                            <input type="text" class="form-control" asp-for="MedName" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-md-12">
+                            Dosage:
+                            <input type="text" class="form-control" asp-for="Dosage" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-md-12">
+                            Route:
+                            <input type="text" class="form-control" asp-for="Route" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-md-12">
+                            Frequency:
+                            <input type="text" class="form-control" asp-for="Frequency" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-md-12">
+                            Attending Nurse:
+                            <select class="form-control" asp-for="SignatureNurse" asp-items="ViewBag.Nurses">
+                                <option value="">Select Nurse</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                @if (ViewBag.Errors != null)
+                {
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-sm-12 center" style="align-content:center">
+                            <span class="text-danger">Please input the required fields.</span>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="modal-footer">
+                <div class="form-inline">
+                    <button class="btn btn-danger fa-pull-left" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button class="btn btn-success fa-pull-right" data-save="modal">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
