@@ -84,7 +84,7 @@ namespace WebPDRSystem.Controllers
                 .Where(x => x.PdrId == pdrId)
                 .ToListAsync();
 
-
+            ViewBag.Patient = _context.Pdr.Include(x => x.PatientNavigation).FirstOrDefault(x => x.Id == pdrId).PatientNavigation.GetFullName();
 
             return PartialView(qdform);
         }
