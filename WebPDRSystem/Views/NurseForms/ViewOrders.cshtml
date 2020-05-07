@@ -66,6 +66,7 @@
                                             <input hidden asp-for="Orders[x].Id" />
                                             <input hidden asp-for="Orders[x].DateOrdered" />
                                             <input hidden asp-for="Orders[x].Orders" />
+                                            <input hidden asp-for="Orders[x].Comments" />
                                             <span>@Model.Orders[x].DateOrdered.ToString("dd/MM/yyyy HH:mm")</span><br />
                                             @if (!string.IsNullOrEmpty(Model.Orders[x].Comments))
                                             {
