@@ -94,7 +94,7 @@
             <td class="text-center">@gender</td>
             <td class="text-center">@item.PatientNavigation.MuncityNavigation.Description</td>
             <td class="text-center" title="@item.SymptomsContacts.SymptomsOfPatient">@admittingD</td>
-            <td class="text-center">@item.DateOfAdmission.ToString()</td>
+            <td class="text-center">@item.DateOfAdmission.GetDate("MM/dd/yyyy hh:mm tt")</td>
             <td class="text-center" style="cursor: pointer;" onclick="OpenForm('@vs[6]','UpdateQnForm')">@vs[0]</td>
             <td class="text-center">@vs[1]</td>
             <td class="text-center">@vs[2]</td>
