@@ -58,6 +58,18 @@ namespace WebPDRSystem
             return address;
         }
 
+        public static string Checkbool(this bool check)
+        {
+            return check ? "✓" : "";
+        }
+
+        public static string CheckMedParams(this string text, string divider)
+        {
+            if (!string.IsNullOrEmpty(text))
+                return divider + text;
+            else
+                return "";
+        }
         public static DateTime RemoveSeconds(this DateTime dateTime)
         {
             var dt = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute, 0);

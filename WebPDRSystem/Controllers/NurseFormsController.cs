@@ -73,6 +73,24 @@ namespace WebPDRSystem.Controllers
         }
         #endregion
 
+        #region QDFORM OVERVIEW
+        
+        public async Task<IActionResult> QDFormOverview(int pdrId)
+        {
+            var qdform = await _context.Qdform
+                .Include(x => x.Pdr)
+                    .ThenInclude(x => x.PatientNavigation)
+                .Include(x => x.SignatureOfQdNavigation)
+                .Where(x => x.PdrId == pdrId)
+                .ToListAsync();
+
+
+
+            return PartialView(qdform);
+        }
+
+        #endregion
+
         #region ADD ORDERS
         public async Task<IActionResult> AddOrder(int pdrId)
         {
@@ -176,9 +194,22 @@ namespace WebPDRSystem.Controllers
                 .Where(x => x.Id == pdrId)
                 .FirstOrDefaultAsync();
 
+            var allMeds = await _context.Medications
+                .Include(x => x.SignatureNurseNavigation)
+                .Where(x => x.PatientId == meds.Patient)
+                .Select(x => new MedOverviewModel
+                {
+                    MedName = x.MedName + x.Dosage.CheckMedParams(":") + x.Route.CheckMedParams(" ") + x.Frequency.CheckMedParams(" "),
+                    CreatedAt = x.CreatedAt,
+                    Day = x.Day,
+                    Comments = x.Comments,
+                    Nurse = x.SignatureNurseNavigation.Lastname
+                })
+                .ToListAsync();
+
             ViewBag.Patient = meds.PatientNavigation.GetFullName();
 
-            return PartialView(meds.PatientNavigation.Medications.OrderByDescending(x=>x.CreatedAt).ToList());
+            return PartialView(allMeds);
         }
 
         #endregion

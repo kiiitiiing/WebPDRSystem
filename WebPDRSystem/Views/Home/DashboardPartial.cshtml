@@ -27,30 +27,26 @@
         if(item.Qdform.Count() != 0)
         {
             var qdform = item.Qdform.OrderByDescending(x => x.DateChecked).First();
-            if (qdform.Colds)
-                sc.Add("Colds");
-            if (qdform.Cough)
-                sc.Add("Cough");
             if (qdform.Fever)
                 sc.Add("Fever");
+            if (qdform.Cough)
+                sc.Add("Cough");
             if (qdform.Breathing)
                 sc.Add("Difficulty in breathing");
-            if (qdform.BodyMuscleJointPain)
-                sc.Add("Body/Muscle/Joint Pain");
+            if (qdform.BodyPain)
+                sc.Add("Body Pain");
+            if (qdform.MuscleJointPain)
+                sc.Add("Muscle/Joint Pain");
             if (qdform.Headache)
                 sc.Add("Headache");
+            if (qdform.ChestPain)
+                sc.Add("Chest pain");
             if (qdform.Confusion)
                 sc.Add("Confusion");
-            if (qdform.BluishFingers)
-                sc.Add("Bluish fingers");
-            if (qdform.BluishLips)
-                sc.Add("Bluish lips");
+            if (qdform.BluishLipsFingers)
+                sc.Add("Bluish lips/fingers");
             if (qdform.MentalDistress)
                 sc.Add("Signs of mental distress");
-            if (qdform.SoreThroat)
-                sc.Add("Sore throat");
-            if (qdform.Diarrhea)
-                sc.Add("Diarrhea");
             if (!string.IsNullOrEmpty(qdform.OtherDetails))
                 sc.Add(qdform.OtherDetails);
         }
@@ -69,8 +65,9 @@
                             <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddLabResult', 'Home');">Add lab result</a>
                             <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddOrder', 'NurseForms');">Add Doctor's orders</a>
                             <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'Attention', 'Home')">Attention</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ReferralForm', 'Home');">Refer</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'DischargeForm', 'Home');">Discharge</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QDFormOverview', 'NurseForms');">QD Form Overview</a>
+                            @*<a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ReferralForm', 'Home');">Refer</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'DischargeForm', 'Home');">Discharge</a>*@
                         }
                         @if (User.FindFirstValue("Position") == "Nurse")
                         {

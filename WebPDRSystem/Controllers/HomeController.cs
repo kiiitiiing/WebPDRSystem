@@ -307,29 +307,27 @@ namespace WebPDRSystem.Controllers
             ViewBag.HCBuddies = new SelectList(Gethcb(), "Id", "Fullname");
             ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname");
 
-            var form = new QdformModel
+            var form = new Qdform
             {
+                Pdr = pdr,
                 PdrId = pdr.Id,
-                PatientName = pdr.PatientNavigation.Firstname + " " + pdr.PatientNavigation.Middlename + " " + pdr.PatientNavigation.Lastname,
+                Day = 1,
                 Pdrcode = pdr.Pdrcode,
-                DateChecked = DateTime.Now
+                DateChecked = DateTime.Now.RemoveSeconds()
             };
 
             return PartialView(form);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> QDForm(QdformModel model)
+        public async Task<IActionResult> QDForm(Qdform model)
         {
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
-                /*var pdr = _context.Pdr.Find(model.PdrId);
-                pdr.Qdform.Add(AddQdForm(model));
-                pdr.UpdatedAt = DateTime.Now;*/
-                //var form = AddQdForm(model);
-                //_context.Update(pdr);
-                _context.Add(AddQdForm(model));
+                var pdr = _context.Pdr.Find(model.PdrId);
+                pdr.UpdatedAt = DateTime.Now;
+                _context.UpdateRange(model,pdr);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Dashboard));
@@ -350,19 +348,14 @@ namespace WebPDRSystem.Controllers
                 DateChecked = model.DateChecked,
                 Temperature = model.Temperature,
                 Cough = model.Cough,
-                Colds = model.Colds,
                 Breathing = model.Breathing,
-                BodyMuscleJointPain = model.BodyMuscleJointPain,
+                BodyPain = model.BodyMuscleJointPain,
+                MuscleJointPain = model.BodyMuscleJointPain,
                 Headache = model.Headache,
                 ChestPain = model.ChestPain,
                 Confusion = model.Confusion,
-                BluishLips = model.BluishLips,
-                BluishFingers = model.BluishFingers,
-                Maintenance = model.Maintenance,
                 MedsTaken = model.MedsTaken,
                 MentalDistress = model.MentalDistress,
-                SoreThroat = model.SoreThroat,
-                Diarrhea = model.Diarrhea,
                 OtherDetails = model.OtherDetails,
                 SignatureOfQd = model.SignatureOfQd,
                 PdrId = model.PdrId,
@@ -507,7 +500,7 @@ namespace WebPDRSystem.Controllers
             ViewBag.MuncityG = new SelectList(_context.Muncity.Where(x => x.ProvinceId == 2), "Id", "Description");
             return View(new Pdr
             {
-                DateOfAdmission = DateTime.Now
+                DateOfAdmission = DateTime.Now.RemoveSeconds()
             });
         }
 

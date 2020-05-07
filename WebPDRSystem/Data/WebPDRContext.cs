@@ -154,8 +154,6 @@ namespace WebPDRSystem.Data
 
             modelBuilder.Entity<DoctorOrders>(entity =>
             {
-                entity.Property(e => e.Status).IsUnicode(false);
-
                 entity.HasOne(d => d.Pdr)
                     .WithMany(p => p.DoctorOrders)
                     .HasForeignKey(d => d.PdrId)
@@ -232,6 +230,8 @@ namespace WebPDRSystem.Data
 
             modelBuilder.Entity<Medications>(entity =>
             {
+                entity.Property(e => e.Comments).IsUnicode(false);
+
                 entity.Property(e => e.Dosage).IsUnicode(false);
 
                 entity.Property(e => e.Frequency).IsUnicode(false);

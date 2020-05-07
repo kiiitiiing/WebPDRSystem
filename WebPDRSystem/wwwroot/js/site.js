@@ -5,6 +5,7 @@
 
 $(function () {
 
+    
     $('.select2').select2({
         theme: 'bootstrap4'
     });
@@ -38,6 +39,17 @@ $(function () {
         });
     });
 
+
+    var otherdets = $('#other_details');
+    var temps = $('#temperature');
+
+    temps.click(function () {
+        console.log('sad');
+    });
+
+    otherdets.click(function () {
+        console.log('hapuattr');
+    });
     
 
     dmf.on('click', 'button[data-save="modal"]', function (event) {

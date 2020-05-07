@@ -898,3 +898,5 @@ C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\run
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.Views.pdb
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csproj.CopyComplete
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csprojAssemblyReference.cache
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\NurseForms\QDFormOverview.cshtml.g.cs

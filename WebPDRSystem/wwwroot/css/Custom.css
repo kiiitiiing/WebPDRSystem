@@ -6,6 +6,23 @@
     margin-top: 20px !important;
 }
 
+pre{
+    padding: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    position: relative;
+}
+
+.toggle {
+    display: none;
+}
+
 .crop{
     height: 80px;
     width: 80px !important;

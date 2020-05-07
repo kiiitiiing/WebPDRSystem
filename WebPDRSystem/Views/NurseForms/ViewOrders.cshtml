@@ -1,5 +1,6 @@
 ﻿@model ViewOrdersModel
 
+
 <div class="modal fade" id="attention" style="font-size: 14px; font-weight:500;">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content clearfix">
@@ -11,7 +12,7 @@
             </div>
             <div class="modal-body">
                 <form asp-action="ViewOrders">
-                    <table class="table fixed" width="100%">
+                    <table class="table fixed test-table" width="100%">
                         <colgroup>
                             <col style="width: 20%;">
                             <col style="width: 30%;">
@@ -65,25 +66,29 @@
                                             <input hidden asp-for="Orders[x].Id" />
                                             <input hidden asp-for="Orders[x].DateOrdered" />
                                             <input hidden asp-for="Orders[x].Orders" />
-                                            <span>@Model.Orders[x].DateOrdered.ToString("dd/MM/yyyy HH:mm")</span>
+                                            <span>@Model.Orders[x].DateOrdered.ToString("dd/MM/yyyy HH:mm")</span><br />
+                                            @if (!string.IsNullOrEmpty(Model.Orders[x].Comments))
+                                            {
+                                                <a href="#">comments</a>
+                                            }
                                         </td>
                                         <td>
-                                            <p>@Model.Orders[x].Orders</p>
+                                            <pre style="white-space: pre-line">@Model.Orders[x].Orders</pre>
                                         </td>
                                         <td>
-                                            <input type="radio" asp-for="Orders[x].Status" id="c" value="carried" />
+                                            <input type="checkbox" asp-for="Orders[x].Carried" id="c" value="true" />
                                         </td>
                                         <td>
-                                            <input type="radio" asp-for="Orders[x].Status" id="a" value="administered" />
+                                            <input type="checkbox" asp-for="Orders[x].Administered" id="a" value="true" />
                                         </td>
                                         <td>
-                                            <input type="radio" asp-for="Orders[x].Status" id="r" value="requestmade" />
+                                            <input type="checkbox" asp-for="Orders[x].RequestMade" id="r" value="true" />
                                         </td>
                                         <td>
-                                            <input type="radio" asp-for="Orders[x].Status" id="e" value="endorsed" />
+                                            <input type="checkbox" asp-for="Orders[x].Endorsed" id="e" value="true" />
                                         </td>
                                         <td>
-                                            <input type="radio" asp-for="Orders[x].Status" id="d" value="discontinued" />
+                                            <input type="checkbox" asp-for="Orders[x].Discontinued" id="d" value="true" />
                                         </td>
                                         <td>
                                             <input class="form-control" type="datetime-local" asp-for="Orders[x].TimePosted" />
@@ -94,6 +99,14 @@
                                             </select>
                                         </td>
                                     </tr>
+                                    @if(!string.IsNullOrEmpty(Model.Orders[x].Comments))
+                                    {
+                                        <tr class="toggle">
+                                            <td>
+                                                <pre style="white-space: pre-line">@Model.Orders[x].Comments</pre>
+                                            </td>
+                                        </tr>
+                                    }
                                 }
                             }
                             else
@@ -122,3 +135,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    console.log('hey baby');
+    $(".test-table td a").click(function () {
+        $(this).closest("tr").next().toggle();
+    });
+
+</script>

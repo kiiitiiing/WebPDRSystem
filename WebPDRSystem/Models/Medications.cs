@@ -19,6 +19,8 @@ namespace WebPDRSystem.Models
         public string Dosage { get; set; }
         [StringLength(255)]
         public string Route { get; set; }
+        [StringLength(50)]
+        public string Comments { get; set; }
         [StringLength(255)]
         public string Frequency { get; set; }
         public int SignatureNurse { get; set; }

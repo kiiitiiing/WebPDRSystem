@@ -1,0 +1,400 @@
+﻿@model List<Qdform>
+
+@{ 
+    var dayss = Model.GroupBy(x => x.Day)
+        .Select(x => new
+        {
+            day = (int)x.Key
+        })
+        .ToList();
+
+    var days = new List<int>();
+
+    foreach(var item in dayss)
+    {
+        days.Add(item.day);
+    }
+    days.Sort();
+}
+
+<div class="modal fade" id="qnform_overview" style="font-size: 14px; font-weight:500;">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content clearfix">
+            <div class="modal-header">
+                <h4>Quarantine Form Doctor Overview for Case Number: @Model.First().Pdr.CaseNumber</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @if (Model.Count() != 0)
+                {
+                    <table class="table table-hover table-striped table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th rowspan="3" style="vertical-align:middle !important;">
+                                    PAREMETERS
+                                </th>
+                                @for(int x = 0; x < days.Count(); x++)
+                                {
+                                    <th colspan="3">
+                                        DAY 1: @Model[x].DateChecked.ToString("dd/MM/yyyy")
+                                    </th>
+                                }
+                            </tr>
+                            <tr style="text-align:center;">
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    <th>
+                                        <small>TIME</small>
+                                    </th>
+                                    <th>
+                                        <small>TIME</small>
+                                    </th>
+                                    <th>
+                                        <small>TIME</small>
+                                    </th>
+                                }
+                            </tr>
+                            <tr>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.DateChecked.ToString("hh:mm tt", CultureInfo.InvariantCulture) : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.DateChecked.ToString("hh:mm tt", CultureInfo.InvariantCulture) : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.DateChecked.ToString("hh:mm tt", CultureInfo.InvariantCulture) : "";
+                                    <th style="text-align:center;">
+                                        <small>@nsd</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nsa</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nsn</small>
+                                    </th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    NO SYMPTOMS
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.NoSymptoms.Checkbool() : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.NoSymptoms.Checkbool() : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.NoSymptoms.Checkbool() : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    FEVER
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.Fever.Checkbool() : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.Fever.Checkbool() : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.Fever.Checkbool() : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    BODY TEMPERATURE
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var non = curForm != null;
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.Temperature : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.Temperature : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.Temperature : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    COUGH
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var non = curForm != null;
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.Cough.Checkbool() : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.Cough.Checkbool() : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.Cough.Checkbool() : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    DIFFICULTY OF<br />
+                                    BREATHING
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var non = curForm != null;
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.Breathing.Checkbool() : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.Breathing.Checkbool() : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.Breathing.Checkbool() : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    BODY PAIN
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var non = curForm != null;
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.BodyPain.Checkbool() : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.BodyPain.Checkbool() : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.BodyPain.Checkbool() : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    MUSCLE/JOINT PAIN
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var non = curForm != null;
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.MuscleJointPain.Checkbool() : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.MuscleJointPain.Checkbool() : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.MuscleJointPain.Checkbool() : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    HEADACHE
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var non = curForm != null;
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.Headache.Checkbool() : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.Headache.Checkbool() : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.Headache.Checkbool() : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    CHEST PAIN
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var non = curForm != null;
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.ChestPain.Checkbool() : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.ChestPain.Checkbool() : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.ChestPain.Checkbool() : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    CONFUSION
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var non = curForm != null;
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.Confusion.Checkbool() : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.Confusion.Checkbool() : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.Confusion.Checkbool() : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    BLUISH LIPS OR<br />
+                                    FINGERS
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var non = curForm != null;
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.BluishLipsFingers.Checkbool() : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.BluishLipsFingers.Checkbool() : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.BluishLipsFingers.Checkbool() : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    MAINTENANCE MEDS<br />
+                                    TAKEN (Y/N)
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var non = curForm != null;
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.MedsTaken.Checkbool() : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.MedsTaken.Checkbool() : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.MedsTaken.Checkbool() : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    SIGNS OF MENTAL<br />
+                                    DISTRESS
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var non = curForm != null;
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.MentalDistress.Checkbool() : "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.MentalDistress.Checkbool() : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.MentalDistress.Checkbool() : "";
+                                    <td style="text-align:center;">
+                                        @nsd
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsa
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                <td>
+                                    INITIAL OF QD
+                                </td>
+                                @for (int x = 0; x < days.Count(); x++)
+                                {
+                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
+                                    var non = curForm != null;
+                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.SignatureOfQdNavigation.Lastname: "";
+                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.SignatureOfQdNavigation.Lastname : "";
+                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.SignatureOfQdNavigation.Lastname : "";
+                                    <td>
+                                        @nsd
+                                    </td>
+                                    <td>
+                                        @nsa
+                                    </td>
+                                    <td>
+                                        @nsn
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <span class="text-danger">No Records found!</span>
+                }
+            </div>
+        </div>
+    </div>
+
+</div>

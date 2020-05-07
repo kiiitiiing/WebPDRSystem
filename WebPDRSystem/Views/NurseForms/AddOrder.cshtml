@@ -1,7 +1,7 @@
 ﻿@model DoctorOrders
 
 <div class="modal fade" id="attention" style="font-size: 14px; font-weight:500;">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog mw-100 w-50" role="document">
         <div class="modal-content clearfix">
             <div class="modal-header">
                 <h4>Add Doctor's Orders/Prescription for @Model.Pdr.CaseNumber</h4>
@@ -11,15 +11,23 @@
                     <input hidden asp-for="PdrId" />
                     <input hidden asp-for="TimePosted" />
                     <div class="row" style="margin-top: 20px;">
-                        <div class="col-md-12">
-                            Date/Time Ordered:
-                            <input class="form-control" asp-for="DateOrdered" type="datetime-local" />
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Date/Time Ordered:
+                                    <input class="form-control" asp-for="DateOrdered" type="datetime-local" />
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 14px;">
+                                <div class="col-md-12">
+                                    Side Notes:
+                                    <textarea class="form-control" asp-for="Comments" rows="3"></textarea>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row" style="margin-top: 20px;">
-                        <div class="col-md-12">
-                            Orders/Prescriptions:
-                            <textarea class="form-control" asp-for="Orders" rows="3"></textarea>
+                        <div class="col-md-6">
+                            Orders/Prescriptions
+                            <textarea class="form-control" rows="6" asp-for="Orders"></textarea>
                         </div>
                     </div>
                     @if (ViewBag.Errors != null)

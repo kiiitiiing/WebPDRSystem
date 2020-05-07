@@ -14,25 +14,22 @@ namespace WebPDRSystem.Models
         [StringLength(255)]
         public string Pdrcode { get; set; }
         public int HealthCareBuddy { get; set; }
-        public bool Fever { get; set; }
         public DateTime DateChecked { get; set; }
+        public int? Day { get; set; }
+        public bool NoSymptoms { get; set; }
+        public bool Fever { get; set; }
         [StringLength(50)]
         public string Temperature { get; set; }
         public bool Cough { get; set; }
-        public bool Colds { get; set; }
         public bool Breathing { get; set; }
-        public bool BodyMuscleJointPain { get; set; }
+        public bool BodyPain { get; set; }
+        public bool MuscleJointPain { get; set; }
         public bool Headache { get; set; }
         public bool ChestPain { get; set; }
         public bool Confusion { get; set; }
-        public bool BluishLips { get; set; }
-        public bool BluishFingers { get; set; }
-        public int? Maintenance { get; set; }
+        public bool BluishLipsFingers { get; set; }
         public bool MedsTaken { get; set; }
         public bool MentalDistress { get; set; }
-        public bool SoreThroat { get; set; }
-        public bool Diarrhea { get; set; }
-        public int? DailyMonitoringForm { get; set; }
         [Column(TypeName = "text")]
         public string OtherDetails { get; set; }
         [Column("SignatureOfQD")]
