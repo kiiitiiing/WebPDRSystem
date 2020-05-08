@@ -204,71 +204,53 @@ namespace WebPDRSystem.Controllers
         {
             var pdr = _context.Pdr
                 .Include(x => x.PatientNavigation)
-                    .ThenInclude(x => x.Medications)
                 .SingleOrDefault(x => x.Id == pdrId);
             ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname");
 
             var qnforms = _context.Qnform
                 .Where(x => x.PdrId == pdrId);
+
             var day = 1;
-            if(qnforms.Count() != 0)
+
+            if (qnforms.Count() != 0)
             {
-                if(qnforms.OrderByDescending(x=>x.DateChecked).FirstOrDefault().DateChecked.Hour >= 16 &&
-                    qnforms.OrderByDescending(x => x.DateChecked).FirstOrDefault().DateChecked.Hour < 23)
-                {
-                    day = (int)(qnforms.OrderByDescending(x => x.DateChecked).FirstOrDefault().Day + 1);
-                }
+                var latest = qnforms.OrderByDescending(x => x.DateChecked).FirstOrDefault();
+                if (latest.DateChecked.Hour > 16 && latest.DateChecked.Hour <= 23)
+                    day = (int)latest.Day + 1;
                 else
-                {
-                    day = (int)(qnforms.OrderByDescending(x => x.DateChecked).FirstOrDefault().Day);
-                }
+                    day = (int)latest.Day;
             }
-            var form = new QnformModel
+
+            ViewBag.Patientname = pdr.PatientNavigation.GetFullName();
+
+            var form = new Qnform
             {
-                Day = day,
-                PdrId = pdr.Id,
-                PatientCode = pdr.Pdrcode,
-                Patientname = pdr.PatientNavigation.Firstname + " " + pdr.PatientNavigation.Middlename + " " + pdr.PatientNavigation.Lastname,
-                DateChecked = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0),
-                Medications = new List<Medications>(),
-                PatientId = (int)pdr.Patient
-            };
+                PdrId = pdrId,
+                DateChecked = DateTime.Now.RemoveSeconds(),
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                Day = day
+        }   ;
 
             return PartialView(form);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> QNForm(QnformModel model)
+        public async Task<IActionResult> QNForm(Qnform model)
         {
+            var pdr = await _context.Pdr.Include(x => x.PatientNavigation).FirstOrDefaultAsync(x => x.Id == model.PdrId);
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
-                var pdr = _context.Pdr.Find(model.PdrId);
-                if (model.Medications != null)
-                {
-                    _context.AddRange(AddMedication(model));
-                }
-                pdr.UpdatedAt = DateTime.Now;
-                var qnform = SetQNForm(model);
-                _context.UpdateRange(pdr, qnform);
+                _context.Update(model);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Dashboard));
+                return PartialView(model);
             }
 
+            ViewBag.Patientname = pdr.PatientNavigation.GetFullName();
             ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname", model.SignatureOfQn);
             ViewBag.Errors = errors;
             return PartialView(model);
-        }
-
-        public List<Medications> AddMedication(QnformModel model)
-        {
-            foreach (var item in model.Medications)
-            {
-                item.PatientId = model.PatientId;
-                item.CreatedAt = model.DateChecked;
-            }
-
-            return model.Medications;
         }
 
         public Qnform SetQNForm(QnformModel model)
@@ -286,7 +268,7 @@ namespace WebPDRSystem.Controllers
                 TimeFluidStarted = model.TimeFluidStarted,
                 TimeFluidChanged = model.TimeFluidChanged,
                 UrineOutput = model.UrineOutput,
-                Meds = model.Meds,
+                Temperature = model.Temperature,
                 Enumerate = model.Enumerate,
                 PdrId = model.PdrId,
                 OtherDetails = model.OtherDetails,

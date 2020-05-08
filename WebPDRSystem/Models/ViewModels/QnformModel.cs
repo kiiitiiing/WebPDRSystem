@@ -40,7 +40,7 @@ namespace WebPDRSystem.Models.ViewModels
         public int PdrId { get; set; }
         [DataType(DataType.Text)]
         public string OtherDetails { get; set; }
-        public List<Medications> Medications { get; set; }
+        public string Temperature { get; set; }
         public int PatientId { get; set; }
     }
 }

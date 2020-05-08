@@ -424,13 +424,13 @@ namespace WebPDRSystem.Data
 
                 entity.Property(e => e.Ivrate).IsUnicode(false);
 
-                entity.Property(e => e.Meds).IsUnicode(false);
-
                 entity.Property(e => e.O2sat).IsUnicode(false);
 
                 entity.Property(e => e.PatientCode).IsUnicode(false);
 
                 entity.Property(e => e.Rr).IsUnicode(false);
+
+                entity.Property(e => e.Temperature).IsUnicode(false);
 
                 entity.Property(e => e.TypeOfFluid).IsUnicode(false);
 

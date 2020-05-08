@@ -1,83 +1,88 @@
-﻿@model QFNOverviewModel
+﻿@model List<Qnform>
 
 @{ 
+    var dayss = Model.GroupBy(x => x.Day)
+        .Select(x => new
+        {
+            day = (int)x.Key
+        })
+        .ToList();
+
+    var days = new List<int>();
+
+    foreach(var item in dayss)
+    {
+        days.Add(item.day);
+    }
+    days.Sort();
 }
 
 <div class="modal fade" id="qnform_overview" style="font-size: 14px; font-weight:500;">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content clearfix">
             <div class="modal-header">
-                <h4>Quarantine Form Nurse Overview for Case Number: @Model.PDR.CaseNumber</h4>
+                <h4>Quarantine Form Nurse Overview for Case Number: @ViewBag.CaseNumber</h4>
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                @if (Model.Qnforms.Count() != 0)
+                @if (Model.Count() != 0)
                 {
                     <form asp-action="ViewOrders">
                         <table class="table table-responsive table-bordered border-dark" width="100%" >
                             <thead style="text-align:center; vertical-align:middle!important;">
                                 <tr>
                                     <th rowspan="3">CLINICAL PARAMETERS</th>
-                                    @for(int x = 0; x <Model.Qnforms.GroupBy(x=>x.Day).Count(); x++)
+                                    @for(int x = 0; x <days.Count(); x++)
                                     {
-                                        var day = x + 1;
                                         <th colspan="3">
-                                            <input hidden asp-for="Qnforms[x].DateChecked" />
-                                            DAY @day<br />
+                                            DAY @days[x]  : @Model.FirstOrDefault(c=>c.Day == days[x]).DateChecked.ToString("MM/dd/yyyy")<br />
                                         </th>
                                     }
                                 </tr>
                                 <tr>
-                                    @for (int x = 0; x < Model.Qnforms.GroupBy(x=>x.Day).Count(); x++)
+                                    @for (int x = 0; x < days.Count(); x++)
                                     {
                                         <th>
                                             <small>
-                                                DATE & TIME
+                                                TIME
                                             </small>
                                         </th>
                                         <th>
                                             <small>
-                                                DATE & TIME
+                                                TIME
                                             </small>
                                         </th>
                                         <th>
                                             <small>
-                                                DATE & TIME
+                                                TIME
                                             </small>
                                         </th>
                                     }
                                 </tr>
                                 <tr>
-                                    @for (int x = 0; x < Model.Qnforms.GroupBy(x=>x.Day).Count(); x++)
+                                    @for (int x = 0; x < days.Count(); x++)
                                     {
-                                        var curDay = x + 1;
-                                        var day = Model.Qnforms.Where(c => c.Day == curDay);
+                                        var day = Model.Where(c => c.Day == days[x]);
                                         var dawn = day.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
                                         var afternoon = day.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
-                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour < 23).FirstOrDefault();
-                                        var dawnDate = dawn != null ? dawn.DateChecked.ToString("dd/MM/yyyy") : "";
-                                        var midDate = afternoon != null ? afternoon.DateChecked.ToString("dd/MM/yyyy"): "";
-                                        var nightDate = night != null ? night.DateChecked.ToString("dd/MM/yyyy"): "";
-                                        var dawnTime = dawn != null ? dawn.DateChecked.ToString("HH:mm") : "";
-                                        var midTime = afternoon != null ? afternoon.DateChecked.ToString("HH:mm"): "";
-                                        var nightTime = night != null ? night.DateChecked.ToString("HH:mm"): "";
+                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                        var dawnTime = dawn != null ? dawn.DateChecked.GetDate("hh:mm tt") : "";
+                                        var midTime = afternoon != null ? afternoon.DateChecked.GetDate("hh:mm tt"): "";
+                                        var nightTime = night != null ? night.DateChecked.GetDate("hh:mm tt"): "";
                                         <th>
                                             <span class="text-danger">
-                                                @dawnDate<br />
                                                 @dawnTime
                                             </span>
                                         </th>
                                         <th>
                                             <span class="text-danger">
-                                                @midDate<br />
                                                 @midTime
                                             </span>
                                         </th>
                                         <th>
                                             <span class="text-danger">
-                                                @nightDate<br />
                                                 @nightTime
                                             </span>
                                         </th>
@@ -89,13 +94,12 @@
                                     <td>
                                         BP
                                     </td>
-                                    @for (int x = 0; x < Model.Qnforms.GroupBy(x=>x.Day).Count(); x++)
+                                    @for (int x = 0; x < days.Count(); x++)
                                     {
-                                        var curDay = x + 1;
-                                        var day = Model.Qnforms.Where(c => c.Day == curDay);
+                                        var day = Model.Where(c => c.Day == days[x]);
                                         var dawn = day.Where(x => x.DateChecked.Hour >= 0 && x.DateChecked.Hour < 8).FirstOrDefault();
                                         var afternoon = day.Where(x => x.DateChecked.Hour >= 8 && x.DateChecked.Hour < 16).FirstOrDefault();
-                                        var night = day.Where(x => x.DateChecked.Hour >= 16 && x.DateChecked.Hour < 23).FirstOrDefault();
+                                        var night = day.Where(x => x.DateChecked.Hour >= 16 && x.DateChecked.Hour <= 23).FirstOrDefault();
                                         var dawnTime = dawn != null ? dawn.Bp : "";
                                         var midTime = afternoon != null ? afternoon.Bp : "";
                                         var nightTime = night != null ? night.Bp : "";
@@ -114,13 +118,12 @@
                                     <td>
                                         RR
                                     </td>
-                                    @for (int x = 0; x < Model.Qnforms.GroupBy(x=>x.Day).Count(); x++)
+                                    @for (int x = 0; x < days.Count(); x++)
                                     {
-                                        var curDay = x + 1;
-                                        var day = Model.Qnforms.Where(c => c.Day == curDay);
+                                        var day = Model.Where(c => c.Day == days[x]);
                                         var dawn = day.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
                                         var afternoon = day.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
-                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour < 23).FirstOrDefault();
+                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
                                         var dawnTime = dawn != null ? dawn.Rr : "";
                                         var midTime = afternoon != null ? afternoon.Rr : "";
                                         var nightTime = night != null ? night.Rr : "";
@@ -139,13 +142,12 @@
                                     <td>
                                         HR
                                     </td>
-                                    @for (int x = 0; x < Model.Qnforms.GroupBy(x=>x.Day).Count(); x++)
+                                    @for (int x = 0; x < days.Count(); x++)
                                     {
-                                        var curDay = x + 1;
-                                        var day = Model.Qnforms.Where(c => c.Day == curDay);
+                                        var day = Model.Where(c => c.Day == days[x]);
                                         var dawn = day.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
                                         var afternoon = day.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
-                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour < 23).FirstOrDefault();
+                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
                                         var dawnTime = dawn != null ? dawn.Hr : "";
                                         var midTime = afternoon != null ? afternoon.Hr : "";
                                         var nightTime = night != null ? night.Hr : "";
@@ -164,13 +166,12 @@
                                     <td>
                                         O2 SAT
                                     </td>
-                                    @for (int x = 0; x < Model.Qnforms.GroupBy(x=>x.Day).Count(); x++)
+                                    @for (int x = 0; x < days.Count(); x++)
                                     {
-                                        var curDay = x + 1;
-                                        var day = Model.Qnforms.Where(c => c.Day == curDay);
+                                        var day = Model.Where(c => c.Day == days[x]);
                                         var dawn = day.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
                                         var afternoon = day.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
-                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour < 23).FirstOrDefault();
+                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
                                         var dawnTime = dawn != null ? dawn.O2sat : "";
                                         var midTime = afternoon != null ? afternoon.O2sat : "";
                                         var nightTime = night != null ? night.O2sat : "";
@@ -187,15 +188,38 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        URINE OUTPUT
+                                        TEMP
                                     </td>
-                                    @for (int x = 0; x < Model.Qnforms.GroupBy(x=>x.Day).Count(); x++)
+                                    @for (int x = 0; x < days.Count(); x++)
                                     {
-                                        var curDay = x + 1;
-                                        var day = Model.Qnforms.Where(c => c.Day == curDay);
+                                        var day = Model.Where(c => c.Day == days[x]);
                                         var dawn = day.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
                                         var afternoon = day.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
-                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour < 23).FirstOrDefault();
+                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                        var dawnTime = dawn != null ? dawn.Temperature : "";
+                                        var midTime = afternoon != null ? afternoon.Temperature : "";
+                                        var nightTime = night != null ? night.Temperature : "";
+                                        <td>
+                                            <span class="text-danger">@dawnTime</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">@midTime</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">@nightTime</span>
+                                        </td>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td>
+                                        URINE OUTPUT
+                                    </td>
+                                    @for (int x = 0; x < days.Count(); x++)
+                                    {
+                                        var day = Model.Where(c => c.Day == days[x]);
+                                        var dawn = day.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                        var afternoon = day.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
                                         var dawnTime = dawn != null ? dawn.UrineOutput : "";
                                         var midTime = afternoon != null ? afternoon.UrineOutput : "";
                                         var nightTime = night != null ? night.UrineOutput : "";
@@ -218,13 +242,12 @@
                                         TIME STARTED:<br />
                                         DISCONTINUED:<br />
                                     </td>
-                                    @for (int x = 0; x < Model.Qnforms.GroupBy(x=>x.Day).Count(); x++)
+                                    @for (int x = 0; x < days.Count(); x++)
                                     {
-                                        var curDay = x + 1;
-                                        var day = Model.Qnforms.Where(c => c.Day == curDay);
+                                        var day = Model.Where(c => c.Day == days[x]);
                                         var dawn = day.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
                                         var afternoon = day.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
-                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour < 23).FirstOrDefault();
+                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
                                         //TYPE
                                         var dawnType = dawn != null ? dawn.TypeOfFluid : "";
                                         var midType = afternoon != null ? afternoon.TypeOfFluid : "";
@@ -266,13 +289,12 @@
                                 </tr>
                                 <tr>
                                     <td>INITIAL OF QN</td>
-                                    @for (int x = 0; x < Model.Qnforms.GroupBy(x=>x.Day).Count(); x++)
+                                    @for (int x = 0; x < days.Count(); x++)
                                     {
-                                        var curDay = x + 1;
-                                        var day = Model.Qnforms.Where(c => c.Day == curDay);
+                                        var day = Model.Where(c => c.Day == days[x]);
                                         var dawn = day.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
                                         var afternoon = day.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
-                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour < 23).FirstOrDefault();
+                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
                                         var dawnTime = dawn != null ? dawn.SignatureOfQnNavigation.Lastname : "";
                                         var midTime = afternoon != null ? afternoon.SignatureOfQnNavigation.Lastname : "";
                                         var nightTime = night != null ? night.SignatureOfQnNavigation.Lastname : "";

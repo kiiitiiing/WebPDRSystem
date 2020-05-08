@@ -155,18 +155,14 @@ namespace WebPDRSystem.Controllers
             else
             {
                 if (User.FindFirstValue(ClaimTypes.Role).Equals("Admin"))
-                    return RedirectToAction("Dashboard", "Home");
-                else if (User.FindFirstValue(ClaimTypes.Role).Equals("Doctor"))
-                {
-                    return RedirectToAction("Dashboard", "Home");
-                }
-                else if (User.FindFirstValue(ClaimTypes.Role).Equals("Nurse"))
+                    return RedirectToAction("Census", "Dashboard");
+                else if (User.FindFirstValue(ClaimTypes.Role).Equals("nursedoc"))
                 {
                     return RedirectToAction("Dashboard", "Home");
                 }
                 else if (User.FindFirstValue(ClaimTypes.Role).Equals("resuhems"))
                 {
-                    return RedirectToAction("AddPatient", "Resuhems");
+                    return RedirectToAction("Index", "Resuhems");
                 }
                 else
                     return NotFound();

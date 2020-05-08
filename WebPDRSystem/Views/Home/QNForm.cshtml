@@ -1,4 +1,4 @@
-﻿@model QnformModel
+﻿@model Qnform
 
 
 <div class="modal fade" id="QNFormModal">
@@ -15,16 +15,16 @@
             </div>
             <div class="modal-body">
                 <form asp-action="QNForm">
-                    <input type="hidden" asp-for="PatientId" />
                     <input type="hidden" asp-for="PdrId" />
                     <input type="hidden" asp-for="PatientCode" />
-                    <input type="hidden" asp-for="Patientname" />
+                    <input type="hidden" asp-for="CreatedAt" />
+                    <input hidden asp-for="UpdatedAt" />
                     <!--PATIENT NAME-->
 
                     <div class="row" style="padding:5px">
                         <div class="col-sm-6">
                             <strong style="color: cornflowerblue;font-size:small;">Patient</strong><br />
-                            <strong style="color: crimson;font-size:large;padding:20px">@Model.Patientname</strong>
+                            <strong style="color: crimson;font-size:large;padding:20px">@ViewBag.Patientname</strong>
                         </div>
                         <div class="col-sm-2">
                             <strong style="color: cornflowerblue;font-size:small;">Check-up date:</strong>
@@ -77,11 +77,15 @@
                     </div>
 
                     <div class="row" style="padding:5px">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             Urine output:
                             <input type="text" class="form-control" asp-for="UrineOutput" />
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
+                            Temperature:
+                            <input type="text" class="form-control" asp-for="Temperature" />
+                        </div>
+                        <div class="col-sm-4">
                             Other details:
                             <input type="text" class="form-control" asp-for="OtherDetails" />
                         </div>

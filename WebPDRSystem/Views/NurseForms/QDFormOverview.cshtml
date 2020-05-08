@@ -38,7 +38,7 @@
                                 @for(int x = 0; x < days.Count(); x++)
                                 {
                                     <th colspan="3">
-                                        DAY 1: @Model[x].DateChecked.ToString("dd/MM/yyyy")
+                                        DAY @days[x]: @Model[x].DateChecked.ToString("MM/dd/yyyy")
                                     </th>
                                 }
                             </tr>

@@ -2,6 +2,10 @@
     white-space: nowrap;
 }
 
+textarea{
+    font-size: 15px;
+}
+
 .card .row{
     margin-top: 20px !important;
 }
@@ -27,6 +31,10 @@ th, td {
     height: 80px;
     width: 80px !important;
     overflow: hidden;
+}
+
+.table{
+    margin-bottom: 0px!important;
 }
 
 .responsive{

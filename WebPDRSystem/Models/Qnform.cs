@@ -29,6 +29,8 @@ namespace WebPDRSystem.Models
         [Column("O2Sat")]
         [StringLength(255)]
         public string O2sat { get; set; }
+        [StringLength(50)]
+        public string Temperature { get; set; }
         [StringLength(255)]
         public string TypeOfFluid { get; set; }
         [Column("IVRate")]
@@ -38,8 +40,6 @@ namespace WebPDRSystem.Models
         public DateTime? TimeFluidChanged { get; set; }
         [StringLength(255)]
         public string UrineOutput { get; set; }
-        [StringLength(255)]
-        public string Meds { get; set; }
         [StringLength(255)]
         public string Enumerate { get; set; }
         public int PdrId { get; set; }

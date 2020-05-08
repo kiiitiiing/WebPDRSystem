@@ -34,7 +34,9 @@ namespace WebPDRSystem.Controllers
                 .Where(x => x.PdrId == pdrId)
                 .ToListAsync();
 
-            return PartialView(new QFNOverviewModel { PDR = pdr, Qnforms = qfn });
+            ViewBag.CaseNumber = pdr.CaseNumber;
+
+            return PartialView(qfn);
         }
         #endregion
 

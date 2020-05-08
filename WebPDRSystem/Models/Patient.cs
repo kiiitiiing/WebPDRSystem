@@ -40,7 +40,6 @@ namespace WebPDRSystem.Models
         public string Nationality { get; set; }
         [StringLength(50)]
         public string Religion { get; set; }
-        [StringLength(255)]
         public string Picture { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }

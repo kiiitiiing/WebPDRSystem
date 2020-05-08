@@ -65,49 +65,52 @@
                                             <input hidden asp-for="Orders[x].PdrId" />
                                             <input hidden asp-for="Orders[x].Id" />
                                             <input hidden asp-for="Orders[x].DateOrdered" />
-                                            <input hidden asp-for="Orders[x].Orders" />
                                             <input hidden asp-for="Orders[x].Comments" />
                                             <span>@Model.Orders[x].DateOrdered.ToString("dd/MM/yyyy HH:mm")</span><br />
                                             @if (!string.IsNullOrEmpty(Model.Orders[x].Comments))
                                             {
                                                 <a href="#">comments</a>
+                                                <pre class="toggle" id="comments" style="white-space: pre-line">@Model.Orders[x].Comments</pre>
+
+                                            }
+                                        </td>
+                                        <td style="padding: 0px !important;">
+                                            @if (User.FindFirstValue("Position") == "Doctor")
+                                            {
+                                                var length = Model.Orders[x].Orders.Length;
+                                                var row = length > 50 ? Math.Ceiling(length * 0.04) : 2;
+                                                <textarea style="height: 100%; width: 100%; font-size: medium!important; border: none;" rows="@row" asp-for="Orders[x].Orders"></textarea>
+                                            }
+                                            else
+                                            {
+                                                <input hidden asp-for="Orders[x].Orders" />
+                                                <pre style="white-space: pre-line">@Model.Orders[x].Orders</pre>
                                             }
                                         </td>
                                         <td>
-                                            <pre style="white-space: pre-line">@Model.Orders[x].Orders</pre>
+                                            <input type="checkbox" asp-for="Orders[x].Carried" id="c_@x" value="true" />
                                         </td>
                                         <td>
-                                            <input type="checkbox" asp-for="Orders[x].Carried" id="c" value="true" />
+                                            <input type="checkbox" asp-for="Orders[x].Administered" id="a_@x" value="true" />
                                         </td>
                                         <td>
-                                            <input type="checkbox" asp-for="Orders[x].Administered" id="a" value="true" />
+                                            <input type="checkbox" asp-for="Orders[x].RequestMade" id="r_@x" value="true" />
                                         </td>
                                         <td>
-                                            <input type="checkbox" asp-for="Orders[x].RequestMade" id="r" value="true" />
+                                            <input type="checkbox" asp-for="Orders[x].Endorsed" id="e_@x" value="true" />
                                         </td>
                                         <td>
-                                            <input type="checkbox" asp-for="Orders[x].Endorsed" id="e" value="true" />
+                                            <input type="checkbox" asp-for="Orders[x].Discontinued" id="d_@x" value="true" />
                                         </td>
                                         <td>
-                                            <input type="checkbox" asp-for="Orders[x].Discontinued" id="d" value="true" />
+                                            <input class="form-control text-sm" type="datetime-local" id="timePosted_@x" asp-for="Orders[x].TimePosted" />
                                         </td>
                                         <td>
-                                            <input class="form-control" type="datetime-local" asp-for="Orders[x].TimePosted" />
-                                        </td>
-                                        <td>
-                                            <select class="form-control" asp-for="Orders[x].Signature" asp-items="ViewBag.Nurses" required>
+                                            <select class="form-control" asp-for="Orders[x].Signature" id="signature_@x" asp-items="ViewBag.Nurses" required>
                                                 <option value="">Select nurse</option>
                                             </select>
                                         </td>
                                     </tr>
-                                    @if(!string.IsNullOrEmpty(Model.Orders[x].Comments))
-                                    {
-                                        <tr class="toggle">
-                                            <td>
-                                                <pre style="white-space: pre-line">@Model.Orders[x].Comments</pre>
-                                            </td>
-                                        </tr>
-                                    }
                                 }
                             }
                             else
@@ -138,9 +141,11 @@
 </div>
 
 <script>
-    console.log('hey baby');
-    $(".test-table td a").click(function () {
-        $(this).closest("tr").next().toggle();
+    var x = 0;
+    $(function () {
+        $(".test-table td a").click(function () {
+            $('#comments').toggle();
+        });
     });
 
 </script>
