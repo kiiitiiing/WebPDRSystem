@@ -31,12 +31,13 @@
                         {
                             foreach (var item in Model)
                             {
+                                var gender = item.PatientNavigation.Gender ? "Male" : "Female";
                                 <tr>
                                     <td>
                                         @item.PatientNavigation.GetFullName()
                                     </td>
                                     <td>
-                                        @item.PatientNavigation.Gender
+                                        @gender
                                     </td>
                                     <td>
                                         @item.PatientNavigation.DateOfBirth.ComputeAge()

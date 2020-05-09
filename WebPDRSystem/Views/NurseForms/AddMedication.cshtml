@@ -15,7 +15,6 @@
             <div class="modal-body">
                 <form asp-action="AddMedication">
                     <input hidden asp-for="PatientId" />
-                    <input hidden asp-for="MedTaken" value="true" />
                     <div class="row">
                         <div class="col-md-9">
                             Date & Time taken:
@@ -26,28 +25,34 @@
                             <input type="number" class="form-control" asp-for="Day" />
                         </div>
                     </div>
-                    <div class="row" style="margin-top:10px;">
-                        <div class="col-md-12">
-                            Medication:
-                            <input type="text" class="form-control" asp-for="MedName" />
-                        </div>
+                    <div class="row" style="margin-top:10px; margin-bottom: 0px !important; display:block !important;">
+                        Medication:
+                        @if (ViewBag.MedCounts != 0)
+                        {
+                            <button type="button" class="btn btn-xs btn-primary fa-pull-right" id="add_button" style="float:right !important;" onclick="ToggleInput();">
+                                new
+                            </button>
+                        }
+                    </div>
+                    <div class="row" id="med_row">
+                        @if (ViewBag.MedCounts != 0)
+                        {
+                            <select class="form-control" asp-for="MedName" asp-items="ViewBag.Medications">
+                                <option disabled selected hidden>Select Meds</option>
+                            </select>
+                        }
+                        else
+                        {
+                            <input class="form-control text-sm" asp-for="MedName" placeholder="Medname / Dosage / Route / Frequency" />
+                        }
                     </div>
                     <div class="row" style="margin-top:10px;">
-                        <div class="col-md-12">
-                            Dosage:
-                            <input type="text" class="form-control" asp-for="Dosage" />
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top:10px;">
-                        <div class="col-md-12">
-                            Route:
-                            <input type="text" class="form-control" asp-for="Route" />
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top:10px;">
-                        <div class="col-md-12">
-                            Frequency:
-                            <input type="text" class="form-control" asp-for="Frequency" />
+                        <div class="col-md-6">
+                            Discontinued:<br />
+                            <input type="radio" id="Yes" asp-for="Discontinued" value="true" checked />
+                            <label for="male">Yes</label>
+                            <input type="radio" id="No" asp-for="Discontinued" value="false" />
+                            <label for="male">No</label>
                         </div>
                     </div>
                     <div class="row" style="margin-top:10px;">
@@ -87,3 +92,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    var holder = $('#med_row');
+    var button = $('#add_button');
+    function ToggleInput() {
+        button.attr('hidden',true);
+        holder.empty();
+        holder.html("<input class='form-control text-sm' placeholder='Medname / Dosage / Route / Frequency' type='text' data-val='true' data-val-length='The field MedName must be a string with a maximum length of 255.' data-val-length-max='255' data-val-required='The MedName field is required.' id='MedName' maxlength='255' name='MedName' value=''>")
+    }
+</script>

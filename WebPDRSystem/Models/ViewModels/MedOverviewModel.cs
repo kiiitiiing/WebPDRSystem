@@ -13,6 +13,7 @@ namespace WebPDRSystem.Models.ViewModels
         public string MedName { get; set; }
         [StringLength(50)]
         public string Comments { get; set; }
+        public bool Discontinued { get; set; }
         public string Nurse { get; set; }
         public DateTime CreatedAt { get; set; }
     }

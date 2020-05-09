@@ -138,6 +138,11 @@ namespace WebPDRSystem.Controllers
 
         #region MEDICATIONS
 
+        public partial class GroupMed
+        {
+            public string Medname { get; set; }
+        }
+
         public async Task<IActionResult> AddMedication(int pdrId)
         {
             var pdr = await _context.Pdr
@@ -157,6 +162,17 @@ namespace WebPDRSystem.Controllers
                 }
             }
 
+            var groupMeds = await meds
+                .Where(x => x.Discontinued != true)
+                .GroupBy(x => x.MedName)
+                .Select(x => new GroupMed
+                {
+                    Medname = x.Key
+                }).ToListAsync();
+
+            ViewBag.MedCounts = groupMeds.Count();
+            ViewBag.Medications = new SelectList(groupMeds, "Medname", "Medname");
+
             var medics = new Medications
             {
                 Day = day,
@@ -174,10 +190,21 @@ namespace WebPDRSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddMedication(Medications model)
         {
+            var meds = await _context.Medications.Where(x => x.PatientId == model.PatientId).ToListAsync();
+
+            var groupMeds = meds
+                .Where(x => x.Discontinued != true)
+                .GroupBy(x => x.MedName)
+                .Select(x => new GroupMed
+                {
+                    Medname = x.Key
+                });
+
+            ViewBag.MedCounts = groupMeds.Count();
+            ViewBag.Medications = new SelectList(groupMeds, "Medname", "Medname");
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
-                model.MedName = model.MedName.ToUpper();
                 _context.Add(model);
                 await _context.SaveChangesAsync();
 
@@ -199,15 +226,23 @@ namespace WebPDRSystem.Controllers
             var allMeds = await _context.Medications
                 .Include(x => x.SignatureNurseNavigation)
                 .Where(x => x.PatientId == meds.Patient)
+                .ToListAsync();
+
+
+            /*var allMeds = await _context.Medications
+                .Include(x => x.SignatureNurseNavigation)
+                .Where(x => x.PatientId == meds.Patient)
                 .Select(x => new MedOverviewModel
                 {
                     MedName = x.MedName + x.Dosage.CheckMedParams(":") + x.Route.CheckMedParams(" ") + x.Frequency.CheckMedParams(" "),
                     CreatedAt = x.CreatedAt,
                     Day = x.Day,
                     Comments = x.Comments,
+                    Discontinued = x.Discontinued,
                     Nurse = x.SignatureNurseNavigation.Lastname
                 })
-                .ToListAsync();
+                .ToListAsync();*/
+
 
             ViewBag.Patient = meds.PatientNavigation.GetFullName();
 

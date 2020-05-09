@@ -166,7 +166,7 @@ namespace WebPDRSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ViewUser( [Bind("Id,Firstname,Middlename,Lastname,Role,PhotoString,PhotoFilePath")]AddUser pdrusers)
+        public async Task<IActionResult> ViewUser( [Bind("Id,Firstname,Middlename,Lastname,Initials,Role,PhotoString,PhotoFilePath")]AddUser pdrusers)
         {
             if (ModelState.IsValid)
             {
@@ -243,6 +243,7 @@ namespace WebPDRSystem.Controllers
                 Firstname = model.Firstname,
                 Middlename = model.Middlename,
                 Lastname = model.Lastname,
+                Initials = model.Initials,
                 PhotoString = model.Picture,
                 Role = model.Role,
             };
@@ -257,6 +258,7 @@ namespace WebPDRSystem.Controllers
             user.Firstname = model.Firstname;
             user.Middlename = model.Middlename;
             user.Lastname = model.Lastname;
+            user.Initials = model.Initials;
             user.Picture = SavePicture(model.Firstname + model.Lastname, model.PhotoString);
             user.Role = model.Role;
             user.Designation = SetDesignation(model.Role);
@@ -295,6 +297,7 @@ namespace WebPDRSystem.Controllers
                 Firstname = model.Firstname,
                 Middlename = model.Middlename,
                 Lastname = model.Lastname,
+                Initials = model.Initials,
                 Picture = SavePicture(model.Firstname + model.Lastname, model.PhotoString),
                 Team = null,
                 Role = model.Role,

@@ -47,6 +47,8 @@ namespace WebPDRSystem.Models
         public string Facility { get; set; }
         [StringLength(255)]
         public string Picture { get; set; }
+        [StringLength(50)]
+        public string Initials { get; set; }
         public int? Team { get; set; }
         [Required]
         [StringLength(255)]

@@ -22,6 +22,8 @@ namespace WebPDRSystem.Models.ViewModels
         [Required]
         [StringLength(255)]
         public string Lastname { get; set; }
+        [StringLength(255)]
+        public string Initials { get; set; }
         [Required]
         [StringLength(255)]
         public string Role { get; set; }

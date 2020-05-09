@@ -10,20 +10,14 @@ namespace WebPDRSystem.Models
         [Key]
         public int Id { get; set; }
         public int? Day { get; set; }
+        public int PatientId { get; set; }
         [Required]
         [StringLength(255)]
         public string MedName { get; set; }
-        public bool MedTaken { get; set; }
-        public int PatientId { get; set; }
-        [StringLength(255)]
-        public string Dosage { get; set; }
-        [StringLength(255)]
-        public string Route { get; set; }
         [StringLength(50)]
         public string Comments { get; set; }
-        [StringLength(255)]
-        public string Frequency { get; set; }
         public int SignatureNurse { get; set; }
+        public bool Discontinued { get; set; }
         public DateTime CreatedAt { get; set; }
 
         [ForeignKey(nameof(PatientId))]

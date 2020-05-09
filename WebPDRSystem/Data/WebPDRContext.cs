@@ -232,13 +232,7 @@ namespace WebPDRSystem.Data
             {
                 entity.Property(e => e.Comments).IsUnicode(false);
 
-                entity.Property(e => e.Dosage).IsUnicode(false);
-
-                entity.Property(e => e.Frequency).IsUnicode(false);
-
                 entity.Property(e => e.MedName).IsUnicode(false);
-
-                entity.Property(e => e.Route).IsUnicode(false);
 
                 entity.HasOne(d => d.Patient)
                     .WithMany(p => p.Medications)
@@ -350,6 +344,8 @@ namespace WebPDRSystem.Data
                 entity.Property(e => e.Facility).IsUnicode(false);
 
                 entity.Property(e => e.Firstname).IsUnicode(false);
+
+                entity.Property(e => e.Initials).IsUnicode(false);
 
                 entity.Property(e => e.Lastname).IsUnicode(false);
 

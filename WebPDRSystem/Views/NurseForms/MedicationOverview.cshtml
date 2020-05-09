@@ -1,4 +1,4 @@
-﻿@model List<MedOverviewModel>
+﻿@model List<Medications>
 
 @{ 
     var dayss = Model.GroupBy(x => x.Day)
@@ -69,13 +69,12 @@
                         <tbody>
                             @foreach(var med in Model.GroupBy(x=>x.MedName))
                             {
-                                var holder = med.Key.Split(":");
-                                var medname = holder[0];
-                                var medparams = holder[1];
+                                var meddss = med.Key.Split(new[] { ' ' }, 2);
+                                var medname = meddss[0];
+                                var medparams = meddss[1];
                                 <tr>
-                                    <td>
-                                        @medname
-                                        <br />
+                                    <td style="word-wrap: break-word !important;">
+                                        @medname<br />
                                         <small>
                                             @medparams
                                         </small>
@@ -84,52 +83,72 @@
                                     {
                                         var curDay = Model.Where(c => c.Day == days[x]);
                                         <td>
-                                            @foreach(var dates in med.Where(x=>x.CreatedAt.Hour >=0 && x.CreatedAt.Hour <8).Where(c=>c.Day == days[x]))
+                                            @foreach(var dates in med.OrderBy(x=>x.CreatedAt).Where(x=>x.CreatedAt.Hour >=0 && x.CreatedAt.Hour <8).Where(c=>c.Day == days[x]))
                                             {
-                                                <small>
-                                                    @dates.CreatedAt.ToString("hh:mm tt", CultureInfo.InvariantCulture)
-                                                </small>
-                                                @if(!string.IsNullOrEmpty(dates.Comments))
+                                                @if (dates.Discontinued)
                                                 {
-                                                    <pre>@dates.Comments</pre>
+                                                    <span>//</span>
                                                 }
                                                 else
                                                 {
-                                                    <br />
+                                                    <small>
+                                                        @dates.CreatedAt.ToString("hh:mm tt", CultureInfo.InvariantCulture) - @dates.SignatureNurseNavigation.Initials
+                                                    </small>
+                                                    @if (!string.IsNullOrEmpty(dates.Comments))
+                                                    {
+                                                        <pre>@dates.Comments</pre>
+                                                    }
+                                                    else
+                                                    {
+                                                        <br />
+                                                    }
                                                 }
                                             }
                                         </td>
                                         <td>
-                                            @foreach (var dates in med.Where(x => x.CreatedAt.Hour >= 8 && x.CreatedAt.Hour < 16).Where(c => c.Day == days[x]))
+                                            @foreach (var dates in med.OrderBy(x=>x.CreatedAt).Where(x => x.CreatedAt.Hour >= 8 && x.CreatedAt.Hour < 16).Where(c => c.Day == days[x]))
                                             {
-                                                <small>
-                                                    @dates.CreatedAt.ToString("hh:mm tt", CultureInfo.InvariantCulture)
-                                                </small>
-                                                @if (!string.IsNullOrEmpty(dates.Comments))
+                                                @if (dates.Discontinued)
                                                 {
-                                                    <pre>@dates.Comments</pre>
+                                                    <span>//</span>
                                                 }
                                                 else
                                                 {
-                                                    <br />
+                                                    <small>
+                                                        @dates.CreatedAt.ToString("hh:mm tt", CultureInfo.InvariantCulture) - @dates.SignatureNurseNavigation.Initials
+                                                    </small>
+                                                    @if (!string.IsNullOrEmpty(dates.Comments))
+                                                    {
+                                                        <pre>@dates.Comments</pre>
+                                                    }
+                                                    else
+                                                    {
+                                                        <br />
+                                                    }
                                                 }
                                             }
                                         </td>
                                         <td>
-                                            @foreach(var dates in med.Where(x=>x.CreatedAt.Hour >=16 && x.CreatedAt.Hour <=23).Where(c=>c.Day == days[x]))
+                                            @foreach (var dates in med.OrderBy(x=>x.CreatedAt).Where(x => x.CreatedAt.Hour >= 16 && x.CreatedAt.Hour <= 23).Where(c => c.Day == days[x]))
                                             {
-                                                <small>
-                                                    @dates.CreatedAt.ToString("hh:mm tt", CultureInfo.InvariantCulture)
-                                                </small>
-                                                @if(!string.IsNullOrEmpty(dates.Comments))
+                                                @if (dates.Discontinued)
                                                 {
-                                                    <pre>@dates.Comments</pre>
+                                                    <span>//</span>
                                                 }
                                                 else
                                                 {
-                                                    <br />
+                                                    <small>
+                                                        @dates.CreatedAt.ToString("hh:mm tt", CultureInfo.InvariantCulture) - @dates.SignatureNurseNavigation.Initials
+                                                    </small>
+                                                    @if (!string.IsNullOrEmpty(dates.Comments))
+                                                    {
+                                                        <pre>@dates.Comments</pre>
+                                                    }
+                                                    else
+                                                    {
+                                                        <br />
+                                                    }
                                                 }
-
                                             }
                                         </td>
                                     }
