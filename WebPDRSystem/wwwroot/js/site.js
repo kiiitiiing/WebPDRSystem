@@ -247,6 +247,9 @@ function OpenForm(id, action, controller) {
         setTimeout(function () {
             var placeholderElement = $('#placeholder');
             var url = "/" + controller + "/" + action + "?pdrId=" + id;
+            if (action == 'UpdateQnForm') {
+                url = "/" + controller + "/" + action + "?pisti=" + id;
+            }
             console.log(url);
             $.ajax({
                 url: url,

@@ -60,8 +60,9 @@
                             {
                                 for (int x = 0; x < Model.Orders.Count(); x++)
                                 {
+                                    var row = Model.Orders[x].ListDocOrders.Count() + 1;
                                     <tr>
-                                        <td>
+                                        <td rowspan="@row">
                                             <input hidden asp-for="Orders[x].PdrId" />
                                             <input hidden asp-for="Orders[x].Id" />
                                             <input hidden asp-for="Orders[x].DateOrdered" />
@@ -70,47 +71,65 @@
                                             @if (!string.IsNullOrEmpty(Model.Orders[x].Comments))
                                             {
                                                 <a href="#">comments</a>
-                                                <pre class="toggle" id="comments" style="white-space: pre-line">@Model.Orders[x].Comments</pre>
+                                                <pre class="toggle" id="comments_@x" style="white-space: pre-line">@Model.Orders[x].Comments</pre>
 
                                             }
                                         </td>
-                                        <td style="padding: 0px !important;">
-                                            @if (User.FindFirstValue("Position") == "Doctor")
-                                            {
-                                                var length = Model.Orders[x].Orders.Length;
-                                                var row = length > 50 ? Math.Ceiling(length * 0.04) : 2;
-                                                <textarea style="height: 100%; width: 100%; font-size: medium!important; border: none;" rows="@row" asp-for="Orders[x].Orders"></textarea>
-                                            }
-                                            else
-                                            {
-                                                <input hidden asp-for="Orders[x].Orders" />
-                                                <pre style="white-space: pre-line">@Model.Orders[x].Orders</pre>
-                                            }
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" asp-for="Orders[x].Carried" id="c_@x" value="true" />
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" asp-for="Orders[x].Administered" id="a_@x" value="true" />
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" asp-for="Orders[x].RequestMade" id="r_@x" value="true" />
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" asp-for="Orders[x].Endorsed" id="e_@x" value="true" />
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" asp-for="Orders[x].Discontinued" id="d_@x" value="true" />
-                                        </td>
-                                        <td>
-                                            <input class="form-control text-sm" type="datetime-local" id="timePosted_@x" asp-for="Orders[x].TimePosted" />
-                                        </td>
-                                        <td>
-                                            <select class="form-control" asp-for="Orders[x].Signature" id="signature_@x" asp-items="ViewBag.Nurses" required>
-                                                <option value="">Select nurse</option>
-                                            </select>
-                                        </td>
                                     </tr>
+                                    @for(int y = 0; y < Model.Orders[x].ListDocOrders.Count(); y++)
+                                    {
+                                        <tr>
+                                            <td style="padding: 0px !important;">
+                                                <input hidden asp-for="Orders[x].ListDocOrders[y].Id" />
+                                                <input hidden asp-for="Orders[x].ListDocOrders[y].DoctorOrderId" />
+                                                <input hidden asp-for="Orders[x].ListDocOrders[y].CreatedAt" />
+                                                @if (User.FindFirstValue("Position") == "Doctor")
+                                                {
+                                                    var length = Model.Orders[x].ListDocOrders[y].DoctorsOrder.Length;
+                                                    if (length < 50)
+                                                    {
+                                                        <textarea style="height: 100%; width: 100%; font-size: medium!important; border: none;" rows="3" id="order_@x-@y" asp-for="Orders[x].ListDocOrders[y].DoctorsOrder"></textarea>
+                                                    }
+                                                    else
+                                                    {
+                                                        <textarea style="height: 100%; width: 100%; font-size: medium!important; border: none;" rows="1" id="order__@x-@y" asp-for="Orders[x].ListDocOrders[y].DoctorsOrder"></textarea>
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    <input hidden asp-for="Orders[x].ListDocOrders[y].DoctorsOrder" />
+                                                    <pre style="white-space: pre-line">@Model.Orders[x].ListDocOrders[y].DoctorsOrder</pre>
+                                                }
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" asp-for="Orders[x].ListDocOrders[y].Carried" id="c_@x-@y" value="true" />
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" asp-for="Orders[x].ListDocOrders[y].Administered" id="a_@x-@y" value="true" />
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" asp-for="Orders[x].ListDocOrders[y].RequestMade" id="r_@x-@y" value="true" />
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" asp-for="Orders[x].ListDocOrders[y].Endorsed" id="e_@x-@y" value="true" />
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" asp-for="Orders[x].ListDocOrders[y].Discontinued" id="d_@x-@y" value="true" />
+                                            </td>
+                                            @if(y == 0)
+                                            {
+                                                <td>
+                                                    <input class="form-control text-xs" asp-for="Orders[x].TimePosted" type="datetime-local" />
+                                                </td>
+                                                <td>
+                                                    <select class="form-control text-xs" asp-for="Orders[x].Signature" type="datetime-local">
+                                                        <option value="" hidden selected>Select nurse</option>
+                                                    </select>
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
                                 }
                             }
                             else
@@ -144,7 +163,8 @@
     var x = 0;
     $(function () {
         $(".test-table td a").click(function () {
-            $('#comments').toggle();
+            console.log(this.nextElementSibling.getAttribute("id"));
+            $('#' + this.nextElementSibling.getAttribute("id")).toggle();
         });
     });
 

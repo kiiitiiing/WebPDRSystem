@@ -1,10 +1,10 @@
-﻿@model DoctorOrders
+﻿@model AddOrderModel
 
 <div class="modal fade" id="attention" style="font-size: 14px; font-weight:500;">
     <div class="modal-dialog mw-100 w-50" role="document">
         <div class="modal-content clearfix">
             <div class="modal-header">
-                <h4>Add Doctor's Orders/Prescription for @Model.Pdr.CaseNumber</h4>
+                <h4>Add Doctor's Orders/Prescription for @Model.CaseNumber</h4>
             </div>
             <div class="modal-body">
                 <form asp-action="AddOrder">
@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-md-6">
                             Orders/Prescriptions
-                            <textarea class="form-control" rows="6" asp-for="Orders"></textarea>
+                            <textarea class="form-control" rows="6" asp-for="Order"></textarea>
                         </div>
                     </div>
                     @if (ViewBag.Errors != null)

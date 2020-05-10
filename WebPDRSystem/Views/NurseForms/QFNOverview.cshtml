@@ -295,9 +295,9 @@
                                         var dawn = day.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
                                         var afternoon = day.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
                                         var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
-                                        var dawnTime = dawn != null ? dawn.SignatureOfQnNavigation.Lastname : "";
-                                        var midTime = afternoon != null ? afternoon.SignatureOfQnNavigation.Lastname : "";
-                                        var nightTime = night != null ? night.SignatureOfQnNavigation.Lastname : "";
+                                        var dawnTime = dawn != null ? dawn.SignatureOfQnNavigation.Initials : "";
+                                        var midTime = afternoon != null ? afternoon.SignatureOfQnNavigation.Initials : "";
+                                        var nightTime = night != null ? night.SignatureOfQnNavigation.Initials : "";
                                         <td>
                                             <span class="text-danger">@dawnTime</span>
                                         </td>

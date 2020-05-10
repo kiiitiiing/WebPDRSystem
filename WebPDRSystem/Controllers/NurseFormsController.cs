@@ -45,10 +45,11 @@ namespace WebPDRSystem.Controllers
         {
             var pdr = await _context.Pdr.FindAsync(pdrId);
             var orders = await _context.DoctorOrders
+                .Include(x => x.ListDocOrders)
                 .Include(x => x.Pdr)
                     .ThenInclude(x => x.PatientNavigation)
                 .Where(x => x.PdrId == pdrId)
-                .OrderByDescending(x => x.DateOrdered)
+                .OrderBy(x => x.DateOrdered)
                 .ToListAsync();
             ViewBag.CaseNo = pdr.CaseNumber;
             ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname");
@@ -101,9 +102,9 @@ namespace WebPDRSystem.Controllers
                 .Where(x => x.Id == pdrId)
                 .FirstOrDefaultAsync();
 
-            var order = new DoctorOrders
+            var order = new AddOrderModel
             {
-                Pdr = pdr,
+                CaseNumber = pdr.CaseNumber,
                 PdrId = pdrId,
                 DateOrdered = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0),
                 TimePosted = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0)
@@ -116,21 +117,22 @@ namespace WebPDRSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddOrder(DoctorOrders model)
+        public async Task<IActionResult> AddOrder(AddOrderModel model)
         {
             var pdr = await _context.Pdr
                 .Include(x => x.PatientNavigation)
                 .Where(x => x.Id == model.PdrId)
                 .FirstOrDefaultAsync();
             var errors = ModelState.Values.SelectMany(v => v.Errors);
+
             if (ModelState.IsValid)
             {
-                _context.Add(model);
+                var order = SetOrder(model);
+                _context.Add(order);
                 await _context.SaveChangesAsync();
                 return PartialView(model);
             }
 
-            ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname", model.Signature);
 
             return PartialView(model);
         }
@@ -253,6 +255,36 @@ namespace WebPDRSystem.Controllers
 
         #region HELPERS
 
+        public DoctorOrders SetOrder(AddOrderModel model)
+        {
+            var order = new DoctorOrders();
+
+            var listOrder = new List<ListDocOrders>();
+
+            var orders = model.Order.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            foreach(var item in orders)
+            {
+                listOrder.Add(new ListDocOrders 
+                {
+                    DoctorsOrder = item,
+                    Carried = false,
+                    Administered = false,
+                    RequestMade = false,
+                    Endorsed = false,
+                    Discontinued = false,
+                    CreatedAt = DateTime.Now
+                });
+            }
+
+            order.PdrId = model.PdrId;
+            order.Comments = model.Comments;
+            order.ListDocOrders = listOrder;
+            order.TimePosted = model.TimePosted;
+            order.DateOrdered = model.DateOrdered;
+
+            return order;
+        }
 
         public List<SelectUsers> GetNurses()
         {

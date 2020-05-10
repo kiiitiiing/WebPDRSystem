@@ -15,19 +15,27 @@
             </div>
             <div class="modal-body">
                 <form asp-action="UpdateQnForm">
-                    @*<input type="hidden" asp-for="Id" />*@
                     <input type="hidden" asp-for="PdrId" />
                     <input type="hidden" asp-for="PatientCode" />
-                    <input type="hidden" asp-for="DateChecked" />
+                    <input type="hidden" asp-for="CreatedAt" />
+                    <input hidden asp-for="UpdatedAt" />
                     <!--PATIENT NAME-->
 
                     <div class="row" style="padding:5px">
-                        <div class="col-sm-8">
+                        <div class="col-sm-4">
                             <strong style="color: cornflowerblue;font-size:small;">Patient</strong><br />
-                            <strong style="color: crimson;font-size:large;padding:20px">@Model.Pdr.PatientNavigation.GetFullName()</strong>
+                            <strong style="color: crimson;font-size:large;padding:20px">@ViewBag.Patientname</strong>
+                        </div>
+                        <div class="col-sm-1">
+                            <strong style="color: cornflowerblue;font-size:small;">Day #:</strong>
+                            <input class="form-control" style="font-size:medium;padding:18px" type="text" asp-for="Day" />
                         </div>
                         <div class="col-sm-4">
                             <strong style="color: cornflowerblue;font-size:small;">Check-up date:</strong>
+                            <input class="form-control" style="font-size:medium;" asp-for="DateChecked" />
+                        </div>
+                        <div class="col-sm-3">
+                            <strong style="color: cornflowerblue;font-size:small;">Choose day:</strong>
                             <select id="formId" class="form-control" asp-for="Id" asp-items="ViewBag.Dates">
                             </select>
                         </div>
@@ -41,12 +49,12 @@
                             <input type="text" class="form-control" asp-for="Bp" />
                         </div>
                         <div class="col-sm-3">
-                            Heart Rate:
-                            <input type="text" class="form-control" asp-for="Hr" />
-                        </div>
-                        <div class="col-sm-3">
                             Respiratory Rate:
                             <input type="text" class="form-control" asp-for="Rr" />
+                        </div>
+                        <div class="col-sm-3">
+                            Heart Rate:
+                            <input type="text" class="form-control" asp-for="Hr" />
                         </div>
                         <div class="col-sm-3">
                             O2sat:

@@ -7,22 +7,19 @@ namespace WebPDRSystem.Models
 {
     public partial class DoctorOrders
     {
+        /*public DoctorOrders()
+        {
+            ListDocOrders = new HashSet<ListDocOrders>();
+        }
+*/
         [Key]
         public int Id { get; set; }
         public int PdrId { get; set; }
-        [Required]
-        [Column(TypeName = "text")]
-        public string Orders { get; set; }
         public DateTime DateOrdered { get; set; }
         [Column(TypeName = "text")]
         public string Comments { get; set; }
         public DateTime? TimePosted { get; set; }
         public int? Signature { get; set; }
-        public bool Carried { get; set; }
-        public bool Administered { get; set; }
-        public bool RequestMade { get; set; }
-        public bool Endorsed { get; set; }
-        public bool Discontinued { get; set; }
 
         [ForeignKey(nameof(PdrId))]
         [InverseProperty("DoctorOrders")]
@@ -30,5 +27,7 @@ namespace WebPDRSystem.Models
         [ForeignKey(nameof(Signature))]
         [InverseProperty(nameof(Pdrusers.DoctorOrders))]
         public virtual Pdrusers SignatureNavigation { get; set; }
+        [InverseProperty("DoctorOrder")]
+        public virtual List<ListDocOrders> ListDocOrders { get; set; }
     }
 }

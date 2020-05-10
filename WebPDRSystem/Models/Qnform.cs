@@ -10,7 +10,6 @@ namespace WebPDRSystem.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
         [StringLength(255)]
         public string PatientCode { get; set; }
         [Column("SignatureOfQN")]

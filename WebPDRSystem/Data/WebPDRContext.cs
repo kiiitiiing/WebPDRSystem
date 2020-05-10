@@ -18,13 +18,11 @@ namespace WebPDRSystem.Data
 
         public virtual DbSet<Barangay> Barangay { get; set; }
         public virtual DbSet<Census> Census { get; set; }
-        public virtual DbSet<ClinicalParametersQd> ClinicalParametersQd { get; set; }
-        public virtual DbSet<ClinicalParametersQn> ClinicalParametersQn { get; set; }
         public virtual DbSet<Discharge> Discharge { get; set; }
         public virtual DbSet<DoctorOrders> DoctorOrders { get; set; }
         public virtual DbSet<Guardian> Guardian { get; set; }
         public virtual DbSet<LabResult> LabResult { get; set; }
-        public virtual DbSet<MedHistory> MedHistory { get; set; }
+        public virtual DbSet<ListDocOrders> ListDocOrders { get; set; }
         public virtual DbSet<Medications> Medications { get; set; }
         public virtual DbSet<Muncity> Muncity { get; set; }
         public virtual DbSet<Patient> Patient { get; set; }
@@ -89,36 +87,6 @@ namespace WebPDRSystem.Data
                     .HasForeignKey(d => d.Qd)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_QD");
-            });
-
-            modelBuilder.Entity<ClinicalParametersQd>(entity =>
-            {
-                entity.HasIndex(e => e.DailyMonitoringFormQdModelId);
-
-                entity.Property(e => e.OtherDetails).IsUnicode(false);
-
-                entity.Property(e => e.Temperature).IsUnicode(false);
-            });
-
-            modelBuilder.Entity<ClinicalParametersQn>(entity =>
-            {
-                entity.HasIndex(e => e.DailyMonitoringFormQnModelId);
-
-                entity.Property(e => e.Bp).IsUnicode(false);
-
-                entity.Property(e => e.Enumerate).IsUnicode(false);
-
-                entity.Property(e => e.Hr).IsUnicode(false);
-
-                entity.Property(e => e.Meds).IsUnicode(false);
-
-                entity.Property(e => e.O2sat).IsUnicode(false);
-
-                entity.Property(e => e.OtherDetails).IsUnicode(false);
-
-                entity.Property(e => e.Rr).IsUnicode(false);
-
-                entity.Property(e => e.UrineOutput).IsUnicode(false);
             });
 
             modelBuilder.Entity<Discharge>(entity =>
@@ -213,19 +181,13 @@ namespace WebPDRSystem.Data
                     .HasConstraintName("FK_LabResult_PDR");
             });
 
-            modelBuilder.Entity<MedHistory>(entity =>
+            modelBuilder.Entity<ListDocOrders>(entity =>
             {
-                entity.Property(e => e.Dosage).IsUnicode(false);
-
-                entity.Property(e => e.Medname).IsUnicode(false);
-
-                entity.Property(e => e.Route).IsUnicode(false);
-
-                entity.HasOne(d => d.Pdr)
-                    .WithMany(p => p.MedHistory)
-                    .HasForeignKey(d => d.PdrId)
+                entity.HasOne(d => d.DoctorOrder)
+                    .WithMany(p => p.ListDocOrders)
+                    .HasForeignKey(d => d.DoctorOrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_MedHistory_PDR");
+                    .HasConstraintName("FK_ListDocOrders_DoctorOrders");
             });
 
             modelBuilder.Entity<Medications>(entity =>

@@ -138,14 +138,14 @@ namespace WebPDRSystem.Controllers
 
         #region QN FORM
 
-        public async Task<IActionResult> UpdateQnForm(int pdrId, int? formId)
+        public async Task<IActionResult> UpdateQnForm(int pisti, int? formId)
         {
             if (formId == null)
             {
                 var form = await _context.Qnform
                     .Include(x => x.Pdr)
                         .ThenInclude(x => x.PatientNavigation)
-                    .FirstOrDefaultAsync(x => x.Id == pdrId);
+                    .FirstOrDefaultAsync(x => x.Id == pisti);
                 var dates = _context.Qnform
                     .Where(x => x.PdrId == form.PdrId)
                     .Select(x => new SelectDates
@@ -182,14 +182,10 @@ namespace WebPDRSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateQnForm(Qnform model)
         {
-
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
-                var form = await _context.Qnform
-                    .FirstOrDefaultAsync(x => x.Id == model.Id);
-
-                _context.Entry(form).CurrentValues.SetValues(model);
+                _context.Update(model);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Dashboard));

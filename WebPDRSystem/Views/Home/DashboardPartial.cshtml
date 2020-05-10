@@ -64,9 +64,11 @@
                             <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QDForm', 'Home');">QF-Doctor</a>
                             <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddLabResult', 'Home');">Add lab result</a>
                             <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddOrder', 'NurseForms');">Add Orders</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ViewOrders', 'NurseForms');">View Doctor's orders</a>
                             <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'Attention', 'Home')">Attention</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ViewOrders', 'NurseForms');">View Doctor's orders</a>
                             <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QDFormOverview', 'NurseForms');">QD Form Overview</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QFNOverview', 'NurseForms');">QF-Nurse Overview</a>
+                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'MedicationOverview', 'NurseForms');">Meds Overview</a>
                             <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ReferralForm', 'Home');">Refer</a>
                             <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'DischargeForm', 'Home');">Discharge</a>
                         }
@@ -95,7 +97,7 @@
             <td class="text-center">@item.PatientNavigation.MuncityNavigation.Description</td>
             <td class="text-center" title="@item.SymptomsContacts.SymptomsOfPatient">@admittingD</td>
             <td class="text-center">@item.DateOfAdmission.GetDate("MM/dd/yyyy hh:mm tt")</td>
-            <td class="text-center" style="cursor: pointer;" onclick="OpenForm('@vs[6]','UpdateQnForm')">@vs[0]</td>
+            <td class="text-center" style="cursor: pointer;" onclick="OpenForm('@vs[6]','UpdateQnForm', 'Home')">@vs[0]</td>
             <td class="text-center">@vs[1]</td>
             <td class="text-center">@vs[2]</td>
             <td class="text-center">@vs[3]</td>

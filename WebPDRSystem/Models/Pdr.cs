@@ -13,7 +13,6 @@ namespace WebPDRSystem.Models
             Discharge = new HashSet<Discharge>();
             DoctorOrders = new HashSet<DoctorOrders>();
             LabResult = new HashSet<LabResult>();
-            MedHistory = new HashSet<MedHistory>();
             Qdform = new HashSet<Qdform>();
             Qnform = new HashSet<Qnform>();
             Referral = new HashSet<Referral>();
@@ -70,8 +69,6 @@ namespace WebPDRSystem.Models
         public virtual ICollection<DoctorOrders> DoctorOrders { get; set; }
         [InverseProperty("Pdr")]
         public virtual ICollection<LabResult> LabResult { get; set; }
-        [InverseProperty("Pdr")]
-        public virtual ICollection<MedHistory> MedHistory { get; set; }
         [InverseProperty("Pdr")]
         public virtual ICollection<Qdform> Qdform { get; set; }
         [InverseProperty("Pdr")]
