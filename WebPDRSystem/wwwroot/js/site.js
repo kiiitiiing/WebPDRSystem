@@ -135,6 +135,12 @@ $(function () {
                 if (formId == 'edit-census') {
                     LoadCensus();
                 }
+                if (formId == 'change-name-modal') {
+                    LoadMedHistory();
+                }
+                if (formId == 'edit-meds') {
+                    LoadMedHistory();
+                }
             }
         });
     });
@@ -242,6 +248,26 @@ function UpdateQnForm(formId) {
 }
 
 
+function EditMedHistory(id) {
+    var url = "/Pdrusers/EditMed?medHistoryId=" + id;
+    var placeholderElement = $('#placeholder');
+    $.ajax({
+        url: url,
+        tpye: 'get',
+        async: true,
+        success: function (data) {
+            placeholderElement.empty();
+            placeholderElement.html(data);
+            placeholderElement.find('.modal').modal('show');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.responseText);
+            alert(thrownError);
+        }
+    });
+}
+
+
 function OpenForm(id, action, controller) {
     if (id != '') {
         setTimeout(function () {
@@ -327,6 +353,25 @@ function ChangePhoto(input,width,height) {
     }
 }
 
+function ChangeName(patientId, medName) {
+    var url = "/Pdrusers/ChangeMedname?patientId=" + patientId + "&medName=" + medName;
+    var placeholderElement = $('#placeholder');
+    $.ajax({
+        url: url,
+        tpye: 'GET',
+        async: true,
+        success: function (data) {
+            placeholderElement.empty();
+            placeholderElement.html(data);
+            placeholderElement.find('.modal').modal('show');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.responseText);
+            alert(thrownError);
+        }
+    });
+}
+
 function CaclAge(date) {
     var birth = new Date(date);
     var curr = new Date();
@@ -377,6 +422,22 @@ function LoadCensus() {
         }
     });
 
+}
+
+function LoadMedHistory() {
+    var url = "/Pdrusers/MedhistoryPartial";
+    $.ajax({
+        url: url,
+        tpye: 'get',
+        async: true,
+        success: function (output) {
+            $('#med_history').html(output).fadeIn("slow");
+            Hideload();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.responseText);
+        }
+    });
 }
 
 function LoadDashboard(search) {

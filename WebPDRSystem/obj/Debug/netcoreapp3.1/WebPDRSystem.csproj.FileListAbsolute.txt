@@ -900,3 +900,7 @@ C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Web
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csproj.CopyComplete
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\WebPDRSystem.csprojAssemblyReference.cache
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\NurseForms\QDFormOverview.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\MedHistory.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\MedHistoryPartial.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\ChangeMedname.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\EditMed.cshtml.g.cs

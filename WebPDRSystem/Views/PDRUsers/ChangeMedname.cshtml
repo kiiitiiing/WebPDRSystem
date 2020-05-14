@@ -1,0 +1,25 @@
+﻿@model ChangeMedModel
+
+
+<div class="modal fade" id="change-name-modal">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content clearfix">
+            <div class="modal-header">
+                <h3>Change name</h3>
+            </div>
+            <div class="modal-body">
+                <form asp-action="ChangeMedname">
+                    <input hidden asp-for="PatientId" />
+                    <input hidden asp-for="MedName" />
+                    <input class="form-control" asp-for="NewName" />
+                    <span class="text-danger" asp-validation-for="NewName"></span>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-sm fa-pull-right" data-save="modal">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

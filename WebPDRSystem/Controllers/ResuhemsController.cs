@@ -29,6 +29,7 @@ namespace WebPDRSystem.Controllers
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.BarangayNavigation)
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.ProvinceNavigation)
+                .Where(x => x.Status == "Admitted")
                 .OrderByDescending(x => x.CreatedAt)
                 .ToListAsync();
 
@@ -44,7 +45,7 @@ namespace WebPDRSystem.Controllers
             ViewBag.MuncityG = new SelectList(_context.Muncity.Where(x => x.ProvinceId == 2), "Id", "Description");
             return View(new Pdr
             {
-                DateOfAdmission = DateTime.Now
+                DateOfAdmission = DateTime.Now.RemoveSeconds()
             });
         }
 

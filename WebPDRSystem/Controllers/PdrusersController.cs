@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using WebPDRSystem.Data;
 using WebPDRSystem.Models;
 using WebPDRSystem.Models.ViewModels;
+using static WebPDRSystem.Controllers.HomeController;
 
 namespace WebPDRSystem.Controllers
 {
@@ -28,6 +29,94 @@ namespace WebPDRSystem.Controllers
         {
             "Doctor", "Nurse", "Healthcare Buddy"
         };
+
+        #region EDITS
+
+        public IActionResult ChangeMedname(int patientId, string medName)
+        {
+            var model = new ChangeMedModel
+            {
+                PatientId = patientId,
+                MedName = medName,
+                NewName = medName
+            };
+            return PartialView(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeMedname(ChangeMedModel model)
+        {
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            var patient = await _context.Patient
+                .Include(x => x.Medications)
+                .FirstOrDefaultAsync(x => x.Id == model.PatientId);
+
+            var meds = patient.Medications
+                .Where(x => x.MedName == model.MedName);
+
+            if(ModelState.IsValid)
+            {
+                foreach(var med in meds)
+                {
+                    med.MedName = model.NewName;
+                }
+
+                _context.UpdateRange(meds);
+                await _context.SaveChangesAsync();
+
+                return PartialView(model);
+            }
+
+            return PartialView(model);
+        }
+
+        public IActionResult MedHistory()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> MedHistoryPartial()
+        {
+            var meds = await _context.Pdr
+                .Include(x => x.PatientNavigation)
+                    .ThenInclude(x => x.Medications)
+                .Where(x => x.Status == "Admitted")
+                .OrderByDescending(x => x.DateOfAdmission)
+                .ToListAsync();
+
+
+            return PartialView(meds);
+        }
+
+        public async Task<IActionResult> EditMed(int medHistoryId)
+        {
+            var medsHistory = await _context.Medications
+                .Include(x => x.Patient)
+                .Include(x => x.SignatureNurseNavigation)
+                .FirstOrDefaultAsync(x => x.Id == medHistoryId);
+
+            ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname", medsHistory.SignatureNurse);
+
+            return PartialView(medsHistory);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditMed(Medications model)
+        {
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if(ModelState.IsValid)
+            {
+                _context.Update(model);
+                await _context.SaveChangesAsync();
+            }
+
+            ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname", model.SignatureNurse);
+            return PartialView(model);
+        }
+
+        #endregion
 
         #region INDEX
         // GET: Pdrusers
@@ -214,7 +303,18 @@ namespace WebPDRSystem.Controllers
         #endregion
 
         #region HELPERS
+        public List<SelectUsers> GetNurses()
+        {
+            var users = _context.Pdrusers
+                .Where(x => x.Team == 1 && x.Role == "Nurse")
+                .Select(x => new SelectUsers
+                {
+                    Id = x.Id,
+                    Fullname = x.Firstname + " " + x.Lastname
+                });
 
+            return users.ToList();
+        }
         public string SavePicture(string name, string base64)
         {
             string imageName = Guid.NewGuid() + name + ".jpg";
