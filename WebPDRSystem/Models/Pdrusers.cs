@@ -21,8 +21,7 @@ namespace WebPDRSystem.Models
             LabResult = new HashSet<LabResult>();
             Medications = new HashSet<Medications>();
             Pdr = new HashSet<Pdr>();
-            QdformHealthCareBuddyNavigation = new HashSet<Qdform>();
-            QdformSignatureOfQdNavigation = new HashSet<Qdform>();
+            Qdform = new HashSet<Qdform>();
             Qnform = new HashSet<Qnform>();
             Referral = new HashSet<Referral>();
         }
@@ -85,10 +84,8 @@ namespace WebPDRSystem.Models
         public virtual ICollection<Medications> Medications { get; set; }
         [InverseProperty("InterviewedByNavigation")]
         public virtual ICollection<Pdr> Pdr { get; set; }
-        [InverseProperty(nameof(Qdform.HealthCareBuddyNavigation))]
-        public virtual ICollection<Qdform> QdformHealthCareBuddyNavigation { get; set; }
-        [InverseProperty(nameof(Qdform.SignatureOfQdNavigation))]
-        public virtual ICollection<Qdform> QdformSignatureOfQdNavigation { get; set; }
+        [InverseProperty("SignatureOfQdNavigation")]
+        public virtual ICollection<Qdform> Qdform { get; set; }
         [InverseProperty("SignatureOfQnNavigation")]
         public virtual ICollection<Qnform> Qnform { get; set; }
         [InverseProperty("ReferredByNavigation")]

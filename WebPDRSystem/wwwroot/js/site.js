@@ -128,7 +128,7 @@ $(function () {
                     LoadIndex('');
                     //location.reload();
                 }
-                if (formId == 'pdr-modal' || formId == 'ReferralModal' || formId == 'attention') {
+                if (formId == 'pdr-modal' || formId == 'ReferralModal' || formId == 'attention' || formId == 'QNFormModal' || formId == 'QDFormModal') {
                     LoadDashboard('');
                     //location.reload();
                 }
@@ -214,10 +214,7 @@ function Showload() {
 }
 
 function Hideload() {
-    console.log('wtf?');
-    setTimeout(function () {
-        $('#loading').attr('hidden');
-    }, 1000);
+    $('#loading').css('background', 'none');
 }
 
 function UpdateQnForm(formId) {
@@ -276,17 +273,21 @@ function OpenForm(id, action, controller) {
             if (action == 'UpdateQnForm') {
                 url = "/" + controller + "/" + action + "?pisti=" + id;
             }
+            $('#loadings').modal('toggle');
             console.log(url);
             $.ajax({
                 url: url,
                 tpye: 'get',
                 async: true,
                 success: function (data) {
+                    $('body').find('#loadings').modal('toggle');
+                    //Hideload();
                     placeholderElement.empty();
                     placeholderElement.html(data);
                     placeholderElement.find('.modal').modal('show');
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
+                    $('body').find('#loadings').modal('toggle');
                     alert(xhr.responseText);
                     alert(thrownError);
                 }

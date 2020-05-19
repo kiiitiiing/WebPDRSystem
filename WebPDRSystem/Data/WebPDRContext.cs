@@ -301,6 +301,8 @@ namespace WebPDRSystem.Data
             {
                 entity.HasIndex(e => e.Team);
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.Designation).IsUnicode(false);
 
                 entity.Property(e => e.Facility).IsUnicode(false);
@@ -349,15 +351,11 @@ namespace WebPDRSystem.Data
             {
                 entity.HasIndex(e => e.HealthCareBuddy);
 
+                entity.Property(e => e.HealthCareBuddy).IsUnicode(false);
+
                 entity.Property(e => e.Pdrcode).IsUnicode(false);
 
                 entity.Property(e => e.Temperature).IsUnicode(false);
-
-                entity.HasOne(d => d.HealthCareBuddyNavigation)
-                    .WithMany(p => p.QdformHealthCareBuddyNavigation)
-                    .HasForeignKey(d => d.HealthCareBuddy)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_QDFormTable_PDRUsers");
 
                 entity.HasOne(d => d.Pdr)
                     .WithMany(p => p.Qdform)
@@ -366,7 +364,7 @@ namespace WebPDRSystem.Data
                     .HasConstraintName("FK_QDForm_PDR");
 
                 entity.HasOne(d => d.SignatureOfQdNavigation)
-                    .WithMany(p => p.QdformSignatureOfQdNavigation)
+                    .WithMany(p => p.Qdform)
                     .HasForeignKey(d => d.SignatureOfQd)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_QDForm_PDRUsers");

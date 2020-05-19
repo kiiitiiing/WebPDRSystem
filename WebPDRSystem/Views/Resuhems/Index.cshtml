@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-    <div class="col-md-12">
+    <div class="col-md-12" style="margin-top:20px;">
 
         <!-- CARD START-->
         <div class="card">
@@ -16,14 +16,17 @@
                 <div class="clearfix"></div>
             </div>
             <div class="card-body">
-                <table class="table table-hover table-striped">
+                <table class="table table-hover table-striped" style="font-size: 14px;">
                     <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Sex</th>
-                            <th>Age</th>
-                            <th>Date of birth</th>
-                            <th>Address</th>
+                        <tr class="bg-gray-dark text-center align-content-center">
+                            <th style="vertical-align:middle !important;">Name</th>
+                            <th style="vertical-align:middle !important;">Sex</th>
+                            <th style="vertical-align:middle !important;">Age</th>
+                            <th style="vertical-align:middle !important;">Date of birth</th>
+                            <th style="vertical-align:middle !important;">Address</th>
+                            <th style="vertical-align:middle !important;">Date of Admission</th>
+                            <th style="vertical-align:middle !important;">Contact #</th>
+                            <th style="vertical-align:middle !important;">Guardian Contact#</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,10 +46,19 @@
                                         @item.PatientNavigation.DateOfBirth.ComputeAge()
                                     </td>
                                     <td>
-                                        @item.PatientNavigation.DateOfBirth.ToString("MMMM dd, yyyy")
+                                        @item.PatientNavigation.DateOfBirth.ToString("MMMM d, yyyy")
                                     </td>
                                     <td>
                                         @item.PatientNavigation.GetAddress()
+                                    </td>
+                                    <td>
+                                        @item.DateOfAdmission.GetDate("MMMM d, yyyy")
+                                    </td>
+                                    <td>
+                                        @item.PatientNavigation.ContactNumber
+                                    </td>
+                                    <td>
+                                        @item.GuardianNavigation.ContactNumber
                                     </td>
                                 </tr>
                             }

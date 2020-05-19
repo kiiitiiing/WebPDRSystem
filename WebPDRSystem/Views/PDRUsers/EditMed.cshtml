@@ -1,6 +1,6 @@
 ﻿@model Medications
 
-<div class="modal fade" id="lab_result">
+<div class="modal fade" id="edit-meds">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -50,7 +50,7 @@
                     <div class="row" style="margin-top:10px;">
                         <div class="col-md-12">
                             Attending Nurse:
-                            <select class="form-control" asp-for="SignatureNurse" asp-items="ViewBag.Nurses">
+                            <select class="form-control" asp-for="SignatureNurse" asp-items="ViewBag.Nurses ">
                                 <option value="">Select Nurse</option>
                             </select>
                         </div>

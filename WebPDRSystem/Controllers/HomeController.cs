@@ -146,12 +146,13 @@ namespace WebPDRSystem.Controllers
                     .Include(x => x.Pdr)
                         .ThenInclude(x => x.PatientNavigation)
                     .FirstOrDefaultAsync(x => x.Id == pisti);
+                ViewBag.Patient = form.Pdr.PatientNavigation.GetFullName();
                 var dates = _context.Qnform
                     .Where(x => x.PdrId == form.PdrId)
                     .Select(x => new SelectDates
                     {
                         Id = x.Id,
-                        DateChecked = x.DateChecked.ToString("dd/MM/yyyy HH:mm")
+                        DateChecked = x.DateChecked.ToString("dd/MM/yyyy hh:mm tt", System.Globalization.CultureInfo.InvariantCulture)
                     });
 
                 ViewBag.Dates = new SelectList(dates, "Id", "DateChecked", form.Id);
@@ -164,12 +165,13 @@ namespace WebPDRSystem.Controllers
                     .Include(x => x.Pdr)
                         .ThenInclude(x => x.PatientNavigation)
                     .FirstOrDefaultAsync(x => x.Id == formId);
+                ViewBag.Patient = form.Pdr.PatientNavigation.GetFullName();
                 var dates = _context.Qnform
                     .Where(x => x.PdrId == form.PdrId)
                     .Select(x => new SelectDates
                     {
                         Id = x.Id,
-                        DateChecked = x.DateChecked.ToString("dd/MM/yyyy HH:mm")
+                        DateChecked = x.DateChecked.ToString("dd/MM/yyyy hh:mm tt", System.Globalization.CultureInfo.InvariantCulture)
                     });
 
                 ViewBag.Dates = new SelectList(dates, "Id", "DateChecked", form.Id);
@@ -182,7 +184,8 @@ namespace WebPDRSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateQnForm(Qnform model)
         {
-            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            ViewBag.Errors = ModelState.Values.SelectMany(v => v.Errors);
+            ViewBag.Patient = _context.Pdr.Include(x => x.PatientNavigation).FirstOrDefault(x => x.Id == model.PdrId).PatientNavigation.GetFullName();
             if (ModelState.IsValid)
             {
                 _context.Update(model);
@@ -222,6 +225,7 @@ namespace WebPDRSystem.Controllers
             var form = new Qnform
             {
                 PdrId = pdrId,
+                PatientCode = pdr.Pdrcode,
                 DateChecked = DateTime.Now.RemoveSeconds(),
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
@@ -235,7 +239,8 @@ namespace WebPDRSystem.Controllers
         public async Task<IActionResult> QNForm(Qnform model)
         {
             var pdr = await _context.Pdr.Include(x => x.PatientNavigation).FirstOrDefaultAsync(x => x.Id == model.PdrId);
-            var errors = ModelState.Values.SelectMany(v => v.Errors);
+
+            ViewBag.Errors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
                 _context.Update(model);
@@ -245,44 +250,16 @@ namespace WebPDRSystem.Controllers
 
             ViewBag.Patientname = pdr.PatientNavigation.GetFullName();
             ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname", model.SignatureOfQn);
-            ViewBag.Errors = errors;
             return PartialView(model);
         }
 
-        public Qnform SetQNForm(QnformModel model)
-        {
-            var qnform = new Qnform
-            {
-                Day = model.Day,
-                DateChecked = model.DateChecked,
-                Bp = model.Bp,
-                Hr = model.Hr,
-                Rr = model.Rr,
-                O2sat = model.O2sat,
-                Ivrate = model.Ivrate,
-                TypeOfFluid = model.TypeOfFluid,
-                TimeFluidStarted = model.TimeFluidStarted,
-                TimeFluidChanged = model.TimeFluidChanged,
-                UrineOutput = model.UrineOutput,
-                Temperature = model.Temperature,
-                Enumerate = model.Enumerate,
-                PdrId = model.PdrId,
-                OtherDetails = model.OtherDetails,
-                SignatureOfQn = model.SignatureOfQn,
-                PatientCode = model.PatientCode,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
-            };
-
-            return qnform;
-        }
         #endregion
 
         #region QD FORM
         public IActionResult QDForm(int pdrId)
         {
             var pdr = _context.Pdr.Include(x => x.PatientNavigation).SingleOrDefault(x => x.Id == pdrId);
-            ViewBag.HCBuddies = new SelectList(Gethcb(), "Id", "Fullname");
+            //ViewBag.HCBuddies = new SelectList(Gethcb(), "Id", "Fullname");
             ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname");
 
             var form = new Qdform
@@ -321,7 +298,7 @@ namespace WebPDRSystem.Controllers
             var form = new Qdform
             {
                 Pdrcode = model.Pdrcode,
-                HealthCareBuddy = model.HealthCareBuddy,
+                //HealthCareBuddy = model.HealthCareBuddy,
                 Fever = model.Fever,
                 DateChecked = model.DateChecked,
                 Temperature = model.Temperature,
@@ -335,7 +312,7 @@ namespace WebPDRSystem.Controllers
                 MedsTaken = model.MedsTaken,
                 MentalDistress = model.MentalDistress,
                 OtherDetails = model.OtherDetails,
-                SignatureOfQd = model.SignatureOfQd,
+                //SignatureOfQd = model.SignatureOfQd,
                 PdrId = model.PdrId,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now

@@ -13,7 +13,8 @@ namespace WebPDRSystem.Models
         [Required]
         [StringLength(255)]
         public string Pdrcode { get; set; }
-        public int HealthCareBuddy { get; set; }
+        [StringLength(255)]
+        public string HealthCareBuddy { get; set; }
         public DateTime DateChecked { get; set; }
         public int? Day { get; set; }
         public bool NoSymptoms { get; set; }
@@ -38,14 +39,11 @@ namespace WebPDRSystem.Models
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
-        [ForeignKey(nameof(HealthCareBuddy))]
-        [InverseProperty(nameof(Pdrusers.QdformHealthCareBuddyNavigation))]
-        public virtual Pdrusers HealthCareBuddyNavigation { get; set; }
         [ForeignKey(nameof(PdrId))]
         [InverseProperty("Qdform")]
         public virtual Pdr Pdr { get; set; }
         [ForeignKey(nameof(SignatureOfQd))]
-        [InverseProperty(nameof(Pdrusers.QdformSignatureOfQdNavigation))]
+        [InverseProperty(nameof(Pdrusers.Qdform))]
         public virtual Pdrusers SignatureOfQdNavigation { get; set; }
     }
 }

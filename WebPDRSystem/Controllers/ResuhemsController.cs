@@ -29,6 +29,7 @@ namespace WebPDRSystem.Controllers
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.BarangayNavigation)
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.ProvinceNavigation)
+                .Include(x => x.GuardianNavigation)
                 .Where(x => x.Status == "Admitted")
                 .OrderByDescending(x => x.CreatedAt)
                 .ToListAsync();

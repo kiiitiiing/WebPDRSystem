@@ -10,8 +10,8 @@ namespace WebPDRSystem.Models
         /*public DoctorOrders()
         {
             ListDocOrders = new HashSet<ListDocOrders>();
-        }
-*/
+        }*/
+
         [Key]
         public int Id { get; set; }
         public int PdrId { get; set; }
