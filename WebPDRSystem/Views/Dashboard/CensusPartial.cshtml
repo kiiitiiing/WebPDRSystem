@@ -2,6 +2,8 @@
 
 @{
     var left = Model.TotalBedOccupancy - Model.CurrBedOccupancy;
+    var percentage = Math.Floor(((double)Model.CurrBedOccupancy / (double)Model.TotalBedOccupancy) * 100);
+    var leftper = 100 - percentage;
 }
 
 
@@ -20,8 +22,26 @@
                     </div>
 
                     <div class="col-md-12">
-                        <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                        <canvas id="pieChart" style="height: 230px; min-height: 230px; display: block; width: 572px;" width="715" height="287" class="chartjs-render-monitor"></canvas>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                                <canvas id="pieChart" style="height: 230px; min-height: 230px; display: block; width: 572px;" width="715" height="287" class="chartjs-render-monitor"></canvas>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">OCCUPIED</span>
+                                        <span class="info-box-number">@percentage%</span>
+                                    </div>
+                                </div>
+                                <div class="info-box">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">NOT OCCUPIED</span>
+                                        <span class="info-box-number">@leftper%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <div class="info-box">

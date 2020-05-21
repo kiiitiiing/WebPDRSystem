@@ -20,57 +20,44 @@
                     <input type="hidden" asp-for="Pdrcode" />
                     <input type="hidden" asp-for="PdrId" />
                     <!--Patient Name-->
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <strong style="color: cornflowerblue;font-size:small;">Patient</strong>
-                        </div>
-                        <div class="col-sm-12">
-                            <strong style="color: crimson;font-size:large;padding:20px">@Model.Pdr.PatientNavigation.GetFullName()</strong>
-                        </div>
-                    </div>
                     <!--Health care buddy & Checkup Date-->
                     <div class="row" style="padding:5px">
                         <div class="col-sm-6">
-                            <strong style="color: cornflowerblue;font-size:small;">Health Care Buddy</strong>
-                            <input class="form-control" asp-for="HealthCareBuddy"/>
+                            <strong style="color: cornflowerblue;font-size:small;">Patient</strong>
+                            <strong style="color: crimson;font-size:large;padding:20px">@Model.Pdr.PatientNavigation.GetFullName()</strong>
                         </div>
                         <div class="col-md-2">
                             <strong style="color: cornflowerblue;font-size:small;">Day</strong>
                             <input class="form-control text-xs" asp-for="Day" />
                         </div>
                         <div class="col-sm-4">
-                            <div class="row">
-                                <strong style="color: cornflowerblue;font-size:small;">Check-up date:</strong>
-                                <input class="form-control text-sm" asp-for="DateChecked" />
-                            </div>
+                            <strong style="color: cornflowerblue;font-size:small;">Check-up date:</strong>
+                            <input class="form-control text-xs" asp-for="DateChecked" />
                         </div>
                     </div>
                     <!--SYMPTOMS-->
                     <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Symptoms</strong></div>
                     <div class="row" style="padding:5px">
                         <fieldset style="border-color:black; border:double; padding:10px" class="col-sm-12">
-                            <div class="row">
+                            <div class="row waters">
                                 <div class="col-sm-6">
+                                    <input asp-for="NoSymptoms">&nbsp;No complaints<br>
                                     <input asp-for="Cough">&nbsp;Cough<br>
                                     <input asp-for="Breathing">&nbsp;Difficulty in Breathing<br>
                                     <input asp-for="BodyPain">&nbsp;Body Pain<br>
                                     <input asp-for="MuscleJointPain">&nbsp;Muscle/Joint Pain<br>
-                                    <input asp-for="Headache">&nbsp;Headache<br>
-                                    <div class="row">
-                                        <input asp-for="Fever"> &nbsp; fever &nbsp;&nbsp;
-                                        <input type="text" id="temperature" hidden asp-for="Temperature" placeholder="temperature">
-                                    </div>
+                                    <input asp-for="Fever" id="fever"> &nbsp; fever &nbsp;&nbsp;
+                                    <input type="text" class="form-control text-sm col-md-6" id="temperature" hidden="hidden" asp-for="Temperature" placeholder="temperature">
                                 </div>
 
                                 <div class="col-sm-6">
+                                    <input asp-for="Headache">&nbsp;Headache<br>
                                     <input asp-for="ChestPain">&nbsp;Chest Pain<br>
                                     <input asp-for="Confusion">&nbsp;Confusion<br>
                                     <input asp-for="BluishLipsFingers">&nbsp;Bluish Lips<br>
                                     <input asp-for="MentalDistress">&nbsp;Signs of Mental Distress<br>
-                                    <div class="row">
-                                        <input type="checkbox"> &nbsp; Others &nbsp;&nbsp;
-                                        <input type="text" id="other_details" hidden asp-for="OtherDetails" placeholder="Please specify">
-                                    </div>
+                                    <input type="checkbox" id="others"> &nbsp; Others &nbsp;&nbsp;
+                                    <input type="text" class="form-control text-sm col-md-6" id="other_details" hidden="hidden" asp-for="OtherDetails" placeholder="Please specify">
                                 </div>
                             </div>
                         </fieldset>
@@ -79,7 +66,7 @@
                     <div class="row" style="padding:5px">
                         <div class="col-sm-12">
                             <div class="row">
-                                <label class="col-sm-6" style="font-size:medium;font-weight:500;padding:10px">Does Maintenance Medication Taken?</label>
+                                <label class="col-sm-6" style="font-size:medium;font-weight:500;padding:10px">Is Maintenance Medication Taken?</label>
                                 <div class="row" style="padding:10px">
                                     <input type="radio" id="Yes" asp-for="MedsTaken" value="true">&nbsp;Yes&nbsp;&nbsp;
                                     <input type="radio" id="No" asp-for="MedsTaken" value="false" checked>&nbsp;No
@@ -124,15 +111,24 @@
             autoclose: true,
             forceParse: true
         });
-        var otherdets = $('#other_details');
-        var temps = $('#temperature');
-        
-        temps.on('click',function () {
-            console.log('sad');
+        var otherdets = $('#others');
+        var fever = $('#fever');
+
+
+        fever.on('change', function () {
+            if (fever[0].checked == true)
+                $('#temperature').removeAttr('hidden');
+            else
+                $('#temperature').attr('hidden',true);
         });
 
-        otherdets.on('click',function () {
-            console.log('hapuattr');
+        otherdets.on('click', function () {
+            if (otherdets[0].checked == true) {
+                $('#other_details').removeAttr('hidden');
+            }
+            else {
+                $('#other_details').attr('hidden', true);
+            }
         });
     })
 </script>
