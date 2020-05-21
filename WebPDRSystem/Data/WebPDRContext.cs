@@ -374,9 +374,11 @@ namespace WebPDRSystem.Data
             {
                 entity.Property(e => e.Bp).IsUnicode(false);
 
-                entity.Property(e => e.Enumerate).IsUnicode(false);
+                entity.Property(e => e.Hgt).IsUnicode(false);
 
                 entity.Property(e => e.Hr).IsUnicode(false);
+
+                entity.Property(e => e.Intake).IsUnicode(false);
 
                 entity.Property(e => e.Ivrate).IsUnicode(false);
 

@@ -119,7 +119,7 @@ $(function () {
             Hideload();
             var validation = $('span.text-danger').text();
             if (validation == '') {
-                placeholderElement.find('.modal').modal('hide');
+                $.when(placeholderElement.find('.modal').modal('hide')).done(Toast());
                 if (formId == 'new-user') {
                     placeholderElement.find('.modal').modal('hide');
                     //location.reload();
@@ -141,11 +141,34 @@ $(function () {
                 if (formId == 'edit-meds') {
                     LoadMedHistory();
                 }
+                //Toast();
             }
         });
     });
 })
 
+
+function Toast() {
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    Command: toastr["success"]("Success!")
+
+}
 
 function Attended(id) {
     var url = "/Home/Attended?id=" + id;

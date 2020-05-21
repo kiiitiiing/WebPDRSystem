@@ -39,11 +39,12 @@ namespace WebPDRSystem.Models
         public DateTime? TimeFluidChanged { get; set; }
         [StringLength(255)]
         public string UrineOutput { get; set; }
+        [Column("HGT")]
         [StringLength(255)]
-        public string Enumerate { get; set; }
+        public string Hgt { get; set; }
         public int PdrId { get; set; }
-        [Column(TypeName = "text")]
-        public string OtherDetails { get; set; }
+        [StringLength(255)]
+        public string Intake { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 

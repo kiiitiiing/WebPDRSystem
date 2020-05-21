@@ -123,7 +123,7 @@
                                                     <input class="form-control text-xs" asp-for="Orders[x].TimePosted" type="datetime-local" />
                                                 </td>
                                                 <td>
-                                                    <select class="form-control text-xs" asp-for="Orders[x].Signature" type="datetime-local">
+                                                    <select class="form-control text-xs" asp-for="Orders[x].Signature" asp-items="ViewBag.Nurses">
                                                         <option value="" hidden selected>Select nurse</option>
                                                     </select>
                                                 </td>

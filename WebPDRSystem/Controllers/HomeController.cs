@@ -184,7 +184,6 @@ namespace WebPDRSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateQnForm(Qnform model)
         {
-            ViewBag.Errors = ModelState.Values.SelectMany(v => v.Errors);
             ViewBag.Patient = _context.Pdr.Include(x => x.PatientNavigation).FirstOrDefault(x => x.Id == model.PdrId).PatientNavigation.GetFullName();
             if (ModelState.IsValid)
             {
@@ -194,6 +193,7 @@ namespace WebPDRSystem.Controllers
                 return RedirectToAction(nameof(Dashboard));
             }
 
+            ViewBag.Errors = ModelState.Values.SelectMany(v => v.Errors);
             ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname", model.SignatureOfQn);
             return PartialView(model);
         }
@@ -240,14 +240,14 @@ namespace WebPDRSystem.Controllers
         {
             var pdr = await _context.Pdr.Include(x => x.PatientNavigation).FirstOrDefaultAsync(x => x.Id == model.PdrId);
 
-            ViewBag.Errors = ModelState.Values.SelectMany(v => v.Errors);
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
                 _context.Update(model);
                 await _context.SaveChangesAsync();
                 return PartialView(model);
             }
-
+            ViewBag.Errors = errors;
             ViewBag.Patientname = pdr.PatientNavigation.GetFullName();
             ViewBag.Nurses = new SelectList(GetNurses(), "Id", "Fullname", model.SignatureOfQn);
             return PartialView(model);

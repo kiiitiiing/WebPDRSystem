@@ -15,6 +15,9 @@
         days.Add(item.day);
     }
     days.Sort();
+    var nurses = Model.GroupBy(x => x.SignatureOfQnNavigation).ToList();
+    var rows = Math.Floor(((double)(nurses.Count() / 3)));
+    var ctr = 0;
 }
 
 <div class="modal fade" id="qnform_overview" style="font-size: 14px; font-weight:500;">
@@ -33,7 +36,7 @@
                         <table class="table table-responsive table-bordered border-dark" width="100%" >
                             <thead style="text-align:center; vertical-align:middle!important;">
                                 <tr>
-                                    <th rowspan="3">CLINICAL PARAMETERS</th>
+                                    <th rowspan="3" style="vertical-align:middle !important;">CLINICAL PARAMETERS</th>
                                     @for(int x = 0; x <days.Count(); x++)
                                     {
                                         <th colspan="3">
@@ -72,17 +75,17 @@
                                         var midTime = afternoon != null ? afternoon.DateChecked.GetDate("hh:mm tt"): "";
                                         var nightTime = night != null ? night.DateChecked.GetDate("hh:mm tt"): "";
                                         <th>
-                                            <span class="text-danger">
+                                            <span class="text-danger text-sm">
                                                 @dawnTime
                                             </span>
                                         </th>
                                         <th>
-                                            <span class="text-danger">
+                                            <span class="text-danger text-smv">
                                                 @midTime
                                             </span>
                                         </th>
                                         <th>
-                                            <span class="text-danger">
+                                            <span class="text-danger text-sm">
                                                 @nightTime
                                             </span>
                                         </th>
@@ -104,13 +107,13 @@
                                         var midTime = afternoon != null ? afternoon.Bp : "";
                                         var nightTime = night != null ? night.Bp : "";
                                         <td>
-                                            <span class="text-danger">@dawnTime</span>
+                                            <span class="text-danger text-sm">@dawnTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@midTime</span>
+                                            <span class="text-danger text-sm">@midTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@nightTime</span>
+                                            <span class="text-danger text-sm">@nightTime</span>
                                         </td>
                                     }
                                 </tr>
@@ -128,13 +131,13 @@
                                         var midTime = afternoon != null ? afternoon.Rr : "";
                                         var nightTime = night != null ? night.Rr : "";
                                         <td>
-                                            <span class="text-danger">@dawnTime</span>
+                                            <span class="text-danger text-sm">@dawnTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@midTime</span>
+                                            <span class="text-danger text-sm">@midTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@nightTime</span>
+                                            <span class="text-danger text-sm">@nightTime</span>
                                         </td>
                                     }
                                 </tr>
@@ -152,13 +155,13 @@
                                         var midTime = afternoon != null ? afternoon.Hr : "";
                                         var nightTime = night != null ? night.Hr : "";
                                         <td>
-                                            <span class="text-danger">@dawnTime</span>
+                                            <span class="text-danger text-sm">@dawnTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@midTime</span>
+                                            <span class="text-danger text-sm">@midTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@nightTime</span>
+                                            <span class="text-danger text-sm">@nightTime</span>
                                         </td>
                                     }
                                 </tr>
@@ -176,13 +179,13 @@
                                         var midTime = afternoon != null ? afternoon.O2sat : "";
                                         var nightTime = night != null ? night.O2sat : "";
                                         <td>
-                                            <span class="text-danger">@dawnTime</span>
+                                            <span class="text-danger text-sm">@dawnTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@midTime</span>
+                                            <span class="text-danger text-sm">@midTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@nightTime</span>
+                                            <span class="text-danger text-sm">@nightTime</span>
                                         </td>
                                     }
                                 </tr>
@@ -200,13 +203,13 @@
                                         var midTime = afternoon != null ? afternoon.Temperature : "";
                                         var nightTime = night != null ? night.Temperature : "";
                                         <td>
-                                            <span class="text-danger">@dawnTime</span>
+                                            <span class="text-danger text-sm">@dawnTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@midTime</span>
+                                            <span class="text-danger text-sm">@midTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@nightTime</span>
+                                            <span class="text-danger text-sm">@nightTime</span>
                                         </td>
                                     }
                                 </tr>
@@ -224,16 +227,67 @@
                                         var midTime = afternoon != null ? afternoon.UrineOutput : "";
                                         var nightTime = night != null ? night.UrineOutput : "";
                                         <td>
-                                            <span class="text-danger">@dawnTime</span>
+                                            <span class="text-danger text-sm">@dawnTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@midTime</span>
+                                            <span class="text-danger text-sm">@midTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@nightTime</span>
+                                            <span class="text-danger text-sm">@nightTime</span>
                                         </td>
                                     }
                                 </tr>
+                                <tr>
+                                    <td>
+                                        INTAKE
+                                    </td>
+                                    @for (int x = 0; x < days.Count(); x++)
+                                    {
+                                        var day = Model.Where(c => c.Day == days[x]);
+                                        var dawn = day.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                        var afternoon = day.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                        var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                        var dawnTime = dawn != null ? dawn.Intake : "";
+                                        var midTime = afternoon != null ? afternoon.Intake : "";
+                                        var nightTime = night != null ? night.Intake : "";
+                                        <td>
+                                            <span class="text-danger text-sm">@dawnTime</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-danger text-sm">@midTime</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-danger text-sm">@nightTime</span>
+                                        </td>
+                                    }
+                                </tr>
+                                @if (Model.Where(x => x.Hgt != null).Count() != 0)
+                                {
+                                    <tr>
+                                        <td>
+                                            HGT
+                                        </td>
+                                        @for (int x = 0; x < days.Count(); x++)
+                                        {
+                                            var day = Model.Where(c => c.Day == days[x]);
+                                            var dawn = day.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                            var afternoon = day.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                            var night = day.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                            var dawnTime = dawn != null ? dawn.Hgt : "";
+                                            var midTime = afternoon != null ? afternoon.Hgt : "";
+                                            var nightTime = night != null ? night.Hgt : "";
+                                            <td>
+                                                <span class="text-danger text-sm">@dawnTime</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-danger text-sm">@midTime</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-danger text-sm">@nightTime</span>
+                                            </td>
+                                        }
+                                    </tr>
+                                }
                                 <tr>
                                     <td>
                                         IV FLUIDS<br />
@@ -266,28 +320,28 @@
                                         var nightChanged = night != null ? night.TimeFluidChanged.GetDate("HH:mm") : "";
                                         <td>
                                             <br />
-                                            <span class="text-danger">@dawnType</span><br />
-                                            <span class="text-danger">@dawnRate</span><br />
-                                            <span class="text-danger">@dawnStarted</span><br />
-                                            <span class="text-danger">@dawnChanged</span><br />
+                                            <span class="text-danger text-sm">@dawnType</span><br />
+                                            <span class="text-danger text-sm">@dawnRate</span><br />
+                                            <span class="text-danger text-sm">@dawnStarted</span><br />
+                                            <span class="text-danger text-sm">@dawnChanged</span><br />
                                         </td>
                                         <td>
                                             <br />
-                                            <span class="text-danger">@midType</span><br />
-                                            <span class="text-danger">@midRate</span><br />
-                                            <span class="text-danger">@midStarted</span><br />
-                                            <span class="text-danger">@midChanged</span><br />
+                                            <span class="text-danger text-sm">@midType</span><br />
+                                            <span class="text-danger text-sm">@midRate</span><br />
+                                            <span class="text-danger text-sm">@midStarted</span><br />
+                                            <span class="text-danger text-sm">@midChanged</span><br />
                                         </td>
                                         <td>
                                             <br />
-                                            <span class="text-danger">@nightType</span><br />
-                                            <span class="text-danger">@nightRate</span><br />
-                                            <span class="text-danger">@nightStarted</span><br />
-                                            <span class="text-danger">@nightChanged</span><br />
+                                            <span class="text-danger text-sm">@nightType</span><br />
+                                            <span class="text-danger text-sm">@nightRate</span><br />
+                                            <span class="text-danger text-sm">@nightStarted</span><br />
+                                            <span class="text-danger text-sm">@nightChanged</span><br />
                                         </td>
                                     }
                                 </tr>
-                                <tr>
+                                @*<tr>
                                     <td>INITIAL OF QN</td>
                                     @for (int x = 0; x < days.Count(); x++)
                                     {
@@ -299,23 +353,64 @@
                                         var midTime = afternoon != null ? afternoon.SignatureOfQnNavigation.Initials : "";
                                         var nightTime = night != null ? night.SignatureOfQnNavigation.Initials : "";
                                         <td>
-                                            <span class="text-danger">@dawnTime</span>
+                                            <span class="text-danger text-sm">@dawnTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@midTime</span>
+                                            <span class="text-danger text-sm">@midTime</span>
                                         </td>
                                         <td>
-                                            <span class="text-danger">@nightTime</span>
+                                            <span class="text-danger text-sm">@nightTime</span>
                                         </td>
                                     }
+                                </tr>*@
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered border-dark">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        NAME
+                                    </th>
+                                    <th>
+                                        INITIAL
+                                    </th>
+                                    <th>
+                                        NAME
+                                    </th>
+                                    <th>
+                                        INITIAL
+                                    </th>
+                                    <th>
+                                        NAME
+                                    </th>
+                                    <th>
+                                        INITIAL
+                                    </th>
                                 </tr>
+                            </thead>
+                            <tbody>
+                                @for(int r = 0; r< rows; r++)
+                                {
+                                    <tr>
+                                        @for(int c=0; c<3; c++)
+                                        {
+                                            <td>
+                                                @nurses[ctr].Key.GetFullName()
+                                            </td>
+                                            <td>
+                                                @nurses[ctr].Key.Initials
+                                            </td>
+                                            ctr++;
+                                        }
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </form>
                 }
                 else
                 {
-                <span class="text-danger">No Records found!</span>
+                <span class="text-danger text-sm">No Records found!</span>
                 }
                 </div>
         </div>
