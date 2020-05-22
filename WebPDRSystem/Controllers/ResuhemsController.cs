@@ -89,6 +89,19 @@ namespace WebPDRSystem.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> DischargedPatients(string search)
+        {
+            var patients = await _context.Pdr
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.BarangayNavigation)
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.ProvinceNavigation)
+                .Where(x => x.Status == "discharged")
+                .OrderByDescending(x => x.UpdatedAt)
+                .ToListAsync();
+
+            return View(patients);
+        }
+
 
         public partial class SelectUsers
         {

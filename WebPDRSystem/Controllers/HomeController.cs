@@ -510,41 +510,46 @@ namespace WebPDRSystem.Controllers
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.BarangayNavigation)
                 .FirstOrDefaultAsync(x => x.Id == pdrId);
 
-
-            ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname");
+            ViewBag.Patient = pdr.PatientNavigation.GetFullName();
+            ViewBag.PdrId = pdrId;
+            /*ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname");
 
             var discharge = new Discharge
             {
                 Pdr = pdr,
                 Pdrid = pdr.Id,
                 DateDischarged = DateTime.Now
-            };
+            };*/
 
-            return PartialView(discharge);
+            return PartialView();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DischargeForm(Discharge model)
+        public async Task<IActionResult> DischargeForm(bool discharge, int pdrId)
         {
-            model.Pdr = await _context.Pdr.FindAsync(model.Pdrid);
+            var pdr = await _context.Pdr.FindAsync(pdrId);
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
-                model.Pdr.Status = "discharged";
-                model.Pdr.UpdatedAt = DateTime.Now;
-                _context.Update(model);
+                pdr.Status = "discharged";
+                pdr.UpdatedAt = DateTime.Now;
+                _context.Update(pdr);
                 await _context.SaveChangesAsync();
-                return PartialView(model);
+                return PartialView();
             }
 
-            return PartialView(model);
+            return PartialView();
         }
 
         public async Task<IActionResult> Discharged(string search)
         {
-            var patients = await _context.Discharge
-                .OrderByDescending(x => x.DateDischarged)
+            var patients = await _context.Pdr
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.BarangayNavigation)
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
+                .Include(x => x.PatientNavigation).ThenInclude(x => x.ProvinceNavigation)
+                .Where(x => x.Status == "discharged")
+                .OrderByDescending(x => x.UpdatedAt)
                 .ToListAsync();
 
             return View(patients);

@@ -5,13 +5,11 @@
 
 <div class="card" style="margin-top: 20px;">
     <div class="card-header">
-        <h4>
-            Discharged Patients
-        </h4>
+        Discharged Patients
     </div>
     <div class="card-body">
         <table class="table table-striped" style="vertical-align: middle; font-size: 15px;">
-            <thead class="bg-gray-dark"> 
+            <thead class="bg-gray-dark">
                 <tr>
                     <th class="text-center">
                         Name
@@ -34,7 +32,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach(var patient in Model)
+                @foreach (var patient in Model)
                 {
                     var gender = patient.PatientNavigation.Gender ? "Male" : "Female";
                     <tr>

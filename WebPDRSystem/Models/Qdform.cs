@@ -16,7 +16,7 @@ namespace WebPDRSystem.Models
         [StringLength(255)]
         public string HealthCareBuddy { get; set; }
         public DateTime DateChecked { get; set; }
-        public int? Day { get; set; }
+        public int Day { get; set; }
         public bool NoSymptoms { get; set; }
         public bool Fever { get; set; }
         [StringLength(50)]

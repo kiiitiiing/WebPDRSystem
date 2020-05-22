@@ -128,7 +128,7 @@ $(function () {
                     LoadIndex('');
                     //location.reload();
                 }
-                if (formId == 'pdr-modal' || formId == 'ReferralModal' || formId == 'attention' || formId == 'QNFormModal' || formId == 'QDFormModal') {
+                if (formId == 'pdr-modal' || formId == 'ReferralModal' || formId == 'attention' || formId == 'QNFormModal' || formId == 'QDFormModal' || formId == 'DischargedModal') {
                     LoadDashboard('');
                     //location.reload();
                 }
