@@ -34,7 +34,7 @@ namespace WebPDRSystem
             services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
             services.AddControllersWithViews();
             services.AddDbContext<WebPDRContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("WebPDRConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("WebPDRConnection"), sqlServerOptions => sqlServerOptions.CommandTimeout(300)));
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );

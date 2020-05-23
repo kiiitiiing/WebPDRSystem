@@ -83,7 +83,9 @@
                                                 <input hidden asp-for="Orders[x].ListDocOrders[y].Id" />
                                                 <input hidden asp-for="Orders[x].ListDocOrders[y].DoctorOrderId" />
                                                 <input hidden asp-for="Orders[x].ListDocOrders[y].CreatedAt" />
-                                                @if (User.FindFirstValue("Position") == "Doctor")
+                                                <input hidden asp-for="Orders[x].ListDocOrders[y].DoctorsOrder" />
+                                                <pre style="white-space: pre-line">@Model.Orders[x].ListDocOrders[y].DoctorsOrder</pre>
+                                                @*if (User.FindFirstValue("Position") == "Doctor")
                                                 {
                                                     var length = Model.Orders[x].ListDocOrders[y].DoctorsOrder.Length;
                                                     if (length < 50)
@@ -100,7 +102,7 @@
                                                 {
                                                     <input hidden asp-for="Orders[x].ListDocOrders[y].DoctorsOrder" />
                                                     <pre style="white-space: pre-line">@Model.Orders[x].ListDocOrders[y].DoctorsOrder</pre>
-                                                }
+                                                }*@
                                             </td>
                                             <td>
                                                 <input type="checkbox" asp-for="Orders[x].ListDocOrders[y].Carried" id="c_@x-@y" value="true" />

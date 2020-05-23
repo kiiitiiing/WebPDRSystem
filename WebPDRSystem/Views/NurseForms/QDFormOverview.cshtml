@@ -59,18 +59,21 @@
                             <tr>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.DateChecked.ToString("hh:mm tt", CultureInfo.InvariantCulture) : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.DateChecked.ToString("hh:mm tt", CultureInfo.InvariantCulture) : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.DateChecked.ToString("hh:mm tt", CultureInfo.InvariantCulture) : "";
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.DateChecked.GetDate("hh:mm tt") : "";
+                                    var midTime = afternoon != null ? afternoon.DateChecked.GetDate("hh:mm tt"): "";
+                                    var nightTime = night != null ? night.DateChecked.GetDate("hh:mm tt"): "";
                                     <th style="text-align:center;">
-                                        <small>@nsd</small>
+                                        <small>@dawnTime</small>
                                     </th>
                                     <th style="text-align:center;">
-                                        <small>@nsa</small>
+                                        <small>@midTime</small>
                                     </th>
                                     <th style="text-align:center;">
-                                        <small>@nsn</small>
+                                        <small>@nightTime</small>
                                     </th>
                                 }
                             </tr>
@@ -82,19 +85,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.NoSymptoms.Checkbool() : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.NoSymptoms.Checkbool() : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.NoSymptoms.Checkbool() : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.NoSymptoms.Checkbool() : "";
+                                    var midTime = afternoon != null ? afternoon.NoSymptoms.Checkbool() : "";
+                                    var nightTime = night != null ? night.NoSymptoms.Checkbool() : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -103,19 +109,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.Fever.Checkbool() : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.Fever.Checkbool() : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.Fever.Checkbool() : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.Fever.Checkbool() : "";
+                                    var midTime = afternoon != null ? afternoon.Fever.Checkbool() : "";
+                                    var nightTime = night != null ? night.Fever.Checkbool() : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -124,20 +133,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var non = curForm != null;
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.Temperature : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.Temperature : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.Temperature : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.Temperature : "";
+                                    var midTime = afternoon != null ? afternoon.Temperature : "";
+                                    var nightTime = night != null ? night.Temperature: "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -146,20 +157,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var non = curForm != null;
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.Cough.Checkbool() : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.Cough.Checkbool() : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.Cough.Checkbool() : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.Cough.Checkbool() : "";
+                                    var midTime = afternoon != null ? afternoon.Cough.Checkbool() : "";
+                                    var nightTime = night != null ? night.Cough.Checkbool() : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -169,20 +182,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var non = curForm != null;
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.Breathing.Checkbool() : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.Breathing.Checkbool() : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.Breathing.Checkbool() : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.Breathing.Checkbool() : "";
+                                    var midTime = afternoon != null ? afternoon.Breathing.Checkbool() : "";
+                                    var nightTime = night != null ? night.Breathing.Checkbool() : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -191,20 +206,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var non = curForm != null;
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.BodyPain.Checkbool() : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.BodyPain.Checkbool() : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.BodyPain.Checkbool() : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.BodyPain.Checkbool() : "";
+                                    var midTime = afternoon != null ? afternoon.BodyPain.Checkbool() : "";
+                                    var nightTime = night != null ? night.BodyPain.Checkbool() : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -213,20 +230,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var non = curForm != null;
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.MuscleJointPain.Checkbool() : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.MuscleJointPain.Checkbool() : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.MuscleJointPain.Checkbool() : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.MuscleJointPain.Checkbool() : "";
+                                    var midTime = afternoon != null ? afternoon.MuscleJointPain.Checkbool() : "";
+                                    var nightTime = night != null ? night.MuscleJointPain.Checkbool() : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -235,20 +254,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var non = curForm != null;
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.Headache.Checkbool() : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.Headache.Checkbool() : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.Headache.Checkbool() : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.Headache.Checkbool() : "";
+                                    var midTime = afternoon != null ? afternoon.Headache.Checkbool() : "";
+                                    var nightTime = night != null ? night.Headache.Checkbool() : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -257,20 +278,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var non = curForm != null;
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.ChestPain.Checkbool() : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.ChestPain.Checkbool() : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.ChestPain.Checkbool() : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.ChestPain.Checkbool() : "";
+                                    var midTime = afternoon != null ? afternoon.ChestPain.Checkbool() : "";
+                                    var nightTime = night != null ? night.ChestPain.Checkbool() : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -279,20 +302,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var non = curForm != null;
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.Confusion.Checkbool() : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.Confusion.Checkbool() : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.Confusion.Checkbool() : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.Confusion.Checkbool() : "";
+                                    var midTime = afternoon != null ? afternoon.Confusion.Checkbool() : "";
+                                    var nightTime = night != null ? night.Confusion.Checkbool() : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -302,20 +327,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var non = curForm != null;
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.BluishLipsFingers.Checkbool() : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.BluishLipsFingers.Checkbool() : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.BluishLipsFingers.Checkbool() : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.BluishLipsFingers.Checkbool() : "";
+                                    var midTime = afternoon != null ? afternoon.BluishLipsFingers.Checkbool() : "";
+                                    var nightTime = night != null ? night.BluishLipsFingers.Checkbool() : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -325,20 +352,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var non = curForm != null;
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.MedsTaken.Checkbool() : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.MedsTaken.Checkbool() : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.MedsTaken.Checkbool() : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.MedsTaken.Checkbool() : "";
+                                    var midTime = afternoon != null ? afternoon.MedsTaken.Checkbool() : "";
+                                    var nightTime = night != null ? night.MedsTaken.Checkbool() : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -348,20 +377,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var non = curForm != null;
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.MentalDistress.Checkbool() : "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.MentalDistress.Checkbool() : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.MentalDistress.Checkbool() : "";
-                                    <td style="text-align:center;">
-                                        @nsd
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsa
-                                    </td>
-                                    <td style="text-align:center;">
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.MentalDistress.Checkbool() : "";
+                                    var midTime = afternoon != null ? afternoon.MentalDistress.Checkbool() : "";
+                                    var nightTime = night != null ? night.MentalDistress.Checkbool() : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                             <tr>
@@ -370,20 +401,22 @@
                                 </td>
                                 @for (int x = 0; x < days.Count(); x++)
                                 {
-                                    var curForm = Model.Where(c => c.Day == days[x]).FirstOrDefault();
-                                    var non = curForm != null;
-                                    var nsd = curForm.DateChecked.Hour >= 0 && curForm.DateChecked.Hour < 8 ? curForm.SignatureOfQdNavigation.Lastname: "";
-                                    var nsa = curForm.DateChecked.Hour >= 8 && curForm.DateChecked.Hour < 16 ? curForm.SignatureOfQdNavigation.Lastname : "";
-                                    var nsn = curForm.DateChecked.Hour >= 16 && curForm.DateChecked.Hour <= 23 ? curForm.SignatureOfQdNavigation.Lastname : "";
-                                    <td>
-                                        @nsd
-                                    </td>
-                                    <td>
-                                        @nsa
-                                    </td>
-                                    <td>
-                                        @nsn
-                                    </td>
+                                    var curForm = Model.Where(c => c.Day == days[x]);
+                                    var dawn = curForm.Where(c => c.DateChecked.Hour >= 0 && c.DateChecked.Hour < 8).FirstOrDefault();
+                                    var afternoon = curForm.Where(c => c.DateChecked.Hour >= 8 && c.DateChecked.Hour < 16).FirstOrDefault();
+                                    var night = curForm.Where(c => c.DateChecked.Hour >= 16 && c.DateChecked.Hour <= 23).FirstOrDefault();
+                                    var dawnTime = dawn != null ? dawn.SignatureOfQdNavigation.Initials : "";
+                                    var midTime = afternoon != null ? afternoon.SignatureOfQdNavigation.Initials : "";
+                                    var nightTime = night != null ? night.SignatureOfQdNavigation.Initials : "";
+                                    <th style="text-align:center;">
+                                        <small>@dawnTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@midTime</small>
+                                    </th>
+                                    <th style="text-align:center;">
+                                        <small>@nightTime</small>
+                                    </th>
                                 }
                             </tr>
                         </tbody>
