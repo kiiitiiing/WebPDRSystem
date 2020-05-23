@@ -12,6 +12,9 @@ namespace WebPDRSystem.Models.ViewModels
         public int TotalBedOccupancy { get; set; }
         public double BedOccupancyPecentage { get { return (CurrBedOccupancy / TotalBedOccupancy) * 100; } }
         public int MayGoHome { get; set; }
+        public int MaleCtr { get; set; }
+        public int FemaleCtr { get; set; }
+        public int CoMorbidities { get; set; }
         public string ODR { get; set; }
         public string ODG { get; set; }
         public string QD { get; set; }

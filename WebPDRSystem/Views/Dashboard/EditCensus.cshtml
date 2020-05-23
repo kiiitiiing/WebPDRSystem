@@ -17,7 +17,7 @@
                         <div class="col-md-12">
                             OFFICER OF THE DAY (RED ZONE):
                             <select class="form-control" asp-for="Odr" asp-items="ViewBag.ODR">
-                                <option value="">Select Officer</option>
+                                <option value="" selected hidden>Select Officer</option>
                             </select>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                         <div class="col-md-12">
                             OFFICER OF THE DAY (GREEN ZONE):
                             <select class="form-control" asp-for="Odg" asp-items="ViewBag.ODG">
-                                <option value="">Select Officer</option>
+                                <option value="" selected hidden>Select Officer</option>
                             </select>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                         <div class="col-md-12">
                             QUARANTINE DOCTOR:
                             <select class="form-control" asp-for="Qd" asp-items="ViewBag.QD">
-                                <option value="">Select Doctor</option>
+                                <option value="" selected hidden>Select Doctor</option>
                             </select>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                         <div class="col-md-12">
                             NURSE OF THE DAY (CHAMBER A):
                             <select class="form-control" asp-for="Noda" asp-items="ViewBag.NODA">
-                                <option value="">Select Nurse</option>
+                                <option value="" selected hidden>Select Nurse</option>
                             </select>
                         </div>
                     </div>
@@ -49,8 +49,14 @@
                         <div class="col-md-12">
                             NURSE OF THE DAY (CHAMBER B):
                             <select class="form-control" asp-for="Nodb" asp-items="ViewBag.NODB">
-                                <option value="">Select Nurse</option>
+                                <option value="" selected hidden>Select Nurse</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-12">
+                            Number of Co Morbidities
+                            <input class="form-control" asp-for="Comorbidities" />
                         </div>
                     </div>
                     @if (ViewBag.Errors != null)

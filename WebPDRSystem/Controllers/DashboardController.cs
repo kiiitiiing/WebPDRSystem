@@ -36,12 +36,18 @@ namespace WebPDRSystem.Controllers
                 .Include(x => x.NodbNavigation)
                 .OrderByDescending(x => x.CreatedAt).FirstOrDefaultAsync();
 
+            var pdr = await _context.Pdr
+                .Include(x=>x.PatientNavigation)
+                .Where(x => x.Status == "admitted" && x.BedNumber != "").ToListAsync();
+
             var census = new DashboardModel
             {
-                TotalCensus = await _context.Pdr.Where(x => x.Status == "admitted").CountAsync(),
+                TotalCensus = pdr.Count(),
                 CurrBedOccupancy = await _context.Pdr.Where(x => x.Status == "admitted").CountAsync(),
                 TotalBedOccupancy = 48,
-                MayGoHome = 0,
+                CoMorbidities = today != null ? (int)today.Comorbidities : 0,
+                MaleCtr = pdr.Where(x => x.PatientNavigation.Gender == true).Count(),
+                FemaleCtr = pdr.Where(x => x.PatientNavigation.Gender == false).Count(),
                 ODR = today != null? today.OdrNavigation.GetFullName() : "",
                 ODG = today != null ? today.OdgNavigation.GetFullName() : "",
                 QD = today != null ? today.QdNavigation.GetFullName() : "",
@@ -69,12 +75,13 @@ namespace WebPDRSystem.Controllers
 
         public IActionResult EditCensus()
         {
+            var cens = _context.Census.OrderByDescending(x => x.CreatedAt).FirstOrDefault();
             ViewBag.ODR = new SelectList(GetUsers(), "Id", "Fullname");
             ViewBag.ODG = new SelectList(GetUsers(), "Id", "Fullname");
             ViewBag.QD = new SelectList(GetUsers(), "Id", "Fullname");
             ViewBag.NODA = new SelectList(GetUsers(), "Id", "Fullname");
             ViewBag.NODB = new SelectList(GetUsers(), "Id", "Fullname");
-            return PartialView();
+            return PartialView(cens);
         }
 
         [HttpPost]

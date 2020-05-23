@@ -19,6 +19,8 @@ namespace WebPDRSystem.Models
         public int Noda { get; set; }
         [Column("NODB")]
         public int Nodb { get; set; }
+        public int? Comorbidities { get; set; }
+        public int? MayGoHome { get; set; }
         public DateTime CreatedAt { get; set; }
 
         [ForeignKey(nameof(Noda))]
