@@ -159,7 +159,7 @@ namespace WebPDRSystem.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> NewUser([Bind("Id,Username,Password,Firstname,Middlename,Lastname,Role,PhotoString,PhotoFilePath")] AddUser newUser)
+        public async Task<IActionResult> NewUser([Bind("Id,Username,Password,Firstname,Middlename,Lastname,Initials,Role,PhotoString,PhotoFilePath")] AddUser newUser)
         {
             newUser.Username = newUser.Firstname + newUser.Lastname + DateTime.Now.ToString("ddMMyyyyHHmmss");
             newUser.Password = newUser.Firstname + newUser.Lastname + DateTime.Now.ToString("ddMMyyyyHHmmss");
