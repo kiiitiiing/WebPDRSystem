@@ -269,9 +269,9 @@ namespace WebPDRSystem.Controllers
 
             foreach(var med in model.Meds)
             {
-                var date = model.DateTaken.ToString("dd/MM/yyyy");
-                var time = med.TimeTaken.ToString("HH:mm");
-                var datetime = DateTime.Parse(date + " " + time);
+                var date = model.DateTaken;
+                var time = med.TimeTaken;
+                var datetime = new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, time.Second);
                 meds.Add(new Medications
                 {
                     PatientId = med.PatientId,
