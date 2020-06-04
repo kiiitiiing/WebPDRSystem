@@ -1,73 +1,90 @@
-﻿@model Medications
+﻿@model ListMeds
 
 <div class="modal fade" id="lab_result">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4>
-                    Add Meds for<br />
-                    @Model.Patient.GetFullName()
-                </h4>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
             <div class="modal-body">
                 <form asp-action="AddMedication">
-                    <input hidden asp-for="PatientId" />
                     <div class="row">
-                        <div class="col-md-9">
-                            Date & Time taken:
-                            <input type="datetime-local" class="form-control text-xs" asp-for="CreatedAt" />
+                        <div class="col-md-7">
+                            <label>
+                                Add Meds for @Model.PatientName
+                            </label>
                         </div>
                         <div class="col-md-3">
-                            Day:
+                            <label>
+                                Date & Time taken:
+                            </label>
+                            <input type="date" class="form-control text-xs" asp-for="DateTaken" />
+                        </div>
+                        <div class="col-md-2">
+                            <label>
+                                Day:
+                            </label>
                             <input type="number" class="form-control" asp-for="Day" />
                         </div>
                     </div>
-                    <div class="row" style="margin-top:10px; margin-bottom: 0px !important; display:block !important;">
-                        Medication:
-                        @if (ViewBag.MedCounts != 0)
+                    <div id="med_cards">
+                        @for (int x = 0; x < Model.Meds.Count(); x++)
                         {
-                            <button type="button" class="btn btn-xs btn-primary fa-pull-right" id="add_button" style="float:right !important;" onclick="ToggleInput();">
-                                new
-                            </button>
+                            <div class="card card-outline" style="margin-top:10px; margin-bottom: 0px !important;">
+                                <div class="card-body">
+                                    <input hidden asp-for="Meds[x].PatientId"  id="patient_id"/>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            Medication:
+                                            @if (ViewBag.MedCounts != 0)
+                                            {
+                                                <button type="button" class="btn btn-xs btn-primary fa-pull-right" id="add_button" style="float:right !important;" onclick="ToggleInput();">
+                                                    new
+                                                </button>
+                                            }
+                                        </div>
+                                        <div class="col-md-3">
+                                            Time Taken:
+                                        </div>
+                                        <div class="col-md-2">
+                                            Discontinued:
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7" id="med_row">
+                                            @if (ViewBag.MedCounts != 0)
+                                            {
+                                                <select class="form-control" asp-for="Meds[x].MedName" asp-items="ViewBag.Medications">
+                                                    <option disabled selected hidden>Select Meds</option>
+                                                </select>
+                                            }
+                                            else
+                                            {
+                                                <input class="form-control text-sm" asp-for="Meds[x].MedName" placeholder="Medname / Dosage / Route / Frequency" />
+                                            }
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="time" class="form-control" asp-for="Meds[x].TimeTaken" />
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="radio" id="Yes" asp-for="Meds[x].Discontinued" value="true" checked />
+                                            <label for="male">Yes</label>
+                                            <input type="radio" id="No" asp-for="Meds[x].Discontinued" value="false" />
+                                            <label for="male">No</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            Comments:
+                                            <input type="text" class="form-control" asp-for="Meds[x].Comments" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            Attending Nurse:
+                                            <select class="form-control" asp-for="Meds[x].NurseId" asp-items="ViewBag.Nurses">
+                                                <option value="">Select Nurse</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         }
-                    </div>
-                    <div class="row" id="med_row">
-                        @if (ViewBag.MedCounts != 0)
-                        {
-                            <select class="form-control" asp-for="MedName" asp-items="ViewBag.Medications">
-                                <option disabled selected hidden>Select Meds</option>
-                            </select>
-                        }
-                        else
-                        {
-                            <input class="form-control text-sm" asp-for="MedName" placeholder="Medname / Dosage / Route / Frequency" />
-                        }
-                    </div>
-                    <div class="row" style="margin-top:10px;">
-                        <div class="col-md-6">
-                            Discontinued:<br />
-                            <input type="radio" id="Yes" asp-for="Discontinued" value="true" checked />
-                            <label for="male">Yes</label>
-                            <input type="radio" id="No" asp-for="Discontinued" value="false" />
-                            <label for="male">No</label>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top:10px;">
-                        <div class="col-md-12">
-                            Comments:
-                            <input type="text" class="form-control" asp-for="Comments" />
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top:10px;">
-                        <div class="col-md-12">
-                            Attending Nurse:
-                            <select class="form-control" asp-for="SignatureNurse" asp-items="ViewBag.Nurses">
-                                <option value="">Select Nurse</option>
-                            </select>
-                        </div>
                     </div>
                 </form>
                 @if (ViewBag.Errors != null)
@@ -80,14 +97,16 @@
                 }
             </div>
             <div class="modal-footer">
-                <div class="form-inline">
-                    <button class="btn btn-danger fa-pull-left" data-dismiss="modal">
-                        Cancel
-                    </button>
-                    <button class="btn btn-success fa-pull-right" data-save="modal">
-                        Submit
-                    </button>
-                </div>
+
+                <button class="btn btn-primary fa-pull-left" id="add_med_card" style="float: left !important;" type="button">
+                    Add
+                </button>
+                <button class="btn btn-danger fa-pull-right" style="float: right !important;" data-dismiss="modal" type="button">
+                    Cancel
+                </button>
+                <button class="btn btn-success fa-pull-right" style="float: right !important;" data-save="modal" type="button">
+                    Submit
+                </button>
             </div>
         </div>
     </div>
@@ -96,6 +115,23 @@
 <script>
     var holder = $('#med_row');
     var button = $('#add_button');
+
+    var id = $('#patient_id').val();
+    var x = 1;
+
+    $('#add_med_card').on('click', function (event) {
+        $.ajax({
+            url: "/NurseForms/AppendCard?index=" + x + "&patientId=" + id,
+            type: 'GET',
+            async: true,
+            success: function (output) {
+                //console.log(output);
+                $('#med_cards').append(output);
+            }
+        });
+        x = x + 1;
+    });
+
     function ToggleInput() {
         button.attr('hidden',true);
         holder.empty();

@@ -27,7 +27,9 @@ namespace WebPDRSystem.Models
         public DateTime DateOfBirth { get; set; }
         public int Age { get; set; }
         public bool Gender { get; set; }
+        [Required]
         [StringLength(255)]
+        [MinLength(11)]
         public string ContactNumber { get; set; }
         public int? Barangay { get; set; }
         public int Muncity { get; set; }

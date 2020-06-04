@@ -23,6 +23,8 @@ namespace WebPDRSystem.Models
         [StringLength(255)]
         public string Lastname { get; set; }
         [StringLength(255)]
+        [Required]
+        [MinLength(11)]
         public string ContactNumber { get; set; }
         public int? Barangay { get; set; }
         public int Muncity { get; set; }
