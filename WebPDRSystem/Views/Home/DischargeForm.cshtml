@@ -1,44 +1,11 @@
-﻿@model bool
-    <div class="modal fade" id="DischargedModal" autoscroll="true">
-        <div class="modal-dialog modal-sm " role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-danger">
-                    <h4>
-                        Discharge patient
-                    </h4>
+﻿@model  DischargeModel
 
-
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form asp-action="DischargeForm">
-                        <input hidden name="discharge" value="true" />
-                        <input hidden name="pdrId" value="@ViewBag.PdrId"/>
-                        <div class="row">
-                            <div class="col-md-12 text-md-center">
-                                Are you sure you want to discharge @ViewBag.Patient?
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-success fa-pull-left" data-save="modal">Yes</button>
-                    <button class="btn btn-danger fa-pull-right" data-dismiss="modal">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-@*
 <div class="modal fade" id="DischargedModal" autoscroll="true">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog modal-sm " role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-danger">
                 <h4>
-                    <i class="fa fa-user-md"></i>
-                    &nbsp;Discharge
+                    Discharge patient
                 </h4>
 
 
@@ -47,96 +14,137 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form asp-action="DischargForm">
-                    <input type="hidden" asp-for="Pdrid" />
-                    <!--Case & Bed Number-->
-                    <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Discharge</strong></div>
-                    <div class="row" style="padding:5px">
-                        <div class="col-md-4">
-                            <p style="font-size:medium;"><strong>Case Number:</strong> @Model.Pdr.CaseNumber </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p style="font-size:medium;"><strong>Bed Number:</strong> @Model.Pdr.BedNumber</p>
-                        </div>
-                        <div class="col-md-4">
-                            <p style="font-size:medium;"><strong>Case Number:</strong> @Model.Pdr.CaseNumber</p>
+                <form asp-action="DischargeForm">
+                    <input hidden asp-for="Discharge" />
+                    <input hidden asp-for="PdrId" />
+                    <input hidden asp-for="Name" />
+                    <div class="row">
+                        <div class="col-md-12 text-md-center">
+                            <label>Discharge Date/Time:</label>
+                            <input class="form-control" type="datetime-local" asp-for="DischargeDate" required />
                         </div>
                     </div>
-
-                    <!--Patient-->
-                    <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Patient</strong></div>
-                    <div class="row" style="padding:5px">
-                        <div class="col-md-6">
-                            <p style="font-size:medium;"><strong>Name:</strong> @Model.Pdr.PatientNavigation.GetFullName()</p>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <p style="font-size:medium;"><strong>Contact No:</strong> @Model.Pdr.PatientNavigation.ContactNumber</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="padding:5px">
-                        <div class="col-md-12">
-                            <p style="font-size:medium;" ><strong>Address:</strong> @Model.Pdr.PatientNavigation.GetAddress()</p>
-                        </div>
-                    </div>
-
-                    <!--Date of admission & Discharged-->
-                    <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Admission</strong></div>
-                    <div class="row" style="padding:5px">
-                        <div class="col-md-6">
-                            <p style="font-size:medium;" ><strong>Date Admitted:</strong> @Model.Pdr.DateOfAdmission</p>
-                        </div>
-                        <div class="col-sm-6" style="white-space: nowrap !important;">
-                            <strong style="font-size:medium;">Date Discharge: </strong>
-                            <input class="form-control form-control-sm" style="font-size:medium;padding:16px" asp-for="DateDischarged" type="datetime-local" />
-                        </div>
-                    </div>
-                    <!--Health Care Buddy-->
-                    <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Health Care Buddy</strong></div>
-                    <div class="row" style="padding:5px">
-                        <div class="col-sm-6">
-                            <div class="row">
-                                <p class="col-sm-4" style="font-size:medium;" >Name: </p>
-                                <p class="col-sm-8" style="font-size:medium;font-weight:100" >First M. Lastname</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="row">
-                                <p class="col-sm-4" style="font-size:medium;" >Contact No:</p>
-                                <p class="col-sm-8" style="font-size:medium;font-weight:100" >09876543210</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Discharge by-->
-                    <div class="row" style="padding:5px">
-                        <div class="col-sm-6">
-                            <select asp-for="DischargedBy" asp-items="ViewBag.Doctors" class="form-control">
-                                <option value="">Select Doctor</option>
-                            </select>
-                        </div>
-                        <!--approve by-->
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" asp-for="DischargedApprovedBy" placeholder="Approved By" />
-                        </div>
-                    </div>
-                    <!--guard on duty-->
-                    <div class="row" style="padding:5px">
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" asp-for="GuardOnDuty" placeholder="Guard on Duty" />
+                    <div class="row">
+                        <div class="col-md-12 text-md-center">
+                            Are you sure you want to discharge @Model.Name?
                         </div>
                     </div>
                 </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger fa-pull-right" data-dismiss="modal">No</button>
+                <button class="btn btn-success fa-pull-left" data-save="modal">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*
+    <div class="modal fade" id="DischargedModal" autoscroll="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>
+                        <i class="fa fa-user-md"></i>
+                        &nbsp;Discharge
+                    </h4>
 
 
-                <!--SUBMIT BUTTON-->
-                <div class="col-sm-12" align="center" style="padding:10px">
-                    <div class="col-sm-4" align="right">
-                        <button class="btn btn-block btn-primary btn-lg" data-save="modal">Submit</button>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form asp-action="DischargForm">
+                        <input type="hidden" asp-for="Pdrid" />
+                        <!--Case & Bed Number-->
+                        <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Discharge</strong></div>
+                        <div class="row" style="padding:5px">
+                            <div class="col-md-4">
+                                <p style="font-size:medium;"><strong>Case Number:</strong> @Model.Pdr.CaseNumber </p>
+                            </div>
+                            <div class="col-md-4">
+                                <p style="font-size:medium;"><strong>Bed Number:</strong> @Model.Pdr.BedNumber</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p style="font-size:medium;"><strong>Case Number:</strong> @Model.Pdr.CaseNumber</p>
+                            </div>
+                        </div>
+
+                        <!--Patient-->
+                        <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Patient</strong></div>
+                        <div class="row" style="padding:5px">
+                            <div class="col-md-6">
+                                <p style="font-size:medium;"><strong>Name:</strong> @Model.Pdr.PatientNavigation.GetFullName()</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <p style="font-size:medium;"><strong>Contact No:</strong> @Model.Pdr.PatientNavigation.ContactNumber</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding:5px">
+                            <div class="col-md-12">
+                                <p style="font-size:medium;" ><strong>Address:</strong> @Model.Pdr.PatientNavigation.GetAddress()</p>
+                            </div>
+                        </div>
+
+                        <!--Date of admission & Discharged-->
+                        <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Admission</strong></div>
+                        <div class="row" style="padding:5px">
+                            <div class="col-md-6">
+                                <p style="font-size:medium;" ><strong>Date Admitted:</strong> @Model.Pdr.DateOfAdmission</p>
+                            </div>
+                            <div class="col-sm-6" style="white-space: nowrap !important;">
+                                <strong style="font-size:medium;">Date Discharge: </strong>
+                                <input class="form-control form-control-sm" style="font-size:medium;padding:16px" asp-for="DateDischarged" type="datetime-local" />
+                            </div>
+                        </div>
+                        <!--Health Care Buddy-->
+                        <div class="panel-heading"><strong style="color: cornflowerblue;font-size:small;">Health Care Buddy</strong></div>
+                        <div class="row" style="padding:5px">
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <p class="col-sm-4" style="font-size:medium;" >Name: </p>
+                                    <p class="col-sm-8" style="font-size:medium;font-weight:100" >First M. Lastname</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <p class="col-sm-4" style="font-size:medium;" >Contact No:</p>
+                                    <p class="col-sm-8" style="font-size:medium;font-weight:100" >09876543210</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Discharge by-->
+                        <div class="row" style="padding:5px">
+                            <div class="col-sm-6">
+                                <select asp-for="DischargedBy" asp-items="ViewBag.Doctors" class="form-control">
+                                    <option value="">Select Doctor</option>
+                                </select>
+                            </div>
+                            <!--approve by-->
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" asp-for="DischargedApprovedBy" placeholder="Approved By" />
+                            </div>
+                        </div>
+                        <!--guard on duty-->
+                        <div class="row" style="padding:5px">
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" asp-for="GuardOnDuty" placeholder="Guard on Duty" />
+                            </div>
+                        </div>
+                    </form>
+
+
+                    <!--SUBMIT BUTTON-->
+                    <div class="col-sm-12" align="center" style="padding:10px">
+                        <div class="col-sm-4" align="right">
+                            <button class="btn btn-block btn-primary btn-lg" data-save="modal">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 *@

@@ -509,14 +509,12 @@ namespace WebPDRSystem.Controllers
         public async Task<IActionResult> DischargeForm(int pdrId)
         {
             var pdr = await _context.Pdr
-                .Include(x => x.PatientNavigation).ThenInclude(x => x.ProvinceNavigation)
-                .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
-                .Include(x => x.PatientNavigation).ThenInclude(x => x.BarangayNavigation)
+                .Include(x => x.PatientNavigation)
                 .FirstOrDefaultAsync(x => x.Id == pdrId);
 
             ViewBag.Patient = pdr.PatientNavigation.GetFullName();
-            ViewBag.PdrId = pdrId;
-            /*ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname");
+            /*ViewBag.PdrId = pdrId;
+            ViewBag.Doctors = new SelectList(GetDoctors(), "Id", "Fullname");
 
             var discharge = new Discharge
             {
@@ -525,25 +523,33 @@ namespace WebPDRSystem.Controllers
                 DateDischarged = DateTime.Now
             };*/
 
-            return PartialView();
+            var model = new DischargeModel
+            {
+                PdrId = pdrId,
+                Name = pdr.PatientNavigation.GetFullName(),
+                Discharge = true,
+                DischargeDate = DateTime.Now.RemoveSeconds()
+            };
+
+            return PartialView(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DischargeForm(bool discharge, int pdrId)
+        public async Task<IActionResult> DischargeForm(DischargeModel model)
         {
-            var pdr = await _context.Pdr.FindAsync(pdrId);
+            var pdr = await _context.Pdr.FindAsync(model.PdrId);
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
                 pdr.Status = "discharged";
-                pdr.UpdatedAt = DateTime.Now;
+                pdr.UpdatedAt = model.DischargeDate;
                 _context.Update(pdr);
                 await _context.SaveChangesAsync();
-                return PartialView();
+                return PartialView(model);
             }
 
-            return PartialView();
+            return PartialView(model);
         }
 
         public async Task<IActionResult> Discharged(string search)
