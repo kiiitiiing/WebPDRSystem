@@ -48,8 +48,10 @@ namespace WebPDRSystem.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> DashboardPartial(string search)
+        public async Task<IActionResult> DashboardPartial(string search, int? page)
         {
+            ViewBag.SearchFilter = search;
+
             var pdrs = _context.Pdr
                 .Where(x => x.Status == "admitted")
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
@@ -67,7 +69,9 @@ namespace WebPDRSystem.Controllers
 
             ViewBag.Total = pdrs.Count();
 
-            return PartialView(await pdrs.ToListAsync());
+            int size = 5;
+
+            return PartialView(PaginatedList<Pdr>.CreateAsync(await pdrs.ToListAsync(), page ?? 1, size));
         }
 
         #endregion

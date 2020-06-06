@@ -1,156 +1,220 @@
-﻿@model IEnumerable<Pdr>
+﻿@model PaginatedList<Pdr>
 
 
-    @foreach (var item in Model)
-    {
-        var gender = item.PatientNavigation.Gender ? "Male" : "Female";
-        var address = item.PatientNavigation.MuncityNavigation.Description;
-        var admittingD = item.SymptomsContacts.SymptomsOfPatient.Length > 5 ? new string(item.SymptomsContacts.SymptomsOfPatient.Take(5).ToArray()) + "..." : item.SymptomsContacts.SymptomsOfPatient;
-        var qnformExists = item.Qnform.Count() == 0;
-        var vs = new string[] { "", "", "", "", "", "","" };
-        var nameClass = item.InterviewedBy == null ? "text-warning" : "text-primary";
-        Qnform qnform = null;
-        var sc = new List<string>();
-
-        var bgColor = item.Attended? "#e85a5a" : "";
-        if(item.Qnform.Count() != 0)
-        {
-            qnform = item.Qnform.OrderByDescending(x=>x.DateChecked).First();
-            vs[0] = qnform.DateChecked.ToString();
-            vs[1] = qnform.Bp;
-            vs[2] = qnform.Hr;
-            vs[3] = qnform.Rr;
-            vs[4] = qnform.TypeOfFluid;
-            vs[5] = qnform.O2sat;
-            vs[6] = qnform.Id.ToString();
-        }
-        if(item.Qdform.Count() != 0)
-        {
-            var qdform = item.Qdform.OrderByDescending(x => x.DateChecked).First();
-            if (qdform.Fever)
-                sc.Add("Fever");
-            if (qdform.Cough)
-                sc.Add("Cough");
-            if (qdform.Breathing)
-                sc.Add("Difficulty in breathing");
-            if (qdform.BodyPain)
-                sc.Add("Body Pain");
-            if (qdform.MuscleJointPain)
-                sc.Add("Muscle/Joint Pain");
-            if (qdform.Headache)
-                sc.Add("Headache");
-            if (qdform.ChestPain)
-                sc.Add("Chest pain");
-            if (qdform.Confusion)
-                sc.Add("Confusion");
-            if (qdform.BluishLipsFingers)
-                sc.Add("Bluish lips/fingers");
-            if (qdform.MentalDistress)
-                sc.Add("Signs of mental distress");
-            if (!string.IsNullOrEmpty(qdform.OtherDetails))
-                sc.Add(qdform.OtherDetails);
-        }
-
-        <tr style="background-color: @bgColor">
-            <td class="text-center">
-                <div class="btn-group dropleft" style="cursor: pointer;">
-                    <a class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        @item.BedNumber
-                    </a>
-                    <div class="dropdown-menu" x-placement="right-start" style="position: absolute; transform: translate3d(-2px, 0px, 0px); top: 0px; left: 0px; will-change: transform; max-height: 210px; overflow-y: auto;">
-                        <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'PDRModal', 'Home');">PDR</a>
-                        @if (User.FindFirstValue("Position") == "Doctor")
-                        {
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QDForm', 'Home');">QF-Doctor</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddLabResult', 'Home');">Add lab result</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddOrder', 'NurseForms');">Add Orders</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'Attention', 'Home')">Attention</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ViewOrders', 'NurseForms');">View Doctor's orders</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QDFormOverview', 'NurseForms');">QD Form Overview</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QFNOverview', 'NurseForms');">VS Overview</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'MedicationOverview', 'NurseForms');">Meds Overview</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ReferralForm', 'Home');">Refer</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'DischargeForm', 'Home');">Discharge</a>
-                        }
-                        @if (User.FindFirstValue("Position") == "Nurse")
-                        {
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QNForm', 'Home');">Add VS</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddMedication', 'NurseForms');">Add Medication</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QFNOverview', 'NurseForms');">VS Overview</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'MedicationOverview', 'NurseForms');">Meds Overview</a>
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ViewOrders', 'NurseForms');">View Doctor's orders</a>
-
-                        }
-
-                        @if (item.Attended)
-                        {
-                            <a class="dropdown-item" style="cursor: pointer;" onclick="Attended('@item.Id');">Attended</a>
-                        }
-                    </div>
-                </div>
-            </td>
-            <td class="text-center">
-                @item.PatientNavigation.GetFullName()
-            </td>
-            <td class="text-center">@item.PatientNavigation.Age</td>
-            <td class="text-center">@gender</td>
-            <td class="text-center">@item.PatientNavigation.MuncityNavigation.Description</td>
-            <td class="text-center" title="@item.SymptomsContacts.SymptomsOfPatient">@admittingD</td>
-            <td class="text-center">@item.DateOfAdmission.GetDate("dd/MM/yyyy hh:mm tt")</td>
-            <td class="text-center" style="cursor: pointer;" onclick="OpenForm('@vs[6]','UpdateQnForm', 'Home')">@vs[0]</td>
-            <td class="text-center">@vs[1]</td>
-            <td class="text-center">@vs[2]</td>
-            <td class="text-center">@vs[3]</td>
-            <td class="text-center">@vs[4]</td>
-            <td class="text-center">@vs[5]</td>
-            <td class="text-center">
-            @if(item.Qdform.Count() != 0)
+@if (Model.Count() != 0)
+{
+    <table class="table table-list table-hover table-responsive table-striped dashboard">
+        <thead>
+            <tr>
+                <th class="text-center">Bed #</th>
+                <th class="text-center">Name </th>
+                <th class="text-center">Age </th>
+                <th class="text-center">Sex </th>
+                <th class="text-center">City/Municipality</th>
+                <th class="text-center">Chief Complaints</th>
+                <th class="text-center">Date and Time of Admission</th>
+                <th class="text-center">Date VS taken </th>
+                <th class="text-center">BP </th>
+                <th class="text-center">HR </th>
+                <th class="text-center">RR </th>
+                <th class="text-center">T</th>
+                <th class="text-center">O2Sat </th>
+                <th class="text-center">Subjective Complaints</th>
+                @*
+                    <th class="text-center">Pertinent PE </th>
+                    <th class="text-center"> Diagnostic test</th>
+                    <th class="text-center"> Lab Results</th>*@
+                <th class="text-center">Medications/ Therapeutics</th>
+                <th class="text-center">Consultant Referral </th>
+                <th class="text-center">Other remarks </th>
+            </tr>
+        </thead>
+        <tbody id="dashboard_table" style="height: 350px; overflow: auto;">
+            @foreach (var item in Model)
             {
-                <select class="form-control" style="width: 190px;">
-                    <option>view complaints</option>
-                    @foreach (var subcom in sc)
-                    {
-                        <option >@subcom</option>
-                    }
-                </select>
-            }
-            else
-            {
-                <span>None</span>
-            }
+                var gender = item.PatientNavigation.Gender ? "Male" : "Female";
+                var address = item.PatientNavigation.MuncityNavigation.Description;
+                var admittingD = item.SymptomsContacts.SymptomsOfPatient.Length > 5 ? new string(item.SymptomsContacts.SymptomsOfPatient.Take(5).ToArray()) + "..." : item.SymptomsContacts.SymptomsOfPatient;
+                var qnformExists = item.Qnform.Count() == 0;
+                var vs = new string[] { "", "", "", "", "", "", "" };
+                var nameClass = item.InterviewedBy == null ? "text-warning" : "text-primary";
+                Qnform qnform = null;
+                var sc = new List<string>();
 
-            </td>
-            @*
-            <td class="text-center">pertinent PE</td>
-            <td class="text-center">Request</td>
-            <td class="text-center">result result</td>*@
-            <td class="text-center">
-                <select class="form-control">
-                    @if (item.PatientNavigation.Medications.Where(x => x.CreatedAt.Date == DateTime.Now.Date).Count() != 0)
-                    {
-                        <option>View meds</option>
-                        foreach (var med in item.PatientNavigation.Medications.Where(x => x.CreatedAt.Date == DateTime.Now.Date))
+                var bgColor = item.Attended ? "#e85a5a" : "";
+                if (item.Qnform.Count() != 0)
+                {
+                    qnform = item.Qnform.OrderByDescending(x => x.DateChecked).First();
+                    vs[0] = qnform.DateChecked.ToString();
+                    vs[1] = qnform.Bp;
+                    vs[2] = qnform.Hr;
+                    vs[3] = qnform.Rr;
+                    vs[4] = qnform.TypeOfFluid;
+                    vs[5] = qnform.O2sat;
+                    vs[6] = qnform.Id.ToString();
+                }
+                if (item.Qdform.Count() != 0)
+                {
+                    var qdform = item.Qdform.OrderByDescending(x => x.DateChecked).First();
+                    if (qdform.Fever)
+                        sc.Add("Fever");
+                    if (qdform.Cough)
+                        sc.Add("Cough");
+                    if (qdform.Breathing)
+                        sc.Add("Difficulty in breathing");
+                    if (qdform.BodyPain)
+                        sc.Add("Body Pain");
+                    if (qdform.MuscleJointPain)
+                        sc.Add("Muscle/Joint Pain");
+                    if (qdform.Headache)
+                        sc.Add("Headache");
+                    if (qdform.ChestPain)
+                        sc.Add("Chest pain");
+                    if (qdform.Confusion)
+                        sc.Add("Confusion");
+                    if (qdform.BluishLipsFingers)
+                        sc.Add("Bluish lips/fingers");
+                    if (qdform.MentalDistress)
+                        sc.Add("Signs of mental distress");
+                    if (!string.IsNullOrEmpty(qdform.OtherDetails))
+                        sc.Add(qdform.OtherDetails);
+                }
+
+                <tr style="background-color: @bgColor">
+                    <td class="text-center">
+                        <div class="btn-group dropleft" style="cursor: pointer;">
+                            <a class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @item.BedNumber
+                            </a>
+                            <div class="dropdown-menu" x-placement="right-start" style="position: absolute; transform: translate3d(-2px, 0px, 0px); top: 0px; left: 0px; will-change: transform; max-height: 210px; overflow-y: auto;">
+                                <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'PDRModal', 'Home');">PDR</a>
+                                @if (User.FindFirstValue("Position") == "Doctor")
+                                {
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QDForm', 'Home');">QF-Doctor</a>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddLabResult', 'Home');">Add lab result</a>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddOrder', 'NurseForms');">Add Orders</a>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'Attention', 'Home')">Attention</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ViewOrders', 'NurseForms');">View Doctor's orders</a>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QDFormOverview', 'NurseForms');">QD Form Overview</a>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QFNOverview', 'NurseForms');">VS Overview</a>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'MedicationOverview', 'NurseForms');">Meds Overview</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ReferralForm', 'Home');">Refer</a>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'DischargeForm', 'Home');">Discharge</a>
+                                }
+                                @if (User.FindFirstValue("Position") == "Nurse")
+                                {
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QNForm', 'Home');">Add VS</a>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'AddMedication', 'NurseForms');">Add Medication</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'QFNOverview', 'NurseForms');">VS Overview</a>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'MedicationOverview', 'NurseForms');">Meds Overview</a>
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="OpenForm('@item.Id', 'ViewOrders', 'NurseForms');">View Doctor's orders</a>
+
+                                }
+
+                                @if (item.Attended)
+                                {
+                                    <a class="dropdown-item" style="cursor: pointer;" onclick="Attended('@item.Id');">Attended</a>
+                                }
+                            </div>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        @item.PatientNavigation.GetFullName()
+                    </td>
+                    <td class="text-center">@item.PatientNavigation.Age</td>
+                    <td class="text-center">@gender</td>
+                    <td class="text-center">@item.PatientNavigation.MuncityNavigation.Description</td>
+                    <td class="text-center" title="@item.SymptomsContacts.SymptomsOfPatient">@admittingD</td>
+                    <td class="text-center">@item.DateOfAdmission.GetDate("dd/MM/yyyy hh:mm tt")</td>
+                    <td class="text-center" style="cursor: pointer;" onclick="OpenForm('@vs[6]','UpdateQnForm', 'Home')">@vs[0]</td>
+                    <td class="text-center">@vs[1]</td>
+                    <td class="text-center">@vs[2]</td>
+                    <td class="text-center">@vs[3]</td>
+                    <td class="text-center">@vs[4]</td>
+                    <td class="text-center">@vs[5]</td>
+                    <td class="text-center">
+                        @if (item.Qdform.Count() != 0)
                         {
-                            <option>@med.MedName : @med.CreatedAt.ToString("HH:mm")</option>
+                            <select class="form-control" style="width: 190px;">
+                                <option>view complaints</option>
+                                @foreach (var subcom in sc)
+                                {
+                                    <option>@subcom</option>
+                                }
+                            </select>
                         }
-                    }
-                    else
-                    {
-                        <option>None</option>
-                    }
-                </select>
-            </td>
-            <td class="text-center">@item.ReferringFacility</td>
-            <td class="text-center">other remarks, many remarks</td>
-        </tr>
+                        else
+                        {
+                            <span>None</span>
+                        }
 
-    }
+                    </td>
+                    @*
+                        <td class="text-center">pertinent PE</td>
+                        <td class="text-center">Request</td>
+                        <td class="text-center">result result</td>*@
+                    <td class="text-center">
+                        <select class="form-control">
+                            @if (item.PatientNavigation.Medications.Where(x => x.CreatedAt.Date == DateTime.Now.Date).Count() != 0)
+                            {
+                                <option>View meds</option>
+                                foreach (var med in item.PatientNavigation.Medications.Where(x => x.CreatedAt.Date == DateTime.Now.Date))
+                                {
+                                    <option>@med.MedName : @med.CreatedAt.ToString("HH:mm")</option>
+                                }
+                            }
+                            else
+                            {
+                                <option>None</option>
+                            }
+                        </select>
+                    </td>
+                    <td class="text-center">@item.ReferringFacility</td>
+                    <td class="text-center">other remarks, many remarks</td>
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">
+        <span>
+            <i class="fa fa-exclamation-triangle"></i> No patients found!
+        </span>
+    </div>
+}
+
+
+<div style="margin-top: 20px; margin-left:auto; margin-right: auto; align-items:center;">
+    @await Html.PartialAsync("~/Views/Shared/PartialViews/_pageList.cshtml", new PageListModel
+          {
+              Action = "DashboardPartial",
+              HasNextPage = Model.HasNextPage,
+              HasPreviousPage = Model.HasPreviousPage,
+              PageIndex = Model._pageIndex,
+              TotalPages = Model._totalPages,
+              Parameters = new Dictionary<string, string>
+               {
+                  { "page", Model._pageIndex.ToString() },
+                  { "search", ViewBag.SearchFilter }
+               }
+           })
+</div>
 
 <script>
     $('.total_number').html('@ViewBag.Total');
-    
-    console.log('1');
+
+    $('#searchPatientBtn').on('click', function (event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        var q = $('#searchDetail').val();
+        var params = 'search=' + q + '&page=' + '@Model._pageIndex';
+        LoadDashboard(params);
+    })
 </script>

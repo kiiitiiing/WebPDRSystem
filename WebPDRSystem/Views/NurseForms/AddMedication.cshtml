@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             Attending Nurse:
-                                            <select class="form-control" asp-for="Meds[x].NurseId" asp-items="ViewBag.Nurses">
+                                            <select class="form-control select2" asp-for="Meds[x].NurseId" asp-items="ViewBag.Nurses">
                                                 <option value="">Select Nurse</option>
                                             </select>
                                         </div>
@@ -115,6 +115,8 @@
 <script>
     var holder = $('#med_row');
     var button = $('#add_button');
+
+    $('.select2').select2();zs
 
     var id = $('#patient_id').val();
     var x = 1;

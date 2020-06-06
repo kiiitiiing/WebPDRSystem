@@ -10,10 +10,10 @@ $(function () {
         theme: 'bootstrap4'
     });
 
-    $('input').on('change', function () {
+    /*$('input').on('change', function () {
         console.log('input changed');
         $('input').removeClass('input-validation-error');
-    });
+    });*/
 
     var placeholderElement = $('#placeholder');
 
@@ -464,14 +464,21 @@ function LoadMedHistory() {
     });
 }
 
+function AddLoading() {
+    var loadi = '<div class="d-flex justify-content-center align-items-center" style="position: absolute !important; top: 1; left: 50%"><i class="fas fa-2x fa-sync fa-spin"></i></div>';
+    $('.patient-list').prepend(loadi);
+}
+
 function LoadDashboard(search) {
-    var url = "/Home/DashboardPartial?search=" + search;
+    var url = "/Home/DashboardPartial?" + search;
+    AddLoading();
     $.ajax({
         url: url,
         tpye: 'get',
         async: true,
         success: function (output) {
-            $('#dashboard_table').html(output).fadeIn("slow");
+            $('.patient-list').empty();
+            $('.patient-list').html(output).fadeIn("slow");
             Hideload();
         },
         error: function (xhr, ajaxOptions, thrownError) {

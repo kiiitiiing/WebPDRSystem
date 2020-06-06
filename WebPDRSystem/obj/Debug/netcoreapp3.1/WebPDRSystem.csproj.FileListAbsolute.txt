@@ -905,3 +905,4 @@ C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Raz
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\ChangeMedname.cshtml.g.cs
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\PDRUsers\EditMed.cshtml.g.cs
 C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Resuhems\DischargedPatients.cshtml.g.cs
+C:\Users\Keith\Desktop\doh\WebPDRSystem\WebPDRSystem\obj\Debug\netcoreapp3.1\Razor\Views\Shared\PartialViews\_pageList.cshtml.g.cs

@@ -328,7 +328,7 @@ namespace WebPDRSystem.Controllers
             sb.Append("<div class='col-md-7' id='med_row'>");//start collmd7
             if (groupMeds.Count() != 0)
             {
-                sb.AppendFormat("<select class='form-control' data-val='true' data-val-required='The MedName field is required.' id='Meds_{0}__MedName' name='Meds[{1}].MedName'>",index,index);
+                sb.AppendFormat("<select class='form-control select2' data-val='true' data-val-required='The MedName field is required.' id='Meds_{0}__MedName' name='Meds[{1}].MedName'>",index,index);
                 sb.Append(@"<option disabled='' selected='' hidden=''>Select Meds</option> ");
                 for(int x = 0; x < groupMeds.Count(); x++)
                 {
