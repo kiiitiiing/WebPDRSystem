@@ -83,7 +83,11 @@
                                 </div>
                                 <div class="col-sm-6">
                                     Quarantine facility:
-                                    <input type="text" class="form-control" asp-for="QuarantineFacility" title="Quarantine Facilty" placeholder="Quarantine Facility" />
+                                    <select class="form-control" asp-for="QuarantineFacility" title="Quarantine Facilty" placeholder="Quarantine Facility">
+                                        <option value="">Select Facility</option>
+                                        <option value="SHS Covid center">SHS Covid center</option>
+                                        <option value="IEC Covid center">IEC Covid center</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

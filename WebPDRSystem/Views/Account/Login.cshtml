@@ -1,48 +1,104 @@
 ﻿@model LoginViewModel
 
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "DOHRO7 WebPDRS | Log in";
+    var usernameValid = ViewBag.Username == "invalid" ? "is-invalid" : "";
+    var passwordValid = ViewBag.Password == "invalid" ? "is-invalid" : "";
 }
-    <div class="login-page" style="background-color:#F8F9FA;padding:20px">
-        <div class="login-box col-md-12"  style="padding:20px">
-            <div class="login-logo">
-                <div class="center">
-                    <h1>
-                        <img src="~/img/dohlogo.png" style="width:30%;" alt="DOH-Logo" />
-                    </h1>
-                    <h6 class="blue" id="id-company-text"> DEPARTMENT OF HEALTH CENTER FOR HEALTH DEVELOPMENT</h6>
-                    <h4>
-                        <span class="red">Patient Data Record - Covid19 </span>
-                    </h4>
-                </div>
-                <div class="space-6"></div>
-            </div><!-- /.login-logo -->
-            <div class="login-box-body" style="background-color:aliceblue;padding:20px">
-               
-                <p class="login-box-msg">  <i class="fa fa-user"></i> &nbsp; Please Enter Your Information</p>
-                <form asp-action="Login">
-                    <!--Username-->
-                    <div class="form-group has-feedback">
-                        <input asp-for="Username" class="form-control" placeholder="Username">
-                    </div>
-                    <!--Password-->
-                    <div class="form-group has-feedback">
-                        <input asp-for="Password" class="form-control" placeholder="Password">
-                        <span class="text-danger" asp-validation-for="Username"></span>
-                    </div>
-                    <!--Remember/Login btn-->
-                    <div class="row" style="padding:10px">
-                        <div class="col-sm-8">
+
+<div class="login-page">
+    <div class="login-box">
+        <center>
+            <img src="~/assets/dist/img/DOHLOGO.png" style="width: 25%" /><br>
+            <label>Paitent Data Record System</label>
+        </center>
+        <!-- /.login-logo -->
+        <div class="card" style="font-size: 14px;">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+
+                <form asp-action="Login" method="post" id="login-form">
+                    <div class="input-group mb-3">
+                        <input class="form-control @usernameValid" asp-for="Username" id="username" placeholder="Login ID">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fa fa-user"></span>
+                            </div>
                         </div>
-                        <div class="col-sm-4" style="align-content:end">
-                            <button type="submit" class="btn btn-sm btn-primary">
-                                <i class="fa fa-key"></i>
-                                <span>Login</span>
+                    </div>
+                    <span class="text-danger" asp-validation-for="Username"></span>
+                    <div class="input-group mb-3">
+                        <input class="form-control @passwordValid" asp-for="Password" id="password" type="password" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-eye-slash" id="password-toggle"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                    <div>
+                        <div class="fa-pull-left">
+                            <strong>
+                            </strong>
+                        </div>
+                        <div class="fa-pull-right">
+                            <button id="login" class="btn btn-primary">
+                                <i class="fa fa-lock"></i>&nbsp;
+                                Sign In
                             </button>
                         </div>
+                        <!-- /.col -->
                     </div>
                 </form>
-
             </div>
+            <!-- /.login-card-body -->
         </div>
     </div>
+</div>
+
+
+<script>
+    if ('@ViewBag.Result' != 'False') {
+        $('#notif-modal').modal('show');
+    }
+    var loginBtn = $('#login');
+    $(function () {
+        loginBtn.on('click', function () {
+            if ($('#password').val() != '') {
+                loginBtn.html('<i class="fa fa-spinner fa-spin"></i> Validating');
+                loginBtn.submit();
+            }
+        });
+    });
+    $('#username').on('change', function () {
+        $('#username').removeClass('is-invalid');
+    });
+    $('#password').on('change', function () {
+        $('#password').removeClass('is-invalid');
+    })
+    $('#password-toggle').mousedown(function () {
+        $('#password-toggle').removeClass('fa-eye-slash');
+        $('#password-toggle').addClass('fa-eye');
+        PasswordToggle()
+    });
+    $('#password-toggle').mouseleave(function () {
+        $('#password-toggle').removeClass('fa-eye');
+        $('#password-toggle').addClass('fa-eye-slash');
+        PasswordToggle()
+    });
+    $('#password-toggle').mouseup(function () {
+        $('#password-toggle').removeClass('fa-eye');
+        $('#password-toggle').addClass('fa-eye-slash');
+        PasswordToggle()
+    });
+    function PasswordToggle() {
+        if ($('#password-toggle').hasClass('fa-eye-slash')) {
+            $('#password').removeAttr("type");
+            $('#password').attr("type", "password");
+        }
+        else {
+            $('#password').removeAttr("type");
+            $('#password').attr("type", "text");
+        }
+    }
+</script>

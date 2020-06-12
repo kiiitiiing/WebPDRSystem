@@ -116,14 +116,14 @@
     var holder = $('#med_row');
     var button = $('#add_button');
 
-    $('.select2').select2();zs
+    $('.select2').select2();
 
     var id = $('#patient_id').val();
     var x = 1;
 
     $('#add_med_card').on('click', function (event) {
         $.ajax({
-            url: "/NurseForms/AppendCard?index=" + x + "&patientId=" + id,
+            url: "/WPDRS/NurseForms/AppendCard?index=" + x + "&patientId=" + id,
             type: 'GET',
             async: true,
             success: function (output) {

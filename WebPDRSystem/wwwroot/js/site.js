@@ -10,10 +10,6 @@ $(function () {
         theme: 'bootstrap4'
     });
 
-    /*$('input').on('change', function () {
-        console.log('input changed');
-        $('input').removeClass('input-validation-error');
-    });*/
 
     var placeholderElement = $('#placeholder');
 
@@ -39,24 +35,12 @@ $(function () {
         });
     });
 
-
-    var otherdets = $('#other_details');
-    var temps = $('#temperature');
-
-    temps.click(function () {
-        console.log('sad');
-    });
-
-    otherdets.click(function () {
-        console.log('hapuattr');
-    });
-    
-
     dmf.on('click', 'button[data-save="modal"]', function (event) {
         //Showload();
         placeholderElement.empty();
         event.preventDefault();
         event.stopImmediatePropagation();
+        console.log('dmfl');
         var form = dmf.find('.modal').find('form');
         var formId = dmf.find('.modal').attr('id');
         var actionUrl = form.attr('action');
@@ -105,6 +89,7 @@ $(function () {
         //Showload();
         event.preventDefault();
         event.stopImmediatePropagation();
+        console.log('placeholder');
         var form = placeholderElement.find('.modal').find('form');
         var formId = placeholderElement.find('.modal').attr('id');
         var actionUrl = form.attr('action');
@@ -129,8 +114,8 @@ $(function () {
                     //location.reload();
                 }
                 if (formId == 'pdr-modal' || formId == 'ReferralModal' || formId == 'attention' || formId == 'QNFormModal' || formId == 'QDFormModal' || formId == 'DischargedModal') {
-                    LoadDashboard('');
-                    //location.reload();
+                    var vessel = $('#home-patients');
+                    LoadPatients('', vessel, 'Home', 'PatientsJson');
                 }
                 if (formId == 'edit-census') {
                     LoadCensus();
@@ -171,7 +156,7 @@ function Toast() {
 }
 
 function Attended(id) {
-    var url = "/Home/Attended?id=" + id;
+    var url = "/WPDRS/Home/Attended?id=" + id;
     console.log('here i am ' + url);
     $.ajax({
         url: url,
@@ -245,7 +230,7 @@ function UpdateQnForm(formId) {
     var placeholderElement = $('#placeholder');
     placeholderElement.find('.modal').modal('hide');
     if (formId != '') {
-        var url = "/Home/UpdateQnForm?formId=" + formId;
+        var url = "/WPDRS/Home/UpdateQnForm?formId=" + formId;
         console.log(url);
         $.ajax({
             url: url,
@@ -269,7 +254,7 @@ function UpdateQnForm(formId) {
 
 
 function EditMedHistory(id) {
-    var url = "/Pdrusers/EditMed?medHistoryId=" + id;
+    var url = "/WPDRS/Pdrusers/EditMed?medHistoryId=" + id;
     var placeholderElement = $('#placeholder');
     $.ajax({
         url: url,
@@ -292,9 +277,9 @@ function OpenForm(id, action, controller) {
     if (id != '') {
         setTimeout(function () {
             var placeholderElement = $('#placeholder');
-            var url = "/" + controller + "/" + action + "?pdrId=" + id;
+            var url = "/WPDRS/" + controller + "/" + action + "?pdrId=" + id;
             if (action == 'UpdateQnForm') {
-                url = "/" + controller + "/" + action + "?pisti=" + id;
+                url = "/WPDRS/" + controller + "/" + action + "?pisti=" + id;
             }
             $('#loadings').modal('toggle');
             console.log(url);
@@ -328,7 +313,7 @@ function OpenForm(id, action, controller) {
 }
 
 function EditCensus() {
-    var url = "/Dashboard/EditCensus"
+    var url = "/WPDRS/Dashboard/EditCensus"
     var placeholderElement = $('#placeholder');
     $.ajax({
         url: url,
@@ -378,7 +363,7 @@ function ChangePhoto(input,width,height) {
 }
 
 function ChangeName(patientId, medName) {
-    var url = "/Pdrusers/ChangeMedname?patientId=" + patientId + "&medName=" + medName;
+    var url = "/WPDRS/Pdrusers/ChangeMedname?patientId=" + patientId + "&medName=" + medName;
     var placeholderElement = $('#placeholder');
     $.ajax({
         url: url,
@@ -416,7 +401,7 @@ function readURL(input) {
 }
 
 function LoadIDP() {
-    var url = "/Dashboard/ImmediateDashboardPartial";
+    var url = "/WPDRS/Dashboard/ImmediateDashboardPartial";
     $.ajax({
         url: url,
         tpye: 'get',
@@ -432,7 +417,7 @@ function LoadIDP() {
 }
 
 function LoadCensus() {
-    var url = "/Dashboard/CensusPartial";
+    var url = "/WPDRS/Dashboard/CensusPartial";
     $.ajax({
         url: url,
         tpye: 'get',
@@ -449,7 +434,7 @@ function LoadCensus() {
 }
 
 function LoadMedHistory() {
-    var url = "/Pdrusers/MedhistoryPartial";
+    var url = "/WPDRS/Pdrusers/MedhistoryPartial";
     $.ajax({
         url: url,
         tpye: 'get',
@@ -470,7 +455,7 @@ function AddLoading() {
 }
 
 function LoadDashboard(search) {
-    var url = "/Home/DashboardPartial?" + search;
+    var url = "/WPDRS/Home/DashboardPartial?" + search;
     AddLoading();
     $.ajax({
         url: url,
@@ -489,7 +474,7 @@ function LoadDashboard(search) {
 }
 
 function LoadIndex(search) {
-    var url = "/Pdrusers/PartialIndex?search=" + search;
+    var url = "/WPDRS/Pdrusers/PartialIndex?search=" + search;
     $.ajax({
         url: url,
         tpye: 'get',
@@ -504,7 +489,7 @@ function LoadIndex(search) {
 
 function AddToTeam(user) {
     var placeholderElements = $('#placeholder');
-    var url = "/Pdrusers/AddUsers?id=" + user;
+    var url = "/WPDRS/Pdrusers/AddUsers?id=" + user;
     $.ajax({
         url: url,
         tpye: 'get',
@@ -518,7 +503,7 @@ function AddToTeam(user) {
 }
 
 function RemoveToTeam(user) {
-    var url = "/Pdrusers/RemoveToTeam?user=" + user;
+    var url = "/WPDRS/Pdrusers/RemoveToTeam?user=" + user;
     $.ajax({
         url: url,
         tpye: 'get',
@@ -531,7 +516,7 @@ function RemoveToTeam(user) {
 
 function ViewPdr(patient) {
     var placeholderElement = $('#placeholder');
-    var url = "/Home/PDRModal?id=" + patient;
+    var url = "/WPDRS/Home/PDRModal?id=" + patient;
     $.get(url).done(function (data) {
         placeholderElement.empty();
         placeholderElement.html(data);
@@ -541,7 +526,7 @@ function ViewPdr(patient) {
 
 function ViewUser(user) {
     var placeholderElement = $('#placeholder');
-    var url = "/Pdrusers/ViewUser?id=" + user;
+    var url = "/WPDRS/Pdrusers/ViewUser?id=" + user;
     $.get(url).done(function (data) {
         placeholderElement.empty();
         placeholderElement.html(data);
@@ -550,7 +535,7 @@ function ViewUser(user) {
 }
 
 function GetBarangayFiltered(id) {
-    var urls = "/helper/barangays/2/" + id;
+    var urls = "/WPDRS/helper/barangays/2/" + id;
     return $.ajax({
         url: urls,
         type: 'get',
@@ -584,5 +569,76 @@ function SetBarangay(id) {
                 text: item.description
             }));
         });
+    });
+}
+
+//PAGINATIONS
+function LoadPatients(q, container, controller, action) {
+    //var container = $('#' + vessel);
+    var size = 5;
+    var ctr = 0;
+    var url = '/WPDRS/' + controller + '/' + action + '/' + q;
+    if (action == 'ActionsJson') {
+        url = '/WPDRS/' + controller + '/' + action + q;
+    }
+    var showArrows = true;
+    console.log(url);
+    container.pagination({
+        dataSource: function (done) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (response) {
+                    done(response);
+                    ctr = response.length;
+                }
+            });
+        },
+        locator: 'items',
+        pageSize: size,
+        ajax: {
+            beforeSend: function () {
+                var html = AddLoading();
+                container.prev().html(html);
+            }
+        },
+        callback: function (response, pagination) {
+            var action = '';
+            var controller = '';
+            if (container.attr('id') == 'home-patients') {
+                action = 'DashboardPartial';
+                controller = 'Home';
+            }
+            else if (container.attr('id') == 'patients-actions') {
+                action = 'ActivitiesPartial';
+                controller = 'Patients';
+            }
+            else if (container.attr('id') == 'admin-patients') {
+                action = 'IndexPartial';
+                controller = 'Admin';
+            }
+            $.when(CallPartialView(response, controller, action)).done(function (output) {
+                $('.total_number').html(ctr);
+                if (ctr <= size)
+                    container.hide();
+                else
+                    container.show();
+                console.log(response.length);
+                container.prev().empty();
+                container.prev().html(output);
+            })
+        }
+    })
+}
+
+//TEMPLATES
+
+function CallPartialView(data, controller, action) {
+    return $.ajax({
+        url: "/WPDRS/" + controller + "/" + action,
+        type: "POST",
+        async: true,
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify(data)
     });
 }

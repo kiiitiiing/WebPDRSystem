@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using RequestSizeLimitAttribute = WebPDRSystem.Helpers.RequestSizeLimitAttribute;
 using WebPDRSystem.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace WebPDRSystem.Controllers
 {
@@ -39,39 +40,42 @@ namespace WebPDRSystem.Controllers
             public string DateChecked { get; set; }
         }
 
-        
+
 
         #region DASHBOARD
 
-
-        public IActionResult Dashboard()
+        [HttpGet]
+        [Route("WPDRS/Home/PatientsJson")]
+        [Route("WPDRS/Home/PatientsJson/{q}")]
+        public async Task<ActionResult<IEnumerable<Pdr>>> PatientsJson(string q)
         {
-            return View();
-        }
-        public async Task<IActionResult> DashboardPartial(string search, int? page)
-        {
-            ViewBag.SearchFilter = search;
-
-            var pdrs = _context.Pdr
+            var pdrs = await _context.Pdr
                 .Where(x => x.Status == "admitted")
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.MuncityNavigation)
                 .Include(x => x.PatientNavigation).ThenInclude(x => x.Medications)
                 .Include(x => x.SymptomsContacts)
                 .Include(x => x.Qnform)
                 .Include(x => x.Qdform)
+                .Where(x=>x.QuarantineFacility == UserFacility)
                 .OrderByDescending(x => x.CreatedAt)
-                .AsQueryable();
+                .ToListAsync();
 
-            if (!string.IsNullOrEmpty(search))
+            if (!string.IsNullOrEmpty(q))
             {
-                pdrs = pdrs.Where(x => x.PatientNavigation.Firstname.Contains(search) || x.PatientNavigation.Lastname.Contains(search));
+                pdrs = pdrs.Where(x => x.PatientNavigation.Firstname.Contains(q, StringComparison.OrdinalIgnoreCase) || x.PatientNavigation.Lastname.Contains(q, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
-            ViewBag.Total = pdrs.Count();
+            return pdrs;
+        }
 
-            int size = 5;
-
-            return PartialView(PaginatedList<Pdr>.CreateAsync(await pdrs.ToListAsync(), page ?? 1, size));
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult DashboardPartial([FromBody] IEnumerable<Pdr> model)
+        {
+            return PartialView(model);
         }
 
         #endregion
@@ -637,6 +641,7 @@ namespace WebPDRSystem.Controllers
         public List<SelectUsers> GetDoctors()
         {
             var users = _context.Pdrusers
+                .Where(x => x.Facility == UserFacility)
                 .Where(x => x.Team == 1 && x.Role == "Doctor")
                 .Select(x => new SelectUsers
                 {
@@ -650,6 +655,7 @@ namespace WebPDRSystem.Controllers
         public List<SelectUsers> Gethcb()
         {
             var users = _context.Pdrusers
+                .Where(x => x.Facility == UserFacility)
                 .Where(x => x.Team == 1 && x.Role == "Healthcare Buddy")
                 .Select(x => new SelectUsers
                 {
@@ -701,6 +707,7 @@ namespace WebPDRSystem.Controllers
         public List<SelectUsers> GetNurses()
         {
             var users = _context.Pdrusers
+                .Where(x => x.Facility == UserFacility)
                 .Where(x => x.Team == 1 && x.Role == "Nurse")
                 .Select(x => new SelectUsers
                 {
@@ -714,6 +721,7 @@ namespace WebPDRSystem.Controllers
         public List<SelectUsers> GetDocNurse()
         {
             var users = _context.Pdrusers
+                .Where(x=>x.Facility == UserFacility)
                 .Where(x => x.Team == 1 && x.Role != "Healthcare Buddy")
                 .Select(x => new SelectUsers
                 {
@@ -723,6 +731,9 @@ namespace WebPDRSystem.Controllers
 
             return users.ToList();
         }
+
+
+        public string UserFacility => User.FindFirstValue("Facility");
         #endregion
     }
 }

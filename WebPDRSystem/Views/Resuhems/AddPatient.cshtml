@@ -33,7 +33,11 @@
                         <input type="text" class="form-control" asp-for="ReferringFacility" title="Referring Facility" placeholder="Referring Facility" />
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" asp-for="QuarantineFacility" title="Quarantine Facilty" placeholder="Quarantine Facility" />
+                        <select class="form-control" asp-for="QuarantineFacility" title="Quarantine Facilty" placeholder="Quarantine Facility">
+                            <option value="">Select Quarantine Facility</option>
+                            <option value="SHS Covid center">SHS Covid center</option>
+                            <option value="IEC Covid center">IEC Covid center</option>
+                        </select>
                     </div>
                 </div>
 

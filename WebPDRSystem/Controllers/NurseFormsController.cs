@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -237,21 +238,6 @@ namespace WebPDRSystem.Controllers
                 .ToListAsync();
 
 
-            /*var allMeds = await _context.Medications
-                .Include(x => x.SignatureNurseNavigation)
-                .Where(x => x.PatientId == meds.Patient)
-                .Select(x => new MedOverviewModel
-                {
-                    MedName = x.MedName + x.Dosage.CheckMedParams(":") + x.Route.CheckMedParams(" ") + x.Frequency.CheckMedParams(" "),
-                    CreatedAt = x.CreatedAt,
-                    Day = x.Day,
-                    Comments = x.Comments,
-                    Discontinued = x.Discontinued,
-                    Nurse = x.SignatureNurseNavigation.Lastname
-                })
-                .ToListAsync();*/
-
-
             ViewBag.Patient = meds.PatientNavigation.GetFullName();
 
             return PartialView(allMeds);
@@ -410,6 +396,7 @@ namespace WebPDRSystem.Controllers
         public List<SelectUsers> GetNurses()
         {
             var users = _context.Pdrusers
+                .Where(x=>x.Facility == UserFacility)
                 .Where(x => x.Team == 1 && x.Role == "Nurse")
                 .Select(x => new SelectUsers
                 {
@@ -420,6 +407,9 @@ namespace WebPDRSystem.Controllers
             return users.ToList();
         }
 
+
+
+        public string UserFacility => User.FindFirstValue("Facility");
         #endregion
     }
 }

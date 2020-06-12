@@ -5,33 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebPDRSystem</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/Custom.css" />
-    <link rel="stylesheet" href="~/assets/lobibox/dist/css/Lobibox.min.css" />
+    <link rel="icon" href="~/assets/dist/img/dohfavicon.png" />
     <link rel="stylesheet" href="~/assets/dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="~/assets/dist/css/wizardstep.css" />
+    <link rel="stylesheet" href="~/assets/dist/css/CustomCSS.css" />
     <link rel="stylesheet" href="~/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+    <link rel="stylesheet" href="~/assets/dist/css/bootstrap-select.css" />
     <link rel="stylesheet" href="~/assets/plugins/toastr/toastr.min.css">
     <link rel="stylesheet" href="~/assets/plugins/fontawesome-free/css/all.min.css" />
-    <link rel="stylesheet" href="~/assets/plugins/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/daterangepicker/daterangepicker-bs3.css" />
     <link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css" />
     <link rel="stylesheet" href="~/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" />
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
+    <link rel="stylesheet" href="~/assets/dist/css/bootstrap-datetimepicker.css" />
     <link rel="stylesheet" href="~/assets/datepicker/css/bootstrap-datepicker.css" />
-    <script src="~/assets/datepicker/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="~/assets/dist/css/lobibox.css" />
+    <link rel="stylesheet" href="~/assets/dist/css/pagination.css" />
+    <link rel="stylesheet" href="~/css/Custom.css" />
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/site.js"></script>
     <script src="~/assets/plugins/chart.js/Chart.js"></script>
-    <script src="~/assets/lobibox/js/lobibox.js"></script>
-    <script src="~/assets/plugins/toastr/toastr.min.js"></script>
+    <script src="~/assets/datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="~/assets/daterangepicker/moment.js"></script>
+    <script type="text/javascript" src="~/assets/daterangepicker/daterangepicker.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="~/assets/plugins/select2/js/select2.full.min.js"></script>
-    <script src="~/assets/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="~/assets/dist/js/bootstrap-select.js"></script>
+    <script src="~/assets/plugins/moment/moment.min.js"></script>
+    <script src="~/assets/dist/js/bootstrap-datetimepicker.js"></script>
+    <script src="~/assets/dist/js/lobibox.js"></script>
+    <script src="~/assets/dist/js/messageboxes.js"></script>
+    <script src="~/assets/dist/js/notifications.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/toastr/toastr.min.js"></script>
+    <script src="~/assets/dist/js/pagination.js"></script>
+    <script type="text/javascript" src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
 
 </head>
 <body class="badge-light" onload="startTime();">
     <div id="placeholder"></div>
     <div id="daily_monitoring_form"></div>
     <header>
-        @if(User.Identity.IsAuthenticated)
+        @if (User.Identity.IsAuthenticated)
         {
             <div class="header" style="background-color:#2F4054;padding:10px;">
                 <div class="container">
@@ -39,7 +56,7 @@
                         <span class="title-desc" style="color:coral;font-weight:bold">Welcome,</span> <span class="title-desc" style="color:whitesmoke;font-weight:bold"> @User.FindFirstValue(ClaimTypes.GivenName) @User.FindFirstValue(ClaimTypes.Surname)  </span>
                     </div>
                     <div class="fa-pull-right">
-                        <span class="title-desc" style="color:coral;font-weight:bold">Date: </span><span class="title-desc" style="color:whitesmoke;font-weight:bold" >@DateTime.Now.ToString("dd/MM/yyyy") <span id="time-top"></span></span>
+                        <span class="title-desc" style="color:coral;font-weight:bold">Date: </span><span class="title-desc" style="color:whitesmoke;font-weight:bold">@DateTime.Now.ToString("dd/MM/yyyy") <span id="time-top"></span></span>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -68,18 +85,21 @@
     </div>
 
     <div class="modal" data-backdrop="static" data-keyboard="false" id="loadings" style="margin-top: 200px!important; height: 200px !important;">
-        <div class="overlay d-flex justify-content-center align-items-center" >
+        <div class="overlay d-flex justify-content-center align-items-center">
             <h2>
                 <i class="fas fa-2x fa-sync fa-spin"></i>
             </h2>
         </div>
     </div>
 
-    @*<footer class="border-top footer text-muted">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <footer class="footer text-muted text-center">
             <div class="container">
-                &copy;2020 - WebPDRSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                &copy;2020 - WebPDRSystem v1
             </div>
-        </footer>*@
+        </footer>
+    }
 
     @RenderSection("Scripts", required: false)
 </body>

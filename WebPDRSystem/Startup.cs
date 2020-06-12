@@ -50,9 +50,9 @@ namespace WebPDRSystem
             })
             .AddCookie(options =>
             {
-                options.LoginPath = "/Account/Login";
-                options.LogoutPath = "/Account/Logout";
-                options.AccessDeniedPath = "/Account/NotFound";
+                options.LoginPath = "/WPDRS/Account/Login";
+                options.LogoutPath = "/WPDRS/Account/Logout";
+                options.AccessDeniedPath = "/WPDRS/Account/NotFound";
             });
 
             services.AddAuthorization(options =>
@@ -79,7 +79,7 @@ namespace WebPDRSystem
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/WPDRS/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -96,7 +96,7 @@ namespace WebPDRSystem
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=dashboard}/{id?}");
+                    pattern: "/WPDRS/{controller=Home}/{action=dashboard}/{id?}");
             });
         }
     }
