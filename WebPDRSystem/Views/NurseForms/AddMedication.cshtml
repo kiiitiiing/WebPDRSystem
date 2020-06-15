@@ -123,7 +123,7 @@
 
     $('#add_med_card').on('click', function (event) {
         $.ajax({
-            url: "/WPDRS/NurseForms/AppendCard?index=" + x + "&patientId=" + id,
+            url: "/NurseForms/AppendCard?index=" + x + "&patientId=" + id,
             type: 'GET',
             async: true,
             success: function (output) {

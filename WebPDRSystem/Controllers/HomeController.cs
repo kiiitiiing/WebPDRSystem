@@ -45,8 +45,8 @@ namespace WebPDRSystem.Controllers
         #region DASHBOARD
 
         [HttpGet]
-        [Route("WPDRS/Home/PatientsJson")]
-        [Route("WPDRS/Home/PatientsJson/{q}")]
+        [Route("Home/PatientsJson")]
+        [Route("Home/PatientsJson/{q}")]
         public async Task<ActionResult<IEnumerable<Pdr>>> PatientsJson(string q)
         {
             var pdrs = await _context.Pdr
