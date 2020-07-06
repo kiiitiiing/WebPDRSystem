@@ -301,8 +301,6 @@ namespace WebPDRSystem.Data
             {
                 entity.HasIndex(e => e.Team);
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Designation).IsUnicode(false);
 
                 entity.Property(e => e.Facility).IsUnicode(false);

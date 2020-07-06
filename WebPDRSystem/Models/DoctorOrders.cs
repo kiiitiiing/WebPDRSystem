@@ -7,7 +7,7 @@ namespace WebPDRSystem.Models
 {
     public partial class DoctorOrders
     {
-        /*public DoctorOrders()
+        /*public DoctorOrders()5
         {
             ListDocOrders = new HashSet<ListDocOrders>();
         }*/

@@ -29,6 +29,28 @@ namespace WebPDRSystem
                 return "";
         }
 
+
+
+        public static Pdrusers RemoveLists(this Pdrusers user)
+        {
+            user.CensusNodaNavigation = null;
+            user.CensusNodbNavigation = null;
+            user.CensusOdgNavigation = null;
+            user.CensusOdrNavigation = null;
+            user.CensusQdNavigation = null;
+            user.DischargeDischargedByNavigation = null;
+            user.DischargeHealthCareBuddyNavigation = null;
+            user.DoctorOrders = null;
+            user.LabResult = null;
+            user.Medications = null;
+            user.Pdr = null;
+            user.Qdform = null;
+            user.Qnform = null;
+            user.Referral = null;
+
+            return user;
+        }
+
         public static string NameToUpper(this string name)
         {
             if (!string.IsNullOrEmpty(name))

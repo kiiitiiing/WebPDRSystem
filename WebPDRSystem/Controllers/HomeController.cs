@@ -58,7 +58,7 @@ namespace WebPDRSystem.Controllers
                 .Include(x => x.Qdform)
                 .Where(x=>x.QuarantineFacility == UserFacility)
                 .OrderByDescending(x => x.CreatedAt)
-                .ToListAsync();
+                .ToListAsync(); 
 
             if (!string.IsNullOrEmpty(q))
             {
