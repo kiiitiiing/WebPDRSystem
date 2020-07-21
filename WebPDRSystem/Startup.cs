@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebPDRSystem.Data;
+using WebPDRSystem.Models.Tsekapp;
 using WebPDRSystem.Services;
 
 namespace WebPDRSystem
@@ -30,11 +31,18 @@ namespace WebPDRSystem
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connection = "server=192.168.10.121;user id=root;password=deb;database=tsekap_main";
             services.AddSingleton(Configuration);
             services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
             services.AddControllersWithViews();
+            services.AddMvc();
             services.AddDbContext<WebPDRContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("WebPDRConnection"), sqlServerOptions => sqlServerOptions.CommandTimeout(300)));
+
+            services.AddDbContext<tsekap_mainContext>(options =>
+                options.UseMySql(connection));
+
+
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
